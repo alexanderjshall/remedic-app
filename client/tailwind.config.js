@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
@@ -5,20 +7,28 @@ module.exports = {
     colors: {
       blue: {
         light: "#879be5",
-        default: "#4766D7",
+        DEFAULT: "#4766D7",
         dark: "#2848B8",
       },
       green: {
         light: "#90E0CC",
-        default: "#a0e4d3",
+        DEFAULT: "#a0e4d3",
         dark: "#50CEAE",
       },
       gray: {
         light: "#A9ACB2",
-        default: "60646c",
+        DEFAULT: "#60646c",
+      },
+      white: {
+        dark: "#EBEBEB",
+        DEFAULT: "#FFFFFF",
       },
     },
-    extend: {},
+    // extend: {
+    //   color: {
+    //     "light-blue": "#4766D7",
+    //   },
+    // },
   },
   fontFamily: {
     title: ["Inter", "sans-serif"],
