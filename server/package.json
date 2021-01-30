@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "remedic server",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "watch": "tsc -w",
-    "start": "nodemon dist/index.js"
+    "start": "nodemon dist/index.js",
+    "start2": "nodemon --exec ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "",
