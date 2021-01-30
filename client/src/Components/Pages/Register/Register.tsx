@@ -1,9 +1,18 @@
 import React from 'react'
+import FormInput from '../../Shared-components/FormInput/FormInput';
 
 interface Props {}
 
 function Register(props: Props) {
   const {} = props
+
+  const handleChange = () => {
+
+  }
+
+  const handleSubmit = () => {
+
+  }
 
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
@@ -11,57 +20,70 @@ function Register(props: Props) {
         <h2 className="text-green-default">Register</h2>
         <div className="mt-3 flex items-center justify-items-center">
           <label htmlFor="firstName" className="mr-4">First Name</label>
-          <input
+          <FormInput
+            type="text"
             placeholder="First Name"
-            type="firstName"
-            name="firstName"
             id="firstName"
-            className="rounded-md shadow-sm p-2 pr-6 ring-2 focus:ring-blue-dark"
+            name="firstName"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
           />
         </div>
         <div className="mt-3 flex items-center justify-items-center">
-
+          <label htmlFor="lastName">Last Name</label>
+          <FormInput
+            type="text"
+            placeholder="Last Name"
+            id="lastName"
+            name="lastName"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
         </div>
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          placeholder="Last Name"
-          type="lastName"
-          name="lastName"
-          id="lastName"
-          className="mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark"
-        />
-        <label htmlFor="postCode">Postcode</label>
-        <input
-          placeholder="SW1A 1AA"
-          type="postCode"
-          name="postCode"
-          id="postCode"
-          className="mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark"
-        />
-        <label htmlFor="email">Email Address</label>
-        <input
-          placeholder="Email"
-          type="email"
-          name="email"
-          id="email"
-          className="mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          placeholder="Password"
-          type="password"
-          name="password"
-          id="password"
-          className="mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark"
-        />
-        <label htmlFor="repeatPassword">Repeat password: </label>
-        <input
-          placeholder="Password"
-          type="password"
-          name="repeatPassword"
-          id="repeatPassword"
-          className="mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark"
-        />
+        <div className="mt-3 flex items-center justify-items-center">
+          <label htmlFor="postCode">Last Name</label>
+          <FormInput
+            type="text"
+            placeholder="SW1A 1AA"
+            id="postCode"
+            name="postCode"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </div>
+        <div className="mt-3 flex items-center justify-items-center">
+          <label htmlFor="email">Email Address</label>
+          <FormInput
+            type="email"
+            placeholder="Email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </div>
+        <div className="mt-3 flex items-center justify-items-center">
+          <label htmlFor="password">Password</label>
+          <FormInput
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </div>
+        <div className="mt-3 flex items-center justify-items-center">
+          <label htmlFor="repeatPassword">Password</label>
+          <FormInput
+            type="password"
+            placeholder="Password"
+            id="repeatPassword"
+            name="repeatPassword"
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </div>
         <button
           type="submit"
           className="mt-4 p-2 bg-gray-light focus:bg-white hover:bg-gray rounded-md"
