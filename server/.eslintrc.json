@@ -1,0 +1,37 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "amd": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "ecmaVersion": 2018
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "keyword-spacing": "error",
+    "linebreak-style": ["error", "unix"],
+    "no-undef": 0,
+    "no-unsued-vars": 0,
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "space-before-blocks": "error",
+    "space-before-function-paren": "error",
+    "@typescript-eslint/no-namespace": "off"
+  }
+}
