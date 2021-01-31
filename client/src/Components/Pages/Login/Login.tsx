@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
       <form className="flex items-center justify-center bg-white flex-col h-2/3 w-1/3 shadow-lg mt-20 rounded-lg">
-        <h2 className="text-green-default">Login</h2>
+        <h2 className="text-green-default font-title">Login</h2>
         <input
           placeholder="Email"
           type="email"
