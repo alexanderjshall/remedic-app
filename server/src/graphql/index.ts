@@ -4,10 +4,12 @@ import { buildSchema } from 'type-graphql';
 import { EntityManager, IDatabaseDriver, Connection, EntityRepository } from '@mikro-orm/core';
 import Doctor from '../entities/doctor';
 import DoctorResolver from './resolvers/doctor.resolver';
+import Patient from '../entities/patient';
 
 type dbConnection = EntityManager<IDatabaseDriver<Connection>>;
 export type CustomContext = {
   doctorRepo: EntityRepository<Doctor>
+  patientRepo: EntityRepository<Patient>
 }
 
 export const apolloServer = async (em: dbConnection): Promise<ApolloServer> => 
@@ -17,6 +19,7 @@ export const apolloServer = async (em: dbConnection): Promise<ApolloServer> =>
       validate: false
     }),
     context: () : CustomContext => ({
-      doctorRepo: em.getRepository(Doctor)
+      doctorRepo: em.getRepository(Doctor),
+      patientRepo: em.getRepository(Patient)
     })
   });
