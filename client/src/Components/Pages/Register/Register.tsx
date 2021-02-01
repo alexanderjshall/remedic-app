@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import FormInput, { FormInputType } from '../../Globals/FormInput/FormInput';
+import OKButton from '../../Globals/OKButton/OKButton';
 
 interface Props {}
 
@@ -15,13 +16,11 @@ function Register(props: Props) {
   const [userInfo, setUserInfo] = useState<FormInputType[]>(initialInfo);
 
   const updateInput  = (inputName: string, value: string) => {
-    console.log(`state before: ${userInfo[0].value}`);
     const newUserInfo = userInfo.map(field => {
       if (field.name === inputName) field.value = value;
       return field;
     })
     setUserInfo(newUserInfo);
-    console.log(`state after: ${userInfo[0].value}`);
   }
 
   const handleSubmit= () => {
@@ -33,8 +32,8 @@ function Register(props: Props) {
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
       <form className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg">
         <h2 className="text-green-default">Register</h2>
-        <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="firstName" className="mr-4">First Name</label>
+        <div className="mt-3 flex items-center w-2/3 justify-between">
+          <label htmlFor="firstName" className="mt-3 mr-4">First Name</label>
           <FormInput
             type="text"
             placeholder="First Name"
@@ -44,7 +43,7 @@ function Register(props: Props) {
             onSubmit={handleSubmit}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center">
+        <div className="mt-3 flex items-center justify-between">
           <label htmlFor="lastName">Last Name</label>
           <FormInput
             type="text"
@@ -88,12 +87,13 @@ function Register(props: Props) {
             onSubmit={handleSubmit}
           />
         </div>
-        <button
+        <OKButton
+          name="register"
           type="submit"
-          className="mt-4 p-2 bg-gray-light focus:bg-white hover:bg-gray rounded-md"
-        >
-          Register
-        </button>
+          value="Register"
+          text="Register"
+          onClick={handleSubmit}
+        />
       </form>
     </div>
   )
