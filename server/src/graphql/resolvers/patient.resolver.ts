@@ -9,4 +9,8 @@ export default class PatientResolver {
     console.log('in resolver');
     return 'hello';
   }
+
+  // 1. Mutation - create patient. Check email does not already exist. Returns a patient (w/o password) or null.
+
+
 }

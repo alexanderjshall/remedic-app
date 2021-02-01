@@ -15,7 +15,7 @@ async function main () {
 
   await db.getMigrator().up();
 
-  const server = await apolloServer();
+  const server = await apolloServer(db.em);
 
   server.applyMiddleware({ app });
 
