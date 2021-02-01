@@ -1,34 +1,33 @@
-import React, { useState } from 'react'
-import FormInput, { FormInputType } from '../../Globals/FormInput/FormInput';
-import OKButton from '../../Globals/OKButton/OKButton';
+import React, { useState } from "react";
+import FormInput, { FormInputType } from "../../Globals/FormInput/FormInput";
+import OKButton from "../../Globals/OKButton/OKButton";
 
 interface Props {}
 
 const Register = () => {
-
   const handleChange = () => {};
 
   const initialInfo = [
-    {name: 'firstName', value:''},
-    {name: 'lastName', value:''},
-    {name: 'postCode', value:''},
-    {name: 'email', value:''},
-    {name: 'password', value:''},
-  ]
+    { name: "firstName", value: "" },
+    { name: "lastName", value: "" },
+    { name: "postCode", value: "" },
+    { name: "email", value: "" },
+    { name: "password", value: "" },
+  ];
   const [userInfo, setUserInfo] = useState<FormInputType[]>(initialInfo);
 
-  const updateInput  = (inputName: string, value: string) => {
-    const newUserInfo = userInfo.map(field => {
+  const updateInput = (inputName: string, value: string) => {
+    const newUserInfo = userInfo.map((field) => {
       if (field.name === inputName) field.value = value;
       return field;
-    })
+    });
     setUserInfo(newUserInfo);
-  }
+  };
 
-  const handleSubmit= () => {
-    console.log('submit being handled!');
+  const handleSubmit = () => {
+    console.log("submit being handled!");
     // Apply data validation and pass to the context
-  }
+  };
 
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
@@ -86,7 +85,7 @@ const Register = () => {
             name="password"
             updateInput={updateInput}
             onSubmit={handleSubmit}
-          /> */}
+          />
         </div>
         <OKButton
           name="register"
@@ -98,6 +97,6 @@ const Register = () => {
       </form>
     </div>
   );
-}
+};
 
 export default Register;
