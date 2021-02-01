@@ -1,14 +1,9 @@
 import React from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
+import {Message} from '../../../types';
 
 // bg-gradient-to-b from-blue-light via-blue-50 to-white-ghost
-export interface Message {
-  name?: string;
-  isAuthor: boolean;
-  content: string;
-  timestamp: string;
-}
 
 const patientMessage: Message = {
   name: "Miss Doubtfire",
