@@ -1,17 +1,32 @@
-import React from 'react'
-import FormInput from '../../Globals/FormInput/FormInput';
+import React, { useState } from 'react'
+import FormInput, { FormInputType } from '../../Globals/FormInput/FormInput';
 
 interface Props {}
 
 function Register(props: Props) {
-  const {} = props
+  const {} = props;
+  const initialInfo = [
+    {name: 'firstName', value:''},
+    {name: 'lastName', value:''},
+    {name: 'postCode', value:''},
+    {name: 'email', value:''},
+    {name: 'password', value:''},
+  ]
+  const [userInfo, setUserInfo] = useState<FormInputType[]>(initialInfo);
 
-  const handleChange = () => {
-
+  const updateInput  = (inputName: string, value: string) => {
+    console.log(`state before: ${userInfo[0].value}`);
+    const newUserInfo = userInfo.map(field => {
+      if (field.name === inputName) field.value = value;
+      return field;
+    })
+    setUserInfo(newUserInfo);
+    console.log(`state after: ${userInfo[0].value}`);
   }
 
-  const handleSubmit = () => {
-
+  const handleSubmit= () => {
+    console.log('submit being handled!');
+    // Apply data validation and pass to the context
   }
 
   return (
@@ -25,7 +40,7 @@ function Register(props: Props) {
             placeholder="First Name"
             id="firstName"
             name="firstName"
-            onChange={handleChange}
+            updateInput={updateInput}
             onSubmit={handleSubmit}
           />
         </div>
@@ -36,18 +51,18 @@ function Register(props: Props) {
             placeholder="Last Name"
             id="lastName"
             name="lastName"
-            onChange={handleChange}
+            updateInput={updateInput}
             onSubmit={handleSubmit}
           />
         </div>
         <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="postCode">Last Name</label>
+          <label htmlFor="postCode">Postcode</label>
           <FormInput
             type="text"
             placeholder="SW1A 1AA"
             id="postCode"
             name="postCode"
-            onChange={handleChange}
+            updateInput={updateInput}
             onSubmit={handleSubmit}
           />
         </div>
@@ -58,7 +73,7 @@ function Register(props: Props) {
             placeholder="Email"
             id="email"
             name="email"
-            onChange={handleChange}
+            updateInput={updateInput}
             onSubmit={handleSubmit}
           />
         </div>
@@ -69,18 +84,7 @@ function Register(props: Props) {
             placeholder="Password"
             id="password"
             name="password"
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-          />
-        </div>
-        <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="repeatPassword">Password</label>
-          <FormInput
-            type="password"
-            placeholder="Password"
-            id="repeatPassword"
-            name="repeatPassword"
-            onChange={handleChange}
+            updateInput={updateInput}
             onSubmit={handleSubmit}
           />
         </div>
