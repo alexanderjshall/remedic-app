@@ -7,12 +7,14 @@
     "watch": "tsc -w",
     "build": "tsc",
     "start": "nodemon dist/index.js",
-    "start2": "nodemon --exec ts-node ./src/index.ts"
+    "start2": "nodemon --exec ts-node ./src/index.ts",
+    "migration": "npx mikro-orm migration:create"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.22",
     "@types/socket.io": "^2.1.13",
@@ -30,6 +32,7 @@
     "@mikro-orm/migrations": "^4.4.0",
     "@mikro-orm/postgresql": "^4.4.0",
     "apollo-server-express": "^2.19.2",
+    "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

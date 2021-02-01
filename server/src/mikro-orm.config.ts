@@ -3,13 +3,16 @@ dotenv.config();
 
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
+import Patient from './entities/patient';
+import Doctor from './entities/doctor';
+import Consultation from './entities/consultation';
 
 export default {
   migrations: {
     path: path.join(__dirname, '/migrations'),
     pattern: /^[\w-]+\d+\.[tj]s$/
   },
-  entities: [],
+  entities: [Patient, Doctor, Consultation],
   dbName: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,

@@ -1,10 +1,6 @@
-import { Entity } from '@mikro-orm/core';
+import Patient from '../../entities/patient';
 import { Query, Resolver } from 'type-graphql';
 
-@Entity()
-class Patient {
-
-}
 
 @Resolver(Patient)
 export default class PatientResolver {
@@ -13,4 +9,8 @@ export default class PatientResolver {
     console.log('in resolver');
     return 'hello';
   }
+
+  // 1. Mutation - create patient. Check email does not already exist. Returns a patient (w/o password) or null.
+
+
 }
