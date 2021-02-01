@@ -4,8 +4,10 @@ import OKButton from '../../Globals/OKButton/OKButton';
 
 interface Props {}
 
-function Register(props: Props) {
-  const {} = props;
+  const handleChange = () => {};
+
+  const handleSubmit = () => {};
+=======
   const initialInfo = [
     {name: 'firstName', value:''},
     {name: 'lastName', value:''},
@@ -28,12 +30,11 @@ function Register(props: Props) {
     // Apply data validation and pass to the context
   }
 
+
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
       <form className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg">
         <h2 className="text-green-default">Register</h2>
-        <div className="mt-3 flex items-center w-2/3 justify-between">
-          <label htmlFor="firstName" className="mt-3 mr-4">First Name</label>
           <FormInput
             type="text"
             placeholder="First Name"
@@ -96,7 +97,7 @@ function Register(props: Props) {
         />
       </form>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
