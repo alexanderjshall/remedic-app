@@ -1,5 +1,5 @@
 import React from 'react'
-import PatientLandingCard from './PatientLandingCard'
+import PatientLandingCard from './PatientLandingCard/PatientLandingCard'
 import bgHumanOne from '../../../assets/background-images/humans-sitting.png';
 import bgHumanTwo from '../../../assets/background-images/humans-standing.png';
 import logoReduced from '../../../assets/logos/logo-reduced.svg';
