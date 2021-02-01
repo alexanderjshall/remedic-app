@@ -55,6 +55,7 @@ export default class ConsultationResolver {
     try {
       const consultation = consultationRepo.create(newConsult);
       await consultationRepo.persistAndFlush(consultation);
+      console.log(consultation);
       return consultation;
     } catch (e) {
       console.log(e);
