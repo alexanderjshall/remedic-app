@@ -5,11 +5,13 @@ import { EntityManager, IDatabaseDriver, Connection, EntityRepository } from '@m
 import Doctor from '../entities/doctor';
 import DoctorResolver from './resolvers/doctor.resolver';
 import Patient from '../entities/patient';
+import Consultation from '../entities/consultation';
 
 type dbConnection = EntityManager<IDatabaseDriver<Connection>>;
 export type CustomContext = {
   doctorRepo: EntityRepository<Doctor>
   patientRepo: EntityRepository<Patient>
+  consultationRepo: EntityRepository<Consultation>
 }
 
 export const apolloServer = async (em: dbConnection): Promise<ApolloServer> => 
@@ -20,6 +22,7 @@ export const apolloServer = async (em: dbConnection): Promise<ApolloServer> =>
     }),
     context: () : CustomContext => ({
       doctorRepo: em.getRepository(Doctor),
-      patientRepo: em.getRepository(Patient)
+      patientRepo: em.getRepository(Patient),
+      consultationRepo: em.getRepository(Consultation)
     })
   });
