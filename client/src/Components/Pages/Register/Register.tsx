@@ -1,25 +1,23 @@
-import React from 'react'
-import FormInput from '../../Shared-components/FormInput/FormInput';
+import React from "react";
+import FormInput from "../../Shared-components/FormInput/FormInput";
 
 interface Props {}
 
 function Register(props: Props) {
-  const {} = props
+  const {} = props;
 
-  const handleChange = () => {
+  const handleChange = () => {};
 
-  }
-
-  const handleSubmit = () => {
-
-  }
+  const handleSubmit = () => {};
 
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark mt-8 h-full">
       <form className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg">
         <h2 className="text-green-default">Register</h2>
         <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="firstName" className="mr-4">First Name</label>
+          <label htmlFor="firstName" className="mr-4">
+            First Name
+          </label>
           <FormInput
             type="text"
             placeholder="First Name"
@@ -92,7 +90,7 @@ function Register(props: Props) {
         </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
