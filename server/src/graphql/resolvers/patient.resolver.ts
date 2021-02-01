@@ -1,10 +1,6 @@
-import { Entity } from '@mikro-orm/core';
+import Patient from '../../entities/patient';
 import { Query, Resolver } from 'type-graphql';
 
-@Entity()
-class Patient {
-
-}
 
 @Resolver(Patient)
 export default class PatientResolver {
