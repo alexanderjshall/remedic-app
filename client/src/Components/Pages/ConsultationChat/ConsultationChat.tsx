@@ -48,7 +48,7 @@ const ConsultationChat = () => {
             <PatientMessageBubble message={patientMessage} />
             {/* input */}
           </div>
-          <form className="relative flex justify-center items-center p-3 sticky bottom-16 bg-white">
+          <form className="flex justify-center items-center p-3 sticky bottom-16 bg-white">
             <label hidden htmlFor="chat input" />
             <input
               type="text"
@@ -56,7 +56,7 @@ const ConsultationChat = () => {
               className="p-3 rounded-lg cursor-text focus:border-blue-dark h-16 border-2 border-blue border-solid w-11/12"
               placeholder="Start messaging"
             />
-            <button className="absolute right-8">
+            <button className="absolute right-12">
               <svg
                 className="w-12 h-12 fill-current text-green-dark"
                 viewBox="0 0 20 20"

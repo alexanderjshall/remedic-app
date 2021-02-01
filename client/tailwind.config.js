@@ -13,6 +13,8 @@ module.exports = {
       minHeight: {
         1: "1rem",
         4: "4rem",
+        textarea: "70vh",
+        "3/4": "75%",
       },
       colors: {
         blue: {
