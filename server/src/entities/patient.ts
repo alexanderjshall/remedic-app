@@ -1,5 +1,5 @@
 import { Entity, OneToMany, PrimaryKey, Property } from '@mikro-orm/core';
-import { Field, Int, ObjectType } from 'type-graphql';
+import { Field, ObjectType } from 'type-graphql';
 import Consultation from './consultation';
 
 @ObjectType()
@@ -29,9 +29,9 @@ export default class Patient {
   @Property()
   language: string;
 
-  @Field(() => Int)
+  @Field(() => String)
   @Property()
-  postCode: number;
+  postCode: string;
 
   @Field(() => [Consultation])
   @OneToMany(() => Consultation, consultation => consultation.patientId)

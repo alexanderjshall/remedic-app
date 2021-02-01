@@ -21,8 +21,8 @@ class PatientInput {
   @Field(() => String)
   language: string;
 
-  @Field(() => Int)
-  postCode: number;
+  @Field(() => String)
+  postCode: string;
 }
 
 @InputType()
@@ -42,8 +42,8 @@ class UpdatePatientInput {
   @Field(() => String, {nullable: true})
   language?: string;
 
-  @Field(() => Int, {nullable: true})
-  postCode?: number;
+  @Field(() => String, {nullable: true})
+  postCode?: string;
 }
 
 
@@ -111,7 +111,7 @@ export default class PatientResolver {
   async updatePatient (
     @Ctx() { patientRepo }: CustomContext,
     @Arg('id') id: number,
-    @Arg('newData', {nullable: true}) newData: UpdatePatientInput,
+    @Arg('newData') newData: UpdatePatientInput,
   ): Promise<Patient|null> {
     try {
       const patient = await patientRepo.findOne({id});
