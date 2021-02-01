@@ -1,5 +1,6 @@
 import 'reflect-metadata';
-import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver } from 'type-graphql';
+import Patient from '../../entities/patient';
+import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, ID } from 'type-graphql';
 import { CustomContext } from '..';
 import Consultation, { Symptoms } from '../../entities/consultation';
 
@@ -8,14 +9,23 @@ class ConsultationInput {
   @Field(() => Date)
   consultationDate: Date;
 
-  @Field(() => String)
-  transcriptOriginal: string;
-
-  // update to an array of symptoms
+  // [{area, symptom}, {area,symptom}]
   @Field(() => [Symptoms])
-  symptomsByArea: Symptoms[]; // [{area, symptom}, {area,symptom}]
+  symptomsByArea: Symptoms[]; 
 
+  @Field(() => Int)
+  painLevel: number;
+
+  @Field(() => String, {nullable: true})
+  patientNotes?: string;
+
+  @Field( () => ID)
+  patientId: Patient;
 }
+
+
+
+//3. Mutation - update a consultation via id. Should be able to update any field. 
 
 @Resolver(Consultation)
 export default class ConsultationResolver {
@@ -25,8 +35,8 @@ export default class ConsultationResolver {
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
     try {
-      const consultation = await consultationRepo.findOne(id);  
-      console.log(consultation);
+      const consultation = await consultationRepo.findOne(id);
+      if (!consultation) throw new Error (`Consultation with id ${id} not found`);
       return consultation;
     } catch (e) {
       console.log(e);
@@ -34,6 +44,9 @@ export default class ConsultationResolver {
     }
   }
 
+  // 2. Query - get consultations of a specific patient. Returns an array of consultations.
+  
+  // 1. Mutation - add a consultation.
   @Mutation (() => Consultation)
   async addConsultation (
     @Arg('input') newConsult: ConsultationInput,
@@ -41,7 +54,6 @@ export default class ConsultationResolver {
   ): Promise<Consultation|null> {
     try {
       const consultation = consultationRepo.create(newConsult);
-      console.log('after create', consultation);
       await consultationRepo.persistAndFlush(consultation);
       return consultation;
     } catch (e) {

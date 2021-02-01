@@ -1,6 +1,7 @@
 import 'reflect-metadata';
-import { ArrayType, Entity, PrimaryKey, Property } from '@mikro-orm/core';
-import { Field, InputType, Int, ObjectType } from 'type-graphql';
+import { ArrayType, Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Field, ID, InputType, Int, ObjectType } from 'type-graphql';
+import Patient from './patient';
 
 
 @ObjectType('Symptoms')
@@ -14,25 +15,6 @@ export class Symptoms {
 
 }
 
-// export const SymptomsScalar = new GraphQLScalarType({
-//   name: 'Symptoms',
-//   description: 'GQL custom scalar for the the symptomsData field on Consultation.',
-  
-//   parseValue (value: Symptoms) {
-//     console.log('parseV', value);
-//     return value;
-//   },
-//   serialize (value: Symptoms) {
-//     console.log('serialize', value);
-//     return value;
-//   },
-//   parseLiteral (ast) {
-//     console.log('ast',ast);
-//     return ast;
-//   }
-// });
-
-
 @ObjectType()
 @Entity()
 export default class Consultation {
@@ -45,61 +27,40 @@ export default class Consultation {
   @Property()
   consultationDate: Date;
 
-  @Field(() => String)
-  @Property()
-  transcriptOriginal: string;
-
-  // @Field(() => String, {nullable:true})
-  // @Property()
-  // patientNotes: string;
-
-  // @Field(() => Int)
-  // @Property()
-  // painLevel: number;
-
   @Field(() => [Symptoms])
   @Property({ type: ArrayType})
   symptomsByArea: Symptoms[];
 
+  @Field(() => Int)
+  @Property()
+  painLevel: number;
 
-  // @Field(() => String)
-  // @Property()
-  // transcriptTranslated: string;
+  @Field(() => String, {nullable:true})
+  @Property()
+  patientNotes?: string;
 
-  // @Field(() => String)
-  // @Property()
-  // doctorNotesOriginal: string;
+  @Field(() => String, {nullable: true})
+  @Property()
+  transcriptOriginal?: string;
 
-  // @Field(() => String)
-  // @Property()
-  // doctorNotesTranslated: string;
+  @Field(() => String, {nullable: true})
+  @Property()
+  transcriptTranslated?: string;
 
-  // @Field(() => Int)
-  // @Property()
-  // patientRating: number;
+  @Field(() => Int, {nullable: true})
+  @Property()
+  patientRating?: number;
 
-  // @Field( () => ID)
-  // @ManyToOne(() => Patient)
-  // patientId: Patient;
+  @Field(() => String, {nullable: true})
+  @Property()
+  doctorNotesOriginal?: string;
+
+  @Field(() => String,{nullable: true})
+  @Property()
+  doctorNotesTranslated?: string;
+
+  @Field( () => ID)
+  @ManyToOne(() => Patient)
+  patientId: Patient;
 
 }
-
-// consultation: {
-//// _consultation_id: id;
-////   date: DateTime;
-////   transcript-original: string;
-////   transcript-translated: string;
-//   doctorID: doctor._id;
-////   patientID: patient._id;
-////   doctorNotes-original: string;
-// ////   doctorNotes-translated: string;
-// painLevel: number;
-// patientNotes: string;
-// symptomsByArea: [{
-//   area: string;
-//   symptom: string; 'headache, temp'
-//  }];
-    
-//   };
-////   patientRating: number;
-// }
