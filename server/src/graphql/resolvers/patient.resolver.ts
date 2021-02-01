@@ -71,7 +71,7 @@ export default class PatientResolver {
     }
   }
 
-  // Mutation Patient login - check if patient exists, check password, return patient i or null
+  // 2. Mutation - Login: check if patient exists, check password, return patient i or null
   @Query(() => Int, {nullable: true})
   async loginPatient (
     @Arg('email') email: string,
@@ -106,7 +106,7 @@ export default class PatientResolver {
     }
   }
 
-  //3. Mutation - Edit patient data
+  //4. Mutation - Edit patient data
   @Mutation(() => Patient)
   async updatePatient (
     @Ctx() { patientRepo }: CustomContext,
