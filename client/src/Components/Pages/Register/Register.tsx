@@ -1,5 +1,5 @@
 import React from 'react'
-import FormInput from '../../Shared-components/FormInput/FormInput';
+import FormInput from '../../Globals/FormInput/FormInput';
 
 interface Props {}
 
