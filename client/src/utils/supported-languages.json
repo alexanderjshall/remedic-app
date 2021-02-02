@@ -1,0 +1,119 @@
+{
+  "languages": [
+    {
+      "englishName": "Arabic",
+      "nativeName": "العربية",
+      "langCode": "ar"
+    },
+    {
+      "englishName": "Bengali",
+      "nativeName": "বাঙ্গালি",
+      "langCode": "bn"
+    },
+    {
+      "englishName": "Chinese",
+      "nativeName": "中文",
+      "langCode": "zh"
+    },
+    {
+      "englishName": "English",
+      "nativeName": "English",
+      "langCode": "en"
+    },
+    {
+      "englishName": "French",
+      "nativeName": "Français",
+      "langCode": "fr"
+    },
+    {
+      "englishName": "German",
+      "nativeName": "Deutsch",
+      "langCode": "de"
+    },
+    {
+      "englishName": "Gujarati",
+      "nativeName": "ગુજરાતી",
+      "langCode": "gu"
+    },
+    {
+      "englishName": "Italian",
+      "nativeName": "Italiano",
+      "langCode": "it"
+    },
+    {
+      "englishName": "Latvian",
+      "nativeName": "Latviešu",
+      "langCode": "lv"
+    },
+    {
+      "englishName": "Lithuanian",
+      "nativeName": "Lietuvių",
+      "langCode": "lt"
+    },
+    {
+      "englishName": "Persian",
+      "nativeName": "فارسی",
+      "langCode": "fa"
+    },
+    {
+      "englishName": "Polish",
+      "nativeName": "Polski",
+      "langCode": "pl"
+    },
+    {
+      "englishName": "Portugese",
+      "nativeName": "Português",
+      "langCode": "pt"
+    },
+    {
+      "englishName": "Punjabi",
+      "nativeName": "ਪੰਜਾਬੀ",
+      "langCode": "pa"
+    },
+    {
+      "englishName": "Romanian",
+      "nativeName": "Română",
+      "langCode": "ro"
+    },
+    {
+      "englishName": "Spanish",
+      "nativeName": "Español",
+      "langCode": "es"
+    },
+    {
+      "englishName": "Somali",
+      "nativeName": "Soomaali",
+      "langCode": "so"
+    },
+    {
+      "englishName": "Tagalog Filipino",
+      "nativeName": "Tagalog",
+      "langCode": "tl"
+    },
+    {
+      "englishName": "Tamil",
+      "nativeName": "தமிழ்",
+      "langCode": "ta"
+    },
+    {
+      "englishName": "Turkish",
+      "nativeName": "Türkçe",
+      "langCode": "tr"
+    },
+    {
+      "englishName": "Urdu",
+      "nativeName": "اردو",
+      "langCode": "ur"
+    },
+    {
+      "englishName": "Vietnamese",
+      "nativeName": "Việt",
+      "langCode": "vi"
+    },
+    {
+      "englishName": "Yiddish",
+      "nativeName": "יידיש",
+      "langCode": "yi"
+    }
+  ]
+}
