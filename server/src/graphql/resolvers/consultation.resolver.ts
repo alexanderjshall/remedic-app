@@ -65,7 +65,7 @@ class UpdateConsultationInput {
 @Resolver(Consultation)
 export default class ConsultationResolver {
   @Query(() => Consultation)
-  async getOneConsulation (
+  async getOneConsultation (
     @Arg('id') id:number,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
