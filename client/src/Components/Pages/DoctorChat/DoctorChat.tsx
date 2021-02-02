@@ -1,26 +1,70 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
-import { Message } from "../ConsultationChat/ConsultationChat";
+import { Message } from "../../../types";
+import io from "socket.io-client";
 
 const handleSubmit = () => {};
 
-const patientMessage: Message = {
-  name: "Miss Doubtfire",
-  isAuthor: true,
-  content: "This is a patient message",
-  timestamp: "7:20am",
-};
+// const patientMessage: Message = {
+//   name: "Miss Doubtfire",
+//   isAuthor: true,
+//   content: "This is a patient message",
+//   timestamp: "7:20am",
+// };
 
-const doctorMessage: Message = {
-  name: "Doctor Zivago",
-  isAuthor: false,
-  content: "this is a doctor message",
-  timestamp: "7:21am",
-};
+// const doctorMessage: Message = {
+//   name: "Doctor Zivago",
+//   isAuthor: false,
+//   content: "this is a doctor message",
+//   timestamp: "7:21am",
+// };
+
+const consultationSocket = io('http://localhost:5000',);
+const consultationId = '1';
 
 const DoctorChat = () => {
+
+  const [currentMsg, setCurrentMsg] = useState('');
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  const sendMessage = (e : React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  try {
+    if (currentMsg.length > 0)
+    {
+      consultationSocket.emit('doctor message', consultationId, currentMsg);
+      setCurrentMsg('');
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+  }
+
+  useEffect(() => {
+    consultationSocket.emit('join chat', consultationId);
+    consultationSocket.on('doctor message', (msg: string) => {
+      const newMessage = {
+        name: 'Doctor',
+        content: msg,
+        isAuthor: true,
+        timestamp:''
+      }
+      setMessages(prevMesages => [...prevMesages, newMessage])
+    });
+
+    consultationSocket.on('patient message', (msg: string) => {
+      const newMessage = {
+        name: 'Me',
+        content: msg,
+        isAuthor: false,
+        timestamp:''
+      }
+      setMessages(prevMesages => [...prevMesages, newMessage])
+    });
+  }, [])
+
   return (
     <div className="h-screen overflow-hidden">
       <div className="mt-8 mx-6 h-screen">
@@ -51,24 +95,20 @@ const DoctorChat = () => {
 
             <div className=" flex flex-col pb-3">
               <div className=" flex border border-black pb-8 h-1/2 rounded-lg flex-col overflow-auto">
-                <DoctorMessageBubble message={doctorMessage} />
-                <PatientMessageBubble message={patientMessage} />
-                <DoctorMessageBubble message={doctorMessage} />
-                <PatientMessageBubble message={patientMessage} />
-                <DoctorMessageBubble message={doctorMessage} />
-                <PatientMessageBubble message={patientMessage} />
-                <DoctorMessageBubble message={doctorMessage} />
-                <PatientMessageBubble message={patientMessage} />
-                <DoctorMessageBubble message={doctorMessage} />
-                <PatientMessageBubble message={patientMessage} />
+              {messages && messages.map((message, idx) => message.isAuthor ?
+            <DoctorMessageBubble message ={message} key={idx}/> :
+            <PatientMessageBubble message ={message} key={idx}/>
+            )}
               </div>
-              <form className="relative flex justify-center items-center p-3 bg-white">
+              <form className="relative flex justify-center items-center p-3 bg-white" onSubmit={sendMessage}>
                 <label hidden htmlFor="chat input" />
                 <input
                   type="text"
                   name="chat input"
                   className="p-3 rounded-lg cursor-text focus:border-blue-dark h-16 border-2 border-blue border-solid w-full"
                   placeholder="Start messaging"
+                  value={currentMsg}
+                  onChange={e => setCurrentMsg(e.target.value)}
                 />
                 <button className="absolute right-16">
                   <svg
@@ -77,9 +117,9 @@ const DoctorChat = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </button>
@@ -87,7 +127,7 @@ const DoctorChat = () => {
               <div className="flex justify-center">
                 <OKButton
                   name="consultation_btn"
-                  type="button"
+                  type="submit"
                   value="Start consultation"
                   text="Start a consultation"
                   onClick={handleSubmit}
