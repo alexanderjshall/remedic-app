@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { Entity, JsonType, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
 import { Field, InputType, Int, ObjectType } from 'type-graphql';
 import Patient from './patient';
+import Doctor from './doctor';
 
 
 @ObjectType('Symptoms')
@@ -62,6 +63,7 @@ export default class Consultation {
   @ManyToOne(() => Patient)
   patientId: Patient;
 
-  
-
+  @Field( () => Doctor)
+  @ManyToOne(() => Doctor)
+  doctorId: Doctor;
 }

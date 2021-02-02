@@ -22,6 +22,10 @@ class ConsultationInput {
 
   @Field( () => Int)
   patientId: number;
+
+  @Field( () => Int)
+  doctorId: number;
+
 }
 
 @InputType()
@@ -64,7 +68,7 @@ export default class ConsultationResolver {
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
     try {
-      const consultation = await consultationRepo.findOne({id});
+      const consultation = await consultationRepo.findOne({id}, {populate: ['patientId','doctorId']});
       if (!consultation) throw new Error (`Consultation with id ${id} not found`);
       return consultation;
     } catch (e) {
@@ -80,7 +84,7 @@ export default class ConsultationResolver {
     @Ctx() { consultationRepo }: CustomContext
   ): Promise<Consultation[]|null> {
     try {
-      const consultations = await consultationRepo.find({patientId:id}, {populate: ['patientId']});
+      const consultations = await consultationRepo.find({patientId:id}, {populate: ['patientId', 'doctorId']});
       if (!consultations) throw new Error (`Could not find consultations for patient with id ${id}`);
       return consultations;
     } catch (e) {
@@ -114,7 +118,7 @@ export default class ConsultationResolver {
     @Arg('newData') newData: UpdateConsultationInput  
   ): Promise<Consultation|null> {
     try {
-      const consultation = await consultationRepo.findOne(id);
+      const consultation = await consultationRepo.findOne({id}, {populate: ['patientId','doctorId']});
       if (!consultation) throw new Error (`Consultation with ${id} not found`);
       wrap(consultation).assign(newData);
       await consultationRepo.persistAndFlush(consultation);
