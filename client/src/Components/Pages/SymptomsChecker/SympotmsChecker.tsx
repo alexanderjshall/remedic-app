@@ -11,8 +11,8 @@ const SymptomsChecker = () => {
 
       <ul className="mt-10 w-full px-3 flex flex-col items-center pt-10">
         <h1 className="text-center font-bold text-2xl">Pain level:</h1>
-        <li className="mt-6 px-4 flex items-center justify-center flex-wrap">
-          <div className="flex items-center">
+        <li className="mt-6 px-4 flex items-center">
+          <div className="flex items-center justify-center flex-wrap">
             <button className="h-20 w-20 flex justify-center flex-col hover:bg-blue-light mx-2">
               <p className="text-3xl self-center">😢</p>
               <p>Bad</p>
