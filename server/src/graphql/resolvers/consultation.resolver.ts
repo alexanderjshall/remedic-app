@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import Patient from '../../entities/patient';
-import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, ID, FieldResolver, Root } from 'type-graphql';
+import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, FieldResolver, Root } from 'type-graphql';
 import { CustomContext } from '..';
 import Consultation, { Symptoms } from '../../entities/consultation';
 import { wrap } from '@mikro-orm/core';
@@ -15,7 +15,7 @@ class ConsultationInput {
   @Field(() => [Symptoms])
   symptomsByArea: Symptoms[]; 
 
-  @Field(() => ID)
+  @Field(() => Int)
   painLevel: number;
 
   @Field(() => String, {nullable: true})
