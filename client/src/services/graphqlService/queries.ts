@@ -7,7 +7,7 @@ const queries = {
       loginPatient(password: $password, email: $email)
     }`,
 
-  // todo Check if this is the right way to do it....
+
   // will return null if there's no refresh token sent in the cookie. Otherwise, creates an access token.
   loginPatientWithToken: gql`
     query {
@@ -22,7 +22,7 @@ const queries = {
   `,
 
   loginDoctorWithToken: gql`
-    query() {
+    query {
       loginWithTokenDoctor
     }`,
 
