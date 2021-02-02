@@ -140,6 +140,7 @@ export default class PatientResolver {
     try {
       const patient = await patientRepo.findOne({id});
       if (!patient) throw new Error(`Patient with id ${id} not found`);
+      if (newData.password) newData.password = await bcrypt.hash(newData.password,10);
       wrap(patient).assign(newData);
       await patientRepo.persistAndFlush(patient);
       return patient;
