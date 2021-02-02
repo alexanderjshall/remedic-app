@@ -4,6 +4,7 @@ import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, ID, FieldRe
 import { CustomContext } from '..';
 import Consultation, { Symptoms } from '../../entities/consultation';
 import { wrap } from '@mikro-orm/core';
+import Doctor from 'src/entities/doctor';
 
 @InputType() 
 class ConsultationInput {
@@ -58,8 +59,6 @@ class UpdateConsultationInput {
   doctorNotesTranslated?: string;
 }
 
-
-
 @Resolver(Consultation)
 export default class ConsultationResolver {
   @Query(() => Consultation)
@@ -100,7 +99,7 @@ export default class ConsultationResolver {
     @Arg('input') newConsult: ConsultationInput,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
-    try {      
+    try { 
       const consultation = consultationRepo.create(newConsult);
       await consultationRepo.persistAndFlush(consultation);
       return consultation;
@@ -132,9 +131,26 @@ export default class ConsultationResolver {
   @FieldResolver()
   async patientId (@Root() newConsult: Consultation, @Ctx() {patientRepo}: CustomContext): Promise<Patient|null> {
     try {
-      const patient = await patientRepo.findOne(newConsult.patientId);
+      const patient = await patientRepo.findOne( {id: newConsult.patientId.id});
+      if (!patient) throw new Error(`Patient with id ${newConsult.patientId.id} not found`);
       return patient;
 
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+  @FieldResolver()
+  async doctorId (
+    @Root() newConsult: Consultation,
+    @Ctx() { doctorRepo }: CustomContext
+  ): Promise<Doctor|null> {
+    try {
+      const doctor = await doctorRepo.findOne({id: newConsult.doctorId.id});
+      console.log(doctor);
+      if (!doctor) throw new Error(`Doctor with id ${newConsult.doctorId.id} not found`);
+      return doctor;
     } catch (e) {
       console.log(e);
       return null;

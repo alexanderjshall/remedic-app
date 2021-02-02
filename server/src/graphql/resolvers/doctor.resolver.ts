@@ -36,7 +36,6 @@ export default class DoctorResolver {
 
       const doctor = doctorRepo.create(newDoctor);
       doctor.password = await bcrypt.hash(doctor.password,10);
-      console.log('doctor', doctor);
       await doctorRepo.persistAndFlush(doctor);
       return doctor;
     } catch (e) {
@@ -98,7 +97,7 @@ export default class DoctorResolver {
       const where = {} as {id: number; docPublicCode: string;};
       if (id) where.id =id;
       if (docPublicCode) where.docPublicCode = docPublicCode;
-      const doctor = await doctorRepo.findOne(where);
+      const doctor = await doctorRepo.findOne(where, {populate: ['consultations']});
       return doctor;
     } catch (e) {
       console.log(e);
