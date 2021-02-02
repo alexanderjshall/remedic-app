@@ -6,7 +6,7 @@ interface Props {
 }
 
 const DoctorMessageBubble = (props: Props) => {
-  const { name, isAuthor, content, timestamp } = props.message;
+  const { name, isAuthor, content } = props.message;
 
   return (
     <div className={`${isAuthor ? 'justify-end' : 'justify-start' } flex  my-5 mr-3`}>

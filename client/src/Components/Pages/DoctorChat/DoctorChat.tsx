@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
-import { Message } from "../../../types";
 import io from "socket.io-client";
 import useChat from "../../../hooks/useChat";
 
