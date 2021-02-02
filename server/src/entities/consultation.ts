@@ -21,7 +21,7 @@ export default class Consultation {
   @PrimaryKey()
   id: number;
 
-  // Typegraphql uses ISO format by default. Can change this in the buildSchema option.
+  // Typegraphql uses ISO format by default.
   @Field(() => Date)
   @Property()
   consultationDate: Date;
@@ -61,5 +61,7 @@ export default class Consultation {
   @Field( () => Patient)
   @ManyToOne(() => Patient)
   patientId: Patient;
+
+  
 
 }

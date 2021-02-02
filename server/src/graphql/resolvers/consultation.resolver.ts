@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import Patient from '../../entities/patient';
-// import Patient from '../../entities/patient';
 import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, ID, FieldResolver, Root } from 'type-graphql';
 import { CustomContext } from '..';
 import Consultation, { Symptoms } from '../../entities/consultation';
@@ -67,7 +66,6 @@ export default class ConsultationResolver {
     try {
       const consultation = await consultationRepo.findOne({id});
       if (!consultation) throw new Error (`Consultation with id ${id} not found`);
-      console.log('consultation', typeof consultation.symptomsByArea[0]);
       return consultation;
     } catch (e) {
       console.log(e);
@@ -98,13 +96,9 @@ export default class ConsultationResolver {
     @Arg('input') newConsult: ConsultationInput,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
-    try {
-      // console.log('toString', newConsult.symptomsByArea.toString());
-      // console.log('Json string',JSON.stringify(newConsult.symptomsByArea));
-      
+    try {      
       const consultation = consultationRepo.create(newConsult);
       await consultationRepo.persistAndFlush(consultation);
-      console.log('added consultation', consultation);
       return consultation;
     } catch (e) {
       console.log(e);
@@ -124,7 +118,6 @@ export default class ConsultationResolver {
       if (!consultation) throw new Error (`Consultation with ${id} not found`);
       wrap(consultation).assign(newData);
       await consultationRepo.persistAndFlush(consultation);
-      console.log(consultation);
       return consultation;
     } catch (e) {
       console.log(e);
@@ -143,12 +136,5 @@ export default class ConsultationResolver {
       return null;
     }
   }
-
-  // @FieldResolver()
-  // symptomsByArea(@Root() consultation: Consultation) {
-  //   console.log(consultation.symptomsByArea);
-    
-  // }
-  
 
 }
