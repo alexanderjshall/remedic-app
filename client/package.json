@@ -53,6 +53,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-lottie": "^1.2.5",
     "@types/react-router-dom": "^5.1.7",
-    "@types/socket.io-client": "^1.4.35"
+    "@types/socket.io-client": "^1.4.35",
+    "graphql-tag": "^2.11.0"
   }
 }
