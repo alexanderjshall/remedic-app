@@ -11,8 +11,6 @@ const useChat = (socket: typeof Socket, roomId: string, isDoctor: boolean) => {
   socket.emit('join chat', roomId);
 
   socket.on('doctor message', (msg: string) => {
-    console.log('recieved doc mesg');
-
     const newMessage = {
       name: 'Doctor',
       content: msg,
@@ -33,9 +31,8 @@ const useChat = (socket: typeof Socket, roomId: string, isDoctor: boolean) => {
   });
 
   const addMessage = (msg: string) => {
-
     const messageType = isDoctor ? 'doctor message' : 'patient message';
-    socket.emit(messageType,roomId, msg);
+    socket.emit(messageType, roomId, msg);
   }
 
   return {messages, addMessage}
