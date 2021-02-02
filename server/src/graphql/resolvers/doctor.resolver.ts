@@ -78,7 +78,7 @@ export default class DoctorResolver {
 
       const {id} = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET as string) as { id:number };
       const doctor = await doctorRepo.findOne({id});
-      if (!doctor) return null;
+      if (!doctor) throw new Error (`Doctor with id ${id} not found`);
       return createAccessToken({id: doctor.id, isDoctor: true, language: doctor.language});
     } catch (error) {
       console.log(error);
