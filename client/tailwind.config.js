@@ -39,7 +39,7 @@ module.exports = {
           ghost: "#EFF1FB",
         },
         red: {
-          negative: "#e63946",
+          negative: "#FC5F67",
           dark: "#A31420",
         },
         yellow: {
