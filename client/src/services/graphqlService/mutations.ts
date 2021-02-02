@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+//* Not added createDoctor as this will be handled by the sysAdmin.
+
 const mutations = {
   // return an access token
   register: gql`
