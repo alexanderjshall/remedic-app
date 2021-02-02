@@ -11,8 +11,8 @@ export class Symptoms {
   @Field(() => String)
   area: string;
 
-  @Field(() => [String])
-  symptom: string[];
+  @Field(() => String)
+  symptom: string;
 }
 
 @ObjectType()
@@ -21,6 +21,10 @@ export default class Consultation {
   @Field(() => Int)
   @PrimaryKey()
   id: number;
+
+  @Field(() => Boolean)
+  @Property({default: true})
+  isActive: boolean;
 
   // Typegraphql uses ISO format by default.
   @Field(() => Date)
