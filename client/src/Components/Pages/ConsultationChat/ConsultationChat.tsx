@@ -1,55 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
-import {Message} from '../../../types';
+import io from "socket.io-client";
+import useChat from "../../../hooks/useChat";
 
-// bg-gradient-to-b from-blue-light via-blue-50 to-white-ghost
 
-const patientMessage: Message = {
-  name: "Miss Doubtfire",
-  isAuthor: true,
-  content: "This is a patient message",
-  timestamp: "7:20am",
-};
+const consultationId = '1';
 
-const doctorMessage: Message = {
-  name: "Doctor Zivago",
-  isAuthor: false,
-  content: "this is a doctor message",
-  timestamp: "7:21am",
-};
+// const patientMessage: Message = {
+//   name: "Miss Doubtfire",
+//   isAuthor: true,
+//   content: "This is a patient message",
+//   timestamp: "7:20am",
+// };
+
+// const doctorMessage: Message = {
+//   name: "Doctor Zivago",
+//   isAuthor: false,
+//   content: "this is a doctor message",
+//   timestamp: "7:21am",
+// };
+
+const consultationSocket = io('http://localhost:5000',);
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
+  const {messages, addMessage} = useChat(consultationSocket, consultationId, false)
+  const [currentMsg, setCurrentMsg] = useState('');
+
+  const sendMessage = (e : React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    if (currentMsg.length > 0)
+    {
+      addMessage(currentMsg);
+      setCurrentMsg('');
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
   return (
     <div className="flex-col flex justify-center w-screen">
       <div className="relative flex flex-col shadow-md justify-evenly items-center p-3 pb-16">
         <div className="w-full flex flex-col justify-end py-3">
           {/* bubbles */}
           <div className="relative flex flex-col h-5/6 pb-8 overflow-auto">
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            <DoctorMessageBubble message={doctorMessage} />
-            <PatientMessageBubble message={patientMessage} />
-            {/* input */}
+            {messages && messages.map((message, idx) => message.isAuthor ?
+            <PatientMessageBubble message ={message} key={idx}/> :
+            <DoctorMessageBubble message ={message} key={idx}/>
+            )}
           </div>
-          <form className="flex justify-center items-center p-3 sticky bottom-16 bg-white">
+          <form className="flex justify-center items-center p-3 sticky bottom-16 bg-white" onSubmit={sendMessage}>
             <label hidden htmlFor="chat input" />
             <input
               type="text"
               name="chat input"
               className="p-3 rounded-lg cursor-text focus:border-blue-dark h-16 border-2 border-blue border-solid w-11/12"
               placeholder="Start messaging"
+              onChange={e => setCurrentMsg(e.target.value)}
+              value={currentMsg}
             />
             <button className="absolute right-12">
               <svg
@@ -58,9 +69,9 @@ const ConsultationChat = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </button>
