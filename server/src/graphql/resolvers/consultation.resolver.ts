@@ -34,6 +34,9 @@ class UpdateConsultationInput {
   @Field(() => Date, {nullable:true})
   consultationDate?: Date;
 
+  @Field(() => Boolean, {nullable:true})
+  isActive?: boolean;
+
   @Field(() => [Symptoms], {nullable:true})
   symptomsByArea?: Symptoms[];
 
@@ -62,7 +65,7 @@ class UpdateConsultationInput {
 @Resolver(Consultation)
 export default class ConsultationResolver {
   @Query(() => Consultation)
-  async getOneConsulation (
+  async getOneConsultation (
     @Arg('id') id:number,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
