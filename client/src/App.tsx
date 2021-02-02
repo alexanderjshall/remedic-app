@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import ConsultationChat from "./Components/Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "./Components/Pages/EnterCode/EnterCode";
+import Feedback from "./Components/Pages/Feedback/Feedback";
 import LanguageChoice from "./Components/Pages/LanguageChoice/LanguageChoice";
 import Login from "./Components/Pages/Login/Login";
 import PatientLanding from "./Components/Pages/PatientLanding/PatientLanding";
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/consultation_chat">
             <ConsultationChat />
+          </Route>
+          <Route path="/consultation_end">
+            <Feedback />
           </Route>
         </Switch>
       </BrowserRouter>
