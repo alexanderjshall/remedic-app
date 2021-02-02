@@ -3,6 +3,7 @@ import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import {Message} from '../../../types';
 import io from "socket.io-client";
+import useChat from "../../../hooks/useChat";
 
 
 const consultationId = '1';
@@ -25,41 +26,15 @@ const consultationSocket = io('http://localhost:5000',);
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const {messages, addMessage} = useChat(consultationSocket, consultationId, false)
   const [currentMsg, setCurrentMsg] = useState('');
-
-  useEffect(()=>{
-
-  consultationSocket.emit('join chat', consultationId)
-
-  consultationSocket.on('doctor message', (msg: string) => {
-    const newMessage = {
-      name: 'Doctor',
-      content: msg,
-      isAuthor: false,
-      timestamp:''
-    }
-    setMessages(prevMesages => [...prevMesages, newMessage])
-  });
-
-  consultationSocket.on('patient message', (msg: string) => {
-    const newMessage = {
-      name: 'Me',
-      content: msg,
-      isAuthor: true,
-      timestamp:''
-    }
-    setMessages(prevMesages => [...prevMesages, newMessage])
-  });
-
-  },[])
 
   const sendMessage = (e : React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   try {
     if (currentMsg.length > 0)
     {
-      consultationSocket.emit('patient message', consultationId, currentMsg);
+      addMessage(currentMsg);
       setCurrentMsg('');
     }
   } catch (error) {
