@@ -2,23 +2,38 @@ import React from "react";
 
 const SymptomsChecker = () => {
   return (
-    <div className=" h-full ">
-      <div className="mt-12"></div>
-      <h1 className="text-bold text-xl text-center">
-        Please specify your symptoms:
-      </h1>
-      <ul className="mt-10 w-full px-3 flex flex-col items-center">
-        <li className="mt-6 w-full px-4">
-          <h1 className="text-center">Pain level:</h1>
-          <input
-            type="range"
-            name="pain_level"
-            id="pain_level"
-            min="1"
-            max="10"
-            value="1"
-            className="appearance-none w-full h-10 bg-green-light p-3 outline-none opacity-70 transition-opacity rounded-lg hover:opacity-100 mt-3"
-          />
+    <div className=" h-full overflow-hidden">
+      <div className="fixed top-0 whitespace-nowrap w-screen py-4 bg-green-light">
+        <h1 className="text-bold text-xl text-center">
+          Please specify your symptoms:
+        </h1>
+      </div>
+
+      <ul className="mt-10 w-full px-3 flex flex-col items-center pt-10">
+        <h1 className="text-center font-bold text-2xl">Pain level:</h1>
+        <li className="mt-6 px-4 flex items-center justify-center flex-wrap">
+          <div className="flex items-center">
+            <button className="h-20 w-20 flex justify-center flex-col hover:bg-blue-light mx-2">
+              <p className="text-3xl self-center">😢</p>
+              <p>Bad</p>
+            </button>
+            <button className="flex-col h-20 w-20 flex justify-center hover:bg-blue-light mx-2">
+              <p className="text-3xl self-center">🙂</p>
+              <p>Ok</p>
+            </button>
+            <button className="flex-col h-20 w-20 flex justify-center hover:bg-blue-light mx-2">
+              <p className="text-3xl self-center">😃</p>
+              <p>Good</p>
+            </button>
+            <button className="flex-col h-20 w-20 flex justify-center hover:bg-blue-light mx-2">
+              <p className="text-3xl self-center">😎</p>
+              <p>Very good!</p>
+            </button>
+            <button className="flex-col h-20 w-20 flex justify-center hover:bg-blue-light mx-2">
+              <p className="text-3xl self-center">🤩</p>
+              <p>Amazing!</p>
+            </button>
+          </div>
         </li>
         <li className="mt-10 w-full bg-blue-superlight rounded-md p-2">
           <h1 className="text-center whitespace-nowrap">
@@ -39,7 +54,7 @@ const SymptomsChecker = () => {
             <button className="px-4 py-2 bg-green-light rounded-lg hover:bg-green-dark  text-opacity-50 mr-3">
               Yes
             </button>
-            <button className="px-4 py-2 bg-red-negative rounded-lg  hover:bg-red-dark text-opacity-50 ml-3">
+            <button className="px-4 py-2 bg-red-negative  rounded-lg  hover:bg-red-dark text-opacity-50 ml-3">
               No
             </button>
           </div>
@@ -53,7 +68,7 @@ const SymptomsChecker = () => {
             <button className="px-4 py-2 bg-green-light rounded-lg hover:bg-green-dark  text-opacity-50 mr-3">
               Yes
             </button>
-            <button className="px-4 py-2 bg-red-negative rounded-lg  hover:bg-red-dark  text-opacity-50 ml-3">
+            <button className="px-4 py-2 bg-red-negative  rounded-lg  hover:bg-red-dark  text-opacity-50 ml-3">
               No
             </button>
           </div>
@@ -66,7 +81,7 @@ const SymptomsChecker = () => {
             <button className="px-4 py-2 bg-green-light rounded-lg hover:bg-green-dark  text-opacity-50 mr-3">
               Yes
             </button>
-            <button className="px-4 py-2 bg-red-negative rounded-lg  hover:bg-red-dark  text-opacity-50 ml-3">
+            <button className="px-4 py-2 bg-red-negative  rounded-lg  text-opacity-50 ml-3">
               No
             </button>
           </div>
