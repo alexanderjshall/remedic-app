@@ -34,6 +34,9 @@ class UpdateConsultationInput {
   @Field(() => Date, {nullable:true})
   consultationDate?: Date;
 
+  @Field(() => Boolean, {nullable:true})
+  isActive?: boolean;
+
   @Field(() => [Symptoms], {nullable:true})
   symptomsByArea?: Symptoms[];
 
