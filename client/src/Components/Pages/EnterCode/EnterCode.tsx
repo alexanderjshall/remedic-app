@@ -8,9 +8,7 @@ const EnterCode = () => {
   const [code, setCode] = useState<string>('');
 
   useEffect(() => {
-    getTranslatedText('Hello World','en', 'es')
-      .then(text => console.log(text))
-      .catch(error => console.log(error))
+  
   }, [])
 
   const changeCode = (name: string, value: string) => {
