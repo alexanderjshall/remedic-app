@@ -1,8 +1,15 @@
 import React from "react";
 import { IoLanguageSharp } from "react-icons/io5";
 import "./LanguageChoice.css";
+import OKButton from '../../Globals/OKButton/OKButton';
+
 
 const LanguageChoice = () => {
+
+  const handleSubmit = () => {
+
+  }
+
   return (
     <div className="flex-col flex justify-center w-screen bg-gradient-to-b from-blue-light via-blue-50 to-white-ghost">
       <div className="flex flex-col shadow-md px-16 h-screen rounded-lg justify-evenly items-center">
@@ -99,11 +106,14 @@ const LanguageChoice = () => {
             </div> */}
           </form>
         </div>
-        <div>
-          <button className="px-6 py-3 rounded-full ring-2 bg-blue-light hover:bg-blue-dark ring-opacity-50 w-40 hover:ring-4 hover:ring-blue-dark">
-            Confirm
-          </button>
-        </div>
+
+        <OKButton
+          name="confirm"
+          type="submit"
+          value="confirm"
+          text="Confirm"
+          onClick={handleSubmit}
+        />
       </div>
     </div>
   );
