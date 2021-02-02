@@ -1,16 +1,16 @@
-import gql from 'graphql-tag';
+import { gql } from 'graphql-request';
 
 const queries = {
   // will return an access token.
   loginPatient: gql`
-    query($password: String!, $email: String!) {
+    query ($password: String!, $email: String!) {
       loginPatient(password: $password, email: $email)
     }`,
 
   // todo Check if this is the right way to do it....
   // will return null if there's no refresh token sent in the cookie. Otherwise, creates an access token.
   loginPatientWithToken: gql`
-    query () {
+    query {
       loginWithTokenPatient
     }`,
 
@@ -31,7 +31,6 @@ const queries = {
   getPatient: gql`
     query($id: Float!) {
       getPatient(id: $id) {
-        id
         firstName
         lastName
         language
@@ -97,7 +96,7 @@ const queries = {
         consultationDate
         symptomsByArea {
           area
-          symptoms
+          symptom
         }
         painLevel
         patientNotes
@@ -107,10 +106,11 @@ const queries = {
         doctorNotesOriginal
         doctorNotesTranslated
         patientId {
-          id
+          firstName
         }
         doctorId {
           id
+          firstName
         }
       }
     }`,
