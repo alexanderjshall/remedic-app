@@ -38,6 +38,9 @@ module.exports = {
           ghost: "#EFF1FB",
         },
       },
+      inset: {
+        "5/100": "5%",
+      },
     },
   },
   fontFamily: {
