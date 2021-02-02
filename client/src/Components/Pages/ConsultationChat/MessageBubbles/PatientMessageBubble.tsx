@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "../ConsultationChat";
+import { Message } from '../../../../types';
 
 interface Props {
   message: Message;
