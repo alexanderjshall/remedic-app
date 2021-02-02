@@ -40,7 +40,7 @@ const EnterCode = () => {
       <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center">
         <h2 className="text-white font-extrabold opacity-80">No Code? Ask At Reception</h2>
       </div>
-      <img src={humanSitting} alt="background human" className="absolute opacity-10 top-1/4"></img>
+      <img src={humanSitting} alt="background human" className="absolute opacity-5 top-1/4"></img>
     </div>
   )
 }

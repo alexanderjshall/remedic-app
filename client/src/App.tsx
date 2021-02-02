@@ -10,6 +10,7 @@ import Login from "./Components/Pages/Login/Login";
 import PatientLanding from "./Components/Pages/PatientLanding/PatientLanding";
 import Register from "./Components/Pages/Register/Register";
 import PatientQueue from './Components/Pages/PatientQueue/PatientQueue'
+import PatientSymptoms from "./Components/Pages/PatientSymptoms/PatientSymptoms";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/doctor_chat">
             <DoctorChat />
+          </Route>
+          <Route path="/symptoms">
+            <PatientSymptoms />
           </Route>
           <Route path="/consultation_chat">
             <ConsultationChat />

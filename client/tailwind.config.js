@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 16s linear infinite'
+      },
       minWidth: {
         0: "0",
         "1/4": "25%",
