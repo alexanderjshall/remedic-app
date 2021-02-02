@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FormInput from '../../Globals/FormInput/FormInput'
 import humanSitting from '../../../assets/background-images/humans-sitting2.png'
+import getTranslatedText from '../../../services/api.translate';
 
 
 const EnterCode = () => {
   const [code, setCode] = useState<string>('');
+
+  useEffect(() => {
+  
+  }, [])
 
   const changeCode = (name: string, value: string) => {
     setCode(value);

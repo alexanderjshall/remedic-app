@@ -2,7 +2,7 @@ import React from "react";
 import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
-import { Message } from "../ConsultationChat/ConsultationChat";
+import { Message } from "../../../types";
 
 const handleSubmit = () => {};
 
