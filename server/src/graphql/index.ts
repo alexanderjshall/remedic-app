@@ -6,6 +6,7 @@ import Doctor from '../entities/doctor';
 import DoctorResolver from './resolvers/doctor.resolver';
 import Patient from '../entities/patient';
 import Consultation from '../entities/consultation';
+import ConsultationResolver from './resolvers/consultation.resolver';
 import { Response, Request } from 'express';
 
 type dbConnection = EntityManager<IDatabaseDriver<Connection>>;
@@ -20,7 +21,7 @@ export type CustomContext = {
 export const apolloServer = async (em: dbConnection): Promise<ApolloServer> =>
   new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PatientResolver, DoctorResolver],
+      resolvers: [PatientResolver, DoctorResolver, ConsultationResolver],
       validate: false
     }),
     context: ({req , res}) : CustomContext => ({

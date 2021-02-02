@@ -1,14 +1,19 @@
-import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Field, ID, Int, ObjectType } from 'type-graphql';
+import 'reflect-metadata';
+import { Entity, JsonType, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Field, InputType, Int, ObjectType } from 'type-graphql';
 import Patient from './patient';
+import Doctor from './doctor';
 
 
-// type Symptoms = {
-//   painLevel: number;
-//   patientNotes: string;
-//   // symptomsByArea: []
-// }
+@ObjectType('Symptoms')
+@InputType('inputSymptoms') 
+export class Symptoms {
+  @Field(() => String)
+  area: string;
 
+  @Field(() => [String])
+  symptom: string[];
+}
 
 @ObjectType()
 @Entity()
@@ -17,57 +22,48 @@ export default class Consultation {
   @PrimaryKey()
   id: number;
 
+  // Typegraphql uses ISO format by default.
   @Field(() => Date)
   @Property()
   consultationDate: Date;
 
-  @Field(() => String)
-  @Property()
-  transcriptOriginal: string;
-
-  @Field(() => String)
-  @Property()
-  transcriptTranslated: string;
-
-  @Field(() => String)
-  @Property()
-  doctorNotesOriginal: string;
-
-  @Field(() => String)
-  @Property()
-  doctorNotesTranslated: string;
+  @Field(() => [Symptoms])
+  @Property({type: JsonType})
+  symptomsByArea: Symptoms[];
 
   @Field(() => Int)
   @Property()
-  patientRating: number;
+  painLevel: number;
 
-  @Field( () => ID)
+  @Field(() => String, {nullable:true})
+  @Property({nullable:true})
+  patientNotes?: string;
+
+  @Field(() => String, {nullable: true})
+  @Property({nullable:true})
+  transcriptOriginal?: string;
+
+  @Field(() => String, {nullable: true})
+  @Property({nullable:true})
+  transcriptTranslated?: string;
+
+  @Field(() => Int, {nullable: true})
+  @Property({nullable:true})
+  patientRating?: number;
+
+  @Field(() => String, {nullable: true})
+  @Property({nullable:true})
+  doctorNotesOriginal?: string;
+
+  @Field(() => String,{nullable: true})
+  @Property({nullable:true})
+  doctorNotesTranslated?: string;
+
+  @Field( () => Patient)
   @ManyToOne(() => Patient)
   patientId: Patient;
 
-  // @Field(() => Symptoms)
-  // @Property()
-  // symptomsData: Symptoms;
+  @Field( () => Doctor)
+  @ManyToOne(() => Doctor)
+  doctorId: Doctor;
 }
-
-// consultation: {
-//// _consultation_id: id;
-////   date: DateTime;
-////   transcript-original: string;
-////   transcript-translated: string;
-//   doctorID: doctor._id;
-////   patientID: patient._id;
-////   doctorNotes-original: string;
-////   doctorNotes-translated: string;
-//   symptomsData: {
-//     painLevel: number;
-//     symptomsByArea: [
-//       {
-//         area: string;
-//         symptom: string;
-//       }
-//     ];
-//     patientNotes: string;
-//   };
-////   patientRating: number;
-// }

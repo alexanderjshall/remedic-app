@@ -5,6 +5,7 @@ import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMess
 import { Message } from "../../../types";
 import io from "socket.io-client";
 
+
 const handleSubmit = () => {};
 
 // const patientMessage: Message = {
