@@ -9,15 +9,6 @@ export interface User {
   // consultations: consultation[];
 }
 
-// Empty user to use as default
-export const blankUser: User = {
-  _id: 0,
-  firstname: '',
-  lastname: 'Patient',
-  email: '',
-  postcode: '',
-  language: ''  
-}
 
 export interface Message {
   name?: string;
@@ -28,7 +19,7 @@ export interface Message {
 
 export interface ConsultationInfo {
   _consultation_id: string;
-  date: string;
+  date: Date;
   transcriptOriginal: string;
   transcriptTranslated: string;
   doctorID: string;
@@ -44,4 +35,35 @@ export interface ConsultationInfo {
   ];
   patientNotes: string;
   patientRating: number;
+}
+
+// Empty examples to use as default
+export const blankUser: User = {
+  _id: 0,
+  firstname: '',
+  lastname: 'Patient',
+  email: '',
+  postcode: '',
+  language: ''
+}
+
+//
+export const BlankConsultation: ConsultationInfo = {
+  _consultation_id:'',
+  date: new Date('2021-02-02T09:47:19.561Z'),
+  transcriptOriginal: '',
+  transcriptTranslated: '',
+  doctorID: '',
+  patientID: 'patientID123',
+  doctorNotesOriginal: '',
+  doctorNotesTranslated: '',
+  painLevel: 5,
+  symptomsByArea: [
+    {
+      area: '',
+      symptom: '',
+    }
+  ],
+  patientNotes: '',
+  patientRating: 5,
 }
