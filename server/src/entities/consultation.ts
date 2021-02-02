@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import { ArrayType, Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Field, ID, InputType, Int, ObjectType } from 'type-graphql';
+import { Entity, JsonType, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Field, InputType, Int, ObjectType } from 'type-graphql';
 import Patient from './patient';
 
 
@@ -12,7 +12,6 @@ export class Symptoms {
 
   @Field(() => [String])
   symptom: string[];
-
 }
 
 @ObjectType()
@@ -28,7 +27,7 @@ export default class Consultation {
   consultationDate: Date;
 
   @Field(() => [Symptoms])
-  @Property({ type: ArrayType})
+  @Property({type: JsonType})
   symptomsByArea: Symptoms[];
 
   @Field(() => Int)
@@ -36,30 +35,30 @@ export default class Consultation {
   painLevel: number;
 
   @Field(() => String, {nullable:true})
-  @Property()
+  @Property({nullable:true})
   patientNotes?: string;
 
   @Field(() => String, {nullable: true})
-  @Property()
+  @Property({nullable:true})
   transcriptOriginal?: string;
 
   @Field(() => String, {nullable: true})
-  @Property()
+  @Property({nullable:true})
   transcriptTranslated?: string;
 
   @Field(() => Int, {nullable: true})
-  @Property()
+  @Property({nullable:true})
   patientRating?: number;
 
   @Field(() => String, {nullable: true})
-  @Property()
+  @Property({nullable:true})
   doctorNotesOriginal?: string;
 
   @Field(() => String,{nullable: true})
-  @Property()
+  @Property({nullable:true})
   doctorNotesTranslated?: string;
 
-  @Field( () => ID)
+  @Field( () => Patient)
   @ManyToOne(() => Patient)
   patientId: Patient;
 
