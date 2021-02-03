@@ -39,7 +39,7 @@ const mutations = {
 
   //todo confirm list of fields returned from BE
   createConsultation: gql`
-    mutation ($date: DateTime!, symptomsByArea:[inputSymptoms!]!, painLevel: Int!, patientNotes: String, patientId: Int!, doctorId: Int!) {
+    mutation ($date: DateTime!, $symptomsByArea:[inputSymptoms!]!, $painLevel: Int!, $patientNotes: String, $patientId: Int!, $doctorId: Int!) {
       addConsultation (input: {
         consultationDate: $date,
         symptomsByArea: $symptomsByArea,
@@ -69,8 +69,8 @@ const mutations = {
 
   //todo confirm list of fields returned from BE
   updateConsultation: gql`
-    mutation ($id: Float!, $date: DateTime, symptomsByArea:[inputSymptoms!], painLevel: Int, patientNotes: String, transcriptOriginal: String, transcriptTranslated: String, patientRating: Int, doctorNotesOriginal: String, doctorNotesTranslated: String) {
-      updateConsultation (id:$id, newDate: {
+    mutation ($id: Float!, $date: DateTime, $symptomsByArea:[inputSymptoms!], $painLevel: Int, $patientNotes: String, $transcriptOriginal: String, $transcriptTranslated: String, $patientRating: Int, $doctorNotesOriginal: String, $doctorNotesTranslated: String) {
+      updateConsultation (id:$id, newData: {
         consultationDate: $date,
         symptomsByArea: $symptomsByArea,
         painLevel: $painLevel,
