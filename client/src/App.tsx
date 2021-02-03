@@ -10,45 +10,24 @@ import Login from "./Components/Pages/Login/Login";
 import PatientLanding from "./Components/Pages/PatientLanding/PatientLanding";
 import Register from "./Components/Pages/Register/Register";
 import PatientQueue from "./Components/Pages/PatientQueue/PatientQueue";
-import SymptomsChecker from "./Components/Pages/SymptomsChecker/SympotmsChecker";
+import UnAuthApp from "./Components/Globals/Apps/UnAuthApp";
+import DoctorApp from "./Components/Globals/Apps/DoctorApp";
+import PatientApp from "./Components/Globals/Apps/PatientApp";
+
+interface User {
+  isDoctor: boolean;
+  id: number;
+  lang: string;
+}
 
 function App() {
+  const user: User | null = { isDoctor: false, id: 2, lang: "en" };
+
   return (
     <div className="App h-screen">
-      <BrowserRouter>
-        <Switch>
-          <Route path="/language">
-            <LanguageChoice />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/patient">
-            <PatientLanding />
-          </Route>
-          <Route path="/start">
-            <EnterCode />
-          </Route>
-          <Route path="/doctor_chat">
-            <DoctorChat />
-          </Route>
-          <Route path="/consultation_chat">
-            <ConsultationChat />
-          </Route>
-          <Route path="/doctor/queue">
-            <PatientQueue />
-          </Route>
-          <Route path="/consultation_end">
-            <Feedback />
-          </Route>
-          <Route path="/symptoms_checker">
-            <SymptomsChecker />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      {!user && <UnAuthApp />}
+      {user && user.isDoctor && <DoctorApp />}
+      {user && !user.isDoctor && <PatientApp />}
     </div>
   );
 }
