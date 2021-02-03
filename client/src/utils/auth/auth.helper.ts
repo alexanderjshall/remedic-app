@@ -24,6 +24,7 @@ export function isTokenExpired(exp: string): boolean {
 
 async function fetchGQL(query: string) {
   return await fetch("http://localhost:4000/graphql", {
+    credentials: "include",
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
@@ -33,7 +34,7 @@ async function fetchGQL(query: string) {
 export async function loginWithTokenDoctor() {
   try {
     const response = await fetchGQL("{loginWithTokenDoctor}");
-    return response.data;
+    return response.data['loginWithTokenDoctor'];
   } catch (error) {
     return null;
   }
@@ -42,7 +43,7 @@ export async function loginWithTokenDoctor() {
 export async function loginWithTokenPatient() {
   try {
     const response = await fetchGQL("{loginWithTokenPatient}");
-    return response.data;
+    return response.data['loginWithTokenPatient'];
   } catch (error) {
     return null;
   }
@@ -77,28 +78,18 @@ export async function checkUser(
 ): Promise<AuthUser | null> {
   if (!user) return null;
   if (!isTokenExpired(user.exp)) {
-    console.log("token not expired! reurning it: ", user);
     return user;
   }
   const newToken = await refreshToken(user);
   if (!newToken) return null;
   setTokenToStorage(newToken);
-  console.log("newToken", newToken);
   return parseToken(newToken);
 }
 
 export async function refreshToken(user: AuthUser): Promise<string | null> {
-  let newToken: string | null;
-  if (user.isDoctor) {
-    newToken = await loginWithTokenDoctor().then(
-      (data) => data["loginWithTokenDoctor"]
-    );
-  } else {
-    newToken = await loginWithTokenPatient().then(
-      (data) => data["loginWithTokenPatient"]
-    );
-  }
-  return newToken;
+  return user.isDoctor ?
+    await loginWithTokenDoctor() :
+    await loginWithTokenPatient();
 }
 
 function setTokenToStorage(newToken: string) {
