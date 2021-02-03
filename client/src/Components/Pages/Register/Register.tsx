@@ -1,37 +1,43 @@
 import React, { useState } from "react";
 import FormInput, { FormInputType } from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
-
-interface Props {}
+import { UserData } from "../../../types";
+import { useAuth } from "../../../Contexts/Auth.context";
 
 const Register = () => {
-  const handleChange = () => {};
+  const { registerPatient } = useAuth();
 
-  const initialInfo = [
-    { name: "firstName", value: "" },
-    { name: "lastName", value: "" },
-    { name: "postCode", value: "" },
-    { name: "email", value: "" },
-    { name: "password", value: "" },
-  ];
-  const [userInfo, setUserInfo] = useState<FormInputType[]>(initialInfo);
-
-  const updateInput = (inputName: string, value: string) => {
-    const newUserInfo = userInfo.map((field) => {
-      if (field.name === inputName) field.value = value;
-      return field;
-    });
-    setUserInfo(newUserInfo);
+  const initialInfo = {
+    firstName: "",
+    lastName: "",
+    postCode: "",
+    email: "",
+    password: "",
+    // todo: We should read the language from the language context
+    language: "",
   };
 
-  const handleSubmit = () => {
-    console.log("submit being handled!");
-    // Apply data validation and pass to the context
+  const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
+
+  const updateInput = (inputName: string, value: string) => {
+    setUserInfo({ ...userInfo, [inputName]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await registerPatient(userInfo);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-full">
-      <form className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg">
+      <form
+        className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg"
+        onSubmit={handleSubmit}
+      >
         <h2 className="text-green-default">Register</h2>
         <div className="mt-3 flex items-center justify-between">
           <FormInput
@@ -40,7 +46,7 @@ const Register = () => {
             id="firstName"
             name="firstName"
             updateInput={updateInput}
-            onSubmit={handleSubmit}
+            onSubmit={() => {}}
           />
         </div>
         <div className="mt-3 flex items-center justify-between">
@@ -51,7 +57,7 @@ const Register = () => {
             id="lastName"
             name="lastName"
             updateInput={updateInput}
-            onSubmit={handleSubmit}
+            onSubmit={() => {}}
           />
         </div>
         <div className="mt-3 flex items-center justify-items-center">
@@ -62,7 +68,7 @@ const Register = () => {
             id="postCode"
             name="postCode"
             updateInput={updateInput}
-            onSubmit={handleSubmit}
+            onSubmit={() => {}}
           />
         </div>
         <div className="mt-3 flex items-center justify-items-center">
@@ -73,7 +79,7 @@ const Register = () => {
             id="email"
             name="email"
             updateInput={updateInput}
-            onSubmit={handleSubmit}
+            onSubmit={() => {}}
           />
         </div>
         <div className="mt-3 flex items-center justify-items-center">
@@ -84,7 +90,7 @@ const Register = () => {
             id="password"
             name="password"
             updateInput={updateInput}
-            onSubmit={handleSubmit}
+            onSubmit={() => {}}
           />
         </div>
         <OKButton
@@ -92,7 +98,7 @@ const Register = () => {
           type="submit"
           value="Register"
           text="Register"
-          onClick={handleSubmit}
+          onClick={() => {}}
         />
       </form>
     </div>
