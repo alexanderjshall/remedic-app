@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import ConsultationContextProvider from "../../../Contexts/Consultation.context";
 import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
-import SymptomsChecker from "../../Pages/SymptomsChecker/SympotmsChecker";
+import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
   return (
@@ -20,9 +21,11 @@ const PatientApp = () => {
           <Route path="/feedback">
             <Feedback />
           </Route>
-          <Route path="/symptoms_checker">
-            <SymptomsChecker />
-          </Route>
+          <ConsultationContextProvider>
+            <Route path="/symptoms_checker">
+              <SymptomsChecker />
+            </Route>
+          </ConsultationContextProvider>
           <Route path="/patient">
             <PatientLanding />
           </Route>
