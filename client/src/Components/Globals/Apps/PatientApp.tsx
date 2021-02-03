@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
@@ -23,8 +23,11 @@ const PatientApp = () => {
           <Route path="/symptoms_checker">
             <SymptomsChecker />
           </Route>
-          <Route path="/patient" default>
+          <Route path="/patient">
             <PatientLanding />
+          </Route>
+          <Route>
+            <Redirect to="/patient" />
           </Route>
         </Switch>
       </BrowserRouter>
