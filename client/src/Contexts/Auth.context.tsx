@@ -4,18 +4,22 @@ import {
   checkUser,
   AuthUser,
   loginWithCredentials,
+  createPatient,
 } from "../utils/auth/auth.helper";
+import { UserData } from "../types";
 
 export interface AppContextInterface {
   user: AuthUser | null;
   logout: () => void;
   loginUser: (email: string, password: string) => Promise<AuthUser | null>;
+  registerPatient: (inputData: UserData) => Promise<AuthUser | null>;
 }
 
 const initialContext = {
   user: null,
   logout: () => {},
   loginUser: (email: string, password: string) => Promise.resolve(null),
+  registerPatient: () => Promise.resolve(null),
 };
 
 export const AuthContext = createContext<AppContextInterface>(initialContext);
@@ -28,12 +32,8 @@ const AuthContextProvider = (props: Props) => {
   const [user, setUser] = useState<AuthUser | null>(null);
 
   async function setUpContext() {
-    console.log("Setting up context...");
     const savedUser = getTokenFromStorage();
-    console.log("saved user", savedUser);
-    // await checkUser(savedUser);
     const checkedUser = await checkUser(savedUser);
-    console.log("Setting user from inside setupcontext, ", user);
     setUser(checkedUser);
   }
   (async () => {
@@ -55,8 +55,18 @@ const AuthContextProvider = (props: Props) => {
     return user;
   }
 
+  async function registerPatient(userData: UserData) {
+    const user = await createPatient(userData);
+    if (!user) return null;
+    setUser(user);
+    return user;
+  }
+
   return (
-    <AuthContext.Provider value={{ user, logout, loginUser }} {...props} />
+    <AuthContext.Provider
+      value={{ user, logout, loginUser, registerPatient }}
+      {...props}
+    />
   );
 };
 
