@@ -12,6 +12,7 @@ import Register from "./Components/Pages/Register/Register";
 import PatientSymptoms from "./Components/Pages/PatientSymptoms/PatientSymptoms";
 import PatientQueue from "./Components/Pages/PatientQueue/PatientQueue";
 import SymptomsChecker from "./Components/Pages/SymptomsChecker/SymptomsChecker";
+import ConsultationContextProvider from "./Contexts/Consultation.context";
 
 function App() {
   return (
@@ -36,9 +37,11 @@ function App() {
           <Route path="/doctor_chat">
             <DoctorChat />
           </Route>
-          <Route path="/symptoms">
-            <PatientSymptoms />
-          </Route>
+          <ConsultationContextProvider>
+            <Route path="/consultation/symptoms/physical">
+              <PatientSymptoms />
+            </Route>
+          </ConsultationContextProvider>
           <Route path="/consultation_chat">
             <ConsultationChat />
           </Route>
