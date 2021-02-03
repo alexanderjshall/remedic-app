@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormInput, { FormInputType } from "../../Globals/FormInput/FormInput";
+import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
 import { UserData } from "../../../types";
 import { useAuth } from "../../../Contexts/Auth.context";
