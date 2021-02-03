@@ -51,6 +51,10 @@ function App() {
           <Route path="/symptoms_checker">
             <SymptomsChecker />
           </Route>
+          {/* Default redirect */}
+          <Route path="*">
+            <LanguageChoice />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
