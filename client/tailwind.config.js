@@ -18,6 +18,7 @@ module.exports = {
       },
       colors: {
         blue: {
+          superlight: "#D9F0FC",
           light: "#879be5",
           DEFAULT: "#4766D7",
           dark: "#2848B8",
@@ -37,6 +38,13 @@ module.exports = {
           cream: "#F5F5F5",
           ghost: "#EFF1FB",
         },
+        red: {
+          negative: "#FC5F67",
+          dark: "#A31420",
+        },
+        yellow: {
+          backgrounds: "#EDE5A6",
+        },
       },
       inset: {
         "5/100": "5%",
@@ -50,6 +58,7 @@ module.exports = {
   variants: {
     extend: {
       fill: ["hover", "focus"],
+      backgroundColor: ["odd", "even"],
     },
   },
   plugins: [],
