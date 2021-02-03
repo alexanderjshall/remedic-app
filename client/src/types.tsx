@@ -67,3 +67,10 @@ export const BlankConsultation: ConsultationInfo = {
   patientNotes: '',
   patientRating: 5,
 }
+
+export interface Symptom {
+  area: string;
+  symptom: string;
+  img: string;
+  selected: boolean;
+}
