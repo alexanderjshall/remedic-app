@@ -21,11 +21,11 @@ const PatientApp = () => {
           <Route path="/feedback">
             <Feedback />
           </Route>
+          <Route path="/symptoms_checker">
           <ConsultationContextProvider>
-            <Route path="/symptoms_checker">
               <SymptomsChecker />
-            </Route>
-          </ConsultationContextProvider>
+            </ConsultationContextProvider>
+          </Route>
           <Route path="/patient">
             <PatientLanding />
           </Route>
