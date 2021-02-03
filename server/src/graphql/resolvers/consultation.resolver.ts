@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import Patient from '../../entities/patient';
-import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, ID, FieldResolver, Root } from 'type-graphql';
+import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, FieldResolver, Root } from 'type-graphql';
 import { CustomContext } from '..';
 import Consultation, { Symptoms } from '../../entities/consultation';
 import { wrap } from '@mikro-orm/core';
@@ -15,7 +15,7 @@ class ConsultationInput {
   @Field(() => [Symptoms])
   symptomsByArea: Symptoms[]; 
 
-  @Field(() => ID)
+  @Field(() => Int)
   painLevel: number;
 
   @Field(() => String, {nullable: true})
@@ -33,6 +33,9 @@ class ConsultationInput {
 class UpdateConsultationInput {
   @Field(() => Date, {nullable:true})
   consultationDate?: Date;
+
+  @Field(() => Boolean, {nullable:true})
+  isActive?: boolean;
 
   @Field(() => [Symptoms], {nullable:true})
   symptomsByArea?: Symptoms[];
@@ -62,7 +65,7 @@ class UpdateConsultationInput {
 @Resolver(Consultation)
 export default class ConsultationResolver {
   @Query(() => Consultation)
-  async getOneConsulation (
+  async getOneConsultation (
     @Arg('id') id:number,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {

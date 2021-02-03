@@ -9,8 +9,9 @@ import LanguageChoice from "./Components/Pages/LanguageChoice/LanguageChoice";
 import Login from "./Components/Pages/Login/Login";
 import PatientLanding from "./Components/Pages/PatientLanding/PatientLanding";
 import Register from "./Components/Pages/Register/Register";
-import PatientQueue from './Components/Pages/PatientQueue/PatientQueue'
 import PatientSymptoms from "./Components/Pages/PatientSymptoms/PatientSymptoms";
+import PatientQueue from "./Components/Pages/PatientQueue/PatientQueue";
+import SymptomsChecker from "./Components/Pages/SymptomsChecker/SymptomsChecker";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path="/consultation_end">
             <Feedback />
+          </Route>
+          <Route path="/symptoms_checker">
+            <SymptomsChecker />
           </Route>
         </Switch>
       </BrowserRouter>
