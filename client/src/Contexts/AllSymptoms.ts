@@ -37,7 +37,7 @@ import legsRash from '../assets/symptoms/legs-rash.svg';
 import legsThighPain from '../assets/symptoms/legs-thighpain.svg';
 import { Symptom } from '../types';
 
-export const physicalSymptoms: Symptom[] = [
+export const fullPhysicalSymptoms: Symptom[] = [
   { area: 'Head', symptom: 'Cough', img: headCough, selected: false },
   { area: 'Head', symptom: 'Dizzy', img: headDizzy, selected: false },
   { area: 'Head', symptom: 'Hair Loss', img: headHairLoss, selected: false },

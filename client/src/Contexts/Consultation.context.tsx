@@ -1,9 +1,9 @@
-import React, { createContext, useState, ReactChild } from 'react';
+import React, { createContext, useState, ReactChild, useEffect } from 'react';
 import { Symptom } from '../types';
-import { physicalSymptoms } from './AllSymptoms';
+import { fullPhysicalSymptoms } from './AllSymptoms';
 
 export interface AppContextInterface {
-  symptoms: Symptom[];
+  physicalSymptoms: Symptom[];
   toggleSymptomSelect: (symptom: Symptom) => void;
 }
 
@@ -15,21 +15,27 @@ export const ConsultationContext = createContext<AppContextInterface | null>(nul
 
 // Consultation Context for patient info
 const ConsultationContextProvider = (props: Props) => {
-  const [ symptoms, setSymptoms ] = useState<Symptom[]>(physicalSymptoms);
+  //TODO create function that filters ALL symptoms [...] by .selected and sends to back-end
+
+  const [ physicalSymptoms, setSymptoms ] = useState<Symptom[]>([]);
+
+  useEffect(() => {
+    setSymptoms(fullPhysicalSymptoms);
+  }, [])
 
   const toggleSymptomSelect = (symptom: Symptom): void => {
     
-    const alteredSymptoms = symptoms.map((s) => {
-      s.selected = symptom.symptom === s.symptom && !symptom.selected;
+    const alteredSymptoms = physicalSymptoms.map((s) => {
+      
+      if(symptom.symptom === s.symptom) s.selected = !s.selected;
       return s;
     });
-    symptom.selected = !symptom.selected;
     setSymptoms(alteredSymptoms);
     console.log(alteredSymptoms)
   }
   
   return (
-    <ConsultationContext.Provider value={{symptoms, toggleSymptomSelect}}>
+    <ConsultationContext.Provider value={{physicalSymptoms, toggleSymptomSelect}}>
       {props.children}
     </ConsultationContext.Provider>
   );

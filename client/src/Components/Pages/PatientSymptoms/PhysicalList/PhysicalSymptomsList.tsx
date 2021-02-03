@@ -9,9 +9,9 @@ interface Props {
 
 const PhysicalSymptomsList = (props: Props) => {
   const { area, onBackArrowClick } = props;
-  const { symptoms, toggleSymptomSelect } = useContext(ConsultationContext)!;
+  const { physicalSymptoms, toggleSymptomSelect } = useContext(ConsultationContext)!;
 
-  const areaSymptoms = symptoms.filter((symptom) => {
+  const areaSymptoms = physicalSymptoms.filter((symptom) => {
     return area === symptom.area;
   })
 
