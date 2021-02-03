@@ -49,9 +49,9 @@ const ConsultationContextProvider = (props: Props) => {
         }
         return acc;
       },[])
-      console.log('reduced', selected)
+      console.log('reduced', selected);
       
-      //todo need to decide whether this is a global state or just a helper function.
+      //todo send this to BE on user completing the consultation.
       return;
     }
 
