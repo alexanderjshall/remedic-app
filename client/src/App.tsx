@@ -9,8 +9,9 @@ import LanguageChoice from "./Components/Pages/LanguageChoice/LanguageChoice";
 import Login from "./Components/Pages/Login/Login";
 import PatientLanding from "./Components/Pages/PatientLanding/PatientLanding";
 import Register from "./Components/Pages/Register/Register";
+import PatientSymptoms from "./Components/Pages/PatientSymptoms/PatientSymptoms";
 import PatientQueue from "./Components/Pages/PatientQueue/PatientQueue";
-import SymptomsChecker from "./Components/Pages/SymptomsChecker/SympotmsChecker";
+import SymptomsChecker from "./Components/Pages/SymptomsChecker/SymptomsChecker";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/doctor_chat">
             <DoctorChat />
+          </Route>
+          <Route path="/symptoms">
+            <PatientSymptoms />
           </Route>
           <Route path="/consultation_chat">
             <ConsultationChat />
