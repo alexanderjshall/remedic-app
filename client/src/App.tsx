@@ -2,15 +2,10 @@ import React from "react";
 import UnAuthApp from "./Components/Globals/Apps/UnAuthApp";
 import DoctorApp from "./Components/Globals/Apps/DoctorApp";
 import PatientApp from "./Components/Globals/Apps/PatientApp";
-
-interface User {
-  isDoctor: boolean;
-  id: number;
-  lang: string;
-}
+import { useAuth } from "./Contexts/Auth.context";
 
 function App() {
-  const user: User | null = { isDoctor: false, id: 2, lang: "en" };
+  const { user } = useAuth();
 
   return (
     <div className="App h-screen">
