@@ -1,57 +1,64 @@
 import React, { useState } from "react";
-import FormInput, { FormInputType } from '../../Globals/FormInput/FormInput';
-import OKButton from '../../Globals/OKButton/OKButton';
+import { useAuth } from "../../../Contexts/Auth.context";
+import FormInput from "../../Globals/FormInput/FormInput";
+import OKButton from "../../Globals/OKButton/OKButton";
 
 const Login = () => {
-  const initialInfo = [
-    {name: 'firstName', value:''},
-    {name: 'lastName', value:''},
-    {name: 'postCode', value:''},
-    {name: 'email', value:''},
-    {name: 'password', value:''},
-  ]
-  const [userInfo, setUserInfo] = useState<FormInputType[]>(initialInfo);
+  const { loginUser } = useAuth();
 
-
-  const updateInput  = (inputName: string, value: string) => {
-    const newUserInfo = userInfo.map(field => {
-      if (field.name === inputName) field.value = value;
-      return field;
-    })
-    setUserInfo(newUserInfo);
+  interface Credentials {
+    email: string;
+    password: string;
   }
 
-  const handleSubmit= () => {
-    console.log('submit being handled!');
-    // Apply data validation and pass to the context
-  }
+  const [userInfo, setUserInfo] = useState<Credentials>({
+    email: "",
+    password: "",
+  });
+
+  const updateInput = (inputName: string, value: string) => {
+    setUserInfo({ ...userInfo, [inputName]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await loginUser(userInfo.email, userInfo.password);
+      console.log("res", res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <div className="flex items-center justify-content-center flex-col bg-white-dark h-full">
-      <form className="flex items-center justify-center bg-white flex-col h-2/3 w-1/3 shadow-lg mt-20 rounded-lg">
+    <div className="flex items-center h-screen justify-content-center flex-col bg-white-dark">
+      <form
+        className="flex items-center justify-center bg-white flex-col h-2/3 w-1/3 shadow-lg mt-20 rounded-lg"
+        onSubmit={handleSubmit}
+      >
         <h2 className="text-green-default font-title">Login</h2>
         <FormInput
-            type="email"
-            placeholder="Email"
-            id="email"
-            name="email"
-            updateInput={updateInput}
-            onSubmit={handleSubmit}
+          type="email"
+          placeholder="Email"
+          id="email"
+          name="email"
+          updateInput={updateInput}
+          onSubmit={() => {}}
         />
         <FormInput
-            type="password"
-            placeholder="Password"
-            id="password"
-            name="password"
-            updateInput={updateInput}
-            onSubmit={handleSubmit}
+          type="password"
+          placeholder="Password"
+          id="password"
+          name="password"
+          updateInput={updateInput}
+          onSubmit={() => {}}
         />
         <OKButton
           name="login"
           type="submit"
           value="Login"
           text="Login"
-          onClick={handleSubmit}
+          onClick={() => {}}
         />
       </form>
     </div>
