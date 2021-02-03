@@ -33,19 +33,19 @@ function App() {
           <Route path="/start">
             <EnterCode />
           </Route>
-          <Route path="/doctor_chat">
+          <Route path="/doctor/consultation">
             <DoctorChat />
           </Route>
-          <Route path="/symptoms">
+          <Route path="/consultation/symptoms">
             <PatientSymptoms />
           </Route>
-          <Route path="/consultation_chat">
+          <Route path="/consultation/chat">
             <ConsultationChat />
           </Route>
           <Route path="/doctor/queue">
             <PatientQueue />
           </Route>
-          <Route path="/consultation_end">
+          <Route path="/consultation/rating">
             <Feedback />
           </Route>
           <Route path="/symptoms_checker">
