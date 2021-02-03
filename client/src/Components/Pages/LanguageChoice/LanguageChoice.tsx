@@ -1,14 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { IoLanguageSharp } from "react-icons/io5";
 import "./LanguageChoice.css";
 import OKButton from '../../Globals/OKButton/OKButton';
-
+import { Redirect } from 'react-router-dom';
 
 const LanguageChoice = () => {
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>('en');
 
   const handleSubmit = () => {
-
+    // TODO: save language choice to context
+    setSubmitted(true);
   }
+
+  useEffect (() => {
+    console.log('language:', language)
+  }, [language])
+
+  const updateLanguage:React.MouseEventHandler<HTMLInputElement> = (e) => {
+    setLanguage(e.currentTarget.value);
+  }
+
+
+
+  if (submitted) return <Redirect to='/login'/>
 
   return (
     <div className="flex-col flex justify-center w-screen bg-gradient-to-b from-blue-light via-blue-50 to-white-ghost">
@@ -25,55 +40,64 @@ const LanguageChoice = () => {
             className="mt-5 flex flex-col divide-y-2 divide-black divide-opacity-30"
           >
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="hindi" className="text-lg">
-                हिन्दी 🇮🇳
+              <label htmlFor="en" className="text-lg">
+                English
               </label>
-              <input type="radio" name="lang" id="hindi" value="Hindi " />
+              <input type="radio" name="lang" id="en" value="en" onClick={updateLanguage}/>
             </div>
 
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="Pakistani" className="text-lg">
+              <label htmlFor="hi" className="text-lg">
+                हिन्दी 🇮🇳
+              </label>
+              <input type="radio" name="lang" id="hi" value="hi" onClick={updateLanguage}/>
+            </div>
+
+            <div className="flex align-center justify-between my-2">
+              <label htmlFor="ur" className="text-lg">
                 اردو 🇵🇰
               </label>
               <input
                 type="radio"
                 name="lang"
-                id="Pakistani"
-                value="Pakistani"
+                id="ur"
+                value="ur"
+                onClick={updateLanguage}
               />
             </div>
 
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="Spanish" className="text-lg">
+              <label htmlFor="es" className="text-lg">
                 Español 🇪🇸
               </label>
-              <input type="radio" name="lang" id="Spanish" value="Spanish" />
+              <input type="radio" name="lang" id="es" value="es" onClick={updateLanguage}/>
             </div>
 
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="Vietnamese" className="text-lg">
+              <label htmlFor="vi" className="text-lg">
                 Tiếng Việt 🇻🇳
               </label>
               <input
                 type="radio"
                 name="lang"
-                id="Vietnamese"
-                value="Vietnamese"
+                id="vi"
+                value="vi"
+                onClick={updateLanguage}
               />
             </div>
 
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="Russian" className="text-lg">
+              <label htmlFor="ru" className="text-lg">
                 русский 🇷🇺
               </label>
-              <input type="radio" name="lang" id="Russian" value="Russian" />
+              <input type="radio" name="lang" id="ru" value="ru" onClick={updateLanguage}/>
             </div>
 
             <div className="flex align-center justify-between my-2">
-              <label htmlFor="Mandarin" className="text-lg">
-                普通话 🇨🇳
+              <label htmlFor="zh" className="text-lg">
+               中文 🇨🇳
               </label>
-              <input type="radio" name="lang" id="Mandarin" value="Mandarin" />
+              <input type="radio" name="lang" id="zh" value="zh" onClick={updateLanguage}/>
             </div>
 
             {/* <div className="flex flex-col relative overflow-hidden">
