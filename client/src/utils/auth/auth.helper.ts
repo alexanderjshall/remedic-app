@@ -1,7 +1,5 @@
-import { parse } from "dotenv/types";
 import jwt from "jsonwebtoken";
-import { tokenToString } from "typescript";
-import { User } from "../../types";
+import { UserData } from "../../types";
 
 export interface AuthUser {
   exp: string;
@@ -105,4 +103,26 @@ export async function refreshToken(user: AuthUser): Promise<string | null> {
 
 function setTokenToStorage(newToken: string) {
   localStorage.setItem("authToken", newToken);
+}
+
+export async function createPatient(patient: UserData) {
+  let response = await fetchGQL(
+    `mutation {
+      createPatient(
+        patientInput: {
+          firstName: "${patient.firstName}",
+          lastName,: "${patient.lastName}",
+          email: "${patient.email}",
+          password: "${patient.password}",
+          language: "${patient.language}",
+          postCode: "${patient.postCode}",
+        }
+        )
+    }`
+  );
+  if (response.data.createPatient) {
+    const token = response.data.createPatient;
+    setTokenToStorage(token);
+    return parseToken(token);
+  } else return null;
 }
