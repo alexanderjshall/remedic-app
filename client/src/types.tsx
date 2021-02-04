@@ -27,14 +27,10 @@ export interface ConsultationInfo {
   doctorNotesOriginal: string;
   doctorNotesTranslated: string;
   painLevel: number;
-  symptomsByArea: [
-    {
-      area: string;
-      symptom: string;
-    }
-  ];
+  symptomsByArea: Symptom[];
   patientNotes: string;
   patientRating: number;
+  isActive: boolean;
 }
 
 //
@@ -52,10 +48,12 @@ export const BlankConsultation: ConsultationInfo = {
     {
       area: "",
       symptom: "",
+      selected: true
     },
   ],
   patientNotes: "",
   patientRating: 5,
+  isActive: true
 };
 export interface Symptom {
   area: string;
