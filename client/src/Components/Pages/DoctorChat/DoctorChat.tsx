@@ -4,19 +4,34 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
 import { ReactComponent as SendMessage } from "../../../assets/utils/send_message.svg";
+import { useQuery } from "react-query";
+import client from "../../../services/graphqlService";
+import queries from "../../../services/graphqlService/queries";
+import Spinner from "../../Globals/Spinner/Spinner";
+import languages from "../../../utils/supported-languages.json";
 
+const langEnglishName = (langCode: string) => 
+  languages.languages.find(l => l.langCode ===langCode )?.englishName
 
 // todo, this hardcoded values should instead be read from the context
-const consultationId = "1";
+const consultationId = 4;
 const patientLanguage = "es";
 
 const DoctorChat = () => {
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
-    consultationId,
+    String(consultationId),
     true,
     patientLanguage
   );
+
+  //painlevel, symptom by area, 
+  // name of patient,
+  // isLoading
+  const { data, isLoading } = useQuery(['consultation', consultationId], async () => await client.request(queries.getConsultation, {id: consultationId}), {
+    onSuccess: (data) => console.log(data),
+    onError: () => console.log("there's an error")
+  })
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,34 +45,88 @@ const DoctorChat = () => {
     }
   };
 
+  const renderSymptoms = () => {
+    return isLoading ? 
+      <div className="flex justify-center items-center mt-8 w-full"> 
+        <Spinner size={12} />
+      </div> :
+      <>
+        <h1 className="text-xl font-bold text-blue-dark">Pain intensity: <span className="text-black">{data.getOneConsultation.painLevel}</span></h1>
+        <h1 className="text-xl font-bold text-blue-dark mt-4">
+          Patient language: <span className="text-black">{langEnglishName(data.getOneConsultation.patientId.language)}</span>
+        </h1>
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1> 
+        {
+        data.getOneConsultation.symptomsByArea
+          .filter((s: any) => s.area==="Global")
+          .map((s : any) => <h3>{JSON.stringify(s)}</h3>)
+        }
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1> 
+        {
+        data.getOneConsultation.symptomsByArea
+          .filter((s: any) => s.area!=="Global")
+          .map((s : any) => 
+          <>
+          <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
+          <ul>
+            {s.symptom.split(",").map( (sym:string) => 
+              <li className="list-disc ml-12">{sym}</li>
+            )}
+          </ul>
+          </>)
+          }
+      </>
+  }
+
   return (
     <div className="h-full overflow-hidden">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
-        <h1 className="font-bold text-2xl text-white-ghost">Patient XXX</h1>
+        <h1 className="font-bold text-2xl text-white-ghost">
+          { isLoading ? 'Patient' : `${data.getOneConsultation.patientId.firstName} ${data.getOneConsultation.patientId.lastName}`}
+        </h1>
       </div>
       <div className="grid grid-rows-2 grid-cols-2 grid-flow-row px-4 mt-6 pt-20">
         <div className="row-span-2">
-          <div className="flex flex-auto flex-col">
-            <form className="flex items-center flex-col">
-              <label
-                htmlFor="doctor_notes"
-                className="font-bold text-lg text-opacity-75 whitespace-nowrap"
-              >
-                Your personal notes:
-              </label>
-              <textarea
-                wrap="soft"
-                name="doctor_notes"
-                id="doctor_notes"
-                className="resize-none border-black border w-full p-2 min-h-textarea rounded-lg outline-none focus:border-4"
-              ></textarea>
+          <div className="h-full">
+            <form className="h-full">
+            <label
+                  htmlFor="patient_notes"
+                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
+                >
+                  Symptoms as described by patient:
+                </label>
+              <div className="border-black border h-1/2 w-full rounded-lg mb-2 overflow-auto p-4">
+                {renderSymptoms()}
+              
+              </div>
+                <label
+                  htmlFor="doctor_notes"
+                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
+                >
+                  Consultation Notes:
+                </label>
+                <textarea
+                  wrap="soft"
+                  name="doctor_notes"
+                  id="doctor_notes"
+                  className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
+                ></textarea>
+                <div className="flex justify-center">
+                  <OKButton
+                  name="consultation_btn"
+                  type="submit"
+                  value="End consultation"
+                  text="End consultation"
+                  onClick={() => {}}
+                  />
+                </div>
             </form>
           </div>
         </div>
         <div className="row-span-3">
           <div className="flex flex-auto flex-col ml-4">
             <h1 className="text-lg font-bold text-opacity-75 text-center whitespace-nowrap">
-              Your chat:
+              Chat:
             </h1>
             <div className=" flex flex-col pb-3">
               <div className=" flex border border-black rounded-lg flex-col overflow-auto min-h-textarea max-h-chat py-5">
@@ -73,34 +142,25 @@ const DoctorChat = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-full">
-          <div className="flex col-span-full col-start-2">
+        <div className="col-start-2">
+          <div className="flex">
             <form
-              className="relative flex justify-end items-center p-3 bg-white w-full"
+              className="relative flex justify-end items-center p-3 bg-white w-full self-end"
               onSubmit={sendMessage}
             >
               <label hidden htmlFor="chat_input" />
               <input
                 type="text"
                 name="chat input"
-                className="rounded-md shadow-sm py-2 ring-2 focus:ring-blue-dark w-full tablet:w-1/2 cursor-text px-4"
+                className="rounded-md shadow-sm py-2 ring-2 focus:ring-blue-dark w-full cursor-text px-4"
                 placeholder="Start messaging"
                 value={currentMsg}
                 onChange={(e) => setCurrentMsg(e.target.value)}
               />
-              <button className="absolute right-12">
+              <button className="absolute right-4">
                 <SendMessage />
               </button>
             </form>
-          </div>
-          <div className="col-span-full flex justify-center mt-6">
-            <OKButton
-              name="consultation_btn"
-              type="submit"
-              value="Start consultation"
-              text="Start a consultation"
-              onClick={() => {}}
-            />
           </div>
         </div>
       </div>
