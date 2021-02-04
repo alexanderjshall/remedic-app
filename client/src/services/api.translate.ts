@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 interface TranslationQuery {
-  q: string;
+  q: string | string[];
   source: string;
   target: string;
   format: string;

@@ -5,7 +5,6 @@ import PatientQueue from "../../Pages/PatientQueue/PatientQueue";
 
 const DoctorApp = () => {
   return (
-    <div>
       <BrowserRouter>
         <Switch>
           <Route path="/doctor_chat">
@@ -19,7 +18,6 @@ const DoctorApp = () => {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 };
 
