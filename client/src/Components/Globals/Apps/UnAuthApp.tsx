@@ -6,10 +6,9 @@ import Register from "../../Pages/Register/Register";
 
 const UnAuthApp = () => {
   return (
-    <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/language">
+          <Route exact path="/language">
             <LanguageChoice />
           </Route>
           <Route exact path="/login">
@@ -18,12 +17,11 @@ const UnAuthApp = () => {
           <Route exact path="/register">
             <Register />
           </Route>
-          <Route>
+          <Route exact path="/">
             <Redirect to="/language" />
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 };
 

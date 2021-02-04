@@ -2,32 +2,14 @@ import React, { useState } from "react";
 import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
-import io from "socket.io-client";
 import useChat from "../../../hooks/useChat";
 
-const handleSubmit = () => {};
-
-// const patientMessage: Message = {
-//   name: "Miss Doubtfire",
-//   isAuthor: true,
-//   content: "This is a patient message",
-//   timestamp: "7:20am",
-// };
-
-// const doctorMessage: Message = {
-//   name: "Doctor Zivago",
-//   isAuthor: false,
-//   content: "this is a doctor message",
-//   timestamp: "7:21am",
-// };
-
-const consultationSocket = io("http://localhost:5000");
+// todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
 
 const DoctorChat = () => {
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
-    consultationSocket,
     consultationId,
     true
   );
@@ -130,7 +112,7 @@ const DoctorChat = () => {
                   type="submit"
                   value="Start consultation"
                   text="Start a consultation"
-                  onClick={handleSubmit}
+                  onClick={()=>{}}
                 />
               </div>
             </div>

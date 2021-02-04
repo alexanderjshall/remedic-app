@@ -1,31 +1,14 @@
 import React, { useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
-import io from "socket.io-client";
 import useChat from "../../../hooks/useChat";
 
+// todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
-
-// const patientMessage: Message = {
-//   name: "Miss Doubtfire",
-//   isAuthor: true,
-//   content: "This is a patient message",
-//   timestamp: "7:20am",
-// };
-
-// const doctorMessage: Message = {
-//   name: "Doctor Zivago",
-//   isAuthor: false,
-//   content: "this is a doctor message",
-//   timestamp: "7:21am",
-// };
-
-const consultationSocket = io("http://localhost:5000");
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
   const { messages, addMessage } = useChat(
-    consultationSocket,
     consultationId,
     false
   );

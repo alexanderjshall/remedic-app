@@ -9,32 +9,30 @@ import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
   return (
-    <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/consultation_chat">
+          <Route exact path="/consultation_chat">
             <ConsultationChat />
           </Route>
-          <Route path="/enter_code">
+          <Route exact path="/enter_code">
             <EnterCode />
           </Route>
-          <Route path="/feedback">
+          <Route exact path="/feedback">
             <Feedback />
           </Route>
-          <Route path="/symptoms_checker">
-          <ConsultationContextProvider>
+          <Route exact path="/symptoms_checker">
+            <ConsultationContextProvider>
               <SymptomsChecker />
             </ConsultationContextProvider>
           </Route>
-          <Route path="/patient">
+          <Route exact path="/patient">
             <PatientLanding />
           </Route>
-          <Route>
+          <Route path="/login">
             <Redirect to="/patient" />
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 };
 
