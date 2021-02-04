@@ -31,18 +31,20 @@ const Register = () => {
       console.error(error);
     }
   };
-
+  // flex items-center justify-center
   return (
-    <div className="flex items-center flex-col bg-white-dark h-screen px-5">
+    <div className="flex justify-center bg-white-dark h-screen px-5">
       <form
-        className="flex items-center justify-center bg-white flex-col h-5/6 shadow-lg mt-20 rounded-lg w-full p-3"
+        className=" bg-white flex-col h-5/6 shadow-lg mt-20 rounded-lg w-full space-y-5 p-4 grid place-items-center grid-rows-6 gap-y-10"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
-          <h2 className="text-green text-3xl font-bold">Register</h2>
+          <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
+            Register
+          </h2>
         </div>
 
-        <div className="my-4 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
           <label htmlFor="firstName" className="mb-2">
             First Name:
           </label>
@@ -56,7 +58,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="my-4 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
           <label htmlFor="lastName" className="mb-2">
             Last Name:
           </label>
@@ -69,7 +71,7 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
           <label htmlFor="postCode" className="mb-2">
             Postcode:
           </label>
@@ -82,7 +84,7 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
           <label htmlFor="email" className="mb-2">
             Email Address:
           </label>
@@ -95,7 +97,7 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+        <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
           <label htmlFor="password" className="mb-2">
             Password:
           </label>
