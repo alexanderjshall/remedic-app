@@ -134,6 +134,7 @@ const queries = {
      doctorNotesTranslated
      patientId {
        firstName
+       language
      }
      doctorId {
        id
