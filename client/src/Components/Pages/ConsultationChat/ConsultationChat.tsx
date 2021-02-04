@@ -3,12 +3,21 @@ import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
 import send_message from "../../../assets/utils/send_message.svg";
+import { useAuth } from "../../../Contexts/Auth.context";
+
 // todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
-  const { messages, addMessage } = useChat(consultationId, false);
+  const {user} = useAuth();
+
+  const { messages, addMessage } = useChat(
+    consultationId,
+    false,
+    user!.language
+  );
+
   const [currentMsg, setCurrentMsg] = useState("");
 
   const messagesEndRef = useRef<null | HTMLDivElement>(null);

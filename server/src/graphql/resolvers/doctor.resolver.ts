@@ -4,6 +4,7 @@ import { CustomContext } from '..';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { createAccessToken, createRefreshToken, setRefreshToken } from '../../utils/auth';
+import { generateDoctorCode } from '../../utils/doctorCode';
 
 
 @InputType()
@@ -34,8 +35,17 @@ export default class DoctorResolver {
       const checkEmail = await doctorRepo.findOne({email: newDoctor.email});
       if (checkEmail) throw new Error (`${newDoctor.email}: doctor email already registered`);
 
+      // Generate random code, make sure it is not already in db
+      let code = '';
+      let alreadyExist = true;
+      while (alreadyExist) {
+        code = generateDoctorCode();
+        alreadyExist = !!(await doctorRepo.findOne({docPublicCode: code}));
+      }
       const doctor = doctorRepo.create(newDoctor);
+      doctor.docPublicCode = code;
       doctor.password = await bcrypt.hash(doctor.password,10);
+
       await doctorRepo.persistAndFlush(doctor);
       return doctor;
     } catch (e) {

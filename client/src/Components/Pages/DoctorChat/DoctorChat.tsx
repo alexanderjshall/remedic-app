@@ -5,11 +5,18 @@ import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessag
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
 import { ReactComponent as SendMessage } from "../../../assets/utils/send_message.svg";
 
+
+// todo, this hardcoded values should instead be read from the context
 const consultationId = "1";
+const patientLanguage = "es";
 
 const DoctorChat = () => {
   const [currentMsg, setCurrentMsg] = useState<string>("");
-  const { messages, addMessage } = useChat(consultationId, true);
+  const { messages, addMessage } = useChat(
+    consultationId,
+    true,
+    patientLanguage
+  );
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

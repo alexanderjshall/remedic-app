@@ -4,6 +4,7 @@ import PhysicalSymptomsList from './PhysicalList/PhysicalSymptomsList';
 import logoReduced from '../../../assets/logos/logo-reduced.svg'
 import finishTick from '../../../assets/utils/tick.svg';
 import { ConsultationContext } from '../../../Contexts/Consultation.context';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   area?: string;
@@ -11,17 +12,23 @@ interface Props {
 
 
 const PatientSymptoms = (props: Props) => {
+  const history = useHistory();
   const [view, setView] = useState<string>('Main');
-  const {physicalSymptoms, filterSelectedSymtoms} = useContext(ConsultationContext)!;
+  const {confirmConsultation } = useContext(ConsultationContext)!;
 
-  const handleBodyPartClick = (newView: string): void => {
-    setView(newView);
-  }
+  const handleBodyPartClick = (newView: string): void => setView(newView);
+  
 
-  const handleBackArrowClick = (): void => {
-    setView('Main');
-  }
+  const handleBackArrowClick = (): void => setView('Main');
+  
 
+  const handleNextClick = (): void => {
+    confirmConsultation().then(() => {
+      history.push('/consultation_chat');
+    }).catch(() => {
+      window.alert('Please Try Again');
+    })
+  };
 
 
   return (
@@ -43,7 +50,7 @@ const PatientSymptoms = (props: Props) => {
               "
             >
               <button 
-                onClick={() => filterSelectedSymtoms(physicalSymptoms)}
+                onClick={handleNextClick}
                 className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:">
                 <img src={finishTick} alt="tick" className="text-white w-6"/>
                 <h2 className="text-sm font-extrabold">Next</h2>
