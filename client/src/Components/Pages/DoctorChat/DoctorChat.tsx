@@ -12,7 +12,7 @@ const langEnglishName = (langCode: string) =>
 
 const DoctorChat = () => {
 
-  const {currentConsultation} = useDrContext()!
+  const {currentConsultation} = useDrContext();
 
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
