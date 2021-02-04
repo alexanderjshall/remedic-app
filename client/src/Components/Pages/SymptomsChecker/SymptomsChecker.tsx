@@ -55,7 +55,6 @@ const SymptomsChecker = () => {
           Please specify your symptoms:
         </h1>
       </div>
-
       <ul className="w-full  overflow-scroll px-3 flex-grow flex flex-col items-center pt-5">
         <h1 className="text-center font-bold text-2xl">Pain level:</h1>
         <div className="grid grid-cols-4 w-full gap-2 pt-4">
