@@ -33,17 +33,19 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen px-5">
+    <div className="flex items-center flex-col bg-white-dark h-screen px-5">
       <form
-        className="flex items-center justify-center bg-white flex-col h-4/5 shadow-lg mt-20 rounded-lg w-full p-3"
+        className="flex items-center justify-center bg-white flex-col h-5/6 shadow-lg mt-20 rounded-lg w-full p-3"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <h2 className="text-green text-3xl font-bold">Register</h2>
         </div>
 
-        <div className="mt-3 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="firstName">First Name:</label>
+        <div className="my-4 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="firstName" className="mb-2">
+            First Name:
+          </label>
           <FormInput
             type="text"
             placeholder="First Name"
@@ -54,8 +56,10 @@ const Register = () => {
           />
         </div>
 
-        <div className="mt-3 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="lastName">Last Name:</label>
+        <div className="my-4 flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="lastName" className="mb-2">
+            Last Name:
+          </label>
           <FormInput
             type="text"
             placeholder="Last Name"
@@ -65,8 +69,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="postCode">Postcode:</label>
+        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="postCode" className="mb-2">
+            Postcode:
+          </label>
           <FormInput
             type="text"
             placeholder="SW1A 1AA"
@@ -76,8 +82,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="email">Email Address:</label>
+        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="email" className="mb-2">
+            Email Address:
+          </label>
           <FormInput
             type="email"
             placeholder="Email"
@@ -87,8 +95,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="password">Password:</label>
+        <div className="my-4 flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="password" className="mb-2">
+            Password:
+          </label>
           <FormInput
             type="password"
             placeholder="Password"
