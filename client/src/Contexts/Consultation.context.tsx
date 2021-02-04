@@ -3,7 +3,6 @@ import { useMutation } from 'react-query';
 import client from '../services/graphqlService';
 import mutations from '../services/graphqlService/mutations';
 import { Symptom } from '../types';
-import { AuthUser } from '../utils/auth/auth.helper';
 import { fullPhysicalSymptoms, fullGeneralSymptoms } from './AllSymptoms';
 import { AuthContext } from './Auth.context';
 
@@ -14,7 +13,7 @@ export interface AppContextInterface {
   toggleGeneralSymptomSelect: (symptom: Symptom, isSelected: boolean) => void;
   changePainLevel: (painLevel: number) => void;
   updateDoctorId: (id: number) => void;
-  confirmConsultation: () => void;
+  confirmConsultation: () => Promise<void>;
 }
 
 interface Props {
@@ -35,11 +34,6 @@ interface NewConsultation {
   doctorId: number;
 }
 
-// consultationDate - autogenerate on send.
-// symptomsByArea - partially done. Need to add 'Global' area
-// painLevel
-// patientId - get from auth context
-// doctorId (doctor ID === ENTER CODE)
 
 export const ConsultationContext = createContext<AppContextInterface | null>(null);
 
@@ -59,7 +53,6 @@ const ConsultationContextProvider = (props: Props) => {
   // ID states
   const [doctorId, setDoctorId] = useState<number>(1); // doctor code for socket IO
   const [consultationId, setConsultationId] = useState<number>() // consultation code for socket IO
-  console.log('consultationId - context: ', consultationId);
 
   useEffect(() => {
     setSymptoms(fullPhysicalSymptoms);
@@ -82,16 +75,11 @@ const ConsultationContextProvider = (props: Props) => {
       return s;
     });
     setGeneralSymptoms(alteredSymptoms);
-    console.log('general symptoms', generalSymptoms)
   }
   
-  const changePainLevel = (painLevel: number): void => {
-    setPainLevel(painLevel);
-  }
+  const changePainLevel = (painLevel: number): void => setPainLevel(painLevel);
 
-  const updateDoctorId = (id: number): void => {
-    setDoctorId(id);
-  }
+  const updateDoctorId = (id: number): void => setDoctorId(id);
 
   const filterSelectedSymptoms = (symptoms: Symptom[]): SelectedSymptom[] => {
     // Removes selected symptoms, and groups symptoms by area together.
@@ -103,9 +91,6 @@ const ConsultationContextProvider = (props: Props) => {
         }
         return acc;
       },[])
-      console.log('reduced', selected);
-      
-      //todo send this to BE on user completing the consultation.
       return selected;
     }
 
@@ -113,24 +98,31 @@ const ConsultationContextProvider = (props: Props) => {
     const mutation = useMutation('create consultation', async (variables: NewConsultation) => await client.request(mutations.createConsultation, variables), {
       onSuccess: (data) => setConsultationId(data.addConsultation.id)
     });
+    if(mutation.isSuccess) console.log('data from server', mutation.data);
     
-
-    const confirmConsultation = () => {
-    // filter and bundle the general and physical sypmtoms
-      const selectedSypmtoms = filterSelectedSymptoms([...physicalSymptoms, ...generalSymptoms]);
-      // create consultation object
-      console.log('selected symptoms', selectedSypmtoms)
-      const consultation: NewConsultation = {
-        date: new Date().toISOString(),
-        symptomsByArea: selectedSypmtoms,
-        painLevel: painLevel,
-        patientId: user!.id,
-        patientNotes: '',
-        doctorId: doctorId
-      }
-      // send to backend
-      mutation.mutate(consultation);
+    const confirmConsultation = (): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        try {
+          const selectedSymptoms = filterSelectedSymptoms([...physicalSymptoms, ...generalSymptoms]);
+          // create consultation object
+          const consultation: NewConsultation = {
+            date: new Date().toISOString(),
+            symptomsByArea: selectedSymptoms,
+            painLevel: painLevel,
+            patientId: user!.id,
+            patientNotes: '',
+            doctorId: doctorId
+          }
+          // send to backend
+          mutation.mutate(consultation);
+          resolve();
+        } catch (e) {
+          console.log('error promise', e);
+          reject();
+        }
+      });
     }
+    
   
   return (
     <ConsultationContext.Provider 

@@ -4,6 +4,7 @@ import PhysicalSymptomsList from './PhysicalList/PhysicalSymptomsList';
 import logoReduced from '../../../assets/logos/logo-reduced.svg'
 import finishTick from '../../../assets/utils/tick.svg';
 import { ConsultationContext } from '../../../Contexts/Consultation.context';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   area?: string;
@@ -11,21 +12,23 @@ interface Props {
 
 
 const PatientSymptoms = (props: Props) => {
+  const history = useHistory();
   const [view, setView] = useState<string>('Main');
-  const { physicalSymptoms, confirmConsultation } = useContext(ConsultationContext)!;
+  const {confirmConsultation } = useContext(ConsultationContext)!;
 
-  const handleBodyPartClick = (newView: string): void => {
-    setView(newView);
-  }
+  const handleBodyPartClick = (newView: string): void => setView(newView);
+  
 
-  const handleBackArrowClick = (): void => {
-    setView('Main');
-  }
+  const handleBackArrowClick = (): void => setView('Main');
+  
 
   const handleNextClick = (): void => {
-    confirmConsultation();
-    console.log('on confirm')
-  }
+    confirmConsultation().then(() => {
+      history.push('/consultation_chat');
+    }).catch(() => {
+      window.alert('Please Try Again');
+    })
+  };
 
 
   return (
