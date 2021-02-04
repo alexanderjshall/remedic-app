@@ -19,49 +19,27 @@ export interface Message {
 
 export interface ConsultationInfo {
   _consultation_id: string;
-  date: Date;
+  consultationDate: Date;
   transcriptOriginal: string;
   transcriptTranslated: string;
-  doctorID: string;
-  patientID: string;
+  doctorId: string;
+  patientId: {
+    firstName: string;
+  };
   doctorNotesOriginal: string;
   doctorNotesTranslated: string;
   painLevel: number;
-  symptomsByArea: [
-    {
-      area: string;
-      symptom: string;
-    }
-  ];
+  symptomsByArea: Symptom[];
   patientNotes: string;
   patientRating: number;
+  isActive: boolean;
 }
-
-//
-export const BlankConsultation: ConsultationInfo = {
-  _consultation_id: "",
-  date: new Date("2021-02-02T09:47:19.561Z"),
-  transcriptOriginal: "",
-  transcriptTranslated: "",
-  doctorID: "",
-  patientID: "patientID123",
-  doctorNotesOriginal: "",
-  doctorNotesTranslated: "",
-  painLevel: 5,
-  symptomsByArea: [
-    {
-      area: "",
-      symptom: "",
-    },
-  ],
-  patientNotes: "",
-  patientRating: 5,
-};
 
 export interface ConsultationFeedback {
   patientRating: number;
   id: number;
 }
+
 export interface Symptom {
   area: string;
   symptom: string;
