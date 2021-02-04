@@ -24,7 +24,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await loginUser(userInfo.email, userInfo.password);
-      console.log("res", res);
     } catch (error) {
       console.error(error);
     }
