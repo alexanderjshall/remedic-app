@@ -23,6 +23,12 @@ module.exports = {
         textarea: "70vh",
         "3/4": "75%",
       },
+      maxHeight: {
+        1: "1rem",
+        4: "4rem",
+        chat: "70vh",
+        "3/4": "75%",
+      },
       colors: {
         blue: {
           superlight: "#D9F0FC",
