@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 interface TranslationQuery {
   q: string | string[];
   source: string;
