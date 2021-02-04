@@ -18,7 +18,6 @@ const ConsultationChat = () => {
   };
 
   useEffect(() => {
-    x;
     scrollToBottom();
   }, [messages]);
 
