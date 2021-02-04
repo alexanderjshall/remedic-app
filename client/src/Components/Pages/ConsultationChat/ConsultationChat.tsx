@@ -10,12 +10,14 @@ const consultationId = "1";
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
 
-  const {user} = useAuth()
+  const {user} = useAuth();
+
   const { messages, addMessage } = useChat(
     consultationId,
     false,
     user!.language
   );
+
   const [currentMsg, setCurrentMsg] = useState("");
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,14 +31,6 @@ const ConsultationChat = () => {
       throw new Error(error);
     }
   };
-
-  // const translatedText = async (currentMsg: string) => {
-  //   try {
-  //     await getTranslatedText(currentMsg, 'en', 'en');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   return (
     <div className="flex-col flex justify-center w-screen">
