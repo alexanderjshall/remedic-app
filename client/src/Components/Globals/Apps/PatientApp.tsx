@@ -5,10 +5,12 @@ import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
+import PatientSymptoms from "../../Pages/PatientSymptoms/PatientSymptoms";
 import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
   return (
+    <ConsultationContextProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/consultation_chat">
@@ -21,9 +23,10 @@ const PatientApp = () => {
             <Feedback />
           </Route>
           <Route exact path="/symptoms_checker">
-            <ConsultationContextProvider>
-              <SymptomsChecker />
-            </ConsultationContextProvider>
+            <SymptomsChecker />
+          </Route>
+          <Route exact path="/symptoms_physical">
+            <PatientSymptoms />
           </Route>
           <Route exact path="/patient">
             <PatientLanding />
@@ -33,6 +36,7 @@ const PatientApp = () => {
           </Route>
         </Switch>
       </BrowserRouter>
+    </ConsultationContextProvider>
   );
 };
 

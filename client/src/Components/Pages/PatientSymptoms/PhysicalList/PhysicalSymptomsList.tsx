@@ -9,7 +9,7 @@ interface Props {
 
 const PhysicalSymptomsList = (props: Props) => {
   const { area, onBackArrowClick } = props;
-  const { physicalSymptoms, toggleSymptomSelect } = useContext(ConsultationContext)!;
+  const { physicalSymptoms, togglePhysicalSymptomSelect } = useContext(ConsultationContext)!;
 
   const areaSymptoms = physicalSymptoms.filter((symptom) => {
     return area === symptom.area;
@@ -36,7 +36,7 @@ const PhysicalSymptomsList = (props: Props) => {
               <div 
                 key={i} 
                 className={symptom.selected ? 'bg-green ' + iconClasses : iconClasses}
-                onClick={() => toggleSymptomSelect(symptom)}
+                onClick={() => togglePhysicalSymptomSelect(symptom)}
               >
                 <img src={symptom.img} alt={symptom.symptom} className="w-24 p-2 mb-2"/>
                 <h2 className="font-bold">{symptom.symptom}</h2>

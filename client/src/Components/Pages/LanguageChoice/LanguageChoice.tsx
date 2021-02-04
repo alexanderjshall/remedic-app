@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IoLanguageSharp } from "react-icons/io5";
-import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
-import OKButton from "../../Globals/OKButton/OKButton";
+import "./LanguageChoice.css";
+import OKButton from '../../Globals/OKButton/OKButton';
 import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
+import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
 
 const LanguageChoice = () => {
   const history = useHistory()
