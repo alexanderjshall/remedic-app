@@ -10,11 +10,13 @@ import { Redirect } from 'react-router-dom';
 
 const EnterCode = () => {
   const [code, setCode] = useState<string>('');
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const [wrongCodeFormat, setFormatWarning] = useState<boolean>(false);
   const [noDocFound, setNoDocFoundWarning] = useState<boolean>(false);
   const [consultationStart, setStart] = useState<boolean>(false);
 
   useEffect(() => {
+    setSubmitted(false);
     setFormatWarning(false);
     setNoDocFoundWarning(false);
   }, [code])
@@ -23,23 +25,28 @@ const EnterCode = () => {
     setCode(value);
   }
 
+  // Get doctor info if exists (triggers when submitted = true)
+  const {data} = useQuery('get doctor', async () => await client.request(queries.getDoctor, {code}), {enabled: submitted});
+
   const submitCode = () => {
     // Validate format of doctor code (5 digits)
     const regex = /^[0-9]{5}$/
     if(!regex.test(code)) {
       setFormatWarning(true);
+      return 1;
     }
-    // Get doctor ID if exists
-    console.log('got here!');
-    const {data} = useQuery('get doctor', async () => await client.request(queries.getDoctor, {code}));
-    console.log(data.id);
+    setSubmitted(true);
     if (!data) {
       setNoDocFoundWarning(true);
+      return 1;
     } else {
       // TODO: save doc ID to context
+      console.log(data.id);
       setStart(true);
     }
+    return 0;
   }
+
 
   if(consultationStart) return <Redirect to="/consultation/symptoms"/>
 
