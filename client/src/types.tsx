@@ -57,6 +57,11 @@ export const BlankConsultation: ConsultationInfo = {
   patientNotes: "",
   patientRating: 5,
 };
+
+export interface ConsultationFeedback {
+  patientRating: number;
+  id: number;
+}
 export interface Symptom {
   area: string;
   symptom: string;

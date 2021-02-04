@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import starIcon from "../../../assets/utils/star.svg";
 import { useAuth } from "../../../Contexts/Auth.context";
 import filledStarIcon from "../../../assets/utils/filled-star.svg";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import { useHistory } from "react-router-dom";
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
+import { useMutation } from "react-query";
+import { ConsultationFeedback } from "../../../types";
+import client from "../../../services/graphqlService";
+import mutations from "../../../services/graphqlService/mutations";
 
 interface RatingStar {
   filled: boolean;
@@ -16,6 +21,8 @@ const Feedback = () => {
   const [stars, setStars] = useState(
     Array<RatingStar>(5).fill({ filled: false })
   );
+
+  const { getConsultationId } = useContext(ConsultationContext)!;
 
   const history = useHistory();
 
@@ -36,11 +43,32 @@ const Feedback = () => {
     setStars(newStarSet);
   };
 
+  const mutation = useMutation(
+    "update consultation",
+    async (variables: ConsultationFeedback) => {
+      await client.request(mutations.updateConsultation, variables),
+        {
+          onSuccess: () => console.log("FeedbackRating Updated Successfully"), //!
+        };
+    }
+  );
+
   const handleEndConsultation = (): void => {
-    //TODO set consultation feedback score to consultation in dB
-    logout();
+    if (rating !== 0) {
+      const consultationFeedback: ConsultationFeedback = {
+        patientRating: rating,
+        id: getConsultationId(),
+      };
+      mutation.mutate(consultationFeedback);
+      logout();
+    }
   };
 
+  const submitFeedbackRating = (): void => {
+    if (rating !== 0) {
+      const consultationId = getConsultationId();
+    }
+  };
   return (
     <div className="flex items-center justify-center flex-col bg-white h-full">
       <div className="flex items-center justify-center flex-col h-5/6 w-5/6 shadow-lg">
