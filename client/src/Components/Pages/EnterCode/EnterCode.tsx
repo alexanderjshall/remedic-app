@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import FormInput from '../../Globals/FormInput/FormInput'
 import humanSitting from '../../../assets/background-images/humans-sitting2.png'
-<<<<<<< HEAD
 import getTranslatedText from '../../../services/api.translate';
 import { useMutation, useQuery } from 'react-query';
 import queries from '../../../services/graphqlService/queries';
 import client from '../../../services/graphqlService/index';
 import { Redirect } from 'react-router-dom';
-=======
-import { getTranslatedText } from '../../../services/api.translate';
->>>>>>> development
 
 
 const EnterCode = () => {
@@ -20,15 +16,10 @@ const EnterCode = () => {
   const [consultationStart, setStart] = useState<boolean>(false);
 
   useEffect(() => {
-<<<<<<< HEAD
     setSubmitted(false);
     setFormatWarning(false);
     setNoDocFoundWarning(false);
   }, [code])
-=======
-
-  }, [])
->>>>>>> development
 
   const changeCode = (name: string, value: string) => {
     setCode(value);
@@ -38,7 +29,6 @@ const EnterCode = () => {
   const {data} = useQuery('get doctor', async () => await client.request(queries.getDoctor, {code}), {enabled: submitted});
 
   const submitCode = () => {
-<<<<<<< HEAD
     // Validate format of doctor code (5 digits)
     const regex = /^[0-9]{5}$/
     if(!regex.test(code)) {
@@ -55,9 +45,6 @@ const EnterCode = () => {
       setStart(true);
     }
     return 0;
-=======
-
->>>>>>> development
   }
 
 
