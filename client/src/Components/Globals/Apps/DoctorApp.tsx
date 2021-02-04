@@ -21,6 +21,7 @@ const DoctorApp = () => {
         </Switch>
       </BrowserRouter>
     </DoctorContextProvider>
+
   );
 };
 

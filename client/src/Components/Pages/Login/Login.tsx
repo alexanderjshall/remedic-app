@@ -24,7 +24,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await loginUser(userInfo.email, userInfo.password);
-      console.log("res", res);
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +32,7 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center flex-col bg-white-dark h-screen lg:m-1 w-inherit min-w-min">
       <form
-        className=" bg-white h-3/4 w-5/6 max-w-xl shadow-lg mt-20 rounded-lg space-y-5 p-4 grid place-items-center grid-rows-3 gap-y-10"
+        className=" bg-white h-full w-5/6 max-w-xl shadow-lg mt-5 rounded-lg p-12 grid place-items-center grid-rows-3 gap-y-20"
         onSubmit={handleSubmit}
       >
         <div>
@@ -62,14 +61,23 @@ const Login = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div>
+        <div className="flex flex-col align-center">
           <OKButton
             name="login"
             type="submit"
             value="Login"
-            text="Login"
+            text="Log in"
             onClick={() => {}}
           />
+          <h2 className="center my-4 text-center">
+            — OR —
+          </h2>
+          <a
+          href="/register"
+          className="text-blue hover:text-blue-dark text-center"
+          >
+            Register
+          </a>
         </div>
       </form>
     </div>

@@ -1,18 +1,37 @@
 import React, { useState } from "react";
+import useChat from "../../../hooks/useChat";
 import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
-import useChat from "../../../hooks/useChat";
+import { ReactComponent as SendMessage } from "../../../assets/utils/send_message.svg";
+import { useQuery } from "react-query";
+import client from "../../../services/graphqlService";
+import queries from "../../../services/graphqlService/queries";
+import Spinner from "../../Globals/Spinner/Spinner";
+import languages from "../../../utils/supported-languages.json";
 
-// todo, this hardcoded value should instead be read from the context
-const consultationId = "1";
+const langEnglishName = (langCode: string) => 
+  languages.languages.find(l => l.langCode ===langCode )?.englishName
+
+// todo, this hardcoded values should instead be read from the context
+const consultationId = 4;
+const patientLanguage = "es";
 
 const DoctorChat = () => {
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
-    consultationId,
-    true
+    String(consultationId),
+    true,
+    patientLanguage
   );
+
+  //painlevel, symptom by area, 
+  // name of patient,
+  // isLoading
+  const { data, isLoading } = useQuery(['consultation', consultationId], async () => await client.request(queries.getConsultation, {id: consultationId}), {
+    onSuccess: (data) => console.log(data),
+    onError: () => console.log("there's an error")
+  })
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,50 +45,91 @@ const DoctorChat = () => {
     }
   };
 
+  const renderSymptoms = () => {
+    return isLoading ? 
+      <div className="flex justify-center items-center mt-8 w-full"> 
+        <Spinner size={12} />
+      </div> :
+      <>
+        <h1 className="text-xl font-bold text-blue-dark">Pain intensity: <span className="text-black">{data.getOneConsultation.painLevel}</span></h1>
+        <h1 className="text-xl font-bold text-blue-dark mt-4">
+          Patient language: <span className="text-black">{langEnglishName(data.getOneConsultation.patientId.language)}</span>
+        </h1>
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1> 
+        {
+        data.getOneConsultation.symptomsByArea
+          .filter((s: any) => s.area==="Global")
+          .map((s : any) => <h3>{JSON.stringify(s)}</h3>)
+        }
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1> 
+        {
+        data.getOneConsultation.symptomsByArea
+          .filter((s: any) => s.area!=="Global")
+          .map((s : any) => 
+          <>
+          <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
+          <ul>
+            {s.symptom.split(",").map( (sym:string) => 
+              <li className="list-disc ml-12">{sym}</li>
+            )}
+          </ul>
+          </>)
+          }
+      </>
+  }
+
   return (
-    <div className="h-screen overflow-hidden">
-      <div className="mt-8 mx-6 h-full">
-        <div className=" absolute top-0 left-0 w-screen bg-blue flex items-center justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="white"
-            className="w-10 h-10"
-          >
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <h1 className="text-3xl p-4 text-white-dark text-bold">
-            Patient name
-          </h1>
-        </div>
-        <div className="flex px-6 pb-6 pt-12 min-h-3/4 rounded-lg">
-          <div className="flex flex-auto flex-col">
-            <form className="flex items-center flex-col">
-              <label
-                htmlFor="doctor_notes"
-                className="font-bold text-lg text-opacity-75 whitespace-nowrap"
-              >
-                Your personal notes:
-              </label>
-              <textarea
-                wrap="soft"
-                name="doctor_notes"
-                id="doctor_notes"
-                className="resize-none border-black border w-full p-2 min-h-textarea rounded-lg outline-none focus:border-4"
-              ></textarea>
+    <div className="h-full overflow-hidden">
+      <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
+        <h1 className="font-bold text-2xl text-white-ghost">
+          { isLoading ? 'Patient' : `${data.getOneConsultation.patientId.firstName} ${data.getOneConsultation.patientId.lastName}`}
+        </h1>
+      </div>
+      <div className="grid grid-rows-2 grid-cols-2 grid-flow-row px-4 mt-6 pt-20">
+        <div className="row-span-2">
+          <div className="h-full">
+            <form className="h-full">
+            <label
+                  htmlFor="patient_notes"
+                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
+                >
+                  Symptoms as described by patient:
+                </label>
+              <div className="border-black border h-1/2 w-full rounded-lg mb-2 overflow-auto p-4">
+                {renderSymptoms()}
+              
+              </div>
+                <label
+                  htmlFor="doctor_notes"
+                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
+                >
+                  Consultation Notes:
+                </label>
+                <textarea
+                  wrap="soft"
+                  name="doctor_notes"
+                  id="doctor_notes"
+                  className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
+                ></textarea>
+                <div className="flex justify-center">
+                  <OKButton
+                  name="consultation_btn"
+                  type="submit"
+                  value="End consultation"
+                  text="End consultation"
+                  onClick={() => {}}
+                  />
+                </div>
             </form>
           </div>
+        </div>
+        <div className="row-span-3">
           <div className="flex flex-auto flex-col ml-4">
             <h1 className="text-lg font-bold text-opacity-75 text-center whitespace-nowrap">
-              Your chat:
+              Chat:
             </h1>
-
-            <div className=" flex flex-col pb-3 h-screen">
-              <div className=" flex border border-black h-2/3 rounded-lg flex-col overflow-auto">
+            <div className=" flex flex-col pb-3">
+              <div className=" flex border border-black rounded-lg flex-col overflow-auto min-h-textarea max-h-chat py-5">
                 {messages &&
                   messages.map((message, idx) =>
                     message.isAuthor ? (
@@ -79,43 +139,28 @@ const DoctorChat = () => {
                     )
                   )}
               </div>
-              <form
-                className="relative flex justify-center items-center p-3 bg-white"
-                onSubmit={sendMessage}
-              >
-                <label hidden htmlFor="chat input" />
-                <input
-                  type="text"
-                  name="chat input"
-                  className="p-3 rounded-lg cursor-text focus:border-blue-dark h-16 border-2 border-blue border-solid w-full"
-                  placeholder="Start messaging"
-                  value={currentMsg}
-                  onChange={(e) => setCurrentMsg(e.target.value)}
-                />
-                <button className="absolute right-5/100">
-                  <svg
-                    className="w-12 h-12 fill-current text-green-dark"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </form>
-              <div className="flex justify-center">
-                <OKButton
-                  name="consultation_btn"
-                  type="submit"
-                  value="Start consultation"
-                  text="Start a consultation"
-                  onClick={()=>{}}
-                />
-              </div>
             </div>
+          </div>
+        </div>
+        <div className="col-start-2">
+          <div className="flex">
+            <form
+              className="relative flex justify-end items-center p-3 bg-white w-full self-end"
+              onSubmit={sendMessage}
+            >
+              <label hidden htmlFor="chat_input" />
+              <input
+                type="text"
+                name="chat input"
+                className="rounded-md shadow-sm py-2 ring-2 focus:ring-blue-dark w-full cursor-text px-4"
+                placeholder="Start messaging"
+                value={currentMsg}
+                onChange={(e) => setCurrentMsg(e.target.value)}
+              />
+              <button className="absolute right-4">
+                <SendMessage />
+              </button>
+            </form>
           </div>
         </div>
       </div>

@@ -32,7 +32,10 @@ function PatientQueue(props: Props) {
 
   return (
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
-      <h2 className="text-green-default font-title mt-24 mb-10">Patients waiting</h2>
+      <div className=" text-center mt-24 mb-10 px-3">
+      <h2 className="text-green text-3xl font-bold">
+          You have {consultations?.getDoctorConsultations?.length} patients waiting:
+        </h2>
       {consultations?.getDoctorConsultations?.map((consultation, i) =>
         <button onClick={() => handleClick(consultation)} key={i}>
           <PatientCard
@@ -42,8 +45,11 @@ function PatientQueue(props: Props) {
           />
         </button>
       )}
+        </div>
+      </div>
+
     </div>
-  )
+  );
 }
 
-export default PatientQueue
+export default PatientQueue;
