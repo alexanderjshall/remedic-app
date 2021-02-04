@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react'
 import FormInput from '../../Globals/FormInput/FormInput'
 import humanSitting from '../../../assets/background-images/humans-sitting2.png'
-import getTranslatedText from '../../../services/api.translate';
+import { getTranslatedText } from '../../../services/api.translate';
 import { useMutation, useQuery } from 'react-query';
 import queries from '../../../services/graphqlService/queries';
 import client from '../../../services/graphqlService/index';
@@ -56,7 +57,9 @@ const EnterCode = () => {
         className="h-48 w-5/6 flex flex-col justify-center items-center z-10"
         onSubmit={submitCode}
       >
-        <label className="text-extrabold text-2xl font-extrabold">Enter Code To Start:</label>
+        <label className="text-extrabold text-2xl font-extrabold">
+          Enter Code To Start:
+        </label>
         <div className="mt-8">
           <FormInput
             type="text"
@@ -71,11 +74,17 @@ const EnterCode = () => {
         {noDocFound? <p className="text-red-400 italic">?? No doctor found</p> :null}
       </form>
       <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center">
-        <h2 className="text-white font-extrabold opacity-80">No Code? Ask At Reception</h2>
+        <h2 className="text-white font-extrabold opacity-80">
+          No Code? Ask At Reception
+        </h2>
       </div>
-      <img src={humanSitting} alt="background human" className="absolute opacity-5 top-1/4"></img>
+      <img
+        src={humanSitting}
+        alt="background human"
+        className="absolute opacity-5 top-1/4"
+      ></img>
     </div>
-  )
-}
+  );
+};
 
-export default EnterCode
+export default EnterCode;

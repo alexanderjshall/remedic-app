@@ -12,7 +12,7 @@ interface Props {
 
 const PatientSymptoms = (props: Props) => {
   const [view, setView] = useState<string>('Main');
-  const {physicalSymptoms, filterSelectedSymtoms} = useContext(ConsultationContext)!;
+  const { physicalSymptoms, confirmConsultation } = useContext(ConsultationContext)!;
 
   const handleBodyPartClick = (newView: string): void => {
     setView(newView);
@@ -22,6 +22,10 @@ const PatientSymptoms = (props: Props) => {
     setView('Main');
   }
 
+  const handleNextClick = (): void => {
+    confirmConsultation();
+    console.log('on confirm')
+  }
 
 
   return (
@@ -43,7 +47,7 @@ const PatientSymptoms = (props: Props) => {
               "
             >
               <button 
-                onClick={() => filterSelectedSymtoms(physicalSymptoms)}
+                onClick={handleNextClick}
                 className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:">
                 <img src={finishTick} alt="tick" className="text-white w-6"/>
                 <h2 className="text-sm font-extrabold">Next</h2>

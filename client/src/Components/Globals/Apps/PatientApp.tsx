@@ -5,34 +5,38 @@ import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
+import PatientSymptoms from "../../Pages/PatientSymptoms/PatientSymptoms";
 import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
   return (
+    <ConsultationContextProvider>
       <BrowserRouter>
         <Switch>
-          <Route path="/consultation_chat">
+          <Route exact path="/consultation_chat">
             <ConsultationChat />
           </Route>
-          <Route path="/enter_code">
+          <Route exact path="/enter_code">
             <EnterCode />
           </Route>
-          <Route path="/feedback">
+          <Route exact path="/feedback">
             <Feedback />
           </Route>
-          <Route path="/symptoms_checker">
-            <ConsultationContextProvider>
-              <SymptomsChecker />
-            </ConsultationContextProvider>
+          <Route exact path="/symptoms_checker">
+            <SymptomsChecker />
           </Route>
-          <Route path="/patient">
+          <Route exact path="/symptoms_physical">
+            <PatientSymptoms />
+          </Route>
+          <Route exact path="/patient">
             <PatientLanding />
           </Route>
-          <Route>
+          <Route path="/login">
             <Redirect to="/patient" />
           </Route>
         </Switch>
       </BrowserRouter>
+    </ConsultationContextProvider>
   );
 };
 

@@ -31,15 +31,23 @@ const Register = () => {
       console.error(error);
     }
   };
-
+  // flex items-center justify-center
   return (
-    <div className="flex items-center justify-content-center flex-col bg-white-dark h-full">
+    <div className="flex justify-center bg-white-dark h-screen px-5">
       <form
-        className="flex items-center justify-center bg-white flex-col h-4/5 w-1/2 shadow-lg mt-20 rounded-lg"
+        className=" bg-white flex-col h-5/6 shadow-lg mt-20 rounded-lg w-full space-y-5 p-4 grid place-items-center grid-rows-6 gap-y-10"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-green-default">Register</h2>
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mb-4">
+          <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
+            Register
+          </h2>
+        </div>
+
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="firstName" className="mb-2">
+            First Name:
+          </label>
           <FormInput
             type="text"
             placeholder="First Name"
@@ -49,8 +57,11 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-between">
-          <label htmlFor="lastName">Last Name</label>
+
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="lastName" className="mb-2">
+            Last Name:
+          </label>
           <FormInput
             type="text"
             placeholder="Last Name"
@@ -60,8 +71,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="postCode">Postcode</label>
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="postCode" className="mb-2">
+            Postcode:
+          </label>
           <FormInput
             type="text"
             placeholder="SW1A 1AA"
@@ -71,8 +84,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="email">Email Address</label>
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="email" className="mb-2">
+            Email Address:
+          </label>
           <FormInput
             type="email"
             placeholder="Email"
@@ -82,8 +97,10 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="mt-3 flex items-center justify-items-center">
-          <label htmlFor="password">Password</label>
+        <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
+          <label htmlFor="password" className="mb-2">
+            Password:
+          </label>
           <FormInput
             type="password"
             placeholder="Password"
