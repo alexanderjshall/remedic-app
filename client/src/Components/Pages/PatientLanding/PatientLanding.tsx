@@ -3,7 +3,6 @@ import PatientLandingCard from './PatientLandingCard/PatientLandingCard'
 import bgHumanOne from '../../../assets/background-images/humans-sitting.png';
 import bgHumanTwo from '../../../assets/background-images/humans-standing.png';
 import logoReduced from '../../../assets/logos/logo-reduced.svg';
-
 interface LandingCards {
   route?: string;
   title: string;
@@ -41,12 +40,13 @@ const PatientLanding = () => {
 
         {
           landingCards.map((card, i) => (
-            <PatientLandingCard
-              title={card.title}
-              bgColorClass={card.bgColorClass}
-              textColor={card.textColor}
-              path={card.path}
-            />
+              <PatientLandingCard
+                key={i}
+                title={card.title}
+                bgColorClass={card.bgColorClass}
+                textColor={card.textColor}
+                path={card.path}
+              />
           ))
         }
       </div>
