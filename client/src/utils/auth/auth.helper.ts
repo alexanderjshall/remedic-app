@@ -6,7 +6,7 @@ export interface AuthUser {
   id: number;
   isDoctor: boolean;
   iat: string;
-  lang: string;
+  language: string;
 }
 
 function parseToken(token: string): AuthUser {
