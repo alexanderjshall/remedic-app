@@ -36,7 +36,7 @@ export interface ConsultationInfo {
 //
 export const BlankConsultation: ConsultationInfo = {
   _consultation_id: "",
-  date: new Date("2021-02-02T09:47:19.561Z"),
+  date: new Date("2021-02-04T09:47:19.561Z"),
   transcriptOriginal: "",
   transcriptTranslated: "",
   doctorID: "",

@@ -6,14 +6,14 @@ import Consultation, { Symptoms } from '../../entities/consultation';
 import { wrap } from '@mikro-orm/core';
 import Doctor from 'src/entities/doctor';
 
-@InputType() 
+@InputType()
 class ConsultationInput {
   @Field(() => Date)
   consultationDate: Date;
 
   // [{area, symptom}, {area,symptom}]
   @Field(() => [Symptoms])
-  symptomsByArea: Symptoms[]; 
+  symptomsByArea: Symptoms[];
 
   @Field(() => Int)
   painLevel: number;
@@ -26,7 +26,6 @@ class ConsultationInput {
 
   @Field( () => Int)
   doctorId: number;
-
 }
 
 @InputType()
@@ -94,15 +93,31 @@ export default class ConsultationResolver {
       return null;
     }
   }
-  
-  
+
+  // 3. Query - get consultations of a specific doctor. Returns an array of consultations.
+  @Query (() => [Consultation])
+  async getDoctorConsultations (
+    @Arg('doctorId') id: number,
+    @Ctx() { consultationRepo }: CustomContext
+  ): Promise<Consultation[]|null> {
+    try {
+      const consultations = await consultationRepo.find({doctorId:id}, {populate: ['patientId', 'doctorId']});
+      if (!consultations) throw new Error (`Could not find consultations for doctor with id ${id}`);
+      return consultations;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+
   // 1. Mutation - add a consultation.
   @Mutation (() => Consultation)
   async addConsultation (
     @Arg('input') newConsult: ConsultationInput,
     @Ctx() {consultationRepo}: CustomContext
   ): Promise<Consultation|null> {
-    try { 
+    try {
       const consultation = consultationRepo.create(newConsult);
       await consultationRepo.persistAndFlush(consultation);
       return consultation;
@@ -117,7 +132,7 @@ export default class ConsultationResolver {
   async updateConsultation (
     @Ctx() {consultationRepo}: CustomContext,
     @Arg('id') id: number,
-    @Arg('newData') newData: UpdateConsultationInput  
+    @Arg('newData') newData: UpdateConsultationInput
   ): Promise<Consultation|null> {
     try {
       const consultation = await consultationRepo.findOne({id}, {populate: ['patientId','doctorId']});
