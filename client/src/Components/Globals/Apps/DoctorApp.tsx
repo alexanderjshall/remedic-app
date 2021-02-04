@@ -7,13 +7,13 @@ const DoctorApp = () => {
   return (
       <BrowserRouter>
         <Switch>
-          <Route path="/doctor_chat">
+          <Route exact path="/doctor_chat">
             <DoctorChat />
           </Route>
-          <Route path="/patient_queue">
+          <Route exact path="/patient_queue">
             <PatientQueue />
           </Route>
-          <Route>
+          <Route path="/login">
             <Redirect to="/patient_queue" />
           </Route>
         </Switch>
