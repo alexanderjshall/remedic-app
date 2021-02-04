@@ -9,7 +9,6 @@ import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
   return (
-    <div>
       <BrowserRouter>
         <Switch>
           <Route path="/consultation_chat">
@@ -22,7 +21,7 @@ const PatientApp = () => {
             <Feedback />
           </Route>
           <Route path="/symptoms_checker">
-          <ConsultationContextProvider>
+            <ConsultationContextProvider>
               <SymptomsChecker />
             </ConsultationContextProvider>
           </Route>
@@ -34,7 +33,6 @@ const PatientApp = () => {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 };
 

@@ -6,7 +6,6 @@ import Register from "../../Pages/Register/Register";
 
 const UnAuthApp = () => {
   return (
-    <div>
       <BrowserRouter>
         <Switch>
           <Route path="/language">
@@ -23,7 +22,6 @@ const UnAuthApp = () => {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 };
 
