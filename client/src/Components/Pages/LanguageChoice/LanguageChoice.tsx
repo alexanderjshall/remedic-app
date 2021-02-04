@@ -10,20 +10,16 @@ const LanguageChoice = () => {
   return (
     <div className="flex-col flex justify-center w-screen">
       <div className="flex flex-col shadow-md px-16 h-screen rounded-lg justify-evenly items-center overflow-hidden">
-        <div>
-          {" "}
-          <div>
-            <img src={RemedicLogo} alt="Remedic Logo" />
-          </div>
+        {" "}
+        <div className="flex justify-center w-full tablet:w-2/3">
+          <img src={RemedicLogo} alt="Remedic Logo" />
         </div>
-        <div className="">
-          <div className="flex flex-col items-center mb-4">
-            <IoLanguageSharp className="inline mr-3 h-5 w-5 self-center" />
-            <p className=" text-lg inline whitespace-nowrap">
-              Please choose your language:
-            </p>
-          </div>
-          <form className="mt-5 flex flex-col divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto">
+        <div className="flex flex-col items-center mb-4 w-full tablet:w-3/4">
+          <IoLanguageSharp className="inline mr-3 h-5 w-5 self-center" />
+          <p className=" text-lg inline whitespace-nowrap">
+            Please choose your language:
+          </p>
+          <form className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full">
             {supportedLanguages &&
               supportedLanguages.languages.map((language) => (
                 <div className="flex align-center justify-between my-2">
