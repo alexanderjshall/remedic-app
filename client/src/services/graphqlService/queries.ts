@@ -118,7 +118,7 @@ const queries = {
  // gets all consultations associated with one doctor.
  getDoctorConsultations: gql `
  query($id: Float!) {
-   getDoctorConsultations(doctortId: $id) {
+   getDoctorConsultations(doctorId: $id) {
      id
      consultationDate
      symptomsByArea {
