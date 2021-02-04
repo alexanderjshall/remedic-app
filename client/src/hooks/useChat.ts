@@ -10,7 +10,7 @@ const useChat = (roomId: string, isDoctor: boolean) => {
 
   useEffect(()=> {
 
-    socketRef.current = io("http://localhost:5000")
+    socketRef.current = io(process.env.REACT_APP_SOCKET_URL || "http://localhost:5000")
     socketRef.current.emit('join chat', roomId);
 
     socketRef.current.on('doctor message', (msg: string) => {
