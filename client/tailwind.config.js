@@ -2,10 +2,13 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: { 
+    extend: {
+      screens: {
+        tablet: "640px",
+      },
       animation: {
-        'spin-slow': 'spin 16s linear infinite',
-        'spin-ease': 'spin 1.5s ease-in-out infinite'
+        "spin-slow": "spin 16s linear infinite",
+        "spin-ease": "spin 1.5s ease-in-out infinite",
       },
       minWidth: {
         0: "0",
