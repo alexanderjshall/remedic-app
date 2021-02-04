@@ -37,7 +37,7 @@ function FormInput(props: Props) {
       name={name}
       onChange={handleInputChange}
       onKeyPress={handleEnter}
-      className="px-4 mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark w-full tablet:w-2/3"
+      className="px-4 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark w-full tablet:w-2/3"
     />
   );
 }
