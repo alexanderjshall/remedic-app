@@ -31,12 +31,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center h-screen justify-content-center flex-col bg-white-dark">
-      <form
-        className="flex items-center justify-center bg-white flex-col h-2/3 w-1/3 shadow-lg mt-20 rounded-lg"
+
+    <div className="flex items-center justify-content-center flex-col bg-white-dark h-full lg:m-1 w-inherit min-w-min">
+      <form 
+        className="flex items-center justify-center bg-white flex-col h-3/4 w-5/6 max-w-xl shadow-lg mt-20 rounded-lg space-y-5"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-green-default font-title">Login</h2>
+        <h2 className="text-green-default font-title .text-3xl leading-3">Login</h2>
+
         <FormInput
           type="email"
           placeholder="Email"
@@ -45,14 +47,16 @@ const Login = () => {
           updateInput={updateInput}
           onSubmit={() => {}}
         />
-        <FormInput
+        
+        <FormInput 
           type="password"
           placeholder="Password"
           id="password"
           name="password"
           updateInput={updateInput}
-          onSubmit={() => {}}
+          onSubmit={handleSubmit}
         />
+
         <OKButton
           name="login"
           type="submit"
