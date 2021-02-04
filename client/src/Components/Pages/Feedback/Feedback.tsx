@@ -54,10 +54,11 @@ const Feedback = () => {
   );
 
   const handleEndConsultation = (): void => {
-    if (rating !== 0) {
+    const consultationId = getConsultationId();
+    if (rating !== 0 && consultationId) {
       const consultationFeedback: ConsultationFeedback = {
         patientRating: rating,
-        id: 1,
+        id: consultationId,
       };
       mutation.mutate(consultationFeedback);
       history.push("/patient");

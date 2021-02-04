@@ -15,7 +15,7 @@ import { AuthContext } from "./Auth.context";
 export interface AppContextInterface {
   physicalSymptoms: Symptom[];
   generalSymptoms: Symptom[];
-  getConsultationId: () => number;
+  getConsultationId: () => number | undefined;
   togglePhysicalSymptomSelect: (symptom: Symptom) => void;
   toggleGeneralSymptomSelect: (symptom: Symptom, isSelected: boolean) => void;
   changePainLevel: (painLevel: number) => void;
@@ -145,9 +145,9 @@ const ConsultationContextProvider = (props: Props) => {
     });
   };
 
-  const getConsultationId = (): number => {
+  const getConsultationId = (): number | undefined => {
     if (consultationId) return consultationId;
-    else return NaN;
+    else return undefined;
   };
 
   return (
