@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
-
+import send_message from "../../../assets/utils/send_message.svg";
 // todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
 
