@@ -3,9 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import AuthContextProvider from "./Contexts/Auth.context";
-import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log(process.env)
 
 const queryClient = new QueryClient()
 
@@ -21,4 +24,3 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-reportWebVitals();

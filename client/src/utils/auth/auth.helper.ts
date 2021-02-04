@@ -23,7 +23,7 @@ export function isTokenExpired(exp: string): boolean {
 }
 
 async function fetchGQL(query: string) {
-  return await fetch("http://localhost:4000/graphql", {
+  return await fetch(process.env.REACT_APP_BE_URL as string, {
     credentials: "include",
     method: "POST",
     headers: { "Content-Type": "application/json" },
