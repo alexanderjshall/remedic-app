@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
+import { useAuth } from "../../../Contexts/Auth.context";
 
 // todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
+
+  const {user} = useAuth();
+
   const { messages, addMessage } = useChat(
     consultationId,
-    false
+    false,
+    user!.language
   );
+
   const [currentMsg, setCurrentMsg] = useState("");
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
