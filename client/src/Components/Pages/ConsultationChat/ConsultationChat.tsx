@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
@@ -8,11 +8,18 @@ const consultationId = "1";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
-  const { messages, addMessage } = useChat(
-    consultationId,
-    false
-  );
+  const { messages, addMessage } = useChat(consultationId, false);
   const [currentMsg, setCurrentMsg] = useState("");
+
+  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,9 +36,8 @@ const ConsultationChat = () => {
   return (
     <div className="flex-col flex justify-center w-screen">
       <div className="relative flex flex-col shadow-md justify-evenly items-center p-3">
-        <div className="w-full h-full flex flex-col justify-end py-3">
-          {/* bubbles */}
-          <div className="relative flex flex-col h-screen pb-8 overflow-auto">
+        <div className="w-full h-screen flex flex-col justify-end pt-3 pb-10">
+          <div className="relative flex flex-col h-full  overflow-auto">
             {messages &&
               messages.map((message, idx) =>
                 message.isAuthor ? (
@@ -40,9 +46,10 @@ const ConsultationChat = () => {
                   <DoctorMessageBubble message={message} key={idx} />
                 )
               )}
+            <div ref={messagesEndRef}></div>
           </div>
           <form
-            className="flex justify-center items-center p-3 sticky bottom-16 bg-white"
+            className="flex justify-center items-center p-3 fixed left-0 bottom-16 bg-white w-full"
             onSubmit={sendMessage}
           >
             <label hidden htmlFor="chat input" />
