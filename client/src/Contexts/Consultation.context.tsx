@@ -1,6 +1,8 @@
-import React, { createContext, useState, ReactChild, useEffect } from 'react';
+import React, { createContext, useState, ReactChild, useEffect, useContext } from 'react';
 import { Symptom } from '../types';
+import { AuthUser } from '../utils/auth/auth.helper';
 import { fullPhysicalSymptoms } from './AllSymptoms';
+import { AuthContext } from './Auth.context';
 
 export interface AppContextInterface {
   physicalSymptoms: Symptom[];
@@ -17,18 +19,38 @@ interface SelectedSymptom {
   symptom: string;
 }
 
+// consultationDate - autogenerate on send.
+// symptomsByArea - partially done. Need to add 'Global' area
+// painLevel
+// patientId - get from auth context
+// doctorId (doctor ID === ENTER CODE)
 
 export const ConsultationContext = createContext<AppContextInterface | null>(null);
 
 // Consultation Context for patient info
 const ConsultationContextProvider = (props: Props) => {
-  //TODO create function that filters ALL symptoms [...] by .selected and sends to back-end
+  const { user }  = useContext(AuthContext); // user user.id for patientId
+  //TODO store doctorID from enter code
 
+  // Symptom states
   const [ physicalSymptoms, setSymptoms ] = useState<Symptom[]>([]);
+  // const [ generalSymptoms, setGeneralSymptoms ] = useState<Symptom[]>([]);
+  // const [ psychSymptoms, setPsychSymptoms ] = useState<Symptom[]>([]);
+
+  // pain level state
+  const [painLevel, setPainLevel] = useState<number>(0);
+
+  // ID states
+  const [doctorId, setDoctorId] = useState<number>(0); 
+  // query({docCode: '00000'}) --> returns {id, fn, ln}
+  
 
   useEffect(() => {
     setSymptoms(fullPhysicalSymptoms);
   }, [])
+
+  // const codeSubmited ('code') => SetdoctorId
+
 
   const toggleSymptomSelect = (symptom: Symptom): void => {
     const alteredSymptoms = physicalSymptoms.map((s) => {
@@ -37,6 +59,10 @@ const ConsultationContextProvider = (props: Props) => {
       return s;
     });
     setSymptoms(alteredSymptoms);
+  }
+  
+  const changePainLevel = (painLevel: number): void => {
+    setPainLevel(painLevel);
   }
 
   const filterSelectedSymtoms = (symptoms: Symptom[]): void => {

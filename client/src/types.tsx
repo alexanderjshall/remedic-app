@@ -60,6 +60,6 @@ export const BlankConsultation: ConsultationInfo = {
 export interface Symptom {
   area: string;
   symptom: string;
-  img: string;
+  img?: string;
   selected: boolean;
 }
