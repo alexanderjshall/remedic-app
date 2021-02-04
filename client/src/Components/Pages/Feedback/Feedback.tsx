@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import starIcon from "../../../assets/utils/star.svg";
 import { useAuth } from "../../../Contexts/Auth.context";
 import filledStarIcon from "../../../assets/utils/filled-star.svg";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import { useHistory } from "react-router-dom";
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
+import { useMutation } from "react-query";
+import { ConsultationFeedback } from "../../../types";
+import client from "../../../services/graphqlService";
+import mutations from "../../../services/graphqlService/mutations";
 
 interface RatingStar {
   filled: boolean;
@@ -16,6 +21,8 @@ const Feedback = () => {
   const [stars, setStars] = useState(
     Array<RatingStar>(5).fill({ filled: false })
   );
+
+  const { getConsultationId } = useContext(ConsultationContext)!;
 
   const history = useHistory();
 
@@ -36,9 +43,27 @@ const Feedback = () => {
     setStars(newStarSet);
   };
 
+  const mutation = useMutation(
+    "update consultation",
+    async (variables: ConsultationFeedback) => {
+      await client.request(mutations.updateConsultation, variables),
+        {
+          onSuccess: () => console.log("FeedbackRating Updated Successfully"), //!
+        };
+    }
+  );
+
   const handleEndConsultation = (): void => {
-    //TODO set consultation feedback score to consultation in dB
-    logout();
+    if (rating !== 0) {
+      const consultationFeedback: ConsultationFeedback = {
+        patientRating: rating,
+        id: 1,
+      };
+      mutation.mutate(consultationFeedback);
+      history.push("/patient");
+      // logout disabled to keep patient side of app functional
+      // logout();
+    }
   };
 
   return (

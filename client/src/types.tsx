@@ -34,6 +34,12 @@ export interface ConsultationInfo {
   patientRating: number;
   isActive: boolean;
 }
+
+export interface ConsultationFeedback {
+  patientRating: number;
+  id: number;
+}
+
 export interface Symptom {
   area: string;
   symptom: string;
