@@ -73,9 +73,10 @@ export const fullPhysicalSymptoms: Symptom[] = [
   { area: 'Legs', symptom: 'Thigh Pain', img: legsThighPain, selected: false }
 ];
 
-export const generalSymptoms: Symptom[] = [
+export const fullGeneralSymptoms: Symptom[] = [
   { area: 'Global', symptom: 'Sleeping Poorly', selected: false },
-  { area: 'Global', symptom: 'Eating Poorly', selected: false }
-
+  { area: 'Global', symptom: 'Eating Poorly', selected: false },
+  { area: 'Global', symptom: 'High Temperature', selected: false },
+  { area: 'Global', symptom: 'Taking Medications', selected: false }
 ];
 
