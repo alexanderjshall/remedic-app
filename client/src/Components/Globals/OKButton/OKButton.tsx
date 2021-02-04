@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 
 interface Props {
   name: string;
-  type: 'button' | 'submit' | 'reset';
+  type: "button" | "submit" | "reset";
   value: string;
   text: string;
   onClick: () => void;
 }
 
 function OKButton(props: Props) {
-  const {name, type, value, text, onClick} = props
+  const { name, type, value, text, onClick } = props;
 
   return (
     <button
-    className="px-6 py-3 -full ring-2 bg-blue-light rounded-sm lg:m-0 hover:bg-blue-dark ring-opacity-50 w-40 hover:ring-4 hover:ring-blue-dark"
+      className="mt-8 px-6 py-3 -full ring-2 bg-blue-light rounded-sm lg:m-0 hover:bg-blue-dark ring-opacity-50 w-40 hover:ring-4 hover:ring-blue-dark"
       name={name}
       type={type}
       value={value}
@@ -21,9 +21,9 @@ function OKButton(props: Props) {
     >
       {text}
     </button>
-  )
+  );
 }
 
-export default OKButton
+export default OKButton;
 //
 //px-4 w-30 mt-3 rounded-md shadow-sm p-2 ring-2 focus:ring-blue-dark
