@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ConsultationInfo, BlankConsultation } from '../../../types';
 import PatientCard from './PatientCard';
+import DoctorContextProvider, { DoctorContext } from '../../../Contexts/Doctor.context';
 
 // Temporary mock array of consultations
 const mockConsultations: ConsultationInfo[] = new Array(5).fill(BlankConsultation);
 interface Props {}
 
 function PatientQueue(props: Props) {
-
+  const { activeConsultations, updateConsultations } = useContext(DoctorContext)!;
 
 
   return (

@@ -115,6 +115,33 @@ const queries = {
       }
     }`,
 
+ // gets all consultations associated with one doctor.
+ getDoctorConsultations: gql `
+ query($id: Float!) {
+   getDoctorConsultations(doctortId: $id) {
+     id
+     consultationDate
+     symptomsByArea {
+       area
+       symptom
+     }
+     painLevel
+     patientNotes
+     transcriptOriginal
+     transcriptTranslated
+     patientRating
+     doctorNotesOriginal
+     doctorNotesTranslated
+     patientId {
+       firstName
+     }
+     doctorId {
+       id
+       firstName
+     }
+   }
+ }`,
+
 
 }
 
