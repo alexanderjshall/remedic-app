@@ -4,14 +4,16 @@ import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessag
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
 
-// todo, this hardcoded value should instead be read from the context
+// todo, this hardcoded values should instead be read from the context
 const consultationId = "1";
+const patientLanguage = "es";
 
 const DoctorChat = () => {
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
     consultationId,
-    true
+    true,
+    patientLanguage
   );
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
