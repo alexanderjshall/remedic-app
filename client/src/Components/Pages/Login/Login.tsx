@@ -29,7 +29,7 @@ const Login = () => {
       console.error(error);
     }
   };
-  // flex items-center justify-around flex-col
+
   return (
     <div className="flex items-center justify-center flex-col bg-white-dark h-screen lg:m-1 w-inherit min-w-min">
       <form
