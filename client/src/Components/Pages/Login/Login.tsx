@@ -39,7 +39,9 @@ const Login = () => {
         <h2 className="text-green text-3xl leading-3 font-bold">Login</h2>
 
         <div className="items-center flex flex-col">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" className="my-4">
+            Email:
+          </label>
           <FormInput
             type="email"
             placeholder="Email"
@@ -48,7 +50,7 @@ const Login = () => {
             updateInput={updateInput}
             onSubmit={() => {}}
           />
-          <label htmlFor="password" className="mt-4">
+          <label htmlFor="password" className="my-4">
             Password:
           </label>
           <FormInput
