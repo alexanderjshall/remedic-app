@@ -37,7 +37,10 @@
       "react-app",
       "react-app/jest"
     ],
-    "ignorePatterns": ["src/*", "!src/types.tsx"]
+    "ignorePatterns": [
+      "src/*",
+      "!src/types.tsx"
+    ]
   },
   "browserslist": {
     "production": [
