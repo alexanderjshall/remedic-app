@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
 import { UserData } from "../../../types";
 import { useAuth } from "../../../Contexts/Auth.context";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const { registerPatient } = useAuth();
-
+  const history = useHistory()
   const initialInfo = {
     firstName: "",
     lastName: "",
     postCode: "",
     email: "",
     password: "",
-    // todo: We should read the language from the language context
     language: "",
   };
 
   const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
+
+  useEffect(()=> {
+    const savedLanguage = localStorage.getItem("preferredLanguage");
+    if (!savedLanguage) {
+      history.push("/language");
+      return;
+    }
+    setUserInfo(prevInfo => ({...prevInfo, language: savedLanguage}))
+  },[history])
 
   const updateInput = (inputName: string, value: string) => {
     setUserInfo({ ...userInfo, [inputName]: value });
@@ -110,6 +119,7 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
+        <div className="flex flex-col align-center">
         <OKButton
           name="register"
           type="submit"
@@ -117,6 +127,16 @@ const Register = () => {
           text="Register"
           onClick={() => {}}
         />
+        <h2 className="center text-center my-2">
+            — OR —
+          </h2>
+          <a
+          href="/login"
+          className="text-blue hover:text-blue-dark text-center"
+          >
+            Log in
+          </a>
+        </div>
       </form>
     </div>
   );
