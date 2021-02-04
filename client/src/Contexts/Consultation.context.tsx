@@ -51,8 +51,10 @@ const ConsultationContextProvider = (props: Props) => {
   const [painLevel, setPainLevel] = useState<number>(0);
 
   // ID states
-  const [doctorId, setDoctorId] = useState<number>(1); // doctor code for socket IO
+  const [doctorId, setDoctorId] = useState<number>(0); // doctor code for socket IO
   const [consultationId, setConsultationId] = useState<number>() // consultation code for socket IO
+
+  console.log('doctorID in Context', doctorId);
 
   useEffect(() => {
     setSymptoms(fullPhysicalSymptoms);
