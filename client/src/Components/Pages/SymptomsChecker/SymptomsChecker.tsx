@@ -37,11 +37,8 @@ const SymptomsChecker = () => {
   const togglePainLevelClick = (pressedPainLevel: PainLevel): void => {
     changePainLevel(pressedPainLevel.level);
     const newPainLevels = painLevels.map((painLevel) => {
-      if (painLevel.label === pressedPainLevel.label) {
-        painLevel.selected = true;
-      } else {
-        painLevel.selected = false;
-      }
+      if (painLevel.label === pressedPainLevel.label) painLevel.selected = true;
+      else painLevel.selected = false;
       return painLevel;
     })
     setPainLevels(newPainLevels);
