@@ -1,11 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { IoLanguageSharp } from "react-icons/io5";
-import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
-import OKButton from "../../Globals/OKButton/OKButton";
+import "./LanguageChoice.css";
+import OKButton from '../../Globals/OKButton/OKButton';
+import { Redirect } from 'react-router-dom';
 import supportedLanguages from "../../../utils/supported-languages.json";
+import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
 
 const LanguageChoice = () => {
-  const handleSubmit = () => {};
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>('en');
+
+  const handleSubmit = () => {
+    // TODO: save language choice to context
+    setSubmitted(true);
+  }
+
+  useEffect (() => {
+    console.log('language:', language)
+  }, [language])
+
+  const updateLanguage:React.MouseEventHandler<HTMLInputElement> = (e) => {
+    setLanguage(e.currentTarget.value);
+  }
+
+
+
+
+  if (submitted) return <Redirect to='/login'/>
 
   return (
     <div className="flex-col flex justify-center w-screen">
