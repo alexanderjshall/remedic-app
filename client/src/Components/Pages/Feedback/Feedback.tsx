@@ -57,18 +57,15 @@ const Feedback = () => {
     if (rating !== 0) {
       const consultationFeedback: ConsultationFeedback = {
         patientRating: rating,
-        id: getConsultationId(),
+        id: 1,
       };
       mutation.mutate(consultationFeedback);
-      logout();
+      history.push("/patient");
+      // logout disabled to keep patient side of app functional
+      // logout();
     }
   };
 
-  const submitFeedbackRating = (): void => {
-    if (rating !== 0) {
-      const consultationId = getConsultationId();
-    }
-  };
   return (
     <div className="flex items-center justify-center flex-col bg-white h-full">
       <div className="flex items-center justify-center flex-col h-5/6 w-5/6 shadow-lg">
