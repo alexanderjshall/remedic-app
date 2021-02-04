@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IoLanguageSharp } from "react-icons/io5";
-import "./LanguageChoice.css";
 import OKButton from '../../Globals/OKButton/OKButton';
 import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
