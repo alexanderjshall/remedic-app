@@ -103,11 +103,11 @@ const ConsultationContextProvider = (props: Props) => {
     const confirmConsultation = (): Promise<void> => {
       return new Promise((resolve, reject) => {
         try {
-          const selectedSypmtoms = filterSelectedSymptoms([...physicalSymptoms, ...generalSymptoms]);
+          const selectedSymptoms = filterSelectedSymptoms([...physicalSymptoms, ...generalSymptoms]);
           // create consultation object
           const consultation: NewConsultation = {
             date: new Date().toISOString(),
-            symptomsByArea: selectedSypmtoms,
+            symptomsByArea: selectedSymptoms,
             painLevel: painLevel,
             patientId: user!.id,
             patientNotes: '',

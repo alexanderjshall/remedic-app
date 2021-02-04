@@ -62,7 +62,7 @@ const PatientSymptoms = (props: Props) => {
             area={view}
             onBackArrowClick={() => handleBackArrowClick()}
           />
-      }x
+      }
       
       <img src={logoReduced} alt="background logo"  className="absolute top-1/4 opacity-10 animate-spin-slow"/>
     </div>
