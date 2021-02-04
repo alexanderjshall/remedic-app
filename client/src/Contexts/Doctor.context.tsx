@@ -15,7 +15,14 @@ interface Props {
   children: ReactChild | ReactChild[];
 }
 
-export const DoctorContext = createContext<AppContextInterface | null>(null);
+const consult : ConsultationInfo[] = []
+const initialContext = {
+  consultations: {getDoctorConsultations : consult},
+  currentConsultation: null,
+  updateCurrentConsultation: (consultation: ConsultationInfo) => {}
+}
+
+export const DoctorContext = createContext<AppContextInterface>(initialContext);
 
 // Doctor context for list of active consultations
 function DoctorContextProvider(props: Props) {
@@ -36,5 +43,7 @@ function DoctorContextProvider(props: Props) {
     </DoctorContext.Provider>
   )
 }
+
+export const useDrContext = () => useContext(DoctorContext);
 
 export default DoctorContextProvider

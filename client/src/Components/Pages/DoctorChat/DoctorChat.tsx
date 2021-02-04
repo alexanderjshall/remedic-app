@@ -4,34 +4,22 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import DoctorMessageBubble from "../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMessageBubble";
 import { ReactComponent as SendMessage } from "../../../assets/utils/send_message.svg";
-import { useQuery } from "react-query";
-import client from "../../../services/graphqlService";
-import queries from "../../../services/graphqlService/queries";
-import Spinner from "../../Globals/Spinner/Spinner";
 import languages from "../../../utils/supported-languages.json";
+import { useDrContext } from "../../../Contexts/Doctor.context";
 
-const langEnglishName = (langCode: string) => 
+const langEnglishName = (langCode: string) =>
   languages.languages.find(l => l.langCode ===langCode )?.englishName
 
-// todo, this hardcoded values should instead be read from the context
-const consultationId = 4;
-const patientLanguage = "es";
-
 const DoctorChat = () => {
+
+  const {currentConsultation} = useDrContext();
+
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage } = useChat(
-    String(consultationId),
+    String(currentConsultation!.id),
     true,
-    patientLanguage
+    currentConsultation!.patientId!.language
   );
-
-  //painlevel, symptom by area, 
-  // name of patient,
-  // isLoading
-  const { data, isLoading } = useQuery(['consultation', consultationId], async () => await client.request(queries.getConsultation, {id: consultationId}), {
-    onSuccess: (data) => console.log(data),
-    onError: () => console.log("there's an error")
-  })
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,44 +33,40 @@ const DoctorChat = () => {
     }
   };
 
-  const renderSymptoms = () => {
-    return isLoading ? 
-      <div className="flex justify-center items-center mt-8 w-full"> 
-        <Spinner size={12} />
-      </div> :
+  const renderSymptoms = () =>
       <>
-        <h1 className="text-xl font-bold text-blue-dark">Pain intensity: <span className="text-black">{data.getOneConsultation.painLevel}</span></h1>
+        <h1 className="text-xl font-bold text-blue-dark">Pain intensity: <span className="text-black">{currentConsultation!.painLevel}</span></h1>
         <h1 className="text-xl font-bold text-blue-dark mt-4">
-          Patient language: <span className="text-black">{langEnglishName(data.getOneConsultation.patientId.language)}</span>
+          Patient language: <span className="text-black">{langEnglishName(currentConsultation!.patientId.language)}</span>
         </h1>
-        <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1> 
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1>
         {
-        data.getOneConsultation.symptomsByArea
+        currentConsultation!.symptomsByArea
           .filter((s: any) => s.area==="Global")
           .map((s : any) => <h3>{JSON.stringify(s)}</h3>)
         }
-        <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1> 
+        <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1>
         {
-        data.getOneConsultation.symptomsByArea
+        currentConsultation!.symptomsByArea
           .filter((s: any) => s.area!=="Global")
-          .map((s : any) => 
+          .map((s : any) =>
           <>
           <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
           <ul>
-            {s.symptom.split(",").map( (sym:string) => 
+            {s.symptom.split(",").map( (sym:string) =>
               <li className="list-disc ml-12">{sym}</li>
             )}
           </ul>
           </>)
           }
       </>
-  }
+
 
   return (
     <div className="h-full overflow-hidden">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
         <h1 className="font-bold text-2xl text-white-ghost">
-          { isLoading ? 'Patient' : `${data.getOneConsultation.patientId.firstName} ${data.getOneConsultation.patientId.lastName}`}
+          { `${currentConsultation!.patientId.firstName} ${currentConsultation!.patientId.lastName}`}
         </h1>
       </div>
       <div className="grid grid-rows-2 grid-cols-2 grid-flow-row px-4 mt-6 pt-20">
@@ -97,7 +81,7 @@ const DoctorChat = () => {
                 </label>
               <div className="border-black border h-1/2 w-full rounded-lg mb-2 overflow-auto p-4">
                 {renderSymptoms()}
-              
+
               </div>
                 <label
                   htmlFor="doctor_notes"

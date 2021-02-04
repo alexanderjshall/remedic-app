@@ -18,13 +18,15 @@ export interface Message {
 }
 
 export interface ConsultationInfo {
-  _consultation_id: string;
+  id: string;
   consultationDate: Date;
   transcriptOriginal: string;
   transcriptTranslated: string;
   doctorId: string;
   patientId: {
     firstName: string;
+    lastName: string;
+    language: string;
   };
   doctorNotesOriginal: string;
   doctorNotesTranslated: string;
