@@ -1,38 +1,45 @@
-import { useState } from "react";
-import { Socket } from "socket.io-client"
+import { useEffect, useRef, useState } from "react";
+import io , {Socket} from "socket.io-client";
 import { Message } from "../types";
 
-const useChat = (socket: typeof Socket, roomId: string, isDoctor: boolean) => {
+const useChat = (roomId: string, isDoctor: boolean) => {
 
-  socket.removeAllListeners()
 
   const [messages, setMessages] = useState<Message[]>([]);
+  const socketRef = useRef<typeof Socket>();
 
-  socket.emit('join chat', roomId);
+  useEffect(()=> {
 
-  socket.on('doctor message', (msg: string) => {
-    const newMessage = {
-      name: 'Doctor',
-      content: msg,
-      isAuthor: isDoctor,
-      timestamp:''
-    }
-    setMessages(prevMesages => [...prevMesages, newMessage])
-  });
+    socketRef.current = io("http://localhost:5000")
+    socketRef.current.emit('join chat', roomId);
 
-  socket.on('patient message', (msg: string) => {
-    const newMessage = {
-      name: 'Me',
-      content: msg,
-      isAuthor: !isDoctor,
-      timestamp:''
-    }
-    setMessages(prevMesages => [...prevMesages, newMessage])
-  });
+    socketRef.current.on('doctor message', (msg: string) => {
+      const newMessage = {
+        name: 'Doctor',
+        content: msg,
+        isAuthor: isDoctor,
+        timestamp:''
+      }
+      setMessages(prevMesages => [...prevMesages, newMessage])
+    });
+
+    socketRef.current.on('patient message', (msg: string) => {
+      const newMessage = {
+        name: 'Me',
+        content: msg,
+        isAuthor: !isDoctor,
+        timestamp:''
+      }
+      setMessages(prevMesages => [...prevMesages, newMessage])
+    });
+
+  }, [roomId, isDoctor])
 
   const addMessage = (msg: string) => {
     const messageType = isDoctor ? 'doctor message' : 'patient message';
-    socket.emit(messageType, roomId, msg);
+    if (socketRef.current) {
+      socketRef.current.emit(messageType, roomId, msg);
+    }
   }
 
   return {messages, addMessage}
