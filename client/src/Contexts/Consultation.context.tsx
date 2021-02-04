@@ -59,7 +59,7 @@ const ConsultationContextProvider = (props: Props) => {
   // ID states
   const [doctorId, setDoctorId] = useState<number>(1); // doctor code for socket IO
   const [consultationId, setConsultationId] = useState<number>() // consultation code for socket IO
-  console.log('consultationId - context: ', consultationId);
+  console.log('generalSymptomCheck', generalSymptoms);
 
   useEffect(() => {
     setSymptoms(fullPhysicalSymptoms);
@@ -104,8 +104,7 @@ const ConsultationContextProvider = (props: Props) => {
         return acc;
       },[])
       console.log('reduced', selected);
-      
-      //todo send this to BE on user completing the consultation.
+
       return selected;
     }
 
@@ -113,6 +112,7 @@ const ConsultationContextProvider = (props: Props) => {
     const mutation = useMutation('create consultation', async (variables: NewConsultation) => await client.request(mutations.createConsultation, variables), {
       onSuccess: (data) => setConsultationId(data.addConsultation.id)
     });
+    if(mutation.isSuccess) console.log(mutation.data);
     
 
     const confirmConsultation = () => {
