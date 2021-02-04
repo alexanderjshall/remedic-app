@@ -31,9 +31,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-content-center flex-col bg-white-dark h-full lg:m-1 w-inherit min-w-min">
+    <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen lg:m-1 w-inherit min-w-min">
       <form
-        className="flex items-center justify-center bg-white flex-col h-3/4 w-5/6 max-w-xl shadow-lg mt-20 rounded-lg space-y-5"
+        className="flex items-center justify-center bg-white flex-col h-3/4 w-5/6 max-w-xl shadow-lg mt-20 rounded-lg space-y-5 p-4"
         onSubmit={handleSubmit}
       >
         <h2 className="text-green-default font-title .text-3xl leading-3">
