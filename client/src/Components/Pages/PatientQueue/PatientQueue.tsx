@@ -1,20 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Contexts/Auth.context';
+import React from 'react';
 import PatientCard from './PatientCard';
-import DoctorContextProvider, { DoctorContext } from '../../../Contexts/Doctor.context';
-import queries from '../../../services/graphqlService/queries';
-import client from '../../../services/graphqlService/index';
+import { useDrContext } from '../../../Contexts/Doctor.context';
 import { ConsultationInfo } from '../../../types';
 import { useHistory } from "react-router-dom";
 
-
-// Temporary mock array of consultations
-interface Props {}
-
-function PatientQueue(props: Props) {
-  const { consultations, updateCurrentConsultation } = useContext(DoctorContext)!;
+function PatientQueue() {
+  const { consultations, updateCurrentConsultation } = useDrContext()!;
   // const [ activeConsultations, setConsultations ] = useState<ConsultationInfo[] | null>(null);
-  const { user } = useContext(AuthContext);
   let history = useHistory();
 
   // TODO: filter inactive consultations and sort by startTime
@@ -46,8 +38,6 @@ function PatientQueue(props: Props) {
         </button>
       )}
         </div>
-      </div>
-
     </div>
   );
 }

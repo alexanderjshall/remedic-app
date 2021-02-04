@@ -37,4 +37,6 @@ function DoctorContextProvider(props: Props) {
   )
 }
 
+export const useDrContext = () => useContext(DoctorContext);
+
 export default DoctorContextProvider

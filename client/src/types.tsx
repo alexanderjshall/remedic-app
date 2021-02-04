@@ -25,6 +25,7 @@ export interface ConsultationInfo {
   doctorId: string;
   patientId: {
     firstName: string;
+    lastName: string;
     language: string;
   };
   doctorNotesOriginal: string;
