@@ -1,14 +1,14 @@
-export interface User {
-  _id: number
-  firstname: string;
-  lastname: string;
+export interface UserData {
+  firstName: string;
+  lastName: string;
   email: string;
   password?: string;
-  postcode: string;
-  language: string; // two letter code
-  // consultations: consultation[];
+  postCode: string;
+  language: string;
 }
-
+export interface User extends UserData {
+  _id: number;
+}
 
 export interface Message {
   name?: string;
@@ -37,33 +37,29 @@ export interface ConsultationInfo {
   patientRating: number;
 }
 
-// Empty examples to use as default
-export const blankUser: User = {
-  _id: 0,
-  firstname: '',
-  lastname: 'Patient',
-  email: '',
-  postcode: '',
-  language: ''
-}
-
 //
 export const BlankConsultation: ConsultationInfo = {
-  _consultation_id:'',
-  date: new Date('2021-02-02T09:47:19.561Z'),
-  transcriptOriginal: '',
-  transcriptTranslated: '',
-  doctorID: '',
-  patientID: 'patientID123',
-  doctorNotesOriginal: '',
-  doctorNotesTranslated: '',
+  _consultation_id: "",
+  date: new Date("2021-02-02T09:47:19.561Z"),
+  transcriptOriginal: "",
+  transcriptTranslated: "",
+  doctorID: "",
+  patientID: "patientID123",
+  doctorNotesOriginal: "",
+  doctorNotesTranslated: "",
   painLevel: 5,
   symptomsByArea: [
     {
-      area: '',
-      symptom: '',
-    }
+      area: "",
+      symptom: "",
+    },
   ],
-  patientNotes: '',
+  patientNotes: "",
   patientRating: 5,
+};
+export interface Symptom {
+  area: string;
+  symptom: string;
+  img: string;
+  selected: boolean;
 }
