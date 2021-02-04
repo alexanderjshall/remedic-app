@@ -31,6 +31,7 @@ function PatientQueue(props: Props) {
   }
 
   return (
+    <div>
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
       <div className=" text-center mt-24 mb-10 px-3">
       <h2 className="text-green text-3xl font-bold">
