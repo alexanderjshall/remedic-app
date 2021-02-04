@@ -1,0 +1,1822 @@
+{
+  "ar": {
+    "loginAndRegisterTerms": {
+      "login": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "emailAddress": "عنوان بريد الكتروني",
+      "password": "كلمه السر",
+      "register": "تسجيل",
+      "firstName": "الاسم الاول",
+      "lastName": "الكنية",
+      "postcode": "الرمز البريدي"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "ابدأ الاستشارة",
+      "profile": "الملف الشخصي"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "اسأل في مكتب الاستقبال عن الرمز",
+      "enterDoctorCode": "أدخل كود طبيبك"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "اسئلة عامة",
+      "good": "حسن",
+      "notGood": "غير جيد",
+      "bad": "سيئة",
+      "inPain": "يتألم",
+      "sleeping": "هل تنام جيدا",
+      "eating": "هل تأكل طعاما؟",
+      "highTemperature": "هل لديك درجة حرارة عالية؟",
+      "medications": "هل تتعاطى أي أدوية؟"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "انقر فوق مكان وجود أعراض",
+      "Head": {
+        "cough": "سعال",
+        "dizzy": "بالدوار",
+        "hairLoss": "تساقط الشعر",
+        "headache": "صداع الراس",
+        "noseBleeding": "نزيف الأنف",
+        "rash": "طفح جلدي",
+        "runnyNose": "سيلان الأنف",
+        "sneezing": "العطس",
+        "soreThroat": "إلتهاب الحلق",
+        "soreEye": "إلتهاب العينين",
+        "sweating": "التعرق",
+        "vomiting": "التقيؤ"
+      },
+      "Arms": {
+        "elbowPain": "آلام الكوع",
+        "handPain": "آلام اليد",
+        "armPain": "ألم الذراع",
+        "armRash": "طفح في الذراع"
+      },
+      "Body": {
+        "backPain": "ألم في الظهر",
+        "shortBreath": "قصر النفس",
+        "constipation": "إمساك",
+        "stomachCramps": "تقلصات المعدة",
+        "bodyRash": "طفح جلدي",
+        "shaking": "تهتز",
+        "stomachPain": "آلام في المعدة",
+        "heartRate": "معدل ضربات القلب السريع"
+      },
+      "Legs": {
+        "anklePain": "آلام الكاحل",
+        "calfPain": "ألم في ربلة الساق",
+        "footPain": "آلام القدم",
+        "kneePain": "ألم الركبة",
+        "legRash": "طفح في الساق",
+        "thighPain": "آلام الفخذ"
+      }
+    },
+    "feedbackTerms": { "end": "لقد انتهت استشارتك", "rate": "قيم تجربتك" },
+    "utils": {
+      "yes": "نعم",
+      "no": "لا",
+      "next": "التالى",
+      "end": "النهاية",
+      "confirm": "تؤكد"
+    }
+  },
+  "bn": {
+    "loginAndRegisterTerms": {
+      "login": "প্রবেশ করুন",
+      "email": "ইমেল",
+      "emailAddress": "ইমেল ঠিকানা",
+      "password": "পাসওয়ার্ড",
+      "register": "নিবন্ধন",
+      "firstName": "নামের প্রথম অংশ",
+      "lastName": "নামের শেষাংশ",
+      "postcode": "পোস্টকোড"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "পরামর্শ শুরু করুন",
+      "profile": "প্রোফাইল"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "কোড জন্য রিসেপশন এ জিজ্ঞাসা করুন",
+      "enterDoctorCode": "আপনার ডাক্তারদের কোড লিখুন"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "সাধারণ প্রশ্ন",
+      "good": "ভাল",
+      "notGood": "ভাল না",
+      "bad": "খারাপ",
+      "inPain": "কষ্টে",
+      "sleeping": "আপনি ভাল ঘুমাচ্ছেন?",
+      "eating": "আপনি কি খাবার খাচ্ছেন?",
+      "highTemperature": "আপনার কি উচ্চ তাপমাত্রা রয়েছে?",
+      "medications": "আপনি কোন ওষুধ খাচ্ছেন?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "আপনার যেখানে লক্ষণ রয়েছে সেখানে ক্লিক করুন",
+      "Head": {
+        "cough": "কাশি",
+        "dizzy": "চঞ্চল",
+        "hairLoss": "চুল পরা",
+        "headache": "মাথা ব্যথা",
+        "noseBleeding": "নাক রক্তপাত",
+        "rash": "ফুসকুড়ি",
+        "runnyNose": "সর্দি",
+        "sneezing": "হাঁচি",
+        "soreThroat": "গলা ব্যথা",
+        "soreEye": "নেত্রদাহ",
+        "sweating": "ঘামছে",
+        "vomiting": "বমি বমি করা"
+      },
+      "Arms": {
+        "elbowPain": "কনুই ব্যথা",
+        "handPain": "হাত ব্যথা",
+        "armPain": "বাহুতে ব্যথা",
+        "armRash": "আর্ম র‌্যাশ"
+      },
+      "Body": {
+        "backPain": "পিঠে ব্যাথা",
+        "shortBreath": "একটু নিঃশ্বাস",
+        "constipation": "কোষ্ঠকাঠিন্য",
+        "stomachCramps": "পেট বাধা",
+        "bodyRash": "দেহ ফুসকুড়ি",
+        "shaking": "কাঁপছে",
+        "stomachPain": "পেট ব্যথা",
+        "heartRate": "দ্রুত হার্ট রেট"
+      },
+      "Legs": {
+        "anklePain": "গোড়ালি ব্যথা",
+        "calfPain": "বাছুরের ব্যথা",
+        "footPain": "পা ব্যথা",
+        "kneePain": "হাঁটুর ব্যাথা",
+        "legRash": "লেগ র‌্যাশ",
+        "thighPain": "উরু ব্যথা"
+      }
+    },
+    "feedbackTerms": {
+      "end": "আপনার পরামর্শ শেষ হয়েছে",
+      "rate": "আপনার অভিজ্ঞতা রেট করুন"
+    },
+    "utils": {
+      "yes": "হ্যাঁ",
+      "no": "না",
+      "next": "পরবর্তী",
+      "end": "শেষ",
+      "confirm": "কনফার্ম"
+    }
+  },
+  "zh": {
+    "loginAndRegisterTerms": {
+      "login": "登录",
+      "email": "电子邮件",
+      "emailAddress": "电子邮件地址",
+      "password": "密码",
+      "register": "寄存器",
+      "firstName": "名字",
+      "lastName": "姓",
+      "postcode": "邮编"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "开始咨询",
+      "profile": "个人资料"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "在接待处询问代码",
+      "enterDoctorCode": "输入您的医生代码"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "一般的问题",
+      "good": "好",
+      "notGood": "不好",
+      "bad": "坏",
+      "inPain": "痛苦中",
+      "sleeping": "你睡得好吗？",
+      "eating": "你在吃饭吗",
+      "highTemperature": "你有高温吗？",
+      "medications": "你在吃药吗？"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "单击您有症状的地方",
+      "Head": {
+        "cough": "咳嗽",
+        "dizzy": "头晕",
+        "hairLoss": "脱发",
+        "headache": "头痛",
+        "noseBleeding": "流鼻血",
+        "rash": "皮疹",
+        "runnyNose": "流鼻涕",
+        "sneezing": "打喷嚏",
+        "soreThroat": "咽喉痛",
+        "soreEye": "眼痛",
+        "sweating": "出汗",
+        "vomiting": "呕吐"
+      },
+      "Arms": {
+        "elbowPain": "肘痛",
+        "handPain": "手痛",
+        "armPain": "手臂痛",
+        "armRash": "手臂皮疹"
+      },
+      "Body": {
+        "backPain": "背疼",
+        "shortBreath": "气短",
+        "constipation": "便秘",
+        "stomachCramps": "胃痉挛",
+        "bodyRash": "身体皮疹",
+        "shaking": "摇动",
+        "stomachPain": "肚子疼",
+        "heartRate": "快速心律"
+      },
+      "Legs": {
+        "anklePain": "脚踝疼痛",
+        "calfPain": "小腿痛",
+        "footPain": "脚痛",
+        "kneePain": "膝盖疼痛",
+        "legRash": "腿皮",
+        "thighPain": "大腿疼痛"
+      }
+    },
+    "feedbackTerms": { "end": "您的咨询已经结束", "rate": "评价您的经验" },
+    "utils": {
+      "yes": "是",
+      "no": "没有",
+      "next": "下一个",
+      "end": "结束",
+      "confirm": "确认"
+    }
+  },
+  "en": {
+    "loginAndRegisterTerms": {
+      "login": "Log In",
+      "email": "Email",
+      "emailAddress": "Email Address",
+      "password": "Password",
+      "register": "Register",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "postcode": "Postcode"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Start Consultation",
+      "profile": "Profile"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Ask At Reception For Code",
+      "enterDoctorCode": "Enter Your Doctors' Code"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "General Questions",
+      "good": "Good",
+      "notGood": "Not Good",
+      "bad": "Bad",
+      "inPain": "In Pain",
+      "sleeping": "Are you sleeping well?",
+      "eating": "Are you eating food?",
+      "highTemperature": "Do You Have A High Temperature?",
+      "medications": "Are you taking any medication?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Click Where You Have A Symptom",
+      "Head": {
+        "cough": "Cough",
+        "dizzy": "Dizzy",
+        "hairLoss": "Hair Loss",
+        "headache": "Headache",
+        "noseBleeding": "Nose Bleeding",
+        "rash": "Rash",
+        "runnyNose": "Runny Nose",
+        "sneezing": "Sneezing",
+        "soreThroat": "Sore Throat",
+        "soreEye": "Sore Eyes",
+        "sweating": "Sweating",
+        "vomiting": "Vomiting"
+      },
+      "Arms": {
+        "elbowPain": "Elbow Pain",
+        "handPain": "Hand Pain",
+        "armPain": "Arm Pain",
+        "armRash": "Arm Rash"
+      },
+      "Body": {
+        "backPain": "Back Pain",
+        "shortBreath": "Short Of Breath",
+        "constipation": "Constipation",
+        "stomachCramps": "Stomach Cramps",
+        "bodyRash": "Body Rash",
+        "shaking": "Shaking",
+        "stomachPain": "Stomach Pain",
+        "heartRate": "Fast Heart Rate"
+      },
+      "Legs": {
+        "anklePain": "Ankle Pain",
+        "calfPain": "Calf Pain",
+        "footPain": "Foot Pain",
+        "kneePain": "Knee Pain",
+        "legRash": "Leg Rash",
+        "thighPain": "Thigh Pain"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Your Consultation Has Ended",
+      "rate": "Rate Your Experience"
+    },
+    "utils": {
+      "yes": "Yes",
+      "no": "No",
+      "next": "Next",
+      "end": "End",
+      "confirm": "Confirm"
+    }
+  },
+  "fr": {
+    "loginAndRegisterTerms": {
+      "login": "S&#39;identifier",
+      "email": "Email",
+      "emailAddress": "Adresse e-mail",
+      "password": "Mot de passe",
+      "register": "S&#39;inscrire",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "postcode": "Code postal"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Commencer la consultation",
+      "profile": "Profil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Demandez à la réception le code",
+      "enterDoctorCode": "Entrez le code de votre médecin"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Questions générales",
+      "good": "Bien",
+      "notGood": "Pas bon",
+      "bad": "Mauvais",
+      "inPain": "Dans la douleur",
+      "sleeping": "Tu dors bien?",
+      "eating": "Mangez-vous de la nourriture?",
+      "highTemperature": "Avez-vous une température élevée?",
+      "medications": "est ce que tu prends des médicaments?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Cliquez là où vous avez un symptôme",
+      "Head": {
+        "cough": "La toux",
+        "dizzy": "Étourdi",
+        "hairLoss": "Perte de cheveux",
+        "headache": "Mal de crâne",
+        "noseBleeding": "Saignements de nez",
+        "rash": "Téméraire",
+        "runnyNose": "Nez qui coule",
+        "sneezing": "Des éternuements",
+        "soreThroat": "Maux de gorge",
+        "soreEye": "Yeux irrités",
+        "sweating": "Transpiration",
+        "vomiting": "Vomissement"
+      },
+      "Arms": {
+        "elbowPain": "Douleur au coude",
+        "handPain": "Douleur à la main",
+        "armPain": "Douleur au bras",
+        "armRash": "Éruption cutanée au bras"
+      },
+      "Body": {
+        "backPain": "Mal au dos",
+        "shortBreath": "À court de souffle",
+        "constipation": "Constipation",
+        "stomachCramps": "Des crampes d&#39;estomac",
+        "bodyRash": "Éruption cutanée",
+        "shaking": "Tremblement",
+        "stomachPain": "Douleur d&#39;estomac",
+        "heartRate": "Fréquence cardiaque rapide"
+      },
+      "Legs": {
+        "anklePain": "Douleur à la cheville",
+        "calfPain": "Douleur au mollet",
+        "footPain": "Douleur au pied",
+        "kneePain": "Douleur au genou",
+        "legRash": "Éruption cutanée",
+        "thighPain": "Douleur à la cuisse"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Votre consultation est terminée",
+      "rate": "Évaluez votre expérience"
+    },
+    "utils": {
+      "yes": "Oui",
+      "no": "Non",
+      "next": "Suivant",
+      "end": "Fin",
+      "confirm": "Confirmer"
+    }
+  },
+  "de": {
+    "loginAndRegisterTerms": {
+      "login": "Einloggen",
+      "email": "Email",
+      "emailAddress": "E-Mail-Addresse",
+      "password": "Passwort",
+      "register": "Registrieren",
+      "firstName": "Vorname",
+      "lastName": "Familienname, Nachname",
+      "postcode": "Postleitzahl"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Konsultation starten",
+      "profile": "Profil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Fragen Sie an der Rezeption nach Code",
+      "enterDoctorCode": "Geben Sie den Code Ihres Arztes ein"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Allgemeine Fragen",
+      "good": "Gut",
+      "notGood": "Nicht gut",
+      "bad": "Schlecht",
+      "inPain": "Schmerzen haben",
+      "sleeping": "Schläfst du gut",
+      "eating": "Essen Sie?",
+      "highTemperature": "Haben Sie eine hohe Temperatur?",
+      "medications": "Nimmst du irgendwelche Medikamente?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Klicken Sie auf Wo Sie ein Symptom haben",
+      "Head": {
+        "cough": "Husten",
+        "dizzy": "Schwindlig",
+        "hairLoss": "Haarverlust",
+        "headache": "Kopfschmerzen",
+        "noseBleeding": "Nasenbluten",
+        "rash": "Ausschlag",
+        "runnyNose": "Laufende Nase",
+        "sneezing": "Niesen",
+        "soreThroat": "Halsentzündung",
+        "soreEye": "Wunde Augen",
+        "sweating": "Schwitzen",
+        "vomiting": "Erbrechen"
+      },
+      "Arms": {
+        "elbowPain": "Ellenbogenschmerzen",
+        "handPain": "Handschmerzen",
+        "armPain": "Armschmerzen",
+        "armRash": "Armausschlag"
+      },
+      "Body": {
+        "backPain": "Rückenschmerzen",
+        "shortBreath": "Kurzatmig",
+        "constipation": "Verstopfung",
+        "stomachCramps": "Bauchkrämpfe",
+        "bodyRash": "Körperausschlag",
+        "shaking": "Zittern",
+        "stomachPain": "Magenschmerzen",
+        "heartRate": "Schnelle Herzfrequenz"
+      },
+      "Legs": {
+        "anklePain": "Knöchelschmerzen",
+        "calfPain": "Wadenschmerzen",
+        "footPain": "Fußschmerzen",
+        "kneePain": "Knieschmerzen",
+        "legRash": "Beinausschlag",
+        "thighPain": "Oberschenkelschmerzen"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Ihre Beratung ist beendet",
+      "rate": "Bewerten Sie Ihre Erfahrung"
+    },
+    "utils": {
+      "yes": "Ja",
+      "no": "Nein",
+      "next": "Nächster",
+      "end": "Ende",
+      "confirm": "Bestätigen"
+    }
+  },
+  "gu": {
+    "loginAndRegisterTerms": {
+      "login": "પ્રવેશ કરો",
+      "email": "ઇમેઇલ",
+      "emailAddress": "ઈ - મેઈલ સરનામું",
+      "password": "પાસવર્ડ",
+      "register": "નોંધણી કરો",
+      "firstName": "પ્રથમ નામ",
+      "lastName": "છેલ્લું નામ",
+      "postcode": "પોસ્ટકોડ"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "કન્સલ્ટેશન શરૂ કરો",
+      "profile": "પ્રોફાઇલ"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "કોડ માટે રિસેપ્શન સમયે પૂછો",
+      "enterDoctorCode": "તમારા ડોકટરોનો કોડ દાખલ કરો"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "સામાન્ય પ્રશ્નો",
+      "good": "સારું",
+      "notGood": "સારું નથી",
+      "bad": "ખરાબ",
+      "inPain": "પીડામાં",
+      "sleeping": "તમે સારી રીતે સૂઈ રહ્યા છો?",
+      "eating": "શું તમે ખાઈ રહ્યા છો?",
+      "highTemperature": "શું તમારી પાસે તાપમાન વધારે છે?",
+      "medications": "તમે કોઈ દવા લઈ રહ્યા છો?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "તમારી પાસે જ્યાં લક્ષણ છે ત્યાં ક્લિક કરો",
+      "Head": {
+        "cough": "ખાંસી",
+        "dizzy": "ચક્કર આવે છે",
+        "hairLoss": "વાળ ખરવા",
+        "headache": "માથાનો દુખાવો",
+        "noseBleeding": "નાક રક્તસ્ત્રાવ",
+        "rash": "ફોલ્લીઓ",
+        "runnyNose": "વહેતું નાક",
+        "sneezing": "છીંક આવે છે",
+        "soreThroat": "સુકુ ગળું",
+        "soreEye": "ગળું આંખો",
+        "sweating": "પરસેવો આવે છે",
+        "vomiting": "ઉલટી"
+      },
+      "Arms": {
+        "elbowPain": "કોણીનો દુખાવો",
+        "handPain": "હાથ પીડા",
+        "armPain": "આર્મ પેઇન",
+        "armRash": "આર્મ ફોલ્લીઓ"
+      },
+      "Body": {
+        "backPain": "પીઠનો દુખાવો",
+        "shortBreath": "શ્વાસની તંગી",
+        "constipation": "કબજિયાત",
+        "stomachCramps": "પેટમાં ખેંચાણ",
+        "bodyRash": "શારીરિક ફોલ્લીઓ",
+        "shaking": "ધ્રુજારી",
+        "stomachPain": "પેટ પીડા",
+        "heartRate": "ઝડપી હાર્ટ રેટ"
+      },
+      "Legs": {
+        "anklePain": "પગની ઘૂંટીમાં દુખાવો",
+        "calfPain": "વાછરડાની પીડા",
+        "footPain": "પગમાં દુખાવો",
+        "kneePain": "ઘૂંટણની પીડા",
+        "legRash": "પગમાં ફોલ્લીઓ",
+        "thighPain": "જાંઘમાં દુખાવો"
+      }
+    },
+    "feedbackTerms": {
+      "end": "તમારી પરામર્શ સમાપ્ત થઈ ગઈ છે",
+      "rate": "તમારા અનુભવને રેટ કરો"
+    },
+    "utils": {
+      "yes": "હા",
+      "no": "ના",
+      "next": "આગળ",
+      "end": "અંત",
+      "confirm": "પુષ્ટિ કરો"
+    }
+  },
+  "it": {
+    "loginAndRegisterTerms": {
+      "login": "Accesso",
+      "email": "E-mail",
+      "emailAddress": "Indirizzo email",
+      "password": "Parola d&#39;ordine",
+      "register": "Registrati",
+      "firstName": "Nome di battesimo",
+      "lastName": "Cognome",
+      "postcode": "Codice postale"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Inizia la consultazione",
+      "profile": "Profilo"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Chiedi alla reception il codice",
+      "enterDoctorCode": "Inserisci il tuo codice medico"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Domande generali",
+      "good": "Buono",
+      "notGood": "Non bene",
+      "bad": "Cattivo",
+      "inPain": "Dolorante",
+      "sleeping": "Stai dormendo bene?",
+      "eating": "Mangi cibo?",
+      "highTemperature": "Hai una temperatura elevata?",
+      "medications": "Stai assumendo farmaci?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Fai clic su Dove hai un sintomo",
+      "Head": {
+        "cough": "Tosse",
+        "dizzy": "Vertigini",
+        "hairLoss": "La perdita di capelli",
+        "headache": "Mal di testa",
+        "noseBleeding": "Sanguinamento dal naso",
+        "rash": "Eruzione cutanea",
+        "runnyNose": "Rinorrea",
+        "sneezing": "Starnuti",
+        "soreThroat": "Gola infiammata",
+        "soreEye": "Occhi irritati",
+        "sweating": "Sudorazione",
+        "vomiting": "Vomito"
+      },
+      "Arms": {
+        "elbowPain": "Dolore al gomito",
+        "handPain": "Dolore alla mano",
+        "armPain": "Dolore al braccio",
+        "armRash": "Eruzione cutanea al braccio"
+      },
+      "Body": {
+        "backPain": "Mal di schiena",
+        "shortBreath": "A corto di respiro",
+        "constipation": "Stipsi",
+        "stomachCramps": "Crampi allo stomaco",
+        "bodyRash": "Eruzione cutanea",
+        "shaking": "Agitando",
+        "stomachPain": "Mal di stomaco",
+        "heartRate": "Frequenza cardiaca veloce"
+      },
+      "Legs": {
+        "anklePain": "Dolore alla caviglia",
+        "calfPain": "Dolore al polpaccio",
+        "footPain": "Male al piede",
+        "kneePain": "Dolore al ginocchio",
+        "legRash": "Eruzione cutanea alle gambe",
+        "thighPain": "Dolore alla coscia"
+      }
+    },
+    "feedbackTerms": {
+      "end": "La tua consultazione è terminata",
+      "rate": "Valuta la tua esperienza"
+    },
+    "utils": {
+      "yes": "sì",
+      "no": "No",
+      "next": "Il prossimo",
+      "end": "Fine",
+      "confirm": "Confermare"
+    }
+  },
+  "lv": {
+    "loginAndRegisterTerms": {
+      "login": "Pieslēgties",
+      "email": "E-pasts",
+      "emailAddress": "Epasta adrese",
+      "password": "Parole",
+      "register": "Reģistrēties",
+      "firstName": "Vārds",
+      "lastName": "Uzvārds",
+      "postcode": "Pasta indekss"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Sāciet konsultāciju",
+      "profile": "Profils"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Jautājiet reģistratūrā par kodu",
+      "enterDoctorCode": "Ievadiet savu ārstu kodu"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Vispārīgi jautājumi",
+      "good": "Labi",
+      "notGood": "Nav labi",
+      "bad": "Slikti",
+      "inPain": "Sāpēs",
+      "sleeping": "Vai jūs labi gulējat?",
+      "eating": "Vai jūs ēdat ēdienu?",
+      "highTemperature": "Vai jums ir augsta temperatūra?",
+      "medications": "Vai jūs lietojat kādas zāles?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Noklikšķiniet uz Kur jums ir simptoms",
+      "Head": {
+        "cough": "Klepus",
+        "dizzy": "Reibonis",
+        "hairLoss": "Matu izkrišana",
+        "headache": "Galvassāpes",
+        "noseBleeding": "Deguna asiņošana",
+        "rash": "Izsitumi",
+        "runnyNose": "Iesnas",
+        "sneezing": "Šķaudīšana",
+        "soreThroat": "Sāpošs kakls",
+        "soreEye": "Sāpīgas acis",
+        "sweating": "Svīšana",
+        "vomiting": "Vemšana"
+      },
+      "Arms": {
+        "elbowPain": "Elkoņa sāpes",
+        "handPain": "Roku sāpes",
+        "armPain": "Roku sāpes",
+        "armRash": "Izsitumi uz rokām"
+      },
+      "Body": {
+        "backPain": "Muguras sāpes",
+        "shortBreath": "Elpas trūkums",
+        "constipation": "Aizcietējums",
+        "stomachCramps": "Kuņģa krampji",
+        "bodyRash": "Ķermeņa izsitumi",
+        "shaking": "Kratīšana",
+        "stomachPain": "Sāpes vēderā",
+        "heartRate": "Ātra sirdsdarbība"
+      },
+      "Legs": {
+        "anklePain": "Potītes sāpes",
+        "calfPain": "Teļa sāpes",
+        "footPain": "Pēdu sāpes",
+        "kneePain": "Sāpes ceļos",
+        "legRash": "Izsitumi kājās",
+        "thighPain": "Sāpes augšstilbā"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Jūsu konsultācija ir beigusies",
+      "rate": "Novērtējiet savu pieredzi"
+    },
+    "utils": {
+      "yes": "Jā",
+      "no": "Nē",
+      "next": "Nākamais",
+      "end": "Beigas",
+      "confirm": "Apstiprināt"
+    }
+  },
+  "lt": {
+    "loginAndRegisterTerms": {
+      "login": "Prisijungti",
+      "email": "El",
+      "emailAddress": "Elektroninio pašto adresas",
+      "password": "Slaptažodis",
+      "register": "Registruotis",
+      "firstName": "Pirmas vardas",
+      "lastName": "Pavardė",
+      "postcode": "Pašto kodas"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Pradėkite konsultaciją",
+      "profile": "Profilis"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Klauskite registratūroje kodo",
+      "enterDoctorCode": "Įveskite savo gydytojų kodą"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Bendri klausimai",
+      "good": "Gerai",
+      "notGood": "Negerai",
+      "bad": "Blogai",
+      "inPain": "Skausme",
+      "sleeping": "Ar gerai miegate?",
+      "eating": "Ar valgote maistą?",
+      "highTemperature": "Ar turite aukštą temperatūrą?",
+      "medications": "Ar vartojate vaistus?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Spustelėkite Kur turite simptomų",
+      "Head": {
+        "cough": "Kosulys",
+        "dizzy": "Apsvaigęs",
+        "hairLoss": "Plaukų slinkimas",
+        "headache": "Galvos skausmas",
+        "noseBleeding": "Kraujavimas iš nosies",
+        "rash": "Bėrimas",
+        "runnyNose": "Bėganti nosis",
+        "sneezing": "Čiaudėjimas",
+        "soreThroat": "Gerklės skausmas",
+        "soreEye": "Skaudančios akys",
+        "sweating": "Prakaitavimas",
+        "vomiting": "Vėmimas"
+      },
+      "Arms": {
+        "elbowPain": "Alkūnės skausmas",
+        "handPain": "Rankų skausmas",
+        "armPain": "Rankos skausmas",
+        "armRash": "Rankos išbėrimas"
+      },
+      "Body": {
+        "backPain": "Nugaros skausmas",
+        "shortBreath": "Trūksta oro",
+        "constipation": "Vidurių užkietėjimas",
+        "stomachCramps": "Skrandžio spazmai",
+        "bodyRash": "Kūno išbėrimas",
+        "shaking": "Drebulys",
+        "stomachPain": "Skrandžio skausmas",
+        "heartRate": "Greitas širdies ritmas"
+      },
+      "Legs": {
+        "anklePain": "Čiurnos skausmas",
+        "calfPain": "Blauzdos skausmas",
+        "footPain": "Pėdos skausmas",
+        "kneePain": "Kelio skausmas",
+        "legRash": "Kojų išbėrimas",
+        "thighPain": "Šlaunų skausmas"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Jūsų konsultacijos baigėsi",
+      "rate": "Įvertink savo patirtį"
+    },
+    "utils": {
+      "yes": "Taip",
+      "no": "Ne",
+      "next": "Kitas",
+      "end": "Pabaiga",
+      "confirm": "Patvirtinti"
+    }
+  },
+  "fa": {
+    "loginAndRegisterTerms": {
+      "login": "وارد شدن",
+      "email": "پست الکترونیک",
+      "emailAddress": "آدرس ایمیل",
+      "password": "کلمه عبور",
+      "register": "ثبت نام",
+      "firstName": "نام کوچک",
+      "lastName": "نام خانوادگی",
+      "postcode": "کد پستی"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "مشاوره را شروع کنید",
+      "profile": "مشخصات"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "از پذیرش کد بخواهید",
+      "enterDoctorCode": "کد پزشکان خود را وارد کنید"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "سوالات عمومی",
+      "good": "خوب",
+      "notGood": "خوب نیست",
+      "bad": "بد",
+      "inPain": "در درد",
+      "sleeping": "خوب خوابیده ای؟",
+      "eating": "آیا شما غذا می خورید؟",
+      "highTemperature": "آیا دمای بالایی دارید؟",
+      "medications": "آیا دارویی مصرف می کنید؟"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "روی جایی که علائم دارید کلیک کنید",
+      "Head": {
+        "cough": "سرفه",
+        "dizzy": "گیجی",
+        "hairLoss": "ریزش مو",
+        "headache": "سردرد",
+        "noseBleeding": "خون دماغ",
+        "rash": "راش",
+        "runnyNose": "آبریزش بینی",
+        "sneezing": "عطسه کردن",
+        "soreThroat": "گلو درد",
+        "soreEye": "چشم درد",
+        "sweating": "تعریق",
+        "vomiting": "استفراغ"
+      },
+      "Arms": {
+        "elbowPain": "درد آرنج",
+        "handPain": "درد دست",
+        "armPain": "بازو درد",
+        "armRash": "بازو راش"
+      },
+      "Body": {
+        "backPain": "کمردرد",
+        "shortBreath": "تنگی نفس",
+        "constipation": "یبوست",
+        "stomachCramps": "گرفتگی معده",
+        "bodyRash": "راش بدن",
+        "shaking": "تکان دادن",
+        "stomachPain": "دل درد",
+        "heartRate": "ضربان قلب سریع"
+      },
+      "Legs": {
+        "anklePain": "درد مچ پا",
+        "calfPain": "درد گوساله",
+        "footPain": "درد پا",
+        "kneePain": "زانو درد",
+        "legRash": "راش پا",
+        "thighPain": "درد ران"
+      }
+    },
+    "feedbackTerms": {
+      "end": "مشاوره شما به پایان رسیده است",
+      "rate": "به تجربه خود امتیاز دهید"
+    },
+    "utils": {
+      "yes": "آره",
+      "no": "نه",
+      "next": "بعد",
+      "end": "پایان",
+      "confirm": "تایید"
+    }
+  },
+  "pl": {
+    "loginAndRegisterTerms": {
+      "login": "Zaloguj sie",
+      "email": "E-mail",
+      "emailAddress": "Adres e-mail",
+      "password": "Hasło",
+      "register": "Zarejestrować",
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "postcode": "Kod pocztowy"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Rozpocznij konsultację",
+      "profile": "Profil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Zapytaj w recepcji o kod",
+      "enterDoctorCode": "Wprowadź kod lekarza"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Ogólne pytania",
+      "good": "Dobry",
+      "notGood": "Niedobrze",
+      "bad": "Zły",
+      "inPain": "W bólu",
+      "sleeping": "Dobrze sypiasz?",
+      "eating": "Jesz jedzenie?",
+      "highTemperature": "Czy masz wysoką temperaturę?",
+      "medications": "Czy bierzesz jakieś leki?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Kliknij Gdzie masz objaw",
+      "Head": {
+        "cough": "Kaszel",
+        "dizzy": "Oszołomiony",
+        "hairLoss": "Wypadanie włosów",
+        "headache": "Bół głowy",
+        "noseBleeding": "Krwawienie z nosa",
+        "rash": "Wysypka",
+        "runnyNose": "Katar",
+        "sneezing": "Kichanie",
+        "soreThroat": "Ból gardła",
+        "soreEye": "Ból oczu",
+        "sweating": "Wyzysk",
+        "vomiting": "Wymioty"
+      },
+      "Arms": {
+        "elbowPain": "Ból łokcia",
+        "handPain": "Ból dłoni",
+        "armPain": "Ból ramienia",
+        "armRash": "Wysypka na ramię"
+      },
+      "Body": {
+        "backPain": "Ból pleców",
+        "shortBreath": "Zadyszka",
+        "constipation": "Zaparcie",
+        "stomachCramps": "Skurcze żołądka",
+        "bodyRash": "Wysypka na ciele",
+        "shaking": "Drżący",
+        "stomachPain": "Ból brzucha",
+        "heartRate": "Szybkie tętno"
+      },
+      "Legs": {
+        "anklePain": "Ból kostki",
+        "calfPain": "Ból łydki",
+        "footPain": "Ból stopy",
+        "kneePain": "Ból kolana",
+        "legRash": "Wysypka na nogi",
+        "thighPain": "Ból uda"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Twoja konsultacja dobiegła końca",
+      "rate": "Oceń swoje doświadczenie"
+    },
+    "utils": {
+      "yes": "tak",
+      "no": "Nie",
+      "next": "Kolejny",
+      "end": "Koniec",
+      "confirm": "Potwierdzać"
+    }
+  },
+  "pt": {
+    "loginAndRegisterTerms": {
+      "login": "Conecte-se",
+      "email": "O email",
+      "emailAddress": "Endereço de e-mail",
+      "password": "Senha",
+      "register": "Registro",
+      "firstName": "Primeiro nome",
+      "lastName": "Último nome",
+      "postcode": "Código Postal"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Iniciar Consulta",
+      "profile": "Perfil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Peça o código na recepção",
+      "enterDoctorCode": "Digite o código do seu médico"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Questões gerais",
+      "good": "Boa",
+      "notGood": "Não é bom",
+      "bad": "Ruim",
+      "inPain": "Na dor",
+      "sleeping": "Você está dormindo bem?",
+      "eating": "Você está comendo comida?",
+      "highTemperature": "Você tem uma temperatura elevada?",
+      "medications": "Você está tomando alguma medicação?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Clique onde você tem um sintoma",
+      "Head": {
+        "cough": "Tosse",
+        "dizzy": "Tonto",
+        "hairLoss": "Perda de cabelo",
+        "headache": "Dor de cabeça",
+        "noseBleeding": "Nariz sangrando",
+        "rash": "Erupção cutânea",
+        "runnyNose": "Coriza",
+        "sneezing": "Espirros",
+        "soreThroat": "Dor de garganta",
+        "soreEye": "Olhos doloridos",
+        "sweating": "Suando",
+        "vomiting": "Vômito"
+      },
+      "Arms": {
+        "elbowPain": "Dor de cotovelo",
+        "handPain": "Dor nas mãos",
+        "armPain": "Dor no braço",
+        "armRash": "Erupção do braço"
+      },
+      "Body": {
+        "backPain": "Dor nas costas",
+        "shortBreath": "Falta de ar",
+        "constipation": "Constipação",
+        "stomachCramps": "Dores de estômago",
+        "bodyRash": "Erupção Corporal",
+        "shaking": "Tremendo",
+        "stomachPain": "Dor de estômago",
+        "heartRate": "Ritmo cardíaco rápido"
+      },
+      "Legs": {
+        "anklePain": "Dor no tornozelo",
+        "calfPain": "Dor na panturrilha",
+        "footPain": "Dor no pé",
+        "kneePain": "Dor no joelho",
+        "legRash": "Erupção nas pernas",
+        "thighPain": "Dor na coxa"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Sua consulta terminou",
+      "rate": "Avalie sua experiência"
+    },
+    "utils": {
+      "yes": "sim",
+      "no": "Não",
+      "next": "Próximo",
+      "end": "Fim",
+      "confirm": "confirme"
+    }
+  },
+  "pa": {
+    "loginAndRegisterTerms": {
+      "login": "ਲਾਗਿਨ",
+      "email": "ਈ - ਮੇਲ",
+      "emailAddress": "ਈਮੇਲ ਪਤਾ",
+      "password": "ਪਾਸਵਰਡ",
+      "register": "ਰਜਿਸਟਰ",
+      "firstName": "ਪਹਿਲਾ ਨਾਂ",
+      "lastName": "ਆਖਰੀ ਨਾਂਮ",
+      "postcode": "ਪੋਸਟਕੋਡ"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "ਸਲਾਹ-ਮਸ਼ਵਰਾ ਸ਼ੁਰੂ ਕਰੋ",
+      "profile": "ਪ੍ਰੋਫਾਈਲ"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "ਕੋਡ ਲਈ ਰਿਸੈਪਸ਼ਨ ਤੇ ਪੁੱਛੋ",
+      "enterDoctorCode": "ਆਪਣੇ ਡਾਕਟਰਾਂ ਦਾ ਕੋਡ ਦਰਜ ਕਰੋ"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "ਆਮ ਸਵਾਲ",
+      "good": "ਚੰਗਾ",
+      "notGood": "ਵਧੀਆ ਨਹੀ",
+      "bad": "ਮਾੜਾ",
+      "inPain": "ਦਰਦ ਵਿਚ",
+      "sleeping": "ਕੀ ਤੁਸੀਂ ਚੰਗੀ ਨੀਂਦ ਲੈ ਰਹੇ ਹੋ?",
+      "eating": "ਕੀ ਤੁਸੀਂ ਖਾਣਾ ਖਾ ਰਹੇ ਹੋ?",
+      "highTemperature": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਉੱਚ ਤਾਪਮਾਨ ਹੈ?",
+      "medications": "ਕੀ ਤੁਸੀਂ ਕੋਈ ਦਵਾਈ ਲੈ ਰਹੇ ਹੋ?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "ਤੁਹਾਨੂੰ ਇੱਕ ਲੱਛਣ ਹੈ, ਜਿੱਥੇ ਕਲਿੱਕ ਕਰੋ",
+      "Head": {
+        "cough": "ਖੰਘ",
+        "dizzy": "ਚੱਕਰ ਆਉਣਾ",
+        "hairLoss": "ਵਾਲਾਂ ਦਾ ਨੁਕਸਾਨ",
+        "headache": "ਸਿਰ ਦਰਦ",
+        "noseBleeding": "ਨੱਕ ਵਗਣਾ",
+        "rash": "ਧੱਫੜ",
+        "runnyNose": "ਵਗਦਾ ਨੱਕ",
+        "sneezing": "ਛਿੱਕ",
+        "soreThroat": "ਗਲੇ ਵਿੱਚ ਖਰਾਸ਼",
+        "soreEye": "ਦੁਖਦੀ ਅੱਖ",
+        "sweating": "ਪਸੀਨਾ",
+        "vomiting": "ਉਲਟੀਆਂ"
+      },
+      "Arms": {
+        "elbowPain": "ਕੂਹਣੀ ਦਾ ਦਰਦ",
+        "handPain": "ਹੱਥ ਦਰਦ",
+        "armPain": "ਬਾਂਹ ਦਾ ਦਰਦ",
+        "armRash": "ਬਾਂਹ ਧੱਫੜ"
+      },
+      "Body": {
+        "backPain": "ਪਿਠ ਦਰਦ",
+        "shortBreath": "ਸਾਹ ਦੀ ਕਮੀ",
+        "constipation": "ਕਬਜ਼",
+        "stomachCramps": "ਪੇਟ ਿ .ੱਡ",
+        "bodyRash": "ਸਰੀਰ ਧੱਫੜ",
+        "shaking": "ਕੰਬਣਾ",
+        "stomachPain": "ਪੇਟ ਦਰਦ",
+        "heartRate": "ਤੇਜ਼ ਦਿਲ ਦੀ ਦਰ"
+      },
+      "Legs": {
+        "anklePain": "ਗਿੱਟੇ ਦਾ ਦਰਦ",
+        "calfPain": "ਵੱਛੇ ਦਾ ਦਰਦ",
+        "footPain": "ਪੈਰ ਦਰਦ",
+        "kneePain": "ਗੋਡੇ ਦਾ ਦਰਦ",
+        "legRash": "ਲੱਤ ਧੱਫੜ",
+        "thighPain": "ਪੱਟ ਦਰਦ"
+      }
+    },
+    "feedbackTerms": {
+      "end": "ਤੁਹਾਡੀ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਖਤਮ ਹੋ ਗਿਆ ਹੈ",
+      "rate": "ਆਪਣੇ ਤਜ਼ਰਬੇ ਨੂੰ ਦਰਜਾ ਦਿਓ"
+    },
+    "utils": {
+      "yes": "ਹਾਂ",
+      "no": "ਨਹੀਂ",
+      "next": "ਅਗਲਾ",
+      "end": "ਅੰਤ",
+      "confirm": "ਪੁਸ਼ਟੀ ਕਰੋ"
+    }
+  },
+  "ro": {
+    "loginAndRegisterTerms": {
+      "login": "Autentificare",
+      "email": "E-mail",
+      "emailAddress": "Adresa de e-mail",
+      "password": "Parola",
+      "register": "Inregistreaza-te",
+      "firstName": "Nume",
+      "lastName": "Numele de familie",
+      "postcode": "Cod poștal"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Începeți consultarea",
+      "profile": "Profil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Cereți codul la recepție",
+      "enterDoctorCode": "Introduceți codul medicilor"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Intrebari generale",
+      "good": "Bun",
+      "notGood": "Nu e bine",
+      "bad": "Rău",
+      "inPain": "În durere",
+      "sleeping": "Dormi bine?",
+      "eating": "Mănânci mâncare?",
+      "highTemperature": "Aveți o temperatură ridicată?",
+      "medications": "Ia vreun medicament?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Faceți clic pe Unde aveți un simptom",
+      "Head": {
+        "cough": "Tuse",
+        "dizzy": "Ameţit",
+        "hairLoss": "Pierderea parului",
+        "headache": "Durere de cap",
+        "noseBleeding": "Sângerarea nasului",
+        "rash": "Eczemă",
+        "runnyNose": "Nas curgător",
+        "sneezing": "Strănut",
+        "soreThroat": "Durere de gât",
+        "soreEye": "Ochi iritați",
+        "sweating": "Transpiraţie",
+        "vomiting": "Vărsături"
+      },
+      "Arms": {
+        "elbowPain": "Durerea cotului",
+        "handPain": "Durere de mână",
+        "armPain": "Durere de braț",
+        "armRash": "Arm Rash"
+      },
+      "Body": {
+        "backPain": "Dureri de spate",
+        "shortBreath": "Fara aer",
+        "constipation": "Constipație",
+        "stomachCramps": "Crampe stomacale",
+        "bodyRash": "Erupție corporală",
+        "shaking": "Tremurând",
+        "stomachPain": "Dureri de stomac",
+        "heartRate": "Ritm cardiac rapid"
+      },
+      "Legs": {
+        "anklePain": "Durerea la gleznă",
+        "calfPain": "Durerea de vițel",
+        "footPain": "Durere de picior",
+        "kneePain": "Durerea la genunchi",
+        "legRash": "Erupție pe picioare",
+        "thighPain": "Durerea coapsei"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Consultarea dvs. s-a încheiat",
+      "rate": "Evaluează-ți experiența"
+    },
+    "utils": {
+      "yes": "da",
+      "no": "Nu",
+      "next": "Următorul",
+      "end": "Sfârșit",
+      "confirm": "A confirma"
+    }
+  },
+  "es": {
+    "loginAndRegisterTerms": {
+      "login": "Iniciar sesión",
+      "email": "Email",
+      "emailAddress": "Dirección de correo electrónico",
+      "password": "Contraseña",
+      "register": "Registrarse",
+      "firstName": "Primer nombre",
+      "lastName": "Apellido",
+      "postcode": "Código postal"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Iniciar consulta",
+      "profile": "Perfil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Pregunte en recepción por el código",
+      "enterDoctorCode": "Ingrese el código de su médico"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Preguntas generales",
+      "good": "Bueno",
+      "notGood": "No está bien",
+      "bad": "Malo",
+      "inPain": "En dolor",
+      "sleeping": "¿Duermes bien?",
+      "eating": "¿Estás comiendo comida?",
+      "highTemperature": "¿Tiene temperatura alta?",
+      "medications": "¿Estás tomando alguna medicación?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Haga clic en donde tenga un síntoma",
+      "Head": {
+        "cough": "Tos",
+        "dizzy": "Mareado",
+        "hairLoss": "Perdida de cabello",
+        "headache": "Dolor de cabeza",
+        "noseBleeding": "Hemorragia nasal",
+        "rash": "Erupción",
+        "runnyNose": "Rinorrea",
+        "sneezing": "Estornudos",
+        "soreThroat": "Dolor de garganta",
+        "soreEye": "Dolor en los ojos",
+        "sweating": "Transpiración",
+        "vomiting": "Vómitos"
+      },
+      "Arms": {
+        "elbowPain": "Dolor de codo",
+        "handPain": "Dolor de manos",
+        "armPain": "Dolor en el brazo",
+        "armRash": "Erupción del brazo"
+      },
+      "Body": {
+        "backPain": "Dolor de espalda",
+        "shortBreath": "Falta de aliento",
+        "constipation": "Estreñimiento",
+        "stomachCramps": "Calambres en el estómago",
+        "bodyRash": "Erupción corporal",
+        "shaking": "Sacudida",
+        "stomachPain": "Dolor de estómago",
+        "heartRate": "Frecuencia cardíaca rápida"
+      },
+      "Legs": {
+        "anklePain": "Dolor de tobillo",
+        "calfPain": "Dolor de pantorrilla",
+        "footPain": "Dolor de pie",
+        "kneePain": "Dolor de rodilla",
+        "legRash": "Erupción en la pierna",
+        "thighPain": "Dolor de muslo"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Su consulta ha finalizado",
+      "rate": "Califica tu experiencia"
+    },
+    "utils": {
+      "yes": "si",
+      "no": "No",
+      "next": "Siguiente",
+      "end": "Fin",
+      "confirm": "Confirmar"
+    }
+  },
+  "so": {
+    "loginAndRegisterTerms": {
+      "login": "Soo gal",
+      "email": "Email",
+      "emailAddress": "Cinwaanka emailka",
+      "password": "Furaha",
+      "register": "Diiwaangeli",
+      "firstName": "Magaca koowaad",
+      "lastName": "Magaca Dambe",
+      "postcode": "Koodhka boostada"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Bilaab La-tashiga",
+      "profile": "Astaan"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Weydii Qaabilaada Markaad Codsaneyso",
+      "enterDoctorCode": "Gali Xeerka Dhakhaatiirtaada"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Su&#39;aalaha Guud",
+      "good": "Wanaagsan",
+      "notGood": "Ma wanaagsan",
+      "bad": "Xun",
+      "inPain": "Xanuun",
+      "sleeping": "Si fiican ma u seexanaysaa?",
+      "eating": "Ma cunaysaa cunno?",
+      "highTemperature": "Ma Leedahay Heerkul Sare?",
+      "medications": "Ma qaadataa wax daawo ah?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Dhagsii Meesha Aad Calaamado Ku Leedahay",
+      "Head": {
+        "cough": "Qufac",
+        "dizzy": "Dawakhaad",
+        "hairLoss": "Timo lumis",
+        "headache": "Madax xanuun",
+        "noseBleeding": "Dhiigbax Sanka",
+        "rash": "Firiiric",
+        "runnyNose": "Daan Sanka",
+        "sneezing": "Hindhiso",
+        "soreThroat": "Cune xanuun",
+        "soreEye": "Indho xanuun",
+        "sweating": "Dhidid",
+        "vomiting": "Matagid"
+      },
+      "Arms": {
+        "elbowPain": "Xusulka Xanuunka",
+        "handPain": "Xanuunka gacanta",
+        "armPain": "Gacan xanuun",
+        "armRash": "Gacan Fudud"
+      },
+      "Body": {
+        "backPain": "Dhabar xanuun",
+        "shortBreath": "Neefsashada Gaaban",
+        "constipation": "Calool fadhiga",
+        "stomachCramps": "Calool xanuun",
+        "bodyRash": "Xaragada Jirka",
+        "shaking": "Ruxaaya",
+        "stomachPain": "Calool xanuun",
+        "heartRate": "Qiyaasta Wadnaha Oo Deg Deg Ah"
+      },
+      "Legs": {
+        "anklePain": "Xanuunka Canqowga",
+        "calfPain": "Xanuun kubka",
+        "footPain": "Cag xanuun",
+        "kneePain": "Jilibka Xanuun",
+        "legRash": "Lug Lug",
+        "thighPain": "Xanuunka bowdada"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Wadatashigaagii Waa Dhamaaday",
+      "rate": "Qiimee Khibradaada"
+    },
+    "utils": {
+      "yes": "Haa",
+      "no": "Maya",
+      "next": "Xiga",
+      "end": "Dhammaad",
+      "confirm": "Xaqiiji"
+    }
+  },
+  "tl": {
+    "loginAndRegisterTerms": {
+      "login": "Mag log in",
+      "email": "Email",
+      "emailAddress": "Email Address",
+      "password": "Password",
+      "register": "Magparehistro",
+      "firstName": "Pangalan",
+      "lastName": "Huling pangalan",
+      "postcode": "Postcode"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Simulan ang Konsulta",
+      "profile": "Profile"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Magtanong Sa Pagtanggap Para sa Code",
+      "enterDoctorCode": "Ipasok ang Code ng iyong Mga Doktor"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Pangkalahatang Katanungan",
+      "good": "Mabuti",
+      "notGood": "Hindi maganda",
+      "bad": "Masama",
+      "inPain": "Nasasaktan",
+      "sleeping": "Natutulog ka ba ng maayos?",
+      "eating": "Kumakain ka ba ng pagkain?",
+      "highTemperature": "Mayroon Ka Bang Isang Mataas na Temperatura?",
+      "medications": "Umiinom ka ba ng gamot?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Mag-click Kung Saan Mayroon Ka Isang Sintomas",
+      "Head": {
+        "cough": "Ubo",
+        "dizzy": "Nahihilo",
+        "hairLoss": "Pagkawala ng Buhok",
+        "headache": "Sakit ng ulo",
+        "noseBleeding": "Pagdurugo ng Ilong",
+        "rash": "Rash",
+        "runnyNose": "Sipon",
+        "sneezing": "Pagbahin",
+        "soreThroat": "Masakit sa lalamunan",
+        "soreEye": "Pananakit ng mata",
+        "sweating": "Pinagpapawisan",
+        "vomiting": "Pagsusuka"
+      },
+      "Arms": {
+        "elbowPain": "Sakit ng siko",
+        "handPain": "Sakit sa Kamay",
+        "armPain": "Sakit sa braso",
+        "armRash": "Arm Rash"
+      },
+      "Body": {
+        "backPain": "Sakit sa likod",
+        "shortBreath": "Short Of Breath",
+        "constipation": "Paninigas ng dumi",
+        "stomachCramps": "Mga Cramp ng Tiyan",
+        "bodyRash": "Body Rash",
+        "shaking": "Pagkakalog",
+        "stomachPain": "Sakit sa tyan",
+        "heartRate": "Mabilis na Rate ng Puso"
+      },
+      "Legs": {
+        "anklePain": "Sakit sa bukung-bukong",
+        "calfPain": "Sakit ng Baka",
+        "footPain": "Sakit sa Paa",
+        "kneePain": "Sakit sa tuhod",
+        "legRash": "Leg Rash",
+        "thighPain": "Sakit sa hita"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Natapos na ang Iyong Konsulta",
+      "rate": "I-rate ang Iyong Karanasan"
+    },
+    "utils": {
+      "yes": "Oo",
+      "no": "Hindi",
+      "next": "Susunod",
+      "end": "Tapusin",
+      "confirm": "Kumpirmahin"
+    }
+  },
+  "tr": {
+    "loginAndRegisterTerms": {
+      "login": "Oturum aç",
+      "email": "E-posta adresi",
+      "emailAddress": "E",
+      "password": "Parola",
+      "register": "Kayıt ol",
+      "firstName": "İsim",
+      "lastName": "Soyadı",
+      "postcode": "Posta kodu"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Konsültasyonu Başlat",
+      "profile": "Profil"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Kod için Resepsiyondan Sor",
+      "enterDoctorCode": "Doktorunuzun Kodunu Girin"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Genel Sorular",
+      "good": "İyi",
+      "notGood": "İyi değil",
+      "bad": "Kötü",
+      "inPain": "Acı içinde",
+      "sleeping": "İyi uyuyor musun",
+      "eating": "Yemek mi yiyorsun",
+      "highTemperature": "Yüksek Ateşiniz mi Var?",
+      "medications": "Herhangi bir ilaç alıyor musunuz?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Belirti Gördüğünüz Yeri Tıklayın",
+      "Head": {
+        "cough": "Öksürük",
+        "dizzy": "Baş dönmesi",
+        "hairLoss": "Saç kaybı",
+        "headache": "Baş ağrısı",
+        "noseBleeding": "Burun kanaması",
+        "rash": "Döküntü",
+        "runnyNose": "Burun akması",
+        "sneezing": "Hapşırma",
+        "soreThroat": "Boğaz ağrısı",
+        "soreEye": "Ağrılı gözler",
+        "sweating": "Terlemek",
+        "vomiting": "Kusma"
+      },
+      "Arms": {
+        "elbowPain": "Dirsek Ağrısı",
+        "handPain": "El Ağrısı",
+        "armPain": "Kol ağrısı",
+        "armRash": "Kol Döküntüsü"
+      },
+      "Body": {
+        "backPain": "Sırt ağrısı",
+        "shortBreath": "Nefes darlığı çeken",
+        "constipation": "Kabızlık",
+        "stomachCramps": "Karın krampları",
+        "bodyRash": "Vücut Döküntüsü",
+        "shaking": "Titriyor",
+        "stomachPain": "Karın ağrısı",
+        "heartRate": "Hızlı Kalp Atış Hızı"
+      },
+      "Legs": {
+        "anklePain": "Ayak Bileği Ağrısı",
+        "calfPain": "Baldır ağrısı",
+        "footPain": "Ayak Ağrısı",
+        "kneePain": "Diz ağrısı",
+        "legRash": "Bacak Döküntüsü",
+        "thighPain": "Uyluk Ağrısı"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Görüşmeniz Sona Erdi",
+      "rate": "Deneyiminizi Değerlendirin"
+    },
+    "utils": {
+      "yes": "Evet",
+      "no": "Hayır",
+      "next": "Sonraki",
+      "end": "Son",
+      "confirm": "Onaylamak"
+    }
+  },
+  "ur": {
+    "loginAndRegisterTerms": {
+      "login": "لاگ ان کریں",
+      "email": "ای میل",
+      "emailAddress": "ای میل اڈریس",
+      "password": "پاس ورڈ",
+      "register": "رجسٹر کریں",
+      "firstName": "پہلا نام",
+      "lastName": "آخری نام",
+      "postcode": "پوسٹ کوڈ"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "مشاورت شروع کریں",
+      "profile": "پروفائل"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "ضابطہ کے لئے استقبالیہ پر پوچھیں",
+      "enterDoctorCode": "اپنے ڈاکٹروں کا کوڈ درج کریں"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "عام سوالات",
+      "good": "اچھی",
+      "notGood": "اچھا نہیں",
+      "bad": "برا",
+      "inPain": "درد میں",
+      "sleeping": "کیا تم اچھی طرح سے سو رہے ہو؟",
+      "eating": "کیا آپ کھانا کھا رہے ہیں؟",
+      "highTemperature": "کیا آپ کو درجہ حرارت بہت زیادہ ہے؟",
+      "medications": "کیا آپ کوئی دوا لے رہے ہیں؟"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "جہاں آپ کی علامت ہے وہاں پر کلک کریں",
+      "Head": {
+        "cough": "کھانسی",
+        "dizzy": "چکر آنا",
+        "hairLoss": "بال گرنا",
+        "headache": "سر درد",
+        "noseBleeding": "ناک سے خون بہنا",
+        "rash": "خارش",
+        "runnyNose": "بہتی ہوئی ناک",
+        "sneezing": "چھینک آنا",
+        "soreThroat": "گلے کی سوزش",
+        "soreEye": "زخمى آنکھيں",
+        "sweating": "پسینہ آ رہا ہے",
+        "vomiting": "الٹی"
+      },
+      "Arms": {
+        "elbowPain": "کہنی میں درد",
+        "handPain": "ہاتھ کا درد",
+        "armPain": "بازو کا درد",
+        "armRash": "بازو دھبڑ"
+      },
+      "Body": {
+        "backPain": "کمر درد",
+        "shortBreath": "سانس کی قلت",
+        "constipation": "قبض",
+        "stomachCramps": "پیٹ کے درد",
+        "bodyRash": "جسم پر خارش",
+        "shaking": "لرز اٹھنا",
+        "stomachPain": "پیٹ میں درد",
+        "heartRate": "تیز دل کی شرح"
+      },
+      "Legs": {
+        "anklePain": "ٹخنوں میں درد",
+        "calfPain": "بچھڑے کا درد",
+        "footPain": "پاؤں میں درد",
+        "kneePain": "گھٹنے کا درد",
+        "legRash": "ٹانگوں پر خارش",
+        "thighPain": "ران میں درد"
+      }
+    },
+    "feedbackTerms": {
+      "end": "آپ کی مشاورت ختم ہوگئی",
+      "rate": "اپنے تجربے کی درجہ بندی کریں"
+    },
+    "utils": {
+      "yes": "جی ہاں",
+      "no": "نہیں",
+      "next": "اگلے",
+      "end": "ختم",
+      "confirm": "تصدیق کریں"
+    }
+  },
+  "vi": {
+    "loginAndRegisterTerms": {
+      "login": "Đăng nhập",
+      "email": "E-mail",
+      "emailAddress": "Địa chỉ email",
+      "password": "Mật khẩu",
+      "register": "Đăng ký",
+      "firstName": "Tên đầu tiên",
+      "lastName": "Họ",
+      "postcode": "Mã bưu điện"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "Bắt đầu tư vấn",
+      "profile": "Hồ sơ"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "Hỏi tại quầy lễ tân để biết mã",
+      "enterDoctorCode": "Nhập mã bác sĩ của bạn"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "Câu hỏi chung",
+      "good": "Tốt",
+      "notGood": "Không tốt",
+      "bad": "Xấu",
+      "inPain": "Trong tình trạng đau đớn",
+      "sleeping": "Bạn ngủ ngon chứ?",
+      "eating": "Bạn đang ăn thức ăn?",
+      "highTemperature": "Bạn có nhiệt độ cao không?",
+      "medications": "Bạn có đang dùng thuốc không?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "Nhấp vào nơi bạn có triệu chứng",
+      "Head": {
+        "cough": "Ho",
+        "dizzy": "Chóng mặt",
+        "hairLoss": "Rụng tóc",
+        "headache": "Đau đầu",
+        "noseBleeding": "Chảy máu mũi",
+        "rash": "Phát ban",
+        "runnyNose": "Sổ mũi",
+        "sneezing": "Hắt xì",
+        "soreThroat": "Đau họng",
+        "soreEye": "Đau mắt",
+        "sweating": "Đổ mồ hôi",
+        "vomiting": "Nôn mửa"
+      },
+      "Arms": {
+        "elbowPain": "Đau khuỷu tay",
+        "handPain": "Đau tay",
+        "armPain": "Đau cánh tay",
+        "armRash": "Phát ban cánh tay"
+      },
+      "Body": {
+        "backPain": "Đau lưng",
+        "shortBreath": "Hụt Hơi",
+        "constipation": "Táo bón",
+        "stomachCramps": "Co thăt dạ day",
+        "bodyRash": "Phát ban trên cơ thể",
+        "shaking": "Lắc",
+        "stomachPain": "Đau bụng",
+        "heartRate": "Nhịp tim nhanh"
+      },
+      "Legs": {
+        "anklePain": "Đau mắt cá chân",
+        "calfPain": "Đau bắp chân",
+        "footPain": "Đau chân",
+        "kneePain": "Đau đầu gối",
+        "legRash": "Phát ban ở chân",
+        "thighPain": "Đau đùi"
+      }
+    },
+    "feedbackTerms": {
+      "end": "Buổi tư vấn của bạn đã kết thúc",
+      "rate": "Đánh giá trải nghiệm của bạn"
+    },
+    "utils": {
+      "yes": "Đúng",
+      "no": "Không",
+      "next": "Kế tiếp",
+      "end": "Kết thúc",
+      "confirm": "Xác nhận"
+    }
+  },
+  "yi": {
+    "loginAndRegisterTerms": {
+      "login": "צייכן אריין",
+      "email": "אימעיל",
+      "emailAddress": "אימעיל אדרעס",
+      "password": "שפּריכוואָרט",
+      "register": "רעגיסטרירן",
+      "firstName": "ערשטע נאמען",
+      "lastName": "לעצטע נאמען",
+      "postcode": "פּאָסטקאָדע"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "אָנהייב קאַנסאַלטיישאַן",
+      "profile": "פּראָפיל"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "פרעגן ביי אָפּטראָג פֿאַר קאָד",
+      "enterDoctorCode": "אַרייַן דיין דאָקטאָרס קאָד"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "אַלגעמיינע פֿראגן",
+      "good": "גוט",
+      "notGood": "נישט גוט",
+      "bad": "שלעכט",
+      "inPain": "אין ווייטיק",
+      "sleeping": "איר שלאָפט גוט?",
+      "eating": "עסן איר עסן?",
+      "highTemperature": "צי איר האָבן אַ הויך טעמפּעראַטור?",
+      "medications": "נעמען איר קיין מעדאַקיישאַן?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "דריקט ווו איר האָט אַ סימפּטאָם",
+      "Head": {
+        "cough": "הוסט",
+        "dizzy": "שווינדלדיק",
+        "hairLoss": "האָר אָנווער",
+        "headache": "קאָפּווייטיק",
+        "noseBleeding": "נאָז בלידינג",
+        "rash": "ויסשיט",
+        "runnyNose": "רינעדיגע נאז",
+        "sneezing": "סניזינג",
+        "soreThroat": "האַלדזווייטיק",
+        "soreEye": "ווייטיקדיק ייז",
+        "sweating": "סוועטינג",
+        "vomiting": "וואַמאַטינג"
+      },
+      "Arms": {
+        "elbowPain": "עלנבויגן פּיין",
+        "handPain": "האַנט ווייטיק",
+        "armPain": "אָרעם פּיין",
+        "armRash": "אָרעם ויסשיט"
+      },
+      "Body": {
+        "backPain": "ריקען ווייטאג",
+        "shortBreath": "קורץ פון ברעט",
+        "constipation": "פאַרשטאָפּונג",
+        "stomachCramps": "מאָגן קראַמפּס",
+        "bodyRash": "גוף ויסשיט",
+        "shaking": "שאַקינג",
+        "stomachPain": "מאָגן ווייטיק",
+        "heartRate": "שנעל האַרץ טעמפּאָ"
+      },
+      "Legs": {
+        "anklePain": "קנעכל פּיין",
+        "calfPain": "קאַלב פּיין",
+        "footPain": "פֿיס ווייטיק",
+        "kneePain": "קני ווייטיק",
+        "legRash": "לעג ויסשיט",
+        "thighPain": "דיך ווייטיק"
+      }
+    },
+    "feedbackTerms": {
+      "end": "דיין קאָנסולטאַטיאָן איז געענדיקט",
+      "rate": "אָפּשאַצן דיין דערפאַרונג"
+    },
+    "utils": {
+      "yes": "יאָ",
+      "no": "ניין",
+      "next": "ווייַטער",
+      "end": "סוף",
+      "confirm": "באַשטעטיקן"
+    }
+  }
+}
