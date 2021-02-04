@@ -23,7 +23,7 @@ const EnterCode = () => {
         <label className="text-extrabold text-2xl font-extrabold">
           Enter Code To Start:
         </label>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center w-full px-3 tablet:w-2/3">
           <FormInput
             type="text"
             placeholder=""

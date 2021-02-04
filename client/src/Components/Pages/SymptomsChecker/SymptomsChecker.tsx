@@ -4,13 +4,15 @@ const SymptomsChecker = () => {
   return (
     <div className=" h-full overflow-hidden">
       <div className="fixed top-0 whitespace-nowrap w-screen py-4 bg-green-light">
-        <h1 className="text-bold text-xl text-center">
+        <h1 className="text-bold text-2xl text-center">
           Please specify your symptoms:
         </h1>
       </div>
 
       <ul className="mt-10 w-full px-3 flex flex-col items-center pt-10">
-        <h1 className="text-center font-bold text-2xl">Pain level:</h1>
+        <h1 className="text-center font-bold text-xl">
+          How are you generally feeling:
+        </h1>
         <li className="mt-6 px-4 flex items-center">
           <div className="flex items-center justify-center flex-wrap">
             <button className="h-20 w-20 flex justify-center flex-col hover:bg-blue-light mx-2">
