@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { apolloServer } from './graphql';
 import databaseConfig from './mikro-orm.config';
@@ -11,7 +12,10 @@ const port = process.env.PORT;
 const chatPort = process.env.CHAT_PORT;
 
 const app = express();
-app.use(cookieParser());
+app.use(cookieParser(), cors({
+  origin: process.env.FE_URL,
+  credentials: true
+}));
 
 async function main () {
 
@@ -21,7 +25,7 @@ async function main () {
 
   const server = await apolloServer(db.em);
 
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app, cors: false });
 
   const chatServer = setupSocketIO(app);
 
