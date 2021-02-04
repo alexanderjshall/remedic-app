@@ -18,6 +18,7 @@ const ConsultationChat = () => {
   };
 
   useEffect(() => {
+    x;
     scrollToBottom();
   }, [messages]);
 
@@ -34,10 +35,13 @@ const ConsultationChat = () => {
   };
 
   return (
-    <div className="flex-col flex justify-center w-screen">
+    <div className="flex-col flex justify-center w-screen overflow-hidden">
       <div className="relative flex flex-col shadow-md justify-evenly items-center p-3">
         <div className="w-full h-screen flex flex-col justify-end pt-3 pb-10">
-          <div className="relative flex flex-col h-full  overflow-auto">
+          <div className="h-20 fixed top-0 left-0 w-full z-10 bg-green-light p-3 flex items-center justify-center">
+            <h1 className="text-3xl text-bold">Your chat</h1>
+          </div>
+          <div className="relative flex flex-col h-full overflow-auto pt-16">
             {messages &&
               messages.map((message, idx) =>
                 message.isAuthor ? (
