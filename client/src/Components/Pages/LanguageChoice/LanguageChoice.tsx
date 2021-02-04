@@ -1,32 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import { IoLanguageSharp } from "react-icons/io5";
 import "./LanguageChoice.css";
 import OKButton from '../../Globals/OKButton/OKButton';
-import { Redirect } from 'react-router-dom';
 import supportedLanguages from "../../../utils/supported-languages.json";
+import { useHistory } from "react-router-dom";
 import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
 
 const LanguageChoice = () => {
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [language, setLanguage] = useState<string>('en');
+  const history = useHistory()
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(localStorage.getItem("preferredLanguage") || '');
 
+  const onLanguageChange = (e : React.ChangeEvent<HTMLFormElement>) => {
+    setSelectedLanguage(e.target.id)
+  }
   const handleSubmit = () => {
-    // TODO: save language choice to context
-    setSubmitted(true);
-  }
-
-  useEffect (() => {
-    console.log('language:', language)
-  }, [language])
-
-  const updateLanguage:React.MouseEventHandler<HTMLInputElement> = (e) => {
-    setLanguage(e.currentTarget.value);
-  }
-
-
-
-
-  if (submitted) return <Redirect to='/login'/>
+    if (selectedLanguage) {
+      localStorage.setItem("preferredLanguage", selectedLanguage);
+      history.push("/login")
+    }
+  };
 
   return (
     <div className="flex-col flex justify-center w-screen">
@@ -40,10 +32,12 @@ const LanguageChoice = () => {
           <p className=" text-lg inline whitespace-nowrap">
             Please choose your language:
           </p>
-          <form className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full">
+          <form className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full"
+          onChange={onLanguageChange}
+          >
             {supportedLanguages &&
               supportedLanguages.languages.map((language) => (
-                <div className="flex align-center justify-between my-2">
+                <div className="flex align-center justify-between my-2" key={language.langCode}>
                   <label htmlFor={language.langCode} className="text-lg">
                     {language.nativeName}
                   </label>
@@ -52,11 +46,12 @@ const LanguageChoice = () => {
                     name="lang"
                     id={language.langCode}
                     value={language.englishName}
+                    checked={selectedLanguage === language.langCode}
+                    onChange={()=>{}}
                   />
                 </div>
               ))}
           </form>
-        </div>
         <OKButton
           name="confirm"
           type="submit"
@@ -64,6 +59,7 @@ const LanguageChoice = () => {
           text="Confirm"
           onClick={handleSubmit}
         />
+        </div>
       </div>
     </div>
   );
