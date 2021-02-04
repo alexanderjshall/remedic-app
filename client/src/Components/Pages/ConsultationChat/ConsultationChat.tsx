@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
+import { useAuth } from "../../../Contexts/Auth.context";
 
 // todo, this hardcoded value should instead be read from the context
 const consultationId = "1";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
+
+  const {user} = useAuth()
   const { messages, addMessage } = useChat(
     consultationId,
-    false
+    false,
+    user!.language
   );
   const [currentMsg, setCurrentMsg] = useState("");
 
@@ -25,6 +29,14 @@ const ConsultationChat = () => {
       throw new Error(error);
     }
   };
+
+  // const translatedText = async (currentMsg: string) => {
+  //   try {
+  //     await getTranslatedText(currentMsg, 'en', 'en');
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   return (
     <div className="flex-col flex justify-center w-screen">
