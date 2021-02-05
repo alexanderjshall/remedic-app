@@ -5,23 +5,21 @@ import useChat from "../../../hooks/useChat";
 import { ReactComponent as SendMessageArrow } from "../../../assets/utils/send_message.svg";
 import { ReactComponent as UserIcon } from "../../../assets/utils/user_icon.svg";
 import Doctor from "../../../assets/background-images/humans-standing.png";
+
 import { useAuth } from "../../../Contexts/Auth.context";
 import { ConsultationContext } from '../../../Contexts/Consultation.context';
-import { useHistory } from "react-router-dom";
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
-  const {user} = useAuth();
-  const history = useHistory();
+  const { user } = useAuth();
 
   const { getConsultationId } = useContext(ConsultationContext)!;
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
-    user!.language,
-    () => history.push('/feedback')
+    user!.language
   );
 
   const [currentMsg, setCurrentMsg] = useState("");

@@ -3,7 +3,7 @@ import io , {Socket} from "socket.io-client";
 import { getTranslatedText } from "../services/api.translate";
 import { Message } from "../types";
 
-const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, onConsultationFinish: () => void) => {
+const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string) => {
 
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -13,13 +13,6 @@ const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, on
 
     socketRef.current = io(process.env.REACT_APP_CHAT_URL as string)
     socketRef.current.emit('join chat', roomId);
-    
-    socketRef.current.on('leave consultation', () => {
-      if (socketRef.current) {
-        socketRef.current.emit('leave consultation', roomId);
-        onConsultationFinish();
-      }
-    });
 
     socketRef.current.on('doctor message', async (msg: string) => {
 
@@ -51,8 +44,6 @@ const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, on
       setMessages(prevMesages => [...prevMesages, newMessage])
     });
 
-    
-
   }, [roomId, isDoctor])
 
   const addMessage = (msg: string) => {
@@ -62,13 +53,7 @@ const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, on
     }
   }
 
-  const endConsultation = () => {
-    if (socketRef.current) {
-    socketRef.current.emit('end consultation', roomId);
-    }
-  }
-
-  return {messages, addMessage, endConsultation}
+  return {messages, addMessage}
 }
 
 export default useChat

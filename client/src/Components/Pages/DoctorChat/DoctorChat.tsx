@@ -6,7 +6,6 @@ import PatientMessageBubble from "../ConsultationChat/MessageBubbles/PatientMess
 import { ReactComponent as SendMessage } from "../../../assets/utils/send_message.svg";
 import languages from "../../../utils/supported-languages.json";
 import { useDrContext } from "../../../Contexts/Doctor.context";
-import { useHistory } from "react-router-dom";
 
 const langEnglishName = (langCode: string) =>
   languages.languages.find(l => l.langCode ===langCode )?.englishName
@@ -15,15 +14,11 @@ const DoctorChat = () => {
 
   const {currentConsultation} = useDrContext();
 
-  // todo redirect to edit consultation details and save them
-  const history = useHistory()
-
   const [currentMsg, setCurrentMsg] = useState<string>("");
-  const { messages, addMessage, endConsultation } = useChat(
+  const { messages, addMessage } = useChat(
     String(currentConsultation!.id),
     true,
-    currentConsultation!.patientId!.language,
-    () => history.push('/doctor/queue')
+    currentConsultation!.patientId!.language
   );
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
@@ -72,8 +67,7 @@ const DoctorChat = () => {
           }
       </>
 
-    
-    
+
   return (
     <div className="h-full overflow-hidden">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
@@ -110,10 +104,10 @@ const DoctorChat = () => {
                 <div className="flex justify-center">
                   <OKButton
                   name="consultation_btn"
-                  type="button"
+                  type="submit"
                   value="End consultation"
                   text="End consultation"
-                  onClick={endConsultation}
+                  onClick={() => {}}
                   />
                 </div>
             </form>
