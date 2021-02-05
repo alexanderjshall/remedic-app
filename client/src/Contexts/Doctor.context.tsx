@@ -15,9 +15,9 @@ interface Props {
   children: ReactChild | ReactChild[];
 }
 
-const consult : ConsultationInfo[] = []
+const emptyConsultationList : ConsultationInfo[] = []
 const initialContext = {
-  consultations: {getDoctorConsultations : consult},
+  consultations: {getDoctorConsultations : emptyConsultationList},
   currentConsultation: null,
   updateCurrentConsultation: (consultation: ConsultationInfo) => {}
 }
@@ -38,7 +38,7 @@ function DoctorContextProvider(props: Props) {
       setCurrentConsultation(consultation);
     }
   return (
-    <DoctorContext.Provider value={{consultations: data, currentConsultation, updateCurrentConsultation}}>
+    <DoctorContext.Provider value={{consultations: data || initialContext.consultations, currentConsultation, updateCurrentConsultation}}>
       {props.children}
     </DoctorContext.Provider>
   )

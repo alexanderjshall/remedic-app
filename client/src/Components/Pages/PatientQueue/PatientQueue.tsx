@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 function PatientQueue() {
   const { consultations, updateCurrentConsultation } = useDrContext();
-  // const [ activeConsultations, setConsultations ] = useState<ConsultationInfo[] | null>(null);
   let history = useHistory();
 
   // TODO: filter inactive consultations and sort by startTime
@@ -23,22 +22,27 @@ function PatientQueue() {
   };
 
   return (
+    <div>
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
       <div className=" text-center mt-24 mb-10 px-3">
-        <h2 className="text-green text-3xl font-bold">
-          You have {consultations.getDoctorConsultations.length} patients
-          waiting:
+      <h2 className="text-blue text-3xl font-bold">
+          You have {consultations.getDoctorConsultations.length} patients waiting:
         </h2>
-        {consultations.getDoctorConsultations?.map((consultation, i) => (
-          <button onClick={() => handleClick(consultation)} key={i}>
-            <PatientCard
-              patientName={consultation.patientId.firstName}
-              painLevel={consultation.painLevel}
-              startTime={consultation.consultationDate}
-            />
-          </button>
-        ))}
-      </div>
+      {consultations.getDoctorConsultations?.map((consultation, i) =>
+        <button
+        onClick={() => handleClick(consultation)}
+        key={i}
+        className="w-3/4"
+        >
+          <PatientCard
+            patientName={consultation.patientId.firstName}
+            painLevel={consultation.painLevel}
+            startTime={consultation.consultationDate}
+          />
+        </button>
+      )}
+        </div>
+    </div>
     </div>
   );
 }
