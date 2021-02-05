@@ -104,8 +104,28 @@ export const fullPhysicalSymptoms: Symptom[] = [
 ];
 
 export const fullGeneralSymptoms: Symptom[] = [
-  { area: "Global", symptom: "Sleeping Poorly", selected: false },
-  { area: "Global", symptom: "Eating Poorly", selected: false },
-  { area: "Global", symptom: "High Temperature", selected: false },
-  { area: "Global", symptom: "Taking Medications", selected: false },
+  {
+    area: "Global",
+    symptom: "Sleeping Poorly",
+    selected: false,
+    question: "Are you sleeping well?",
+  },
+  {
+    area: "Global",
+    symptom: "Eating Poorly",
+    selected: false,
+    question: "Are you eating?",
+  },
+  {
+    area: "Global",
+    symptom: "High Temperature",
+    selected: false,
+    question: "Do you have a high temperature?",
+  },
+  {
+    area: "Global",
+    symptom: "Taking Medications",
+    selected: false,
+    question: " Are you taking any medications?",
+  },
 ];
