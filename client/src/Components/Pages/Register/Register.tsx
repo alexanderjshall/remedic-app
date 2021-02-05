@@ -34,15 +34,22 @@ const Register = () => {
     setUserInfo({ ...userInfo, [inputName]: value });
   };
 
+  const toggleErrorBoard = () => {
+    document
+      .getElementById("error_board_register")
+      ?.classList.remove("translate-y-full");
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await registerPatient(userInfo);
+      const res = await registerPatient(userInfo);
+      !res && toggleErrorBoard();
     } catch (error) {
       console.error(error);
     }
   };
-  // flex items-center justify-center
+
   return (
     <div className="flex justify-center bg-white-dark h-screen px-5">
       <form
@@ -144,6 +151,12 @@ const Register = () => {
           </a>
         </div>
       </form>
+      <div
+        className=" flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg bg-red-500 fixed bottom-0 left-1/2 transform-gpu -translate-x-1/2 translate-y-full h-16"
+        id="error_board_register"
+      >
+        Invalid email or password
+      </div>
     </div>
   );
 };
