@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../../Contexts/Auth.context";
 import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
@@ -69,15 +70,13 @@ const Login = () => {
             text="Log in"
             onClick={() => {}}
           />
-          <h2 className="center my-4 text-center">
-            — OR —
-          </h2>
-          <a
-          href="/register"
-          className="text-blue hover:text-blue-dark text-center"
-          >
-            Register
-          </a>
+          <h2 className="center my-4 text-center">— OR —</h2>
+          <Link to="/register">
+            <p className="text-blue hover:text-blue-dark text-center">
+              Register
+            </p>
+          </Link>
+          {/* <a href="/register">Register</a> */}
         </div>
       </form>
     </div>
