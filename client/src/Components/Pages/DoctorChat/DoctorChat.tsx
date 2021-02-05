@@ -45,11 +45,17 @@ const DoctorChat = () => {
           Patient language: <span className="text-black">{langEnglishName(currentConsultation!.patientId.language)}</span>
         </h1>
         <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1>
+          <ul>
         {
         currentConsultation!.symptomsByArea
           .filter((s: any) => s.area==="Global")
-          .map((s : any) => <h3>{JSON.stringify(s)}</h3>)
+          .map((s : any) =>
+            s.symptom.split(",").map( (sym:string) =>
+              <li className="list-disc ml-12">{sym}</li>
+            )
+          )
         }
+          </ul>
         <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1>
         {
         currentConsultation!.symptomsByArea
