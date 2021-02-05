@@ -1,21 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
 import { ReactComponent as SendMessageArrow } from "../../../assets/utils/send_message.svg";
 import { ReactComponent as UserIcon } from "../../../assets/utils/user_icon.svg";
-import HumansSitting from "../../../assets/background-images/humans-sitting.png";
 import Doctor from "../../../assets/background-images/humans-standing.png";
 
 import { useAuth } from "../../../Contexts/Auth.context";
+import { ConsultationContext } from '../../../Contexts/Consultation.context';
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
-
-// todo, this hardcoded value should instead be read from the context
-const consultationId = "4";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
   const { user } = useAuth();
+
+  const { getConsultationId } = useContext(ConsultationContext)!;
+  const [consultationId, setConsultationID] = useState<string>('');
+
+  useEffect( () => {
+    const idFromContext = getConsultationId();
+    if (idFromContext) setConsultationID(String(idFromContext));
+  },[]);
 
   const { messages, addMessage } = useChat(
     consultationId,
