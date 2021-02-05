@@ -19,7 +19,7 @@ export interface Message {
 
 export interface ConsultationInfo {
   id: string;
-  consultationDate: Date;
+  consultationDate: string;
   transcriptOriginal: string;
   transcriptTranslated: string;
   doctorId: string;

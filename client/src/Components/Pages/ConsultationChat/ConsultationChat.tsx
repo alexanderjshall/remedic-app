@@ -80,7 +80,7 @@ const ConsultationChat = () => {
                 ></img>
                 {/* <h1 className="text-3xl text-bold">Your chat</h1> */}
               </div>
-              <div className="relative flex flex-col h-full overflow-auto pt-16 z-10">
+              <div className="relative flex flex-col h-full overflow-auto pt-16">
                 {messages &&
                   messages.map((message, idx) =>
                     message.isAuthor ? (
@@ -96,7 +96,7 @@ const ConsultationChat = () => {
                 onSubmit={sendMessage}
               >
                 <label hidden htmlFor="chat input" />
-                <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100">
+                <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100 z-10">
                   <input
                     type="text"
                     name="chat input"
@@ -114,7 +114,7 @@ const ConsultationChat = () => {
             <div className="bg-blue h-16 w-screen fixed bottom-0 flex items-center justify-center">
               <UserIcon />
               <h3 className="text-xl text-white-cream ml-3 font-extrabold">
-                Doctor Zivago {/*TODO update this to be real*/}
+                Doctor Zivago {/* TODO update this to be real*/}
               </h3>
             </div>
           </div>
