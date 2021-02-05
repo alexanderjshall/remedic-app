@@ -4,10 +4,12 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import { UserData } from "../../../types";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { useHistory } from "react-router-dom";
+import AuthButton from "../../Globals/AuthButton/AuthButton";
+import { validateSignupForm } from "../../../utils/auth/validation.helper";
 
 const Register = () => {
   const { registerPatient } = useAuth();
-  const history = useHistory()
+  const history = useHistory();
   const initialInfo = {
     firstName: "",
     lastName: "",
@@ -19,14 +21,14 @@ const Register = () => {
 
   const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
 
-  useEffect(()=> {
+  useEffect(() => {
     const savedLanguage = localStorage.getItem("preferredLanguage");
     if (!savedLanguage) {
       history.push("/language");
       return;
     }
-    setUserInfo(prevInfo => ({...prevInfo, language: savedLanguage}))
-  },[history])
+    setUserInfo((prevInfo) => ({ ...prevInfo, language: savedLanguage }));
+  }, [history]);
 
   const updateInput = (inputName: string, value: string) => {
     setUserInfo({ ...userInfo, [inputName]: value });
@@ -120,19 +122,23 @@ const Register = () => {
           />
         </div>
         <div className="flex flex-col align-center">
-        <OKButton
-          name="register"
-          type="submit"
-          value="Register"
-          text="Register"
-          onClick={() => {}}
-        />
-        <h2 className="center text-center my-2">
-            — OR —
-          </h2>
+          <AuthButton
+            name="Register Button"
+            value="Register"
+            text="Register"
+            condition={validateSignupForm(
+              userInfo.email,
+              userInfo.password,
+              userInfo.firstName,
+              userInfo.lastName,
+              userInfo.postCode,
+              userInfo.language
+            )}
+          />
+          <h2 className="center text-center my-2">— OR —</h2>
           <a
-          href="/login"
-          className="text-blue hover:text-blue-dark text-center"
+            href="/login"
+            className="text-blue hover:text-blue-dark text-center"
           >
             Log in
           </a>
