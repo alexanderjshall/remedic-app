@@ -5,9 +5,11 @@ import useChat from "../../../hooks/useChat";
 import { ReactComponent as SendMessageArrow } from "../../../assets/utils/send_message.svg";
 import { ReactComponent as UserIcon } from "../../../assets/utils/user_icon.svg";
 import Doctor from "../../../assets/background-images/humans-standing.png";
+import PatientImg from "../../../assets/background-images/humans-sitting3.png";
+import ChatImg from "../../../assets/utils/chatsymbol.svg";
 
 import { useAuth } from "../../../Contexts/Auth.context";
-import { ConsultationContext } from '../../../Contexts/Consultation.context';
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 
 // ROUTE -> '/consultation_chat'
@@ -64,13 +66,18 @@ const ConsultationChat = () => {
           />
         </div>
       ) : (
-        <div className="flex-col flex justify-center w-screen overflow-hidden">
+        <div className="flex-col flex justify-center w-screen overflow-hidden relative">
           <div className="relative flex flex-col shadow-md justify-evenly items-center p-3">
             <div className="w-full h-screen flex flex-col justify-end pt-3 pb-10">
               <div className="h-20 fixed top-0 left-0 w-full z-10 bg-green-light p-3 flex items-center justify-center">
-                <h1 className="text-3xl text-bold">Your chat</h1>
+                <img
+                  src={ChatImg}
+                  alt="Your Chat"
+                  className="w-16 text-white"
+                ></img>
+                {/* <h1 className="text-3xl text-bold">Your chat</h1> */}
               </div>
-              <div className="relative flex flex-col h-full overflow-auto pt-16">
+              <div className="relative flex flex-col h-full overflow-auto pt-16 z-10">
                 {messages &&
                   messages.map((message, idx) =>
                     message.isAuthor ? (
@@ -86,26 +93,38 @@ const ConsultationChat = () => {
                 onSubmit={sendMessage}
               >
                 <label hidden htmlFor="chat input" />
-                <input
-                  type="text"
-                  name="chat input"
-                  className="p-3 rounded-lg cursor-text focus:border-blue-dark h-16 border-2 border-blue border-solid w-11/12"
-                  placeholder="Start messaging"
-                  onChange={(e) => setCurrentMsg(e.target.value)}
-                  value={currentMsg}
-                />
-                <button className="absolute right-12">
-                  <SendMessageArrow />
-                </button>
+                <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100">
+                  <input
+                    type="text"
+                    name="chat input"
+                    className="p-3 cursor-text h-16 w-11/12 rounded-lg bg-transparent"
+                    placeholder="Start messaging"
+                    onChange={(e) => setCurrentMsg(e.target.value)}
+                    value={currentMsg}
+                  />
+                  <button>
+                    <SendMessageArrow />
+                  </button>
+                </div>
               </form>
             </div>
             <div className="bg-blue h-16 w-screen fixed bottom-0 flex items-center justify-center">
               <UserIcon />
               <h3 className="text-xl text-white-cream ml-3 font-extrabold">
-                Doctor Zivago
+                Doctor Zivago {/*TODO update this to be real*/}
               </h3>
             </div>
           </div>
+          <img
+            src={Doctor}
+            alt="doctor image"
+            className="absolute -left-16 top-auto bottom-auto opacity-5 w-72"
+          />
+          <img
+            src={PatientImg}
+            alt="doctor image"
+            className="absolute -right-24 top-auto bottom-auto opacity-5 w-72"
+          />
         </div>
       )}
     </>
