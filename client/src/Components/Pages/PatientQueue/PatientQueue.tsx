@@ -1,7 +1,7 @@
-import React from 'react';
-import PatientCard from './PatientCard';
-import { useDrContext } from '../../../Contexts/Doctor.context';
-import { ConsultationInfo } from '../../../types';
+import React from "react";
+import PatientCard from "./PatientCard";
+import { useDrContext } from "../../../Contexts/Doctor.context";
+import { ConsultationInfo } from "../../../types";
 import { useHistory } from "react-router-dom";
 
 function PatientQueue() {
@@ -19,8 +19,8 @@ function PatientQueue() {
 
   const handleClick = (consultation: ConsultationInfo) => {
     updateCurrentConsultation(consultation);
-    history.push('/doctor/consultation');
-  }
+    history.push("/doctor/consultation");
+  };
 
   return (
     <div>
