@@ -15,15 +15,9 @@ const ConsultationChat = () => {
   const { user } = useAuth();
 
   const { getConsultationId } = useContext(ConsultationContext)!;
-  const [consultationId, setConsultationID] = useState<string>('');
-
-  useEffect( () => {
-    const idFromContext = getConsultationId();
-    if (idFromContext) setConsultationID(String(idFromContext));
-  },[]);
 
   const { messages, addMessage } = useChat(
-    consultationId,
+    String(getConsultationId()),
     false,
     user!.language
   );
