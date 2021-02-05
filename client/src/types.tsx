@@ -46,5 +46,6 @@ export interface Symptom {
   area: string;
   symptom: string;
   img?: string;
+  question?: string;
   selected: boolean;
 }
