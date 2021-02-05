@@ -45,12 +45,8 @@ const queries = {
         id
         firstName
         lastName
-        # email - guessing we don't need this
         language
         docPublicCode
-        # consultations {
-        #   id
-        # }
       }
     }
   `,
@@ -141,8 +137,32 @@ const queries = {
        id
        firstName
      }
-   }
+   } 
  }`,
+
+getActiveConsultations: gql `
+query($id: Float!, $isActive: Boolean!) {
+  getActiveConsultations(doctorId: $id, isActive: $isActive) {
+    id
+    consultationDate
+    symptomsByArea {
+      area
+      symptom
+    }
+    painLevel
+    patientNotes
+    transcriptOriginal
+    transcriptTranslated
+    patientRating
+    doctorNotesOriginal
+    doctorNotesTranslated
+    patientId {
+      firstName
+      lastName
+      language
+    }
+  } 
+}`,
 
 
 }

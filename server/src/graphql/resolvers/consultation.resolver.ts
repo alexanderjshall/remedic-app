@@ -110,6 +110,22 @@ export default class ConsultationResolver {
     }
   }
 
+  @Query(() => [Consultation]) 
+  async getActiveConsultations (
+    @Arg('doctorId') id: number,
+    @Arg('isActive') isActive: boolean,
+    @Ctx() { consultationRepo }: CustomContext
+  ): Promise<Consultation[]|null> {
+    try {
+      const consultations = await consultationRepo.find({doctorId:id, isActive}, {populate: ['patientId', 'doctorId']});
+      if (!consultations) throw new Error (`Could not find consultations for doctor with id ${id}`);
+      return consultations;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
 
   // 1. Mutation - add a consultation.
   @Mutation (() => Consultation)
