@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 function PatientQueue() {
   const { consultations, updateCurrentConsultation } = useDrContext();
-  const ctx = useDrContext();
   let history = useHistory();
 
   // TODO: filter inactive consultations and sort by startTime
@@ -24,7 +23,6 @@ function PatientQueue() {
 
   return (
     <div>
-      {console.log(ctx)}
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
       <div className=" text-center mt-24 mb-10 px-3">
       <h2 className="text-blue text-3xl font-bold">
