@@ -8,8 +8,6 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log(process.env)
-
 const queryClient = new QueryClient()
 
 ReactDOM.render(
@@ -23,4 +21,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
