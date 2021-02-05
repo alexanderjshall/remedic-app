@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { IoLanguageSharp } from "react-icons/io5";
-import OKButton from '../../Globals/OKButton/OKButton';
+import OKButton from "../../Globals/OKButton/OKButton";
 import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
 import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
 
 const LanguageChoice = () => {
-  const history = useHistory()
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(localStorage.getItem("preferredLanguage") || '');
+  const history = useHistory();
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(
+    localStorage.getItem("preferredLanguage") || ""
+  );
 
-  const onLanguageChange = (e : React.ChangeEvent<HTMLFormElement>) => {
-    setSelectedLanguage(e.target.id)
-  }
+  const onLanguageChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+    setSelectedLanguage(e.target.id);
+  };
   const handleSubmit = () => {
     if (selectedLanguage) {
       localStorage.setItem("preferredLanguage", selectedLanguage);
-      history.push("/login")
+      history.push("/login");
     }
   };
 
@@ -31,12 +33,16 @@ const LanguageChoice = () => {
           <p className=" text-lg inline whitespace-nowrap">
             Please choose your language:
           </p>
-          <form className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full"
-          onChange={onLanguageChange}
+          <form
+            className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full"
+            onChange={onLanguageChange}
           >
             {supportedLanguages &&
               supportedLanguages.languages.map((language) => (
-                <div className="flex align-center justify-between my-2" key={language.langCode}>
+                <div
+                  className="flex align-center justify-between my-2"
+                  key={language.langCode}
+                >
                   <label htmlFor={language.langCode} className="text-lg">
                     {language.nativeName}
                   </label>
@@ -46,18 +52,21 @@ const LanguageChoice = () => {
                     id={language.langCode}
                     value={language.englishName}
                     checked={selectedLanguage === language.langCode}
-                    onChange={()=>{}}
+                    onChange={() => {}}
+                    className="mt-2"
                   />
                 </div>
               ))}
           </form>
-        <OKButton
-          name="confirm"
-          type="submit"
-          value="confirm"
-          text="Confirm"
-          onClick={handleSubmit}
-        />
+          <div className="pt-8">
+            <OKButton
+              name="confirm"
+              type="submit"
+              value="confirm"
+              text="Confirm"
+              onClick={handleSubmit}
+            />
+          </div>
         </div>
       </div>
     </div>
