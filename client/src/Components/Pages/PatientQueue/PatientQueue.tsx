@@ -1,7 +1,7 @@
-import React from 'react';
-import PatientCard from './PatientCard';
-import { useDrContext } from '../../../Contexts/Doctor.context';
-import { ConsultationInfo } from '../../../types';
+import React from "react";
+import PatientCard from "./PatientCard";
+import { useDrContext } from "../../../Contexts/Doctor.context";
+import { ConsultationInfo } from "../../../types";
 import { useHistory } from "react-router-dom";
 
 function PatientQueue() {
@@ -19,26 +19,26 @@ function PatientQueue() {
 
   const handleClick = (consultation: ConsultationInfo) => {
     updateCurrentConsultation(consultation);
-    history.push('/doctor/consultation');
-  }
+    history.push("/doctor/consultation");
+  };
 
   return (
-    <div>
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
       <div className=" text-center mt-24 mb-10 px-3">
-      <h2 className="text-green text-3xl font-bold">
-          You have {consultations.getDoctorConsultations.length} patients waiting:
+        <h2 className="text-green text-3xl font-bold">
+          You have {consultations.getDoctorConsultations.length} patients
+          waiting:
         </h2>
-      {consultations.getDoctorConsultations?.map((consultation, i) =>
-        <button onClick={() => handleClick(consultation)} key={i}>
-          <PatientCard
-            patientName={consultation.patientId.firstName}
-            painLevel={consultation.painLevel}
-            startTime={consultation.consultationDate}
-          />
-        </button>
-      )}
-        </div>
+        {consultations.getDoctorConsultations?.map((consultation, i) => (
+          <button onClick={() => handleClick(consultation)} key={i}>
+            <PatientCard
+              patientName={consultation.patientId.firstName}
+              painLevel={consultation.painLevel}
+              startTime={consultation.consultationDate}
+            />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
