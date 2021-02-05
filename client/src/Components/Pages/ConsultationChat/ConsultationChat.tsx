@@ -5,10 +5,12 @@ import useChat from "../../../hooks/useChat";
 import send_message from "../../../assets/utils/send_message.svg";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { ConsultationContext } from '../../../Contexts/Consultation.context';
+import { useHistory } from "react-router-dom";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
   const {user} = useAuth();
+  const history = useHistory();
 
   const { getConsultationId } = useContext(ConsultationContext)!;
   const [consultationId, setConsultationID] = useState<string>('');
@@ -21,7 +23,8 @@ const ConsultationChat = () => {
   const { messages, addMessage } = useChat(
     consultationId,
     false,
-    user!.language
+    user!.language,
+    () => history.push('/feedback')
   );
 
   const [currentMsg, setCurrentMsg] = useState("");

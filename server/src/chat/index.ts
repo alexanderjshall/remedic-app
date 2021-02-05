@@ -20,6 +20,14 @@ export const setupSocketIO = (app : Express) : Server => {
       io.to(roomId).emit('patient message', msg);
     });
 
+    socket.on('leave consultation', (roomId:string) => {
+      socket.leave(roomId);
+    });
+
+    socket.on('end consultation', (roomId: string) => {
+      io.to(roomId).emit('leave consultation');
+    });
+
   });
 
   return httpServer;
