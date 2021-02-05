@@ -110,7 +110,7 @@ const DoctorChat = () => {
                 <div className="flex justify-center">
                   <OKButton
                   name="consultation_btn"
-                  type="submit"
+                  type="button"
                   value="End consultation"
                   text="End consultation"
                   onClick={endConsultation}

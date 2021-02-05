@@ -16,7 +16,7 @@ const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, on
     
     socketRef.current.on('leave consultation', () => {
       if (socketRef.current) {
-        socketRef.current.emit('leave consultation');
+        socketRef.current.emit('leave consultation', roomId);
         onConsultationFinish();
       }
     });
