@@ -7,7 +7,7 @@ import { ReactComponent as UserIcon } from "../../../assets/utils/user_icon.svg"
 import Doctor from "../../../assets/background-images/humans-standing.png";
 
 import { useAuth } from "../../../Contexts/Auth.context";
-import { ConsultationContext } from '../../../Contexts/Consultation.context';
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 
 // ROUTE -> '/consultation_chat'
