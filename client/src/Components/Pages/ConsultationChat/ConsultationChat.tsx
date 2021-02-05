@@ -11,7 +11,7 @@ import { useAuth } from "../../../Contexts/Auth.context";
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 
 // todo, this hardcoded value should instead be read from the context
-const consultationId = "1";
+const consultationId = "4";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {

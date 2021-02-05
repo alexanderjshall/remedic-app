@@ -42,7 +42,6 @@ function PatientQueue() {
       )}
         </div>
     </div>
-    </div>
   );
 }
 

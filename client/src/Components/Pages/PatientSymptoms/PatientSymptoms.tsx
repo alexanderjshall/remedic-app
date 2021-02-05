@@ -22,7 +22,7 @@ const PatientSymptoms = (props: Props) => {
   const handleNextClick = (): void => {
     confirmConsultation()
       .then(() => {
-        history.push("/confirmation_page");
+        history.push("/consultation_chat");
       })
       .catch(() => {
         window.alert("Please Try Again");
@@ -43,7 +43,7 @@ const PatientSymptoms = (props: Props) => {
             onLegsClick={() => handleBodyPartClick("Legs")}
           />
           <div
-            className="bg-blue h-16 w-screen absolute bottom-0 left-0 
+            className="bg-blue h-16 w-screen absolute bottom-0 left-0
                 flex items-center justify-center
               "
           >
