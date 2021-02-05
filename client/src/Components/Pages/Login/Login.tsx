@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../../Contexts/Auth.context";
 import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
@@ -75,12 +76,11 @@ const Login = () => {
             onClick={() => {}}
           />
           <h2 className="center my-4 text-center">— OR —</h2>
-          <a
-            href="/register"
-            className="text-blue hover:text-blue-dark text-center font-bold"
-          >
-            Register
-          </a>
+          <Link to="/register">
+            <p className="text-blue hover:text-blue-dark text-center">
+              Register
+            </p>
+          </Link>
         </div>
         <img src={logoReduced} className="w-72 opacity-10 absolute top-0"></img>
       </form>

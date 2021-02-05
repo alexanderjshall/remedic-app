@@ -22,7 +22,6 @@ function PatientQueue() {
   };
 
   return (
-    <div>
     <div className="flex items-center justify-content-center flex-col bg-white-dark h-screen">
       <div className=" text-center mt-24 mb-10 px-3">
       <h2 className="text-blue text-3xl font-bold">
@@ -42,7 +41,6 @@ function PatientQueue() {
         </button>
       )}
         </div>
-    </div>
     </div>
   );
 }
