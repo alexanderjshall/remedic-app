@@ -4,6 +4,7 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
 import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
+import SpinningGlobe from "../../Globals/Spinning Globe/SpinningGlobe";
 
 const LanguageChoice = () => {
   const history = useHistory();
@@ -22,8 +23,8 @@ const LanguageChoice = () => {
   };
 
   return (
-    <div className="flex-col flex justify-center w-screen">
-      <div className="flex flex-col shadow-md px-16 h-screen rounded-lg justify-evenly items-center overflow-hidden">
+    <div className="flex-col flex justify-center w-screen relative">
+      <div className="flex flex-col shadow-md px-16 h-screen rounded-lg justify-evenly items-center overflow-hidden z-10">
         {" "}
         <div className="flex justify-center w-full tablet:w-2/3">
           <img src={RemedicLogo} alt="Remedic Logo" />
@@ -69,6 +70,7 @@ const LanguageChoice = () => {
           </div>
         </div>
       </div>
+      <SpinningGlobe classes="absolute opacity-5" size={400}></SpinningGlobe>
     </div>
   );
 };
