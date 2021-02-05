@@ -1,16 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import DoctorMessageBubble from "./MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "./MessageBubbles/PatientMessageBubble";
 import useChat from "../../../hooks/useChat";
 import send_message from "../../../assets/utils/send_message.svg";
 import { useAuth } from "../../../Contexts/Auth.context";
-
-// todo, this hardcoded value should instead be read from the context
-const consultationId = "1";
+import { ConsultationContext } from '../../../Contexts/Consultation.context';
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
   const {user} = useAuth();
+
+  const { getConsultationId } = useContext(ConsultationContext)!;
+  const [consultationId, setConsultationID] = useState<string>('');
+
+  useEffect( () => {
+    const idFromContext = getConsultationId();
+    if (idFromContext) setConsultationID(String(idFromContext));
+  },[]);
 
   const { messages, addMessage } = useChat(
     consultationId,
