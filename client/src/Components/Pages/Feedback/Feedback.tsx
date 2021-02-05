@@ -61,10 +61,10 @@ const Feedback = () => {
         id: consultationId,
       };
       mutation.mutate(consultationFeedback);
-      history.push("/patient");
       // logout disabled to keep patient side of app functional
       // logout();
     }
+    history.push("/patient");
   };
 
   return (
