@@ -9,17 +9,20 @@ import Doctor from "../../../assets/background-images/humans-standing.png";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { ConsultationContext } from '../../../Contexts/Consultation.context';
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
+import { useHistory } from "react-router-dom";
 
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
   const { user } = useAuth();
+  const history = useHistory();
 
   const { getConsultationId } = useContext(ConsultationContext)!;
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
-    user!.language
+    user!.language,
+    () => history.push('/feedback')
   );
 
   const [currentMsg, setCurrentMsg] = useState("");
