@@ -16,7 +16,7 @@ function PatientCard(props: Props) {
 
 
   return (
-    <div className="flex justify-between content-center shadow-lg rounded-lg mt-4 bg-white p-2 w-3/4 tablet:w-1/2">
+    <div className="flex justify-between content-center shadow-lg rounded-lg mt-4 bg-white p-2 w-3/4 w-full">
       <p className="flex-grow-2">{patientName}</p>
       <p>
         {timeWaiting > 59
