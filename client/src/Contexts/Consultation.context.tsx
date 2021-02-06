@@ -172,6 +172,7 @@ const ConsultationContextProvider = (props: Props) => {
         updateDoctor,
         confirmConsultation,
         getConsultationId,
+        doctor,
       }}
     >
       {props.children}
