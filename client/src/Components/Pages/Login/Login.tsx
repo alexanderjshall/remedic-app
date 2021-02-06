@@ -43,7 +43,7 @@ const Login = () => {
           </h2>
         </div>
 
-        <div className="items-center flex flex-col space-y-3 z-10">
+        <div className="items-center flex flex-col space-y-3 z-10 tablet:w-3/4">
           <label htmlFor="email" className="font-bold">
             Email:
           </label>
