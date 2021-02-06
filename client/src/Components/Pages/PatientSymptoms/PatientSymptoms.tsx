@@ -3,9 +3,12 @@ import Human from "./Human/Human";
 import PhysicalSymptomsList from "./PhysicalList/PhysicalSymptomsList";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import finishTick from "../../../assets/utils/tick.svg";
-import { ConsultationContext } from "../../../Contexts/Consultation.context";
+import { ConsultationContext, NewConsultation } from "../../../Contexts/Consultation.context";
 import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
+import { useMutation } from "react-query";
+import client from "../../../services/graphqlService";
+import mutations from "../../../services/graphqlService/mutations";
 
 interface Props {
   area?: string;
@@ -14,7 +17,7 @@ interface Props {
 const PatientSymptoms = (props: Props) => {
   const [view, setView] = useState<string>("Main");
 
-  const { confirmConsultation } = useContext(ConsultationContext)!;
+  const { getVariables, setConsultationId } = useContext(ConsultationContext)!;
   const { getTranslatedText } = useContext(PatientContext)!;
 
   const translatedText = getTranslatedText();
@@ -27,14 +30,24 @@ const PatientSymptoms = (props: Props) => {
 
   const handleBackArrowClick = (): void => setView("Main");
 
-  const handleNextClick = (): void => {
-    confirmConsultation()
-      .then(() => {
+  const createConsultation = useMutation(
+    "create consultation",
+    async (variables: NewConsultation) =>
+      await client.request(mutations.createConsultation, variables),
+    {
+      onSuccess: (data) => {
+        setConsultationId(data.addConsultation.id);
         history.push("/consultation_chat");
-      })
-      .catch(() => {
-        window.alert("Please Try Again");
-      });
+      },
+      onError: () => {
+        history.push("/enter_code"); // if adding the consultation fails, re-route to the enter-code page.
+      }
+    }
+  );
+
+  const handleNextClick = async ():Promise<void> => {
+    const variables = getVariables();
+    createConsultation.mutate(variables);
   };
 
   return (
