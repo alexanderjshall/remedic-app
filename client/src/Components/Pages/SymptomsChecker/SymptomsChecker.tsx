@@ -89,7 +89,7 @@ const SymptomsChecker = () => {
               symptom={symptom}
             />
           ))}
-        <div className="h-18 flex justify-center items-center py-5">
+        <div className="h-18 flex justify-center items-center py-5 w-full">
           <OKButton
             name="Next Page"
             type="button"

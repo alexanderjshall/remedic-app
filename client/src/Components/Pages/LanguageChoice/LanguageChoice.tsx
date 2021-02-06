@@ -59,7 +59,7 @@ const LanguageChoice = () => {
                 </div>
               ))}
           </form>
-          <div className="pt-8">
+          <div className="pt-8 w-full flex justify-center">
             <OKButton
               name="confirm"
               type="submit"
