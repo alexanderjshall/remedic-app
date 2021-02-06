@@ -11,6 +11,10 @@ import { validateSignupForm } from "../../../utils/auth/validation.helper";
 import humanStanding from "../../../assets/background-images/humans-standing2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 
+
+import staticTranslations from "../../../utils/static-translations.json";
+const translations = staticTranslations as any;
+
 const Register = () => {
   const { registerPatient } = useAuth();
   const history = useHistory();
@@ -22,6 +26,9 @@ const Register = () => {
     password: "",
     language: "",
   };
+
+  const localLanguage: string =
+    localStorage.getItem("preferredLanguage") || "en";
 
   const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
 
@@ -54,6 +61,8 @@ const Register = () => {
     }
   };
 
+  const localText = translations[localLanguage].loginAndRegisterTerms;
+
   return (
     <div className="flex justify-center flex-col bg-white-dark h-full px-4 py-8">
       <div className="mb-4 z-10">
@@ -65,19 +74,19 @@ const Register = () => {
         className="relative bg-white flex-col shadow-lg rounded-lg w-full p-4 grid place-items-center gap-y-6 tablet:h-full"
         onSubmit={handleSubmit}
       >
+
         <div className="flex flex-col w-full items-center">
           <label htmlFor="firstName" className=" font-bold text-blue">
             First Name:
-          </label>
-          <FormInput
-            type="text"
-            placeholder="First Name"
-            id="firstName"
-            name="firstName"
-            updateInput={updateInput}
-            onSubmit={() => {}}
-          />
+        <div className="mb-4 z-10">
+          <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
+            {localText.register}
+          </h2>
         </div>
+
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="firstName" className="mb-2 font-bold text-blue">
+            {localText.firstName}
 
         <div className="flex flex-col w-full items-center">
           <label htmlFor="lastName" className="font-bold text-blue">
@@ -85,17 +94,17 @@ const Register = () => {
           </label>
           <FormInput
             type="text"
-            placeholder="Last Name"
+            placeholder={localText.lastName}
             id="lastName"
             name="lastName"
             updateInput={updateInput}
             onSubmit={() => {}}
           />
-        </div>
+        </d
 
         <div className="flex flex-col w-full items-center">
           <label htmlFor="postCode" className=" font-bold text-blue">
-            Postcode:
+            Postco
           </label>
           <FormInput
             type="text"
@@ -105,29 +114,28 @@ const Register = () => {
             updateInput={updateInput}
             onSubmit={() => {}}
           />
-        </div>
-
+        </di
         <div className="flex flex-col w-full items-center">
           <label htmlFor="email" className=" font-bold text-blue">
-            Email Address:
+            Email Addres
           </label>
           <FormInput
             type="email"
-            placeholder="Email"
+            placeholder={localText.email}
             id="email"
             name="email"
             updateInput={updateInput}
             onSubmit={() => {}}
           />
-        </div>
+        </div
 
         <div className="flex flex-col w-full items-center">
           <label htmlFor="password" className=" font-bold text-blue">
-            Password:
+            Password
           </label>
           <FormInput
             type="password"
-            placeholder="Password"
+            placeholder={localText.password}
             id="password"
             name="password"
             updateInput={updateInput}
@@ -138,7 +146,7 @@ const Register = () => {
           <AuthButton
             name="Register Button"
             value="Register"
-            text="Register"
+            text={localText.register}
             condition={validateSignupForm(
               userInfo.email,
               userInfo.password,
@@ -153,7 +161,7 @@ const Register = () => {
             href="/login"
             className="text-blue hover:text-blue-dark text-center"
           >
-            Log in
+            {localText.login}
           </a>
         </div>
         <img

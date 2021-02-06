@@ -5,15 +5,23 @@ import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import finishTick from "../../../assets/utils/tick.svg";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import { useHistory } from "react-router-dom";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 interface Props {
   area?: string;
 }
 
 const PatientSymptoms = (props: Props) => {
-  const history = useHistory();
   const [view, setView] = useState<string>("Main");
+
   const { confirmConsultation } = useContext(ConsultationContext)!;
+  const { getTranslatedText } = useContext(PatientContext)!;
+
+  const translatedText = getTranslatedText();
+  const localText = translatedText.physicalSymptomsTerms;
+  const localTextUtils = translatedText.utils;
+
+  const history = useHistory(); // Browser Router History
 
   const handleBodyPartClick = (newView: string): void => setView(newView);
 
@@ -34,7 +42,7 @@ const PatientSymptoms = (props: Props) => {
       {view === "Main" ? (
         <div className="h-5/6 m-0 py-4 z-10">
           <h1 className="text-center font-extrabold">
-            Where Do You Have Symptoms?
+            {localText.clickOnSymptom}
           </h1>
           <Human
             onHeadClick={() => handleBodyPartClick("Head")}
@@ -52,7 +60,7 @@ const PatientSymptoms = (props: Props) => {
               className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:"
             >
               <img src={finishTick} alt="tick" className="text-white w-6" />
-              <h2 className="text-sm font-extrabold">Next</h2>
+              <h2 className="text-sm font-extrabold">{localTextUtils.next}</h2>
             </button>
           </div>
         </div>
