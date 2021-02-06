@@ -31,9 +31,7 @@ const PatientApp = () => {
           <Route exact path="/patient">
             <PatientLanding />
           </Route>
-          <Route path="/login">
-            <Redirect to="/patient" />
-          </Route>
+          <Redirect to="/patient" />
         </Switch>
       </BrowserRouter>
     </ConsultationContextProvider>
