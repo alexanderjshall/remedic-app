@@ -111,7 +111,7 @@ const DoctorChat = () => {
                 wrap="soft"
                 name="doctor_notes"
                 id="doctor_notes"
-                className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
+                className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2 mb-4"
               ></textarea>
               <div className="flex justify-center">
                 <OKButton
