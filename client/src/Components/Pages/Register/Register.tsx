@@ -4,8 +4,13 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import { UserData } from "../../../types";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { useHistory } from "react-router-dom";
+
+import AuthButton from "../../Globals/AuthButton/AuthButton";
+import { validateSignupForm } from "../../../utils/auth/validation.helper";
+
 import humanStanding from "../../../assets/background-images/humans-standing2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
+
 
 const Register = () => {
   const { registerPatient } = useAuth();
@@ -34,15 +39,22 @@ const Register = () => {
     setUserInfo({ ...userInfo, [inputName]: value });
   };
 
+  const toggleErrorBoard = () => {
+    document
+      .getElementById("error_board_register")
+      ?.classList.remove("translate-y-full");
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await registerPatient(userInfo);
+      const res = await registerPatient(userInfo);
+      !res && toggleErrorBoard();
     } catch (error) {
       console.error(error);
     }
   };
-  // flex items-center justify-center
+
   return (
     <div className="flex justify-center bg-white-dark h-screen p-4">
       <form
@@ -122,12 +134,18 @@ const Register = () => {
           />
         </div>
         <div className="flex flex-col align-center">
-          <OKButton
-            name="register"
-            type="submit"
+          <AuthButton
+            name="Register Button"
             value="Register"
             text="Register"
-            onClick={() => {}}
+            condition={validateSignupForm(
+              userInfo.email,
+              userInfo.password,
+              userInfo.firstName,
+              userInfo.lastName,
+              userInfo.postCode,
+              userInfo.language
+            )}
           />
           <h2 className="center text-center my-2">——————</h2>
           <a
@@ -143,6 +161,12 @@ const Register = () => {
           className="absolute w-96 opacity-10"
         ></img>
       </form>
+      <div
+        className=" flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg bg-red-500 fixed bottom-0 left-1/2 transform-gpu -translate-x-1/2 translate-y-full h-16"
+        id="error_board_register"
+      >
+        Invalid email or password
+      </div>
       <img
         src={logoReduced}
         alt="background logo"
