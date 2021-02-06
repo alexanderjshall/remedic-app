@@ -45,7 +45,7 @@ interface NewConsultation {
   painLevel: number;
   patientNotes?: string;
   patientId: number;
-  doctorId: number; //doctorId
+  doctorId: number;
 }
 
 export const ConsultationContext = createContext<AppContextInterface | null>(
@@ -172,7 +172,6 @@ const ConsultationContextProvider = (props: Props) => {
         updateDoctor,
         confirmConsultation,
         getConsultationId,
-        doctor,
       }}
     >
       {props.children}
