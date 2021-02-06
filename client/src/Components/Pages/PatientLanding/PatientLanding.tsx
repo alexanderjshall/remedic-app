@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import PatientLandingCard from "./PatientLandingCard/PatientLandingCard";
 import bgHumanOne from "../../../assets/background-images/humans-sitting.png";
 import bgHumanTwo from "../../../assets/background-images/humans-standing.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
+import { AuthContext } from "../../../Contexts/Auth.context";
+import { PatientContext } from "../../../Contexts/Patient.context";
+import { useHistory } from "react-router-dom";
 interface LandingCards {
   route?: string;
   title: string;
@@ -13,21 +16,32 @@ interface LandingCards {
 
 //TODO add routes
 const PatientLanding = () => {
+  const { logout } = useContext(AuthContext)!; // logout from auth context
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const history = useHistory();
+
+  const localText = getTranslatedText().patientLandingTerms;
+
   // put landingCards in here
   const landingCards: LandingCards[] = [
     {
-      title: "Start Consultation",
+      title: localText.startConsultation,
       bgColorClass: "bg-green",
       textColor: "white",
       path: "/enter_code",
     },
     {
-      title: "Profile",
+      title: localText.profile,
       bgColorClass: "bg-blue",
       textColor: "white",
       path: "/",
     },
   ];
+
+  const handleLogoutClick = (): void => {
+    logout();
+    history.push("/language");
+  };
 
   return (
     <div className="h-full w-full relative p-3 overflow-hidden">
@@ -59,7 +73,14 @@ const PatientLanding = () => {
         alt="background human"
         className="absolute top-16 -left-12 opacity-10 w-72"
       ></img>
-      <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center"></div>
+      <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center">
+        <button
+          className="px-8 py-2 text-white border border-white rounded-xl border-solid font-extrabold text-xl focus:bg-white focus:text-blue"
+          onClick={() => handleLogoutClick()}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

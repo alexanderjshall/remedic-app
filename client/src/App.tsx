@@ -9,9 +9,14 @@ function App() {
 
   return (
     <div className="App h-screen">
-      {!user && <UnAuthApp />}
-      {user && user.isDoctor && <DoctorApp />}
-      {user && !user.isDoctor && <PatientApp />}
+      {
+        user !== undefined &&
+        <>
+          {!user && <UnAuthApp />}
+          {user && user.isDoctor && <DoctorApp />}
+          {user && !user.isDoctor && <PatientApp />}
+        </>
+      }
     </div>
   );
 }

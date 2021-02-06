@@ -29,6 +29,9 @@ module.exports = {
         chat: "70vh",
         "3/4": "75%",
       },
+      maxWidth: {
+        "1/2": "50%",
+      },
       colors: {
         blue: {
           superlight: "#D9F0FC",
@@ -72,6 +75,7 @@ module.exports = {
     extend: {
       fill: ["hover", "focus"],
       backgroundColor: ["odd", "even"],
+      opacity: ["disabled"],
     },
   },
   plugins: [],

@@ -19,7 +19,7 @@ export interface Message {
 
 export interface ConsultationInfo {
   id: string;
-  consultationDate: Date;
+  consultationDate: string;
   transcriptOriginal: string;
   transcriptTranslated: string;
   doctorId: string;
@@ -46,5 +46,15 @@ export interface Symptom {
   area: string;
   symptom: string;
   img?: string;
+  question?: string;
   selected: boolean;
+  id?: string;
+}
+
+export interface Doctor {
+  id: number;
+  firstName: string;
+  lastName: string;
+  language: string;
+  docPublicCode: string;
 }

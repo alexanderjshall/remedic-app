@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  FormEventHandler,
+} from "react";
 import FormInput from "../../Globals/FormInput/FormInput";
 import humanSitting from "../../../assets/background-images/humans-sitting2.png";
 import { getTranslatedText } from "../../../services/api.translate";
@@ -8,6 +13,7 @@ import client from "../../../services/graphqlService/index";
 import { Redirect, useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import Spinner from "../../Globals/Spinner/Spinner";
+import OKButton from "../../Globals/OKButton/OKButton";
 
 const EnterCode = () => {
   const [code, setCode] = useState<string>("");
@@ -16,7 +22,7 @@ const EnterCode = () => {
   const [isInvalid, setIsInvalid] = useState<boolean>(false);
 
   // consultation context
-  const { updateDoctorId } = useContext(ConsultationContext)!;
+  const { updateDoctor } = useContext(ConsultationContext)!;
 
   // for redirection
   const history = useHistory();
@@ -38,14 +44,23 @@ const EnterCode = () => {
     {
       enabled: submitted,
       onSuccess: (data) => {
-        updateDoctorId(data.getDoctor.id);
+        const {
+          firstName,
+          lastName,
+          language,
+          docPublicCode,
+          id,
+        } = data.getDoctor;
+        console.log("data from server", data);
+        updateDoctor(id, firstName, lastName, language, docPublicCode);
         history.push("/symptoms_checker");
       },
       onError: () => setIsInvalid(true),
     }
   );
 
-  const submitCode = () => {
+  const submitCode = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     // Validate format of doctor code (7 digits)
     const regex = /^[0-9]{7}$/; // 7 digits
     if (!regex.test(code)) setFormatWarning(true);
@@ -53,22 +68,22 @@ const EnterCode = () => {
   };
 
   return (
-    <div className="h-full w-full relative px-3 py-12 overflow-hidden flex justify-center">
+    <div className="h-full w-full relative px-3 py-12 overflow-hidden flex justify-center flex-col items-center">
       <form
         className="h-48 w-5/6 flex flex-col justify-center items-center z-10"
-        onSubmit={submitCode}
+        onSubmit={(e) => submitCode(e)}
       >
         <label className="text-extrabold text-2xl font-extrabold">
           Enter Code To Start:
         </label>
-        <div className="mt-8 flex justify-center w-full px-3 tablet:w-2/3">
+        <div className="my-8 flex justify-center w-full px-3 tablet:w-2/3">
           <FormInput
             type="text"
             placeholder=""
             id="constultation-code"
             name="code"
             updateInput={changeCode}
-            onSubmit={submitCode}
+            onSubmit={() => {}}
           />
         </div>
         {wrongCodeFormat ? (
@@ -80,6 +95,13 @@ const EnterCode = () => {
             <Spinner size={12} />
           </div>
         )}
+        <OKButton
+          name="code_btn"
+          type="submit"
+          value="Submit"
+          text="Submit your code"
+          onClick={() => {}}
+        />
       </form>
       <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center">
         <h2 className="text-white font-extrabold opacity-80">
