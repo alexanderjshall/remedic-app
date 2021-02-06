@@ -36,13 +36,11 @@ const PatientSymptoms = (props: Props) => {
       await client.request(mutations.createConsultation, variables),
     {
       onSuccess: (data) => {
-        console.log('something good happened')
         setConsultationId(data.addConsultation.id);
         history.push("/consultation_chat");
       },
       onError: () => {
-        console.log('something bad happened');
-        history.push("/enter_code");
+        history.push("/enter_code"); // if adding the consultation fails, re-route to the enter-code page.
       }
     }
   );

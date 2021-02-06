@@ -5,9 +5,6 @@ import React, {
   useEffect,
   useContext,
 } from "react";
-import { useMutation, UseMutationResult } from "react-query";
-import client from "../services/graphqlService";
-import mutations from "../services/graphqlService/mutations";
 import { Doctor, Symptom } from "../types";
 import { fullPhysicalSymptoms, fullGeneralSymptoms } from "./AllSymptoms";
 import { AuthContext } from "./Auth.context";
@@ -27,8 +24,6 @@ export interface AppContextInterface {
     language: string,
     docPublicCode: string
   ) => void;
-  // confirmConsultation: () => Promise<void>;
-  // createConsultation: UseMutationResult<any, unknown, NewConsultation, unknown>;
   getVariables: () => NewConsultation;
   setConsultationId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
@@ -121,52 +116,12 @@ const ConsultationContextProvider = (props: Props) => {
     return selected;
   };
 
-  // const createConsultation = useMutation(
-  //   "create consultation",
-  //   async (variables: NewConsultation) =>
-  //     await client.request(mutations.createConsultation, variables),
-  //   {
-  //     onSuccess: (data) => {
-  //       console.log('something good happened')
-  //       setConsultationId(data.addConsultation.id);
-  //     },
-  //     onError: () => {
-  //       console.log('something bad happened');
-  //     }
-  //   }
-  // );
-
-  // const confirmConsultation = (): Promise<void> => {
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       const selectedSymptoms = filterSelectedSymptoms([
-  //         ...physicalSymptoms,
-  //         ...generalSymptoms,
-  //       ]);
-  //       // create consultation object
-  //       const consultation: NewConsultation = {
-  //         date: new Date().toISOString(),
-  //         symptomsByArea: selectedSymptoms,
-  //         painLevel: painLevel,
-  //         patientId: user!.id,
-  //         patientNotes: "",
-  //         doctorId: doctor.id,
-  //       };
-  //       // createConsultation.mutate(consultation);
-  //       resolve();
-  //     } catch (e) {
-  //       console.log("error promise", e);
-  //       reject();
-  //     }
-  //   });
-  // };
-
   const getVariables = (): NewConsultation => {
     const selectedSymptoms = filterSelectedSymptoms([
       ...physicalSymptoms,
       ...generalSymptoms,
     ]);
-        // create consultation object
+    // create new consultation object
     const consultation: NewConsultation = {
       date: new Date().toISOString(),
       symptomsByArea: selectedSymptoms,
@@ -192,9 +147,7 @@ const ConsultationContextProvider = (props: Props) => {
         toggleGeneralSymptomSelect,
         changePainLevel,
         updateDoctor,
-        // confirmConsultation,
         getConsultationId,
-        // createConsultation,
         doctor,
         getVariables,
         setConsultationId
