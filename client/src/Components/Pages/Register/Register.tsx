@@ -26,12 +26,8 @@ const Register = () => {
     language: "",
   };
 
-  const [localLanguage, setLocalLanguage] = useState<string>("en");
-
-  useEffect(() => {
-    const language = localStorage.getItem("preferredLanguage");
-    if (language) setLocalLanguage(language);
-  }, []);
+  const localLanguage: string =
+    localStorage.getItem("preferredLanguage") || "en";
 
   const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
 
@@ -64,7 +60,7 @@ const Register = () => {
     }
   };
 
-  const l = translations[localLanguage].loginAndRegisterTerms;
+  const localText = translations[localLanguage].loginAndRegisterTerms;
 
   return (
     <div className="flex justify-center bg-white-dark h-screen p-4">
@@ -74,17 +70,17 @@ const Register = () => {
       >
         <div className="mb-4 z-10">
           <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
-            {l.register}
+            {localText.register}
           </h2>
         </div>
 
         <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="firstName" className="mb-2 font-bold text-blue">
-            {l.firstName}
+            {localText.firstName}
           </label>
           <FormInput
             type="text"
-            placeholder={l.firstName}
+            placeholder={localText.firstName}
             id="firstName"
             name="firstName"
             updateInput={updateInput}
@@ -94,11 +90,11 @@ const Register = () => {
 
         <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="lastName" className="mb-2 font-bold text-blue">
-            {l.lastName}
+            {localText.lastName}
           </label>
           <FormInput
             type="text"
-            placeholder={l.lastName}
+            placeholder={localText.lastName}
             id="lastName"
             name="lastName"
             updateInput={updateInput}
@@ -107,7 +103,7 @@ const Register = () => {
         </div>
         <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="postCode" className="mb-2 font-bold text-blue">
-            {l.postcode}
+            {localText.postcode}
           </label>
           <FormInput
             type="text"
@@ -120,11 +116,11 @@ const Register = () => {
         </div>
         <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="email" className="mb-2 font-bold text-blue">
-            {l.email}
+            {localText.email}
           </label>
           <FormInput
             type="email"
-            placeholder={l.email}
+            placeholder={localText.email}
             id="email"
             name="email"
             updateInput={updateInput}
@@ -133,11 +129,11 @@ const Register = () => {
         </div>
         <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="password" className="mb-2 font-bold text-blue">
-            {l.password}
+            {localText.password}
           </label>
           <FormInput
             type="password"
-            placeholder={l.password}
+            placeholder={localText.password}
             id="password"
             name="password"
             updateInput={updateInput}
@@ -148,7 +144,7 @@ const Register = () => {
           <AuthButton
             name="Register Button"
             value="Register"
-            text={l.register}
+            text={localText.register}
             condition={validateSignupForm(
               userInfo.email,
               userInfo.password,
@@ -163,7 +159,7 @@ const Register = () => {
             href="/login"
             className="text-blue hover:text-blue-dark text-center"
           >
-            {l.login}
+            {localText.login}
           </a>
         </div>
         <img
@@ -177,7 +173,7 @@ const Register = () => {
         id="error_board_register"
       >
         Invalid email or password
-        {/*invalid email or password*/}
+        {/*TODO - Translate invalid email or password*/}
       </div>
       <img
         src={logoReduced}

@@ -12,13 +12,8 @@ const translations = staticTranslations as any;
 
 const Login = () => {
   const { loginUser } = useAuth();
-  const [localLanguage, setLocalLanguage] = useState<string>("en");
-
-  useEffect(() => {
-    const language = localStorage.getItem("preferredLanguage");
-    if (language) setLocalLanguage(language);
-  }, []);
-
+  const localLanguage: string =
+    localStorage.getItem("preferredLanguage") || "en";
   interface Credentials {
     email: string;
     password: string;
@@ -49,7 +44,7 @@ const Login = () => {
     }
   };
 
-  const l = translations[localLanguage].loginAndRegisterTerms;
+  const localText = translations[localLanguage].loginAndRegisterTerms;
 
   return (
     <div className="flex items-center justify-center flex-col bg-white-dark h-screen lg:m-1 w-inherit min-w-min py-4">
@@ -59,27 +54,27 @@ const Login = () => {
       >
         <div className="z-10">
           <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
-            {l.login}
+            {localText.login}
           </h2>
         </div>
         <div className="items-center flex flex-col space-y-3 z-10">
           <label htmlFor="email" className="font-bold">
-            {l.login}:
+            {localText.login}:
           </label>
           <FormInput
             type="email"
-            placeholder={l.email}
+            placeholder={localText.email}
             id="email"
             name="email"
             updateInput={updateInput}
             onSubmit={() => {}}
           />
           <label htmlFor="password" className="font-bold">
-            {l.password}:
+            {localText.password}:
           </label>
           <FormInput
             type="password"
-            placeholder={l.password}
+            placeholder={localText.password}
             id="password"
             name="password"
             updateInput={updateInput}
@@ -90,13 +85,13 @@ const Login = () => {
           <AuthButton
             name="Login Button"
             value="Login"
-            text={l.login}
+            text={localText.login}
             condition={validateLoginForm(userInfo.email, userInfo.password)}
           />
           <h2 className="center my-4 text-center">— OR —</h2>
           <Link to="/register">
             <p className="text-blue hover:text-blue-dark text-center">
-              {l.register}
+              {localText.register}
             </p>
           </Link>
         </div>
