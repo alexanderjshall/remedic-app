@@ -49,6 +49,7 @@ export interface Symptom {
   question?: string;
   selected: boolean;
   id?: string;
+  translation?: string;
 }
 
 export interface Doctor {
