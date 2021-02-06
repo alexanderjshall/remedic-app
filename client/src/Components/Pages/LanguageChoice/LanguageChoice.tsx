@@ -41,32 +41,36 @@ const LanguageChoice = () => {
           >
             {supportedLanguages &&
               supportedLanguages.languages.map((language) => (
-                  <label
-                    htmlFor={language.langCode}
-                    className={`appearance-none text-lg flex align-center justify-between my-2 cursor-pointer
-                    ${selectedLanguage === language.langCode && 'bg-gray-200'}
+                <label
+                  htmlFor={language.langCode}
+                  className={`appearance-none text-lg flex align-center justify-between my-2 cursor-pointer
+                    ${selectedLanguage === language.langCode && "bg-gray-200"}
                     hover:bg-gray-200 opacity-60 p-2 rounded-md`}
-                    key={language.langCode}
-                  >
-                    {language.nativeName}
-                    <input
-                      type="radio"
-                      name="lang"
-                      id={language.langCode}
-                      value={language.englishName}
-                      checked={selectedLanguage === language.langCode}
-                      onChange={() => {}}
-                      className="hidden"
+                  key={language.langCode}
+                >
+                  {language.nativeName}
+                  <input
+                    type="radio"
+                    name="lang"
+                    id={language.langCode}
+                    value={language.englishName}
+                    checked={selectedLanguage === language.langCode}
+                    onChange={() => {}}
+                    className="hidden"
+                  />
+                  {selectedLanguage === language.langCode ? (
+                    <img
+                      src={Tick}
+                      alt="tick"
+                      className={"h-6 bg-green-500 p-0.5"}
                     />
-                    {
-                       selectedLanguage === language.langCode ?
-                       <img src={Tick} alt="tick" className={"h-6 bg-green-500 p-0.5"}/> :
-                       <div className={"h-6 w-6 bg-gray-300"}/>
-                    }
-                  </label>
+                  ) : (
+                    <div className={"h-6 w-6 bg-gray-300"} />
+                  )}
+                </label>
               ))}
           </form>
-          <div className="pt-2">
+          <div className="pt-2 w-full flex justify-center">
             <OKButton
               name="confirm"
               type="submit"
@@ -77,7 +81,10 @@ const LanguageChoice = () => {
           </div>
         </div>
       </div>
-        <SpinningGlobe classes="opacity-5 absolute mx-auto w-full" size={400}></SpinningGlobe>
+      <SpinningGlobe
+        classes="opacity-5 absolute mx-auto w-full"
+        size={400}
+      ></SpinningGlobe>
     </div>
   );
 };
