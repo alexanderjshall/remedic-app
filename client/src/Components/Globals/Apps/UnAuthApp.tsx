@@ -17,9 +17,7 @@ const UnAuthApp = () => {
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/language" />
-        </Route>
+        <Redirect to="/language" />
       </Switch>
     </BrowserRouter>
   );

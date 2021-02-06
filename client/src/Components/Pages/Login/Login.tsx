@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../Contexts/Auth.context";
+import { validateLoginForm } from "../../../utils/auth/validation.helper";
+import AuthButton from "../../Globals/AuthButton/AuthButton";
 import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
@@ -18,6 +20,12 @@ const Login = () => {
     password: "",
   });
 
+  const toggleErrorBoard = () => {
+    document
+      .getElementById("error_board")
+      ?.classList.remove("translate-y-full");
+  };
+
   const updateInput = (inputName: string, value: string) => {
     setUserInfo({ ...userInfo, [inputName]: value });
   };
@@ -26,6 +34,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await loginUser(userInfo.email, userInfo.password);
+      !res && toggleErrorBoard();
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +51,6 @@ const Login = () => {
             Login
           </h2>
         </div>
-
         <div className="items-center flex flex-col space-y-3 z-10">
           <label htmlFor="email" className="font-bold">
             Email:
@@ -68,12 +76,11 @@ const Login = () => {
           />
         </div>
         <div className="flex flex-col align-center">
-          <OKButton
-            name="login"
-            type="submit"
+          <AuthButton
+            name="Login Button"
             value="Login"
-            text="Log in"
-            onClick={() => {}}
+            text="Login"
+            condition={validateLoginForm(userInfo.email, userInfo.password)}
           />
           <h2 className="center my-4 text-center">— OR —</h2>
           <Link to="/register">
@@ -84,6 +91,12 @@ const Login = () => {
         </div>
         <img src={logoReduced} className="w-72 opacity-10 absolute top-0"></img>
       </form>
+      <div
+        className=" flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg bg-red-500 fixed bottom-0 left-1/2 transform-gpu -translate-x-1/2 translate-y-full h-16"
+        id="error_board"
+      >
+        Invalid email or password
+      </div>
     </div>
   );
 };
