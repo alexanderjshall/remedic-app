@@ -166,7 +166,9 @@ const Register = () => {
         className=" flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg bg-red-500 fixed bottom-0 left-1/2 transform-gpu -translate-x-1/2 translate-y-full h-16"
         id="error_board_register"
       >
-        Invalid email or password
+        <p className="text-lg text-center">
+          Uh oh! Seems like something went wrong!
+        </p>
       </div>
       <img
         src={logoReduced}
