@@ -92,7 +92,7 @@ const DoctorChat = () => {
   );
 
   return (
-    <div className="h-full overflow-hidden">
+    <div className="h-full overflow-y-scroll">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
         <h1 className="font-bold text-2xl text-white-ghost">
           {`${currentConsultation!.patientId.firstName} ${
@@ -100,10 +100,10 @@ const DoctorChat = () => {
           }`}
         </h1>
       </div>
-      <div className="grid grid-rows-2 grid-cols-2 grid-flow-row px-4 mt-6 pt-20">
-        <div className="row-span-2">
-          <div className="h-full">
-            <form className="h-full">
+      <div className="grid grid-cols-1 px-5 pt-20 mt-2 gap-2 md:grid-cols-2">
+        <div className="pt-2">
+          <div className="h-full ml-4 mr-4">
+            <form className="h-full shadow-sm">
               <label
                 htmlFor="patient_notes"
                 className="font-bold text-lg text-opacity-75 whitespace-nowrap"
@@ -127,20 +127,11 @@ const DoctorChat = () => {
                 onChange={(e) => setDoctorNotes(e.target.value)}
                 className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
               ></textarea>
-              <div className="flex justify-center">
-                <OKButton
-                  name="consultation_btn"
-                  type="button"
-                  value="End consultation"
-                  text="End consultation"
-                  onClick={endConsultation}
-                />
-              </div>
             </form>
           </div>
         </div>
-        <div className="row-span-3">
-          <div className="flex flex-auto flex-col ml-4">
+        <div className="pt-2 shadow-sm">
+          <div className="flex flex-auto flex-col ml-4 mr-4 h-full">
             <h1 className="text-lg font-bold text-opacity-75 text-center whitespace-nowrap">
               Chat:
             </h1>
@@ -158,7 +149,8 @@ const DoctorChat = () => {
             </div>
           </div>
         </div>
-        <div className="col-start-2">
+
+        <div className="col-start-1 md:col-start-2">
           <div className="flex">
             <form
               className="relative flex justify-end items-center p-3 bg-white w-full self-end"
@@ -178,6 +170,20 @@ const DoctorChat = () => {
               </button>
             </form>
           </div>
+        </div>
+        <div className="col-start-1 md:col-start-1 md:-mt-20">
+          <div className="flex justify-center">
+            <OKButton
+              name="consultation_btn"
+              type="submit"
+              value="End consultation"
+              text="End consultation"
+              onClick={() => {}}
+            />
+          </div>
+        </div>
+        <div className="m-2">
+          <span> </span>
         </div>
       </div>
     </div>

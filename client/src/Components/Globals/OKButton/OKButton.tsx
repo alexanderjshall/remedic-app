@@ -13,7 +13,7 @@ function OKButton(props: Props) {
 
   return (
     <button
-      className="px-6 py-3 -full ring-2 bg-blue-light rounded-lg lg:m-0 hover:bg-blue-dark ring-opacity-50 w-40 hover:ring-4 hover:ring-blue-dark font-bold text-white"
+      className="px-6 py-3 -full ring-2 bg-blue-light rounded-lg lg:m-0 hover:bg-blue-dark ring-opacity-50 max-w-1/2  hover:ring-4 hover:ring-blue-dark font-bold text-white"
       name={name}
       type={type}
       value={value}

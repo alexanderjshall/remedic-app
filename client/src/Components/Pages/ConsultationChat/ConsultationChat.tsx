@@ -20,7 +20,7 @@ const ConsultationChat = () => {
   const history = useHistory();
 
   const { user } = useAuth();
-  const { getConsultationId } = useContext(ConsultationContext)!;
+  const { getConsultationId, doctor } = useContext(ConsultationContext)!;
 
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
@@ -119,7 +119,7 @@ const ConsultationChat = () => {
             <div className="bg-blue h-16 w-screen fixed bottom-0 flex items-center justify-center">
               <UserIcon />
               <h3 className="text-xl text-white-cream ml-3 font-extrabold">
-                Doctor Zivago {/* TODO update this to be real*/}
+                {doctor.firstName} {doctor.lastName}
               </h3>
             </div>
           </div>
