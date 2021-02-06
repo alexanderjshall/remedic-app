@@ -11,7 +11,7 @@ export interface AppContextInterface {
   currentConsultation: ConsultationInfo;
   doctorNotes: string;
   setDoctorNotes: React.Dispatch<React.SetStateAction<string>>;
-  editConsultation:  UseMutationResult<any, unknown, void, unknown>,
+  editConsultation:  UseMutationResult<any, unknown, void, unknown>;
   updateCurrentConsultation: (consultation: ConsultationInfo) => void;
 }
 
@@ -19,7 +19,7 @@ interface Props {
   children: ReactChild | ReactChild[];
 }
 
-const emptyConsultationList: ConsultationInfo[] = []
+const emptyConsultationList: ConsultationInfo[] = [];
 
 const initialContext = {
   consultations: emptyConsultationList,
@@ -45,8 +45,9 @@ function DoctorContextProvider(props: Props) {
       {
         enabled: !!user,
         onSuccess: (data) => {
-          data.getActiveConsultations.sort((a: ConsultationInfo, b:ConsultationInfo) => Date.parse(a.consultationDate) - Date.parse(b.consultationDate))
-          setConsultations(data.getActiveConsultations);
+          // sort the consultations by date
+          data.getActiveConsultations.sort((a: ConsultationInfo, b:ConsultationInfo) => Date.parse(a.consultationDate) - Date.parse(b.consultationDate));
+          setConsultations(data.getActiveConsultations); // set consultations
         }
       });
 
@@ -57,11 +58,11 @@ function DoctorContextProvider(props: Props) {
         id: currentConsultation.id,
         isActive: false,
         doctorNotesOriginal: doctorNotes
-      })},{
+      })}, {
       onSuccess: (data) => {
-        console.log(data)
+        // filter out the completed consultation from the patient queue.
         setConsultations((prev) => prev.filter(c => c.id !== data.updateConsultation.id));
-        setDoctorNotes('');
+        setDoctorNotes(''); // erase the notes so we start afresh.
       }
     });
   
@@ -85,6 +86,4 @@ function DoctorContextProvider(props: Props) {
 
 export const useDrContext = () => useContext(DoctorContext);
 
-export default DoctorContextProvider
-
-// consultations: data ? data.getActiveConsultations : initialContext.consultations,
+export default DoctorContextProvider;

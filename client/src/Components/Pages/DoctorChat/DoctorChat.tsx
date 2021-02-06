@@ -25,16 +25,9 @@ const DoctorChat = () => {
   );
   
   const endChat = () => {
-    console.log('doctor notes', doctorNotes)
     editConsultation.mutate()
     history.push('/doctor/queue')
   }
-
-  // const updateNotes = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   console.log('notes as typing', e.target.value)
-  //   setDoctorNotes(e.target.value)
-  //   console.log(doctorNotes);
-  // }
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
