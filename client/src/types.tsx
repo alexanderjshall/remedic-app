@@ -48,4 +48,13 @@ export interface Symptom {
   img?: string;
   question?: string;
   selected: boolean;
+  id?: string;
+}
+
+export interface Doctor {
+  id: number;
+  firstName: string;
+  lastName: string;
+  language: string;
+  docPublicCode: string;
 }

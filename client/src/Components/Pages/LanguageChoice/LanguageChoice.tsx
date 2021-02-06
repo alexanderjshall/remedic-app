@@ -32,7 +32,7 @@ const LanguageChoice = () => {
         </div>
         <div className="flex flex-col items-center mb-4 w-full tablet:w-3/4">
           <IoLanguageSharp className="inline mr-3 h-5 w-5 self-center" />
-          <p className=" text-lg inline whitespace-nowrap">
+          <p className=" text-lg inline whitespace-nowrap text-center">
             Please choose your language:
           </p>
           <form
