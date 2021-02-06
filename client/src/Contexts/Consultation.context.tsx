@@ -27,8 +27,10 @@ export interface AppContextInterface {
     language: string,
     docPublicCode: string
   ) => void;
-  confirmConsultation: () => Promise<void>;
-  createConsultation: UseMutationResult<any, unknown, NewConsultation, unknown>;
+  // confirmConsultation: () => Promise<void>;
+  // createConsultation: UseMutationResult<any, unknown, NewConsultation, unknown>;
+  getVariables: () => NewConsultation;
+  setConsultationId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 interface Props {
@@ -40,7 +42,7 @@ interface SelectedSymptom {
   symptom: string;
 }
 
-interface NewConsultation {
+export interface NewConsultation {
   date: string;
   symptomsByArea: SelectedSymptom[];
   painLevel: number;
@@ -119,49 +121,45 @@ const ConsultationContextProvider = (props: Props) => {
     return selected;
   };
 
-  const createConsultation = useMutation(
-    "create consultation",
-    async (variables: NewConsultation) =>
-      await client.request(mutations.createConsultation, variables),
-    {
-      onSuccess: (data) => {
-        console.log('something good happened')
-        setConsultationId(data.addConsultation.id);
-        
-      },
-      onError: () => {
-        console.log('something bad happened');
-      }
-    }
-  );
-  // if (mutation.isSuccess) console.log("data from server", mutation.data);
+  // const createConsultation = useMutation(
+  //   "create consultation",
+  //   async (variables: NewConsultation) =>
+  //     await client.request(mutations.createConsultation, variables),
+  //   {
+  //     onSuccess: (data) => {
+  //       console.log('something good happened')
+  //       setConsultationId(data.addConsultation.id);
+  //     },
+  //     onError: () => {
+  //       console.log('something bad happened');
+  //     }
+  //   }
+  // );
 
-  const confirmConsultation = (): Promise<void> => {
-    return new Promise((resolve, reject) => {
-      try {
-        const selectedSymptoms = filterSelectedSymptoms([
-          ...physicalSymptoms,
-          ...generalSymptoms,
-        ]);
-        // create consultation object
-        const consultation: NewConsultation = {
-          date: new Date().toISOString(),
-          symptomsByArea: selectedSymptoms,
-          painLevel: painLevel,
-          patientId: user!.id,
-          patientNotes: "",
-          doctorId: doctor.id,
-        };
-        // send to backend
-        createConsultation.mutate(consultation);
-        resolve();
-      } catch (e) {
-        console.log("error promise", e);
-        reject();
-      }
-    });
-  };
-
+  // const confirmConsultation = (): Promise<void> => {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       const selectedSymptoms = filterSelectedSymptoms([
+  //         ...physicalSymptoms,
+  //         ...generalSymptoms,
+  //       ]);
+  //       // create consultation object
+  //       const consultation: NewConsultation = {
+  //         date: new Date().toISOString(),
+  //         symptomsByArea: selectedSymptoms,
+  //         painLevel: painLevel,
+  //         patientId: user!.id,
+  //         patientNotes: "",
+  //         doctorId: doctor.id,
+  //       };
+  //       // createConsultation.mutate(consultation);
+  //       resolve();
+  //     } catch (e) {
+  //       console.log("error promise", e);
+  //       reject();
+  //     }
+  //   });
+  // };
 
   const getVariables = (): NewConsultation => {
     const selectedSymptoms = filterSelectedSymptoms([
@@ -177,7 +175,6 @@ const ConsultationContextProvider = (props: Props) => {
       patientNotes: "",
       doctorId: doctor.id,
       };
-      // send to backend
       return consultation;
   };
 
@@ -195,10 +192,12 @@ const ConsultationContextProvider = (props: Props) => {
         toggleGeneralSymptomSelect,
         changePainLevel,
         updateDoctor,
-        confirmConsultation,
+        // confirmConsultation,
         getConsultationId,
-        createConsultation
+        // createConsultation,
         doctor,
+        getVariables,
+        setConsultationId
       }}
     >
       {props.children}
