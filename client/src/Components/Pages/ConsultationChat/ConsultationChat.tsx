@@ -13,18 +13,23 @@ import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 import { useHistory } from "react-router-dom";
 
+import { PatientContext } from "../../../Contexts/Patient.context";
+
 // ROUTE -> '/consultation_chat'
 const ConsultationChat = () => {
-  const { user } = useAuth();
   const history = useHistory();
 
+  const { user } = useAuth();
   const { getConsultationId } = useContext(ConsultationContext)!;
+
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
     user!.language,
-    () => history.push('/feedback')
+    () => history.push("/feedback")
   );
 
   const [currentMsg, setCurrentMsg] = useState("");
