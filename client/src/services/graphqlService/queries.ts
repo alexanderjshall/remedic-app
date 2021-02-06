@@ -145,6 +145,7 @@ query($id: Float!, $isActive: Boolean!) {
   getActiveConsultations(doctorId: $id, isActive: $isActive) {
     id
     consultationDate
+    isActive
     symptomsByArea {
       area
       symptom
