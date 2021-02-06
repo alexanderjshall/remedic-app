@@ -11,6 +11,8 @@ import { validateSignupForm } from "../../../utils/auth/validation.helper";
 import humanStanding from "../../../assets/background-images/humans-standing2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 
+import staticTranslations from "../../../utils/static-translations.json";
+const translations = staticTranslations as any;
 
 const Register = () => {
   const { registerPatient } = useAuth();
@@ -23,6 +25,13 @@ const Register = () => {
     password: "",
     language: "",
   };
+
+  const [localLanguage, setLocalLanguage] = useState<string>("en");
+
+  useEffect(() => {
+    const language = localStorage.getItem("preferredLanguage");
+    if (language) setLocalLanguage(language);
+  }, []);
 
   const [userInfo, setUserInfo] = useState<UserData>(initialInfo);
 
@@ -55,6 +64,8 @@ const Register = () => {
     }
   };
 
+  const l = translations[localLanguage].loginAndRegisterTerms;
+
   return (
     <div className="flex justify-center bg-white-dark h-screen p-4">
       <form
@@ -63,17 +74,17 @@ const Register = () => {
       >
         <div className="mb-4 z-10">
           <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
-            Register
+            {l.register}
           </h2>
         </div>
 
         <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="firstName" className="mb-2 font-bold text-blue">
-            First Name:
+            {l.firstName}
           </label>
           <FormInput
             type="text"
-            placeholder="First Name"
+            placeholder={l.firstName}
             id="firstName"
             name="firstName"
             updateInput={updateInput}
@@ -83,11 +94,11 @@ const Register = () => {
 
         <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="lastName" className="mb-2 font-bold text-blue">
-            Last Name:
+            {l.lastName}
           </label>
           <FormInput
             type="text"
-            placeholder="Last Name"
+            placeholder={l.lastName}
             id="lastName"
             name="lastName"
             updateInput={updateInput}
@@ -96,7 +107,7 @@ const Register = () => {
         </div>
         <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="postCode" className="mb-2 font-bold text-blue">
-            Postcode:
+            {l.postcode}
           </label>
           <FormInput
             type="text"
@@ -109,11 +120,11 @@ const Register = () => {
         </div>
         <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="email" className="mb-2 font-bold text-blue">
-            Email Address:
+            {l.email}
           </label>
           <FormInput
             type="email"
-            placeholder="Email"
+            placeholder={l.email}
             id="email"
             name="email"
             updateInput={updateInput}
@@ -122,11 +133,11 @@ const Register = () => {
         </div>
         <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
           <label htmlFor="password" className="mb-2 font-bold text-blue">
-            Password:
+            {l.password}
           </label>
           <FormInput
             type="password"
-            placeholder="Password"
+            placeholder={l.password}
             id="password"
             name="password"
             updateInput={updateInput}
@@ -137,7 +148,7 @@ const Register = () => {
           <AuthButton
             name="Register Button"
             value="Register"
-            text="Register"
+            text={l.register}
             condition={validateSignupForm(
               userInfo.email,
               userInfo.password,
@@ -152,7 +163,7 @@ const Register = () => {
             href="/login"
             className="text-blue hover:text-blue-dark text-center"
           >
-            Log in
+            {l.login}
           </a>
         </div>
         <img
@@ -166,6 +177,7 @@ const Register = () => {
         id="error_board_register"
       >
         Invalid email or password
+        {/*invalid email or password*/}
       </div>
       <img
         src={logoReduced}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { validateLoginForm } from "../../../utils/auth/validation.helper";
@@ -7,8 +7,17 @@ import FormInput from "../../Globals/FormInput/FormInput";
 import OKButton from "../../Globals/OKButton/OKButton";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 
+import staticTranslations from "../../../utils/static-translations.json";
+const translations = staticTranslations as any;
+
 const Login = () => {
   const { loginUser } = useAuth();
+  const [localLanguage, setLocalLanguage] = useState<string>("en");
+
+  useEffect(() => {
+    const language = localStorage.getItem("preferredLanguage");
+    if (language) setLocalLanguage(language);
+  }, []);
 
   interface Credentials {
     email: string;
@@ -40,6 +49,8 @@ const Login = () => {
     }
   };
 
+  const l = translations[localLanguage].loginAndRegisterTerms;
+
   return (
     <div className="flex items-center justify-center flex-col bg-white-dark h-screen lg:m-1 w-inherit min-w-min py-4">
       <form
@@ -48,27 +59,27 @@ const Login = () => {
       >
         <div className="z-10">
           <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
-            Login
+            {l.login}
           </h2>
         </div>
         <div className="items-center flex flex-col space-y-3 z-10">
           <label htmlFor="email" className="font-bold">
-            Email:
+            {l.login}:
           </label>
           <FormInput
             type="email"
-            placeholder="Email"
+            placeholder={l.email}
             id="email"
             name="email"
             updateInput={updateInput}
             onSubmit={() => {}}
           />
           <label htmlFor="password" className="font-bold">
-            Password:
+            {l.password}:
           </label>
           <FormInput
             type="password"
-            placeholder="Password"
+            placeholder={l.password}
             id="password"
             name="password"
             updateInput={updateInput}
@@ -79,13 +90,13 @@ const Login = () => {
           <AuthButton
             name="Login Button"
             value="Login"
-            text="Login"
+            text={l.login}
             condition={validateLoginForm(userInfo.email, userInfo.password)}
           />
           <h2 className="center my-4 text-center">— OR —</h2>
           <Link to="/register">
             <p className="text-blue hover:text-blue-dark text-center">
-              Register
+              {l.register}
             </p>
           </Link>
         </div>
