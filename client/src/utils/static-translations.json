@@ -327,11 +327,11 @@
   },
   "fr": {
     "loginAndRegisterTerms": {
-      "login": "S&#39;identifier",
+      "login": "S'identifier",
       "email": "Email",
       "emailAddress": "Adresse e-mail",
       "password": "Mot de passe",
-      "register": "S&#39;inscrire",
+      "register": "S'inscrire",
       "firstName": "Prénom",
       "lastName": "Nom de famille",
       "postcode": "Code postal"
@@ -381,10 +381,10 @@
         "backPain": "Mal au dos",
         "shortBreath": "À court de souffle",
         "constipation": "Constipation",
-        "stomachCramps": "Des crampes d&#39;estomac",
+        "stomachCramps": "Des crampes d'estomac",
         "bodyRash": "Éruption cutanée",
         "shaking": "Tremblement",
-        "stomachPain": "Douleur d&#39;estomac",
+        "stomachPain": "Douleur d'estomac",
         "heartRate": "Fréquence cardiaque rapide"
       },
       "Legs": {
@@ -579,7 +579,7 @@
       "login": "Accesso",
       "email": "E-mail",
       "emailAddress": "Indirizzo email",
-      "password": "Parola d&#39;ordine",
+      "password": "Parola d'ordine",
       "register": "Registrati",
       "firstName": "Nome di battesimo",
       "lastName": "Cognome",
@@ -1341,7 +1341,7 @@
       "enterDoctorCode": "Gali Xeerka Dhakhaatiirtaada"
     },
     "generalSymptomsTerms": {
-      "generalQuestions": "Su&#39;aalaha Guud",
+      "generalQuestions": "Su'aalaha Guud",
       "good": "Wanaagsan",
       "notGood": "Ma wanaagsan",
       "bad": "Xun",
