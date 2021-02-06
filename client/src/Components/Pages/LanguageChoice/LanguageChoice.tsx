@@ -5,6 +5,7 @@ import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
 import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
 import SpinningGlobe from "../../Globals/Spinning Globe/SpinningGlobe";
+import Tick from "../../../assets/utils/tick.svg";
 
 const LanguageChoice = () => {
   const history = useHistory();
@@ -23,43 +24,49 @@ const LanguageChoice = () => {
   };
 
   return (
-    <div className="flex-col flex justify-center w-screen relative">
-      <div className="flex flex-col shadow-md px-16 h-screen rounded-lg justify-evenly items-center overflow-hidden z-10">
+    <div className="flex-col flex justify-center min-h-screen min-w-screen max-w-3xl mx-auto relative">
+      <div className="flex flex-col px-16 h-full justify-evenly items-center overflow-hidden z-10">
         {" "}
         <div className="flex justify-center w-full tablet:w-2/3">
           <img src={RemedicLogo} alt="Remedic Logo" />
         </div>
         <div className="flex flex-col items-center mb-4 w-full tablet:w-3/4">
           <IoLanguageSharp className="inline mr-3 h-5 w-5 self-center" />
-          <p className=" text-lg inline whitespace-nowrap">
+          <p className=" text-lg inline whitespace-nowrap text-center">
             Please choose your language:
           </p>
           <form
-            className="mt-5 divide-y-2 divide-black divide-opacity-30 p-3 max-h-96 overflow-y-auto w-full"
+            className="mt-5 p-3 max-h-96 overflow-y-auto w-full"
             onChange={onLanguageChange}
           >
             {supportedLanguages &&
               supportedLanguages.languages.map((language) => (
-                <div
-                  className="flex align-center justify-between my-2"
-                  key={language.langCode}
-                >
-                  <label htmlFor={language.langCode} className="text-lg">
+                  <label
+                    htmlFor={language.langCode}
+                    className={`appearance-none text-lg flex align-center justify-between my-2 cursor-pointer
+                    ${selectedLanguage === language.langCode && 'bg-gray-200'}
+                    hover:bg-gray-200 opacity-60 p-2 rounded-md`}
+                    key={language.langCode}
+                  >
                     {language.nativeName}
+                    <input
+                      type="radio"
+                      name="lang"
+                      id={language.langCode}
+                      value={language.englishName}
+                      checked={selectedLanguage === language.langCode}
+                      onChange={() => {}}
+                      className="hidden"
+                    />
+                    {
+                       selectedLanguage === language.langCode ?
+                       <img src={Tick} alt="tick" className={"h-6 bg-green-500 p-0.5"}/> :
+                       <div className={"h-6 w-6 bg-gray-300"}/>
+                    }
                   </label>
-                  <input
-                    type="radio"
-                    name="lang"
-                    id={language.langCode}
-                    value={language.englishName}
-                    checked={selectedLanguage === language.langCode}
-                    onChange={() => {}}
-                    className="mt-2"
-                  />
-                </div>
               ))}
           </form>
-          <div className="pt-8">
+          <div className="pt-2">
             <OKButton
               name="confirm"
               type="submit"
@@ -70,7 +77,7 @@ const LanguageChoice = () => {
           </div>
         </div>
       </div>
-      <SpinningGlobe classes="absolute opacity-5" size={400}></SpinningGlobe>
+        <SpinningGlobe classes="opacity-5 absolute mx-auto w-full" size={400}></SpinningGlobe>
     </div>
   );
 };
