@@ -53,7 +53,7 @@ const EnterCode = () => {
         } = data.getDoctor;
         console.log("data from server", data);
         updateDoctor(id, firstName, lastName, language, docPublicCode);
-        history.push("/symptoms_checker");
+        history.push("/consultation/symptoms/general");
       },
       onError: () => setIsInvalid(true),
     }

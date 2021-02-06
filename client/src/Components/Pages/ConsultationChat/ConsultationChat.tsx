@@ -15,7 +15,7 @@ import { useHistory } from "react-router-dom";
 
 import { PatientContext } from "../../../Contexts/Patient.context";
 
-// ROUTE -> '/consultation_chat'
+// ROUTE -> '/consultation/chat'
 const ConsultationChat = () => {
   const history = useHistory();
 
@@ -33,7 +33,7 @@ const ConsultationChat = () => {
     doctorFullName,
     '',
     user!.language,
-    () => history.push("/feedback")
+    () => history.push("/consultation/feedback")
   );
 
   const [currentMsg, setCurrentMsg] = useState("");
