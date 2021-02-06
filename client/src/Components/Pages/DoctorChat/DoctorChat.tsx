@@ -178,7 +178,7 @@ const DoctorChat = () => {
               type="submit"
               value="End consultation"
               text="End consultation"
-              onClick={() => {}}
+              onClick={() => endConsultation()}
             />
           </div>
         </div>
