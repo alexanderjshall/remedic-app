@@ -8,7 +8,8 @@
       "register": "تسجيل",
       "firstName": "الاسم الاول",
       "lastName": "الكنية",
-      "postcode": "الرمز البريدي"
+      "postcode": "الرمز البريدي",
+      "errorMessage": "هناك خطأ ما"
     },
     "patientLandingTerms": {
       "startConsultation": "ابدأ الاستشارة",
@@ -88,7 +89,8 @@
       "register": "নিবন্ধন",
       "firstName": "নামের প্রথম অংশ",
       "lastName": "নামের শেষাংশ",
-      "postcode": "পোস্টকোড"
+      "postcode": "পোস্টকোড",
+      "errorMessage": "কিছু ভুল হয়েছে "
     },
     "patientLandingTerms": {
       "startConsultation": "পরামর্শ শুরু করুন",
@@ -171,7 +173,8 @@
       "register": "寄存器",
       "firstName": "名字",
       "lastName": "姓",
-      "postcode": "邮编"
+      "postcode": "邮编",
+      "errorMEssage": "出问题了"
     },
     "patientLandingTerms": {
       "startConsultation": "开始咨询",
@@ -251,7 +254,8 @@
       "register": "Register",
       "firstName": "First Name",
       "lastName": "Last Name",
-      "postcode": "Postcode"
+      "postcode": "Postcode",
+      "errorMessage": "Uh oh, something went wrong..."
     },
     "patientLandingTerms": {
       "startConsultation": "Start Consultation",
@@ -334,7 +338,8 @@
       "register": "S'inscrire",
       "firstName": "Prénom",
       "lastName": "Nom de famille",
-      "postcode": "Code postal"
+      "postcode": "Code postal",
+      "errorMessage": "Oh oh, quelque chose s'est mal passé ..."
     },
     "patientLandingTerms": {
       "startConsultation": "Commencer la consultation",
@@ -417,7 +422,8 @@
       "register": "Registrieren",
       "firstName": "Vorname",
       "lastName": "Familienname, Nachname",
-      "postcode": "Postleitzahl"
+      "postcode": "Postleitzahl",
+      "errorMessage": "Oh oh, etwas ist schief gelaufen ..."
     },
     "patientLandingTerms": {
       "startConsultation": "Konsultation starten",
@@ -500,7 +506,8 @@
       "register": "નોંધણી કરો",
       "firstName": "પ્રથમ નામ",
       "lastName": "છેલ્લું નામ",
-      "postcode": "પોસ્ટકોડ"
+      "postcode": "પોસ્ટકોડ",
+      "errorMessage": "કંઈક ખોટું થયું"
     },
     "patientLandingTerms": {
       "startConsultation": "કન્સલ્ટેશન શરૂ કરો",
@@ -583,7 +590,8 @@
       "register": "Registrati",
       "firstName": "Nome di battesimo",
       "lastName": "Cognome",
-      "postcode": "Codice postale"
+      "postcode": "Codice postale",
+      "errorMessage": "Uh oh, qualcosa è andato storto..."
     },
     "patientLandingTerms": {
       "startConsultation": "Inizia la consultazione",
@@ -666,7 +674,8 @@
       "register": "Reģistrēties",
       "firstName": "Vārds",
       "lastName": "Uzvārds",
-      "postcode": "Pasta indekss"
+      "postcode": "Pasta indekss",
+      "errorMessage": "Kaut kas nogāja greizi"
     },
     "patientLandingTerms": {
       "startConsultation": "Sāciet konsultāciju",
@@ -749,7 +758,8 @@
       "register": "Registruotis",
       "firstName": "Pirmas vardas",
       "lastName": "Pavardė",
-      "postcode": "Pašto kodas"
+      "postcode": "Pašto kodas",
+      "errorMessage": "Kažkas nepavyko"
     },
     "patientLandingTerms": {
       "startConsultation": "Pradėkite konsultaciją",
@@ -832,7 +842,8 @@
       "register": "ثبت نام",
       "firstName": "نام کوچک",
       "lastName": "نام خانوادگی",
-      "postcode": "کد پستی"
+      "postcode": "کد پستی",
+      "errorMessage": "مشکلی پیش آمد"
     },
     "patientLandingTerms": {
       "startConsultation": "مشاوره را شروع کنید",
@@ -915,7 +926,8 @@
       "register": "Zarejestrować",
       "firstName": "Imię",
       "lastName": "Nazwisko",
-      "postcode": "Kod pocztowy"
+      "postcode": "Kod pocztowy",
+      "errorMessage": "Coś poszło nie tak"
     },
     "patientLandingTerms": {
       "startConsultation": "Rozpocznij konsultację",
@@ -998,7 +1010,8 @@
       "register": "Registro",
       "firstName": "Primeiro nome",
       "lastName": "Último nome",
-      "postcode": "Código Postal"
+      "postcode": "Código Postal",
+      "errorMessage": "Algo deu errado"
     },
     "patientLandingTerms": {
       "startConsultation": "Iniciar Consulta",
@@ -1081,7 +1094,8 @@
       "register": "ਰਜਿਸਟਰ",
       "firstName": "ਪਹਿਲਾ ਨਾਂ",
       "lastName": "ਆਖਰੀ ਨਾਂਮ",
-      "postcode": "ਪੋਸਟਕੋਡ"
+      "postcode": "ਪੋਸਟਕੋਡ",
+      "errorMessage": "केहि गलत भयो"
     },
     "patientLandingTerms": {
       "startConsultation": "ਸਲਾਹ-ਮਸ਼ਵਰਾ ਸ਼ੁਰੂ ਕਰੋ",
@@ -1164,7 +1178,8 @@
       "register": "Inregistreaza-te",
       "firstName": "Nume",
       "lastName": "Numele de familie",
-      "postcode": "Cod poștal"
+      "postcode": "Cod poștal",
+      "errorMessage": "Ceva n-a mers bine"
     },
     "patientLandingTerms": {
       "startConsultation": "Începeți consultarea",
@@ -1247,7 +1262,8 @@
       "register": "Registrarse",
       "firstName": "Primer nombre",
       "lastName": "Apellido",
-      "postcode": "Código postal"
+      "postcode": "Código postal",
+      "errorMessage": "Algo salió mal"
     },
     "patientLandingTerms": {
       "startConsultation": "Iniciar consulta",
@@ -1330,7 +1346,8 @@
       "register": "Diiwaangeli",
       "firstName": "Magaca koowaad",
       "lastName": "Magaca Dambe",
-      "postcode": "Koodhka boostada"
+      "postcode": "Koodhka boostada",
+      "errorMessage": "Waxbaa qaldamay"
     },
     "patientLandingTerms": {
       "startConsultation": "Bilaab La-tashiga",
@@ -1496,7 +1513,8 @@
       "register": "Kayıt ol",
       "firstName": "İsim",
       "lastName": "Soyadı",
-      "postcode": "Posta kodu"
+      "postcode": "Posta kodu",
+      "errorMessage": "Bir şeyler yanlış gitti"
     },
     "patientLandingTerms": {
       "startConsultation": "Konsültasyonu Başlat",
@@ -1579,7 +1597,8 @@
       "register": "رجسٹر کریں",
       "firstName": "پہلا نام",
       "lastName": "آخری نام",
-      "postcode": "پوسٹ کوڈ"
+      "postcode": "پوسٹ کوڈ",
+      "errorMessage": "کچھ غلط ہو گیا"
     },
     "patientLandingTerms": {
       "startConsultation": "مشاورت شروع کریں",
@@ -1662,7 +1681,8 @@
       "register": "Đăng ký",
       "firstName": "Tên đầu tiên",
       "lastName": "Họ",
-      "postcode": "Mã bưu điện"
+      "postcode": "Mã bưu điện",
+      "errorMessage": "Đã xảy ra lỗi"
     },
     "patientLandingTerms": {
       "startConsultation": "Bắt đầu tư vấn",
@@ -1745,7 +1765,8 @@
       "register": "רעגיסטרירן",
       "firstName": "ערשטע נאמען",
       "lastName": "לעצטע נאמען",
-      "postcode": "פּאָסטקאָדע"
+      "postcode": "פּאָסטקאָדע",
+      "errorMessage": "עפּעס איז פאַלש"
     },
     "patientLandingTerms": {
       "startConsultation": "אָנהייב קאַנסאַלטיישאַן",
