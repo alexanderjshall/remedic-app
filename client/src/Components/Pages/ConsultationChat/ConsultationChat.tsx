@@ -22,12 +22,16 @@ const ConsultationChat = () => {
   const { user } = useAuth();
   const { getConsultationId, doctor } = useContext(ConsultationContext)!;
 
+  const doctorFullName = `${doctor.firstName} ${doctor.lastName}`
+
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
+    doctorFullName,
+    '',
     user!.language,
     () => history.push("/feedback")
   );
