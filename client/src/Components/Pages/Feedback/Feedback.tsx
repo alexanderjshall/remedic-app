@@ -9,6 +9,7 @@ import { useMutation } from "react-query";
 import { ConsultationFeedback } from "../../../types";
 import client from "../../../services/graphqlService";
 import mutations from "../../../services/graphqlService/mutations";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 interface RatingStar {
   filled: boolean;
@@ -21,6 +22,11 @@ const Feedback = () => {
   const [stars, setStars] = useState(
     Array<RatingStar>(5).fill({ filled: false })
   );
+
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
+  const localText = translatedText.feedbackTerms;
+  const localTextUtils = translatedText.utils;
 
   const { getConsultationId } = useContext(ConsultationContext)!;
 
@@ -76,7 +82,8 @@ const Feedback = () => {
           className="w-32 mb-10 animate-pulse"
         />
         <div className="flex flex-col items-center justify mt-8">
-          <h1 className="font-bold text-xl">Rate Your Experience</h1>
+          <h2 className="text-blue-light font-bold">{localText.end}</h2>
+          <h1 className="font-bold text-xl pt-4">{localText.rate}</h1>
           <div className="flex items-center justify-between mt-8">
             {stars &&
               stars.map((star, i) => (
@@ -98,7 +105,7 @@ const Feedback = () => {
           className="mt-16 bg-blue w-3/4 max-w-2xl py-4 rounded-lg font-bold text-white text-2xl"
           onClick={handleEndConsultation}
         >
-          END
+          {localTextUtils.end}
         </button>
       </div>
       <footer className="bg-blue-dark w-100 h-4"></footer>

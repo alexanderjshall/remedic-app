@@ -64,9 +64,11 @@ const DoctorChat = () => {
         {currentConsultation!.symptomsByArea
           .filter((s: any) => s.area === "Global")
           .map((s: any) =>
-            s.symptom
-              .split(",")
-              .map((sym: string) => <li className="list-disc ml-12">{sym}</li>)
+            s.symptom.split(",").map((sym: string, i: number) => (
+              <li className="list-disc ml-12" key={i}>
+                {sym}
+              </li>
+            ))
           )}
       </ul>
       <h1 className="text-xl font-bold mt-4 text-blue-dark">
@@ -78,8 +80,10 @@ const DoctorChat = () => {
           <>
             <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
             <ul>
-              {s.symptom.split(",").map((sym: string) => (
-                <li className="list-disc ml-12">{sym}</li>
+              {s.symptom.split(",").map((sym: string, i: number) => (
+                <li className="list-disc ml-12" key={i}>
+                  {sym}
+                </li>
               ))}
             </ul>
           </>
