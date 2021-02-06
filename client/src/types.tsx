@@ -48,4 +48,5 @@ export interface Symptom {
   img?: string;
   question?: string;
   selected: boolean;
+  id?: string;
 }
