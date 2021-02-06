@@ -15,9 +15,7 @@ const DoctorApp = () => {
           <Route exact path="/doctor/queue">
             <PatientQueue />
           </Route>
-          <Route path="/login">
-            <Redirect to="/doctor/queue" />
-          </Route>
+          <Redirect to="/doctor/queue" />
         </Switch>
       </BrowserRouter>
     </DoctorContextProvider>

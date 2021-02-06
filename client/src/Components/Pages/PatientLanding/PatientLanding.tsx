@@ -4,6 +4,7 @@ import bgHumanOne from "../../../assets/background-images/humans-sitting.png";
 import bgHumanTwo from "../../../assets/background-images/humans-standing.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import { AuthContext } from "../../../Contexts/Auth.context";
+import { PatientContext } from "../../../Contexts/Patient.context";
 import { useHistory } from "react-router-dom";
 interface LandingCards {
   route?: string;
@@ -16,18 +17,21 @@ interface LandingCards {
 //TODO add routes
 const PatientLanding = () => {
   const { logout } = useContext(AuthContext)!; // logout from auth context
+  const { getTranslatedText } = useContext(PatientContext)!;
   const history = useHistory();
+
+  const localText = getTranslatedText().patientLandingTerms;
 
   // put landingCards in here
   const landingCards: LandingCards[] = [
     {
-      title: "Start Consultation",
+      title: localText.startConsultation,
       bgColorClass: "bg-green",
       textColor: "white",
       path: "/enter_code",
     },
     {
-      title: "Profile",
+      title: localText.profile,
       bgColorClass: "bg-blue",
       textColor: "white",
       path: "/",

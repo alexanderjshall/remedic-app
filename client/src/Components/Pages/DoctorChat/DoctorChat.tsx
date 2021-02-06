@@ -12,18 +12,26 @@ const langEnglishName = (langCode: string) =>
   languages.languages.find((l) => l.langCode === langCode)?.englishName;
 
 const DoctorChat = () => {
-  const { currentConsultation } = useDrContext();
-
-  // todo redirect to edit consultation details and save them
+  const {
+    currentConsultation,
+    editConsultation,
+    doctorNotes,
+    setDoctorNotes,
+  } = useDrContext();
   const history = useHistory();
-
   const [currentMsg, setCurrentMsg] = useState<string>("");
+
   const { messages, addMessage, endConsultation } = useChat(
     String(currentConsultation!.id),
     true,
     currentConsultation!.patientId!.language,
-    () => history.push("/doctor/queue")
+    () => endChat()
   );
+
+  const endChat = () => {
+    editConsultation.mutate();
+    history.push("/doctor/queue");
+  };
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -103,7 +111,7 @@ const DoctorChat = () => {
               </div>
               <label
                 htmlFor="doctor_notes"
-                className="font-bold text-lg text-opacity-75"
+                className="font-bold text-lg text-opacity-75 whitespace-nowrap"
               >
                 Consultation Notes:
               </label>
@@ -111,7 +119,9 @@ const DoctorChat = () => {
                 wrap="soft"
                 name="doctor_notes"
                 id="doctor_notes"
-                className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2 mb-4"
+                value={doctorNotes}
+                onChange={(e) => setDoctorNotes(e.target.value)}
+                className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
               ></textarea>
               <div className="flex justify-center">
                 <OKButton

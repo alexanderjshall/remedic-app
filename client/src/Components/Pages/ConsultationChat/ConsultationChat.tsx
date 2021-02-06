@@ -18,13 +18,13 @@ const ConsultationChat = () => {
   const { user } = useAuth();
   const history = useHistory();
 
-  const { getConsultationId } = useContext(ConsultationContext)!;
+  const { getConsultationId, doctor } = useContext(ConsultationContext)!;
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
     user!.language,
-    () => history.push('/feedback')
+    () => history.push("/feedback")
   );
 
   const [currentMsg, setCurrentMsg] = useState("");
@@ -114,7 +114,7 @@ const ConsultationChat = () => {
             <div className="bg-blue h-16 w-screen fixed bottom-0 flex items-center justify-center">
               <UserIcon />
               <h3 className="text-xl text-white-cream ml-3 font-extrabold">
-                Doctor Zivago {/* TODO update this to be real*/}
+                {doctor.firstName} {doctor.lastName}
               </h3>
             </div>
           </div>

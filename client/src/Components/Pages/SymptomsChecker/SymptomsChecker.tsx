@@ -7,6 +7,7 @@ import faceNotGood from "../../../assets/utils/face-notgood.svg";
 import facePain from "../../../assets/utils/face-pain.svg";
 import { useHistory } from "react-router-dom";
 import { fullGeneralSymptoms } from "../../../Contexts/AllSymptoms";
+import { PatientContext } from "../../../Contexts/Patient.context";
 import QuestionCard from "./QuestionCard";
 interface PainLevel {
   label: string;
@@ -17,12 +18,21 @@ interface PainLevel {
 
 const SymptomsChecker = () => {
   const history = useHistory();
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
+  const localText = translatedText.generalSymptomsTerms;
+  const localTextUtils = translatedText.utils;
 
   const [painLevels, setPainLevels] = useState<PainLevel[]>([
-    { label: "Good", img: faceGood, selected: false, level: 0 },
-    { label: "Not Good", img: faceNotGood, selected: false, level: 1 },
-    { label: "Bad", img: faceBad, selected: false, level: 2 },
-    { label: "In Pain", img: facePain, selected: false, level: 3 },
+    { label: localText["good"], img: faceGood, selected: false, level: 0 },
+    {
+      label: localText["notGood"],
+      img: faceNotGood,
+      selected: false,
+      level: 1,
+    },
+    { label: localText["bad"], img: faceBad, selected: false, level: 2 },
+    { label: localText["inPain"], img: facePain, selected: false, level: 3 },
   ]);
 
   const {
@@ -30,6 +40,10 @@ const SymptomsChecker = () => {
     toggleGeneralSymptomSelect,
     changePainLevel,
   } = useContext(ConsultationContext)!;
+
+  generalSymptoms.forEach((symptom) => {
+    symptom.question = localText[symptom.id!];
+  });
 
   const handleGeneralSymptomClick = (
     symptomName: string,
@@ -61,7 +75,7 @@ const SymptomsChecker = () => {
     <div className="h-screen overflow-hidden flex flex-col">
       <div className="h-16 top-0 whitespace-nowrap w-screen py-4 bg-green-light">
         <h1 className="font-bold text-xl text-center">
-          Please specify your symptoms:
+          {localText.generalQuestions}
         </h1>
       </div>
       <ul className="w-full  overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">
@@ -77,7 +91,9 @@ const SymptomsChecker = () => {
                 onClick={() => togglePainLevelClick(pL)}
               >
                 <img src={pL.img} alt={pL.label} className="w-8" />
-                <h2 className="mt-2 font-bold text-sm">{pL.label}</h2>
+                <h2 className="mt-2 font-bold text-sm text-center">
+                  {pL.label}
+                </h2>
               </li>
             ))}
         </div>
@@ -91,11 +107,11 @@ const SymptomsChecker = () => {
           ))}
         <div className="h-18 flex justify-center items-center py-5 w-full">
           <OKButton
-            name="Next Page"
+            name={"Next Page"}
             type="button"
-            value="Next Page"
+            value={localTextUtils.next}
             onClick={handleNextPageClick}
-            text="Next Page"
+            text={localTextUtils.next}
           />
         </div>
       </ul>

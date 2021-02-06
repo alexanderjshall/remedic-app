@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PatientContext } from "../../../Contexts/Patient.context";
 import { Symptom } from "../../../types";
 
 interface Props {
@@ -8,6 +9,11 @@ interface Props {
 
 const QuestionCard = (props: Props) => {
   const { handleGeneralSymptomClick, symptom } = props;
+
+  const { getTranslatedText } = useContext(PatientContext)!;
+
+  const localTextUtils = getTranslatedText().utils;
+
   return (
     <li className="mt-5 w-full bg-blue-superlight rounded-md p-2">
       <h1 className="text-center whitespace-nowrap">{symptom.question}</h1>
@@ -21,7 +27,7 @@ const QuestionCard = (props: Props) => {
                 handleGeneralSymptomClick(symptom.symptom, true);
               }}
             >
-              Yes
+              {localTextUtils.yes}
             </button>
             <button
               className={`px-4 py-2 bg-transparent border-2 border-solid rounded-lg text-red-negative opacity-80 font-bold text-opacity-80 ml-3 border-red-negative h-12 w-16`}
@@ -29,7 +35,7 @@ const QuestionCard = (props: Props) => {
                 handleGeneralSymptomClick(symptom.symptom, false);
               }}
             >
-              No
+              {localTextUtils.no}
             </button>
           </div>
         ) : (
@@ -41,7 +47,7 @@ const QuestionCard = (props: Props) => {
                 handleGeneralSymptomClick(symptom.symptom, true);
               }}
             >
-              Yes
+              {localTextUtils.yes}
             </button>
             <button
               className="px-4 py-2 bg-red-negative rounded-lg border-2 border-invisible  text-white font-bold text-opacity-80 ml-3 h-12 w-16"
@@ -49,7 +55,7 @@ const QuestionCard = (props: Props) => {
                 handleGeneralSymptomClick(symptom.symptom, false);
               }}
             >
-              No
+              {localTextUtils.no}
             </button>
           </div>
         )}

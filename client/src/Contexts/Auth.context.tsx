@@ -9,14 +9,14 @@ import {
 import { UserData } from "../types";
 
 export interface AppContextInterface {
-  user: AuthUser | null;
+  user: AuthUser | null | undefined;
   logout: () => void;
   loginUser: (email: string, password: string) => Promise<AuthUser | null>;
   registerPatient: (inputData: UserData) => Promise<AuthUser | null>;
 }
 
 const initialContext = {
-  user: null,
+  user: undefined,
   logout: () => {},
   loginUser: (email: string, password: string) => Promise.resolve(null),
   registerPatient: () => Promise.resolve(null),
@@ -29,7 +29,7 @@ interface Props {
 }
 
 const AuthContextProvider = (props: Props) => {
-  const [user, setUser] = useState<AuthUser | null>(null);
+  const [user, setUser] = useState<AuthUser | null | undefined>(undefined);
 
   async function setUpContext() {
     const savedUser = getTokenFromStorage();
