@@ -15,18 +15,11 @@ interface Props {
 }
 
 function FormInput(props: Props) {
-  const { type, placeholder, id, name, updateInput, onSubmit } = props;
+  const { type, placeholder, id, name, updateInput} = props;
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault();
     updateInput(name, e.currentTarget.value);
-  };
-
-  const handleEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      onSubmit();
-    }
   };
 
   return (
@@ -36,8 +29,7 @@ function FormInput(props: Props) {
       id={id}
       name={name}
       onChange={handleInputChange}
-      onKeyPress={handleEnter}
-      className="px-4 rounded-md shadow-sm py-2 ring-2 focus:ring-blue-dark w-full tablet:w-2/3 cursor-text"
+      className="px-4 rounded-md shadow-sm py-2 ring-2 focus:ring-blue-dark w-full cursor-text"
     />
   );
 }
