@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useContext,
 } from "react";
-import { useMutation } from "react-query";
+import { useMutation, UseMutationResult } from "react-query";
 import client from "../services/graphqlService";
 import mutations from "../services/graphqlService/mutations";
 import { Symptom } from "../types";
@@ -21,6 +21,7 @@ export interface AppContextInterface {
   changePainLevel: (painLevel: number) => void;
   updateDoctorId: (id: number) => void;
   confirmConsultation: () => Promise<void>;
+  createConsultation: UseMutationResult<any, unknown, NewConsultation, unknown>;
 }
 
 interface Props {
@@ -51,10 +52,8 @@ const ConsultationContextProvider = (props: Props) => {
   const { user } = useContext(AuthContext); // user user.id for patientId
 
   //**STATES**/
-  // Symptom states
   const [physicalSymptoms, setSymptoms] = useState<Symptom[]>([]);
   const [generalSymptoms, setGeneralSymptoms] = useState<Symptom[]>([]);
-  // const [ psychSymptoms, setPsychSymptoms ] = useState<Symptom[]>([]);
 
   // pain level state
   const [painLevel, setPainLevel] = useState<number>(0);
@@ -107,15 +106,22 @@ const ConsultationContextProvider = (props: Props) => {
     return selected;
   };
 
-  const mutation = useMutation(
+  const createConsultation = useMutation(
     "create consultation",
     async (variables: NewConsultation) =>
       await client.request(mutations.createConsultation, variables),
     {
-      onSuccess: (data) => setConsultationId(data.addConsultation.id),
+      onSuccess: (data) => {
+        console.log('something good happened')
+        setConsultationId(data.addConsultation.id);
+        
+      },
+      onError: () => {
+        console.log('something bad happened');
+      }
     }
   );
-  if (mutation.isSuccess) console.log("data from server", mutation.data);
+  // if (mutation.isSuccess) console.log("data from server", mutation.data);
 
   const confirmConsultation = (): Promise<void> => {
     return new Promise((resolve, reject) => {
@@ -134,13 +140,33 @@ const ConsultationContextProvider = (props: Props) => {
           doctorId: doctorId,
         };
         // send to backend
-        mutation.mutate(consultation);
+        createConsultation.mutate(consultation);
         resolve();
       } catch (e) {
         console.log("error promise", e);
         reject();
       }
     });
+  };
+
+
+  const getVariables = (): NewConsultation => {
+    const selectedSymptoms = filterSelectedSymptoms([
+      ...physicalSymptoms,
+      ...generalSymptoms,
+    ]);
+        // create consultation object
+    const consultation: NewConsultation = {
+      date: new Date().toISOString(),
+      symptomsByArea: selectedSymptoms,
+      painLevel: painLevel,
+      patientId: user!.id,
+      patientNotes: "",
+      doctorId: doctorId,
+      };
+      // send to backend
+      return consultation;
+      } 
   };
 
   const getConsultationId = (): number | undefined => {
@@ -159,6 +185,7 @@ const ConsultationContextProvider = (props: Props) => {
         updateDoctorId,
         confirmConsultation,
         getConsultationId,
+        createConsultation
       }}
     >
       {props.children}

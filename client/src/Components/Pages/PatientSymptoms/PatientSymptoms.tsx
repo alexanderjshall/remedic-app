@@ -14,7 +14,7 @@ interface Props {
 const PatientSymptoms = (props: Props) => {
   const [view, setView] = useState<string>("Main");
 
-  const { confirmConsultation } = useContext(ConsultationContext)!;
+  const { confirmConsultation, createConsultation } = useContext(ConsultationContext)!;
   const { getTranslatedText } = useContext(PatientContext)!;
 
   const translatedText = getTranslatedText();
@@ -27,14 +27,18 @@ const PatientSymptoms = (props: Props) => {
 
   const handleBackArrowClick = (): void => setView("Main");
 
-  const handleNextClick = (): void => {
-    confirmConsultation()
-      .then(() => {
+  const handleNextClick = async ():Promise<void> => {
+    try {
+      await confirmConsultation()
+      if (createConsultation.isSuccess) {
         history.push("/consultation_chat");
-      })
-      .catch(() => {
-        window.alert("Please Try Again");
-      });
+      } else if (createConsultation.isError) {
+        history.push("/enter_code");
+      }
+    } catch(e) {
+      console.log(e);
+      // history.push("/enter_code");
+    }
   };
 
   return (
