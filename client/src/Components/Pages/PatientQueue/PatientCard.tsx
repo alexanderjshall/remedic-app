@@ -4,7 +4,7 @@ import { GiBackPain } from "react-icons/gi";
 interface Props {
   patientName: string;
   painLevel: number;
-  startTime: Date;
+  startTime: string;
 }
 
 function PatientCard(props: Props) {

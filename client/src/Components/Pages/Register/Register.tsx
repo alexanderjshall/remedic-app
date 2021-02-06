@@ -4,8 +4,13 @@ import OKButton from "../../Globals/OKButton/OKButton";
 import { UserData } from "../../../types";
 import { useAuth } from "../../../Contexts/Auth.context";
 import { useHistory } from "react-router-dom";
+
 import AuthButton from "../../Globals/AuthButton/AuthButton";
 import { validateSignupForm } from "../../../utils/auth/validation.helper";
+
+import humanStanding from "../../../assets/background-images/humans-standing2.png";
+import logoReduced from "../../../assets/logos/logo-reduced.svg";
+
 
 const Register = () => {
   const { registerPatient } = useAuth();
@@ -51,19 +56,19 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center bg-white-dark h-screen px-5">
+    <div className="flex justify-center bg-white-dark h-screen p-4">
       <form
-        className=" bg-white flex-col h-5/6 shadow-lg mt-20 rounded-lg w-full space-y-5 p-4 grid place-items-center grid-rows-6 gap-y-10"
+        className="relative bg-white flex-col h-full shadow-lg rounded-lg w-full space-y-5 p-4 pt-8 grid place-items-center grid-rows-6 gap-y-10"
         onSubmit={handleSubmit}
       >
-        <div className="mb-4">
+        <div className="mb-4 z-10">
           <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5">
             Register
           </h2>
         </div>
 
-        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="firstName" className="mb-2">
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="firstName" className="mb-2 font-bold text-blue">
             First Name:
           </label>
           <FormInput
@@ -76,8 +81,8 @@ const Register = () => {
           />
         </div>
 
-        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="lastName" className="mb-2">
+        <div className=" flex items-center justify-between flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="lastName" className="mb-2 font-bold text-blue">
             Last Name:
           </label>
           <FormInput
@@ -89,8 +94,8 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="postCode" className="mb-2">
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="postCode" className="mb-2 font-bold text-blue">
             Postcode:
           </label>
           <FormInput
@@ -102,8 +107,8 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="email" className="mb-2">
+        <div className=" flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="email" className="mb-2 font-bold text-blue">
             Email Address:
           </label>
           <FormInput
@@ -115,8 +120,8 @@ const Register = () => {
             onSubmit={() => {}}
           />
         </div>
-        <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3">
-          <label htmlFor="password" className="mb-2">
+        <div className="flex items-center justify-items-center flex-col w-3/4 tablet:w-2/3 pb-2 z-10">
+          <label htmlFor="password" className="mb-2 font-bold text-blue">
             Password:
           </label>
           <FormInput
@@ -142,7 +147,7 @@ const Register = () => {
               userInfo.language
             )}
           />
-          <h2 className="center text-center my-2">— OR —</h2>
+          <h2 className="center text-center my-2">——————</h2>
           <a
             href="/login"
             className="text-blue hover:text-blue-dark text-center"
@@ -150,6 +155,11 @@ const Register = () => {
             Log in
           </a>
         </div>
+        <img
+          src={humanStanding}
+          alt="background human"
+          className="absolute w-96 opacity-10"
+        ></img>
       </form>
       <div
         className=" flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg bg-red-500 fixed bottom-0 left-1/2 transform-gpu -translate-x-1/2 translate-y-full h-16"
@@ -157,6 +167,11 @@ const Register = () => {
       >
         Invalid email or password
       </div>
+      <img
+        src={logoReduced}
+        alt="background logo"
+        className="absolute w-24 top-5 opacity-10"
+      ></img>
     </div>
   );
 };

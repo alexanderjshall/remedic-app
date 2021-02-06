@@ -4,10 +4,9 @@ import { AuthContext } from './Auth.context';
 import queries from '../services/graphqlService/queries';
 import client from '../services/graphqlService/index';
 import { useQuery } from 'react-query';
+
 export interface AppContextInterface {
-  consultations: {
-    getDoctorConsultations: ConsultationInfo[]
-  };
+  consultations: ConsultationInfo[];
   currentConsultation: ConsultationInfo | null;
   updateCurrentConsultation: (consultation: ConsultationInfo) => void;
 }
@@ -15,9 +14,10 @@ interface Props {
   children: ReactChild | ReactChild[];
 }
 
-const emptyConsultationList : ConsultationInfo[] = []
+const emptyConsultationList: ConsultationInfo[] = []
+
 const initialContext = {
-  consultations: {getDoctorConsultations : emptyConsultationList},
+  consultations: emptyConsultationList,
   currentConsultation: null,
   updateCurrentConsultation: (consultation: ConsultationInfo) => {}
 }
@@ -29,16 +29,23 @@ function DoctorContextProvider(props: Props) {
   const { user } = useContext(AuthContext);
   const [currentConsultation, setCurrentConsultation] = useState<ConsultationInfo | null>(null);
 
-  const {data} = useQuery(
-    'get consultations',
-    async () => await client.request(queries.getDoctorConsultations, {id: user?.id}),
-    {enabled: !!user})
+  const { data } = useQuery(
+    'get active consultations',
+    async () => await client.request(queries.getActiveConsultations, {id: user?.id, isActive: true}),
+      {
+        enabled: !!user,
+        onSuccess: (data) => data.getActiveConsultations.sort((a: ConsultationInfo, b:ConsultationInfo) => Date.parse(a.consultationDate) - Date.parse(b.consultationDate))
+      });
+      
+  const updateCurrentConsultation = (consultation: ConsultationInfo) => setCurrentConsultation(consultation);
 
-    const updateCurrentConsultation = (consultation: ConsultationInfo) => {
-      setCurrentConsultation(consultation);
-    }
+
   return (
-    <DoctorContext.Provider value={{consultations: data || initialContext.consultations, currentConsultation, updateCurrentConsultation}}>
+    <DoctorContext.Provider value={{
+        consultations: data ? data.getActiveConsultations : initialContext.consultations,
+        currentConsultation, 
+        updateCurrentConsultation}}
+      >
       {props.children}
     </DoctorContext.Provider>
   )
