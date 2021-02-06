@@ -9,21 +9,20 @@ import { useDrContext } from "../../../Contexts/Doctor.context";
 import { useHistory } from "react-router-dom";
 
 const langEnglishName = (langCode: string) =>
-  languages.languages.find(l => l.langCode ===langCode )?.englishName
+  languages.languages.find((l) => l.langCode === langCode)?.englishName;
 
 const DoctorChat = () => {
-
-  const {currentConsultation} = useDrContext();
+  const { currentConsultation } = useDrContext();
 
   // todo redirect to edit consultation details and save them
-  const history = useHistory()
+  const history = useHistory();
 
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const { messages, addMessage, endConsultation } = useChat(
     String(currentConsultation!.id),
     true,
     currentConsultation!.patientId!.language,
-    () => history.push('/doctor/queue')
+    () => history.push("/doctor/queue")
   );
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,83 +37,91 @@ const DoctorChat = () => {
     }
   };
 
-  const renderSymptoms = () =>
-      <>
-        <h1 className="text-xl font-bold text-blue-dark">Pain intensity: <span className="text-black">{currentConsultation!.painLevel}</span></h1>
-        <h1 className="text-xl font-bold text-blue-dark mt-4">
-          Patient language: <span className="text-black">{langEnglishName(currentConsultation!.patientId.language)}</span>
-        </h1>
-        <h1 className="text-xl font-bold mt-4 text-blue-dark">General symptoms</h1>
-          <ul>
-        {
-        currentConsultation!.symptomsByArea
-          .filter((s: any) => s.area==="Global")
-          .map((s : any) =>
-            s.symptom.split(",").map( (sym:string) =>
-              <li className="list-disc ml-12">{sym}</li>
-            )
-          )
-        }
-          </ul>
-        <h1 className="text-xl font-bold mt-4 text-blue-dark">Specific Symptoms by Area</h1>
-        {
-        currentConsultation!.symptomsByArea
-          .filter((s: any) => s.area!=="Global")
-          .map((s : any) =>
+  const renderSymptoms = () => (
+    <>
+      <h1 className="text-xl font-bold text-blue-dark">
+        Pain intensity:{" "}
+        <span className="text-black">{currentConsultation!.painLevel}</span>
+      </h1>
+      <h1 className="text-xl font-bold text-blue-dark mt-4">
+        Patient language:{" "}
+        <span className="text-black">
+          {langEnglishName(currentConsultation!.patientId.language)}
+        </span>
+      </h1>
+      <h1 className="text-xl font-bold mt-4 text-blue-dark">
+        General symptoms
+      </h1>
+      <ul>
+        {currentConsultation!.symptomsByArea
+          .filter((s: any) => s.area === "Global")
+          .map((s: any) =>
+            s.symptom
+              .split(",")
+              .map((sym: string) => <li className="list-disc ml-12">{sym}</li>)
+          )}
+      </ul>
+      <h1 className="text-xl font-bold mt-4 text-blue-dark">
+        Specific Symptoms by Area
+      </h1>
+      {currentConsultation!.symptomsByArea
+        .filter((s: any) => s.area !== "Global")
+        .map((s: any) => (
           <>
-          <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
-          <ul>
-            {s.symptom.split(",").map( (sym:string) =>
-              <li className="list-disc ml-12">{sym}</li>
-            )}
-          </ul>
-          </>)
-          }
-      </>
-
+            <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
+            <ul>
+              {s.symptom.split(",").map((sym: string) => (
+                <li className="list-disc ml-12">{sym}</li>
+              ))}
+            </ul>
+          </>
+        ))}
+    </>
+  );
 
   return (
     <div className="h-full overflow-hidden">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
         <h1 className="font-bold text-2xl text-white-ghost">
-          { `${currentConsultation!.patientId.firstName} ${currentConsultation!.patientId.lastName}`}
+          {`${currentConsultation!.patientId.firstName} ${
+            currentConsultation!.patientId.lastName
+          }`}
         </h1>
       </div>
       <div className="grid grid-rows-2 grid-cols-2 grid-flow-row px-4 mt-6 pt-20">
         <div className="row-span-2">
           <div className="h-full">
             <form className="h-full">
-            <label
-                  htmlFor="patient_notes"
-                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
-                >
-                  Symptoms as described by patient:
-                </label>
+              <label
+                htmlFor="patient_notes"
+                className="font-bold text-lg text-opacity-75"
+              >
+                Symptoms as described by patient:
+              </label>
               <div className="border-black border h-1/2 w-full rounded-lg mb-2 overflow-auto p-4">
                 {renderSymptoms()}
-
               </div>
-                <label
-                  htmlFor="doctor_notes"
-                  className="font-bold text-lg text-opacity-75 whitespace-nowrap"
-                >
-                  Consultation Notes:
-                </label>
-                <textarea
-                  wrap="soft"
-                  name="doctor_notes"
-                  id="doctor_notes"
-                  className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
-                ></textarea>
-                <div className="flex justify-center">
-                  <OKButton
+              <label
+                htmlFor="doctor_notes"
+                className="font-bold text-lg text-opacity-75"
+              >
+                Consultation Notes:
+              </label>
+              <textarea
+                wrap="soft"
+                name="doctor_notes"
+                id="doctor_notes"
+                className="resize-none border-black border w-full p-2 h-1/3 rounded-lg outline-none focus:border-4 mt-2"
+              ></textarea>
+              <div className="flex justify-center">
+                <OKButton
                   name="consultation_btn"
                   type="button"
                   value="End consultation"
                   text="End consultation"
                   onClick={endConsultation}
-                  />
-                </div>
+                />
+              </div>
             </form>
           </div>
         </div>
