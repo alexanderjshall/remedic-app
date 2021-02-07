@@ -15,12 +15,14 @@ import { useHistory } from "react-router-dom";
 
 import { PatientContext } from "../../../Contexts/Patient.context";
 
-// ROUTE -> '/consultation_chat'
+// ROUTE -> '/consultation/chat'
 const ConsultationChat = () => {
   const history = useHistory();
 
   const { user } = useAuth();
   const { getConsultationId, doctor } = useContext(ConsultationContext)!;
+
+  const doctorFullName = `${doctor.firstName} ${doctor.lastName}`
 
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
@@ -28,8 +30,10 @@ const ConsultationChat = () => {
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
     false,
+    doctorFullName,
+    '',
     user!.language,
-    () => history.push("/feedback")
+    () => history.push("/consultation/feedback")
   );
 
   const [currentMsg, setCurrentMsg] = useState("");

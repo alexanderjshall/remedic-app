@@ -37,10 +37,10 @@ const PatientSymptoms = (props: Props) => {
     {
       onSuccess: (data) => {
         setConsultationId(data.addConsultation.id);
-        history.push("/consultation_chat");
+        history.push("/consultation/chat");
       },
       onError: () => {
-        history.push("/enter_code"); // if adding the consultation fails, re-route to the enter-code page.
+        history.push("/consultation/enter_code"); // if adding the consultation fails, re-route to the enter-code page.
       }
     }
   );
