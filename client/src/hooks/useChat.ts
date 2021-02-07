@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import io , {Socket} from "socket.io-client";
+import convertTextToSpeech from "../services/api.text.to.speech";
 import { getTranslatedText } from "../services/api.translate";
 import { Message } from "../types";
 
 const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: string, patientLanguage : string, onConsultationFinish: () => void) => {
-
 
   const [messages, setMessages] = useState<Message[]>([]);
   const socketRef = useRef<typeof Socket>();
@@ -22,18 +22,23 @@ const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: st
     });
 
     socketRef.current.on('doctor message', async (msg: string) => {
-
-      if (!isDoctor) {
-        msg = await getTranslatedText(msg, 'en', patientLanguage);
-      }
-
       const newMessage = {
         name: docName,
         content: msg,
+        audio: '',
         isAuthor: isDoctor,
         timestamp:''
       }
-      setMessages(prevMesages => [...prevMesages, newMessage])
+
+      if (!isDoctor) {
+        msg = await getTranslatedText(msg, 'en', patientLanguage);
+        const convertedText = await convertTextToSpeech(patientLanguage, msg);
+        newMessage.content = msg;
+        newMessage.audio = convertedText;
+      }
+      
+
+      setMessages(prevMessages => [...prevMessages, newMessage])
     });
 
     socketRef.current.on('patient message',async (msg: string) => {
@@ -45,10 +50,11 @@ const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: st
       const newMessage = {
         name: patName,
         content: msg,
+        audio: '',
         isAuthor: !isDoctor,
         timestamp:''
       }
-      setMessages(prevMesages => [...prevMesages, newMessage])
+      setMessages(prevMessages => [...prevMessages, newMessage])
     });
 
   }, [roomId, isDoctor])
