@@ -44,6 +44,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headCough,
     selected: false,
     id: "cough",
+    translation: "Cough",
   },
   {
     area: "Head",
@@ -51,6 +52,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headDizzy,
     selected: false,
     id: "dizzy",
+    translation: "Dizzy",
   },
   {
     area: "Head",
@@ -58,6 +60,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headHairLoss,
     selected: false,
     id: "hairLoss",
+    translation: "Hair Loss",
   },
   {
     area: "Head",
@@ -65,6 +68,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headHeadache,
     selected: false,
     id: "headache",
+    translation: "Headache",
   },
   {
     area: "Head",
@@ -72,14 +76,23 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headNosebleeding,
     selected: false,
     id: "noseBleeding",
+    translation: "Nose Bleeding",
   },
-  { area: "Head", symptom: "Rash", img: headRash, selected: false, id: "rash" },
+  {
+    area: "Head",
+    symptom: "Rash",
+    img: headRash,
+    selected: false,
+    id: "rash",
+    translation: "Rash",
+  },
   {
     area: "Head",
     symptom: "Runny Nose",
     img: headRunnyNose,
     selected: false,
     id: "runnyNose",
+    translation: "Runny Nose",
   },
   {
     area: "Head",
@@ -87,6 +100,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headSneezing,
     selected: false,
     id: "sneezing",
+    translation: "Sneezing",
   },
   {
     area: "Head",
@@ -94,6 +108,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headSoreThroat,
     selected: false,
     id: "soreThroat",
+    translation: "Sore Throat",
   },
   {
     area: "Head",
@@ -101,6 +116,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headSoreEye,
     selected: false,
     id: "soreEye",
+    translation: "Sore Eye",
   },
   {
     area: "Head",
@@ -108,6 +124,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headSweating,
     selected: false,
     id: "sweating",
+    translation: "Sweating",
   },
   {
     area: "Head",
@@ -115,6 +132,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: headVomiting,
     selected: false,
     id: "vomiting",
+    translation: "Vomiting",
   },
 
   {
@@ -123,6 +141,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: armsElbowPain,
     selected: false,
     id: "elbowPain",
+    translation: "Elbow Pain",
   },
   {
     area: "Arms",
@@ -130,6 +149,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: armsHandPain,
     selected: false,
     id: "handPain",
+    translation: "Hand Pain",
   },
   {
     area: "Arms",
@@ -137,6 +157,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: armsPain,
     selected: false,
     id: "armPain",
+    translation: "Arm Pain",
   },
   {
     area: "Arms",
@@ -144,6 +165,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: armsRash,
     selected: false,
     id: "armRash",
+    translation: "Arm Rash",
   },
 
   {
@@ -152,6 +174,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyBackPain,
     selected: false,
     id: "backPain",
+    translation: "Back Pain",
   },
   {
     area: "Body",
@@ -159,6 +182,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyBreathing,
     selected: false,
     id: "shortBreath",
+    translation: "Short Of Breath",
   },
   {
     area: "Body",
@@ -166,6 +190,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyConstipation,
     selected: false,
     id: "constipation",
+    translation: "Constipation",
   },
   {
     area: "Body",
@@ -173,6 +198,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyCramps,
     selected: false,
     id: "stomachCramps",
+    translation: "Stomach Cramps",
   },
   {
     area: "Body",
@@ -180,6 +206,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyRash,
     selected: false,
     id: "bodyRash",
+    translation: "Body Rash",
   },
   {
     area: "Body",
@@ -187,6 +214,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyShaking,
     selected: false,
     id: "shaking",
+    translation: "Shaking",
   },
   {
     area: "Body",
@@ -194,6 +222,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyStomachPain,
     selected: false,
     id: "stomachPain",
+    translation: "Stomach Pain",
   },
   {
     area: "Body",
@@ -201,6 +230,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: bodyHeartRate,
     selected: false,
     id: "heartRate",
+    translation: "Fast Heart Rate",
   },
 
   {
@@ -209,6 +239,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsAnklePain,
     selected: false,
     id: "anklePain",
+    translation: "Ankle Pain",
   },
   {
     area: "Legs",
@@ -216,6 +247,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsCalfPain,
     selected: false,
     id: "calfPain",
+    translation: "Calf Pain",
   },
   {
     area: "Legs",
@@ -223,6 +255,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsFootPain,
     selected: false,
     id: "footPain",
+    translation: "Foot Pain",
   },
   {
     area: "Legs",
@@ -230,6 +263,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsKneePain,
     selected: false,
     id: "kneePain",
+    translation: "Knee Pain",
   },
   {
     area: "Legs",
@@ -237,6 +271,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsRash,
     selected: false,
     id: "legRash",
+    translation: "Leg Rash",
   },
   {
     area: "Legs",
@@ -244,6 +279,7 @@ export const fullPhysicalSymptoms: Symptom[] = [
     img: legsThighPain,
     selected: false,
     id: "thighPain",
+    translation: "Thigh Pain",
   },
 ];
 
