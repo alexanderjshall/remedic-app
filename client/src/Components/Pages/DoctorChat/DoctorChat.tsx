@@ -21,9 +21,15 @@ const DoctorChat = () => {
   const history = useHistory();
   const [currentMsg, setCurrentMsg] = useState<string>("");
 
+  const patientFullName = `${currentConsultation!.patientId.firstName} ${
+    currentConsultation!.patientId.lastName
+  }`
+
   const { messages, addMessage, endConsultation } = useChat(
     String(currentConsultation!.id),
     true,
+    '',
+    patientFullName,
     currentConsultation!.patientId!.language,
     () => endChat()
   );
@@ -76,17 +82,17 @@ const DoctorChat = () => {
       </h1>
       {currentConsultation!.symptomsByArea
         .filter((s: any) => s.area !== "Global")
-        .map((s: any) => (
-          <>
+        .map((s: any, i: number) => (
+          <React.Fragment key={i}>
             <h3 className="font-semibold ml-4 text-green-dark">{s.area}</h3>
             <ul>
-              {s.symptom.split(",").map((sym: string, i: number) => (
-                <li className="list-disc ml-12" key={i}>
+              {s.symptom.split(",").map((sym: string, j: number) => (
+                <li className="list-disc ml-12" key={j}>
                   {sym}
                 </li>
               ))}
             </ul>
-          </>
+          </React.Fragment>
         ))}
     </>
   );
@@ -95,9 +101,7 @@ const DoctorChat = () => {
     <div className="h-full overflow-y-scroll">
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
         <h1 className="font-bold text-2xl text-white-ghost">
-          {`${currentConsultation!.patientId.firstName} ${
-            currentConsultation!.patientId.lastName
-          }`}
+          {patientFullName}
         </h1>
       </div>
       <div className="grid grid-cols-1 px-5 pt-20 mt-2 gap-2 md:grid-cols-2">

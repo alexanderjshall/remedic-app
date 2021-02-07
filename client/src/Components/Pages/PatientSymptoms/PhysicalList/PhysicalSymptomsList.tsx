@@ -21,7 +21,7 @@ const PhysicalSymptomsList = (props: Props) => {
       return area === symptom.area;
     })
     .map((symptom) => {
-      symptom.symptom = localText[symptom.id!]; //!
+      symptom.translation = localText[symptom.id!]; //!
       return symptom;
     });
 
@@ -56,7 +56,7 @@ const PhysicalSymptomsList = (props: Props) => {
                 alt={symptom.symptom}
                 className="w-24 p-2 mb-2"
               />
-              <h2 className="font-bold">{symptom.symptom}</h2>
+              <h2 className="font-bold">{symptom.translation}</h2>
             </div>
           ))}
         </div>
