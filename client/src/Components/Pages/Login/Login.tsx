@@ -50,33 +50,39 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         <div className="z-10">
-          <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold text-center mb-12">
+          <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold text-center mb-12 py-2">
             {localText.login}
           </h2>
         </div>
-        <div className="items-center flex flex-col space-y-6 mb-12">
-          <label htmlFor="email" className="font-bold">
-            {localText.email}:
-          </label>
-          <FormInput
-            type="email"
-            placeholder={localText.email}
-            id="email"
-            name="email"
-            updateInput={updateInput}
-            onSubmit={() => {}}
-          />
-          <label htmlFor="password" className="font-bold">
-            {localText.password}:
-          </label>
-          <FormInput
-            type="password"
-            placeholder={localText.password}
-            id="password"
-            name="password"
-            updateInput={updateInput}
-            onSubmit={() => {}}
-          />
+        <div className="items-center flex flex-col gap-y-6 mb-12">
+
+          <div className="flex flex-col w-full items-center">
+            <label htmlFor="email" className="font-bold text-blue self-start mb-2">
+              {localText.email}
+            </label>
+            <FormInput
+              type="email"
+              placeholder={localText.email}
+              id="email"
+              name="email"
+              updateInput={updateInput}
+              onSubmit={() => {}}
+            />
+          </div>
+
+          <div className="flex flex-col w-full items-center">
+            <label htmlFor="password" className="font-bold text-blue self-start mb-2">
+              {localText.password}
+            </label>
+            <FormInput
+              type="password"
+              placeholder={localText.password}
+              id="password"
+              name="password"
+              updateInput={updateInput}
+              onSubmit={() => {}}
+            />
+          </div>
         </div>
         <div className="flex flex-col align-center">
           <AuthButton
@@ -85,8 +91,9 @@ const Login = () => {
             text={localText.login}
             condition={validateLoginForm(userInfo.email, userInfo.password)}
           />
+          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">——————</h2>
           <Link to="/register">
-            <p className="text-blue hover:text-blue-dark text-center mt-6">
+            <p className="text-blue hover:text-blue-dark text-center">
               {localText.register}
             </p>
           </Link>
