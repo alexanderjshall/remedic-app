@@ -112,9 +112,11 @@ export async function createPatient(patient: UserData) {
         )
     }`
   );
-  if (response.data.createPatient) {
+  try{
     const token = response.data.createPatient;
     setTokenToStorage(token);
     return parseToken(token);
-  } else return null;
+  } catch {
+    return null
+  }
 }
