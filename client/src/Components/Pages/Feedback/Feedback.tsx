@@ -70,7 +70,7 @@ const Feedback = () => {
       // logout disabled to keep patient side of app functional
       // logout();
     }
-    history.push("/patient");
+    history.push("/patient_landing");
   };
 
   return (
