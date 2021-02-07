@@ -30,7 +30,7 @@ const EnterCode = () => {
 
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
-  const localText = translatedText.generalSymptomsTerms;
+  const localText = translatedText.enterCodeTerms;
   const localTextUtils = translatedText.utils;
 
   useEffect(() => {
