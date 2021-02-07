@@ -15,25 +15,25 @@ const PatientApp = () => {
       <ConsultationContextProvider>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/patient_landing">
-              <PatientLanding />
-            </Route>
-            <Route exact path="/consultation/enter_code">
-              <EnterCode />
-            </Route>
-            <Route exact path="/consultation/symptoms/general">
-              <SymptomsChecker />
-            </Route>
-            <Route exact path="/consultation/symptoms/physical">
-              <PatientSymptoms />
-            </Route>
-            <Route exact path="/consultation/chat">
+            <Route exact path="/consultation_chat">
               <ConsultationChat />
             </Route>
-            <Route exact path="/consultation/feedback">
+            <Route exact path="/enter_code">
+              <EnterCode />
+            </Route>
+            <Route exact path="/feedback">
               <Feedback />
             </Route>
-            <Redirect to="/patient_landing" />
+            <Route exact path="/symptoms_checker">
+              <SymptomsChecker />
+            </Route>
+            <Route exact path="/symptoms_physical">
+              <PatientSymptoms />
+            </Route>
+            <Route exact path="/patient">
+              <PatientLanding />
+            </Route>
+            <Redirect to="/patient" />
           </Switch>
         </BrowserRouter>
       </ConsultationContextProvider>

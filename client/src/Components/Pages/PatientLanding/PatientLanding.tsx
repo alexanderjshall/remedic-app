@@ -28,7 +28,7 @@ const PatientLanding = () => {
       title: localText.startConsultation,
       bgColorClass: "bg-green",
       textColor: "white",
-      path: "/consultation/enter_code",
+      path: "/enter_code",
     },
     {
       title: localText.profile,

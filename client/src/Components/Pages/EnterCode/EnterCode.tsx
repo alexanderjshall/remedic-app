@@ -14,7 +14,6 @@ import { Redirect, useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import Spinner from "../../Globals/Spinner/Spinner";
 import OKButton from "../../Globals/OKButton/OKButton";
-import { PatientContext } from "../../../Contexts/Patient.context";
 
 const EnterCode = () => {
   const [code, setCode] = useState<string>("");
@@ -27,11 +26,6 @@ const EnterCode = () => {
 
   // for redirection
   const history = useHistory();
-
-  const { getTranslatedText } = useContext(PatientContext)!;
-  const translatedText = getTranslatedText();
-  const localText = translatedText.generalSymptomsTerms;
-  const localTextUtils = translatedText.utils;
 
   useEffect(() => {
     setSubmitted(false);
@@ -59,7 +53,7 @@ const EnterCode = () => {
         } = data.getDoctor;
         console.log("data from server", data);
         updateDoctor(id, firstName, lastName, language, docPublicCode);
-        history.push("/consultation/symptoms/general");
+        history.push("/symptoms_checker");
       },
       onError: () => setIsInvalid(true),
     }
@@ -80,7 +74,7 @@ const EnterCode = () => {
         onSubmit={(e) => submitCode(e)}
       >
         <label className="text-extrabold text-2xl font-extrabold">
-          {localText.enterDoctorCode}:
+          Enter Code To Start:
         </label>
         <div className="my-8 flex justify-center w-full px-3 tablet:w-2/3">
           <FormInput
@@ -105,13 +99,13 @@ const EnterCode = () => {
           name="code_btn"
           type="submit"
           value="Submit"
-          text={localTextUtils.confirm}
+          text="Submit your code"
           onClick={() => {}}
         />
       </form>
       <div className="bg-blue h-16 w-screen fixed bottom-0 left-0 flex items-center justify-center">
         <h2 className="text-white font-extrabold opacity-80">
-          {localText.askAtReception}
+          No Code? Ask At Reception
         </h2>
       </div>
       <img

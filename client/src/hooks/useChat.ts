@@ -3,7 +3,7 @@ import io , {Socket} from "socket.io-client";
 import { getTranslatedText } from "../services/api.translate";
 import { Message } from "../types";
 
-const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: string, patientLanguage : string, onConsultationFinish: () => void) => {
+const useChat = (roomId: string, isDoctor: boolean, patientLanguage : string, onConsultationFinish: () => void) => {
 
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -28,7 +28,7 @@ const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: st
       }
 
       const newMessage = {
-        name: docName,
+        name: 'Doctor',
         content: msg,
         isAuthor: isDoctor,
         timestamp:''
@@ -43,7 +43,7 @@ const useChat = (roomId: string, isDoctor: boolean, docName: string, patName: st
       }
 
       const newMessage = {
-        name: patName,
+        name: 'Me',
         content: msg,
         isAuthor: !isDoctor,
         timestamp:''

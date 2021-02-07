@@ -68,7 +68,7 @@ const SymptomsChecker = () => {
   };
 
   const handleNextPageClick = (): void => {
-    history.push("/consultation/symptoms/physical");
+    history.push("/symptoms_physical");
   };
 
   return (
