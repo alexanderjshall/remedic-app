@@ -13,7 +13,7 @@ export default {
     pattern: /^[\w-]+\d+\.[tj]s$/
   },
   entities: [Patient, Doctor, Consultation],
-  dbName: process.env.DB_NAME,
+  clientUrl: process.env.DATABASE_URL,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   type: 'postgresql',
