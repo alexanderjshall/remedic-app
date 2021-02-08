@@ -127,11 +127,11 @@ const ConsultationChat = () => {
               </h3>
             </div>
           </div>
-          <img
+          {/* <img
             src={Doctor}
             alt="doctor image"
-            className="absolute -left-16 top-auto bottom-auto opacity-5 w-72"
-          />
+            className="absolute -left-16 top-auto bottom-auto opacity-5 w-72 z=0"
+          /> */}
           <img
             src={PatientImg}
             alt="doctor image"

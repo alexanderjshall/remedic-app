@@ -13,6 +13,7 @@ export interface User extends UserData {
 export interface Message {
   name?: string;
   isAuthor: boolean;
+  audio: string;
   content: string;
   timestamp: string;
 }

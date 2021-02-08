@@ -9,6 +9,7 @@ module.exports = {
       animation: {
         "spin-slow": "spin 16s linear infinite",
         "spin-ease": "spin 1.5s ease-in-out infinite",
+        "ping-slow": "ping 3s linear infinite"
       },
       minWidth: {
         0: "0",
