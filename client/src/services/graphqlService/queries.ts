@@ -33,6 +33,7 @@ const queries = {
       getPatient(id: $id) {
         firstName
         lastName
+        postCode
         language
         email
       }
