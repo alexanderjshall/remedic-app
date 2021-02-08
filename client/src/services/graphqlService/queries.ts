@@ -34,6 +34,7 @@ const queries = {
         firstName
         lastName
         language
+        email
       }
     }`,
 
@@ -137,7 +138,7 @@ const queries = {
        id
        firstName
      }
-   } 
+   }
  }`,
 
 getActiveConsultations: gql `
@@ -162,7 +163,7 @@ query($id: Float!, $isActive: Boolean!) {
       lastName
       language
     }
-  } 
+  }
 }`,
 
 

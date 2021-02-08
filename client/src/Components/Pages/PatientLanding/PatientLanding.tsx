@@ -26,7 +26,7 @@ const PatientLanding = () => {
   const landingCards: LandingCards[] = [
     {
       title: localText.startConsultation,
-      bgColorClass: "bg-green",
+      bgColorClass: "bg-green-dark",
       textColor: "white",
       path: "/consultation/enter_code",
     },
