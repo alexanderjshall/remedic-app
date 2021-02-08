@@ -29,7 +29,8 @@ const DoctorMessageBubble = (props: Props) => {
         isAuthor ? "justify-end" : "justify-start"
       } flex  my-5 mr-3`}
     >
-      <div className="min-w-1/2 p-5 min-h-4 rounded-lg bg-blue shadow-md flex text-white">
+      <div className={`min-w-1/2 p-5 min-h-4 rounded-xl bg-blue shadow-xl flex text-white
+      ${isAuthor ? "rounded-br-none" : "rounded-tl-none"}`}>
       {!isAuthor ?
         <div className="mr-4">
           <img src={play} onClick={() => startPlaying()} alt="Play audio" className={`min-w-12 w-12 ${playAnimation}`} />
