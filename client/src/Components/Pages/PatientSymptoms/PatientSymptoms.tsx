@@ -57,7 +57,7 @@ const PatientSymptoms = (props: Props) => {
     <div className="h-screen relative flex justify-center w-screen overflow-hidden">
       {view === "Main" ? (
         <div className="h-5/6 m-0 py-4 z-10">
-          <h1 className="text-center font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1 transition-opacity duration-700">
+          <h1 className="text-center font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1">
             {localText.clickOnSymptom}
           </h1>
           <Human
