@@ -1,0 +1,13 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "remedic server",
+  "scripts": {
+    "start": "node dist/index.js",
+    "postinstall": "npm run build",
+    "install": "cd server && npm i"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
