@@ -4,10 +4,10 @@
   "description": "remedic server",
   "main": "dist/index.js",
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "watch": "tsc -w",
     "build": "tsc",
     "start": "node dist/index.js",
-    "postinstall": "npm run build",
     "start2": "nodemon --exec ts-node ./src/index.ts",
     "migration": "npx mikro-orm migration:create"
   },
