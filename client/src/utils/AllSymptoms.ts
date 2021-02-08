@@ -377,14 +377,6 @@ export const fullPsychologicalSymptoms: Symptom[] = [
   },
   {
     area: "Psychological",
-    symptom: "Feeling Sad/Down",
-    selected: false,
-    question: "Do you feel sad or down?",
-    id: "sad",
-    interactedWith: false,
-  },
-  {
-    area: "Psychological",
     symptom: "Trouble Understanding/Relating To People",
     selected: false,
     question: "Do you have trouble understanding situations or people?",
