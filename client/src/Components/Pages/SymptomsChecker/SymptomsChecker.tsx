@@ -6,9 +6,9 @@ import faceGood from "../../../assets/utils/face-good.svg";
 import faceNotGood from "../../../assets/utils/face-notgood.svg";
 import facePain from "../../../assets/utils/face-pain.svg";
 import { useHistory } from "react-router-dom";
-import { fullGeneralSymptoms } from "../../../Contexts/AllSymptoms";
+import { fullGeneralSymptoms } from "../../../utils/AllSymptoms";
 import { PatientContext } from "../../../Contexts/Patient.context";
-import QuestionCard from "./QuestionCard";
+import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 interface PainLevel {
   label: string;
   img: string;
@@ -52,9 +52,10 @@ const SymptomsChecker = () => {
     const selectedSymptom = generalSymptoms.find((s) => {
       return s.symptom === symptomName;
     });
-    if (selectedSymptom)
+    if (selectedSymptom) {
+      selectedSymptom.interactedWith = true;
       toggleGeneralSymptomSelect(selectedSymptom, isSelected);
-    else console.log("symptom not found");
+    } else console.log("symptom not found");
   };
 
   const togglePainLevelClick = (pressedPainLevel: PainLevel): void => {
@@ -101,7 +102,7 @@ const SymptomsChecker = () => {
           generalSymptoms.map((symptom) => (
             <QuestionCard
               key={symptom.symptom}
-              handleGeneralSymptomClick={handleGeneralSymptomClick}
+              handleSymptomSelect={handleGeneralSymptomClick}
               symptom={symptom}
             />
           ))}

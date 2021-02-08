@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
@@ -9,7 +11,7 @@ module.exports = {
       animation: {
         "spin-slow": "spin 16s linear infinite",
         "spin-ease": "spin 1.5s ease-in-out infinite",
-        "ping-slow": "ping 3s linear infinite"
+        "ping-slow": "ping 3s linear infinite",
       },
       minWidth: {
         0: "0",
@@ -61,6 +63,13 @@ module.exports = {
         },
         yellow: {
           backgrounds: "#EDE5A6",
+        },
+        map: {
+          blue: colors.blue,
+          green: colors.emerald,
+          red: colors.red,
+          purple: colors.violet,
+          orange: colors.amber,
         },
       },
       inset: {
