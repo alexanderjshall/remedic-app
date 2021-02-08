@@ -12,8 +12,9 @@ function PatientCard(props: Props) {
   const currentTime = new Date();
   const startTimeInMS = new Date(startTime);
   // Time waiting, converted to minutes
-  const timeWaiting = Math.floor((currentTime.valueOf() - startTimeInMS.valueOf())/1000/60);
-
+  const timeWaiting = Math.floor(
+    (currentTime.valueOf() - startTimeInMS.valueOf()) / 1000 / 60
+  );
 
   return (
     <div className="flex justify-between content-center shadow-lg rounded-lg mt-4 bg-white p-2 w-3/4 w-full">

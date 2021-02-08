@@ -26,7 +26,7 @@ const Services = () => {
       <div className="flex-grow w-full">
         <LocalServices />
       </div>
-      <div className="h-24 bg-blue w-full flex justify-between items-center font-bold">
+      <div className="h-14 bg-blue w-full flex justify-between items-center font-bold">
         {services.map((service, idx) => (
           <div
             className="w-1/2 text-white flex justify-center items-center"

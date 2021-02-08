@@ -1,16 +1,18 @@
 import React from "react";
-import { Coordinates } from "../../../../../types";
-import MapPin from "../../../../../assets/utils/map-pin.svg";
+import { Coordinates, Service } from "../../../../../types";
+import { serviceColors } from "../../../../../utils/NhsServices";
+import MapPinIcon from "../../../../Globals/MapPinIcon/MapPinIcon";
 
 interface Props {
   lat: number;
   lng: number;
+  service: Service;
 }
 
-const LocationPin = ({ lat, lng }: Props) => {
+const LocationPin = ({ lat, lng, service }: Props) => {
   return (
     <div>
-      <img src={MapPin} alt="pin" className="w-8 text-blue" />
+      <MapPinIcon fillColor={serviceColors[service.OrganisationTypeID]} />
     </div>
   );
 };

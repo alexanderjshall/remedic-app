@@ -4,7 +4,8 @@ interface NHSQuery {
   skip: number;
   count: boolean;
 }
-console.log("env", process.env.REACT_APP_NHS_URL as string);
+const key = process.env.REACT_APP_NHS_URL as string;
+
 export async function getNHSServices(postcode: string): Promise<any> {
   const query: NHSQuery = {
     filter:
@@ -22,7 +23,7 @@ export async function getNHSServices(postcode: string): Promise<any> {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "subscription-key": process.env.REACT_APP_NHS_URL!,
+        "subscription-key": `${key}`,
       },
       body: JSON.stringify(query),
     }

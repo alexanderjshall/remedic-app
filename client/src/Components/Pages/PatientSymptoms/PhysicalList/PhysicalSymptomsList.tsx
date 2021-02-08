@@ -56,7 +56,7 @@ const PhysicalSymptomsList = (props: Props) => {
                 alt={symptom.symptom}
                 className="w-24 p-2 mb-2"
               />
-              <h2 className="font-bold">{symptom.translation}</h2>
+              <h2 className="font-bold text-center">{symptom.translation}</h2>
             </div>
           ))}
         </div>
