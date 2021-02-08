@@ -4,7 +4,7 @@
   "description": "remedic server",
   "scripts": {
     "start": "cd server && npm run start",
-    "postinstall": "cd server && npm run build",
+    "heroku-postbuild": "cd server && npm run build",
     "install": "cd server && npm i"
   },
   "keywords": [],
