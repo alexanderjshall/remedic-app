@@ -5,8 +5,10 @@ import PatientContextProvider from "../../../Contexts/Patient.context";
 import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
+import FurtherSymptoms from "../../Pages/FurtherSymptoms/FurtherSymptoms";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
 import PatientSymptoms from "../../Pages/PatientSymptoms/PatientSymptoms";
+import PsychSymptoms from "../../Pages/PsychSymptoms/PsychSymptoms";
 import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
@@ -26,6 +28,12 @@ const PatientApp = () => {
             </Route>
             <Route exact path="/consultation/symptoms/physical">
               <PatientSymptoms />
+            </Route>
+            <Route exact path="/consultation/symptoms/psychological">
+              <PsychSymptoms />
+            </Route>
+            <Route exact path="/consultation/symptoms/further">
+              <FurtherSymptoms />
             </Route>
             <Route exact path="/consultation/chat">
               <ConsultationChat />
