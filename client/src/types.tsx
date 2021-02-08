@@ -61,3 +61,8 @@ export interface Doctor {
   language: string;
   docPublicCode: string;
 }
+
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
