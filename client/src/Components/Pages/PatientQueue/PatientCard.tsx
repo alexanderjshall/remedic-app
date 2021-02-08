@@ -13,13 +13,18 @@ function PatientCard(props: Props) {
   const currentTime = new Date();
   const startTimeInMS = new Date(startTime);
   // Time waiting, converted to minutes
-  const timeWaiting = Math.floor((currentTime.valueOf() - startTimeInMS.valueOf())/1000/60);
+  const timeWaiting = Math.floor(
+    (currentTime.valueOf() - startTimeInMS.valueOf()) / 1000 / 60
+  );
 
-  const cardClasses = "flex justify-between items-center shadow-xl rounded-lg mt-8 bg-white py-2 px-4 w-full transition duration-500 text-left"
-  const bgColor = props.isEven ? "bg-blue hover:bg-blue-dark" : "bg-green hover:bg-green-light";
+  const cardClasses =
+    "flex justify-between items-center shadow-xl rounded-lg mt-8 bg-white py-2 px-4 w-full transition duration-500 text-left";
+  const bgColor = props.isEven
+    ? "bg-blue hover:bg-blue-dark"
+    : "bg-green hover:bg-green-light";
   const textColor = props.isEven ? "text-white" : "text-black";
-  const info = "flex flex-col"
-  const infoData = "flex justify-evenly items-center"
+  const info = "flex flex-col";
+  const infoData = "flex justify-evenly items-center";
 
   return (
     <div className={`${cardClasses} ${bgColor} ${textColor}`}>

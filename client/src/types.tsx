@@ -61,3 +61,22 @@ export interface Doctor {
   language: string;
   docPublicCode: string;
 }
+
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
+export interface Service {
+  lat: number;
+  lng: number;
+  OrganisationName: string;
+  OrganisationTypeID: string;
+  Address1?: string | null;
+  Address2?: string | null;
+  Address3?: string | null;
+  City?: string | null;
+  County?: string | null;
+  Postcode?: string | null;
+  URL?: string | null;
+}
