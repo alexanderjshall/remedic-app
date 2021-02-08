@@ -3,13 +3,15 @@ import staticTranslations from "../utils/static-translations.json";
 const translations = staticTranslations as any;
 import { useAuth } from "./Auth.context";
 import queries from "../services/graphqlService/queries";
+import mutations from "../services/graphqlService/mutations";
 import client from "../services/graphqlService/index";
-import { useMutation, useQuery, UseMutationResult } from "react-query";
+import { useMutation, mutate, useQuery, UseMutationResult } from "react-query";
 import { UserData } from "../types";
 
 export interface PatientContextInterface {
   getTranslatedText: () => any;
   patientInfo: UserData;
+  updatePatient: (newPatientInfo: UserData) => void
 }
 
 interface Props {
@@ -33,6 +35,19 @@ const PatientContextProvider = (props: Props) => {
     }}
   );
 
+  // const { newPatientData }: any = useMutation(async () => await client.request(mutations.editPatient, {id:user?.id, newData:{...patient}}),
+  const { mutate } = useMutation(async (mutationVariables: any) => await client.request(mutationVariables),
+  {
+    onSuccess: (data) => {
+      console.log('mutation result:', data)
+    }
+  });
+
+  const updatePatient = async (patient: UserData) => {
+    mutate((mutations.editPatient, {id:user?.id, newData:{...patient}}));
+  };
+
+
   // TODO create static translation interface
   const translatedText = user ? translations[user.language] : translations.en;
 
@@ -41,7 +56,7 @@ const PatientContextProvider = (props: Props) => {
   };
 
   return (
-    <PatientContext.Provider value={{ getTranslatedText, patientInfo }}>
+    <PatientContext.Provider value={{ getTranslatedText, patientInfo, updatePatient }}>
       {props.children}
     </PatientContext.Provider>
   );
