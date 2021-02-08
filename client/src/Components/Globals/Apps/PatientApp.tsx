@@ -6,6 +6,7 @@ import ConsultationChat from "../../Pages/ConsultationChat/ConsultationChat";
 import EnterCode from "../../Pages/EnterCode/EnterCode";
 import Feedback from "../../Pages/Feedback/Feedback";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
+import PatientProfile from "../../Pages/PatientProfile/PatientProfile";
 import PatientSymptoms from "../../Pages/PatientSymptoms/PatientSymptoms";
 import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
@@ -15,8 +16,11 @@ const PatientApp = () => {
       <ConsultationContextProvider>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/patient_landing">
+            <Route exact path="/patient/landing">
               <PatientLanding />
+            </Route>
+            <Route exact path="/patient/profile">
+              <PatientProfile />
             </Route>
             <Route exact path="/consultation/enter_code">
               <EnterCode />
@@ -33,7 +37,7 @@ const PatientApp = () => {
             <Route exact path="/consultation/feedback">
               <Feedback />
             </Route>
-            <Redirect to="/patient_landing" />
+            <Redirect to="/patient/landing" />
           </Switch>
         </BrowserRouter>
       </ConsultationContextProvider>

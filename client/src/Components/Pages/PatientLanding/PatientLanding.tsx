@@ -34,7 +34,7 @@ const PatientLanding = () => {
       title: localText.profile,
       bgColorClass: "bg-blue",
       textColor: "white",
-      path: "/",
+      path: "/patient/profile",
     },
   ];
 
