@@ -51,6 +51,7 @@ export interface Symptom {
   selected: boolean;
   id?: string;
   translation?: string;
+  interactedWith?: boolean;
 }
 
 export interface Doctor {

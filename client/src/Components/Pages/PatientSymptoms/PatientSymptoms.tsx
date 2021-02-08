@@ -2,8 +2,11 @@ import React, { useContext, useState } from "react";
 import Human from "./Human/Human";
 import PhysicalSymptomsList from "./PhysicalList/PhysicalSymptomsList";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
-import finishTick from "../../../assets/utils/tick.svg";
-import { ConsultationContext, NewConsultation } from "../../../Contexts/Consultation.context";
+import ForwardArrow from "../../../assets/utils/forward-arrow.svg";
+import {
+  ConsultationContext,
+  NewConsultation,
+} from "../../../Contexts/Consultation.context";
 import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { useMutation } from "react-query";
@@ -30,24 +33,8 @@ const PatientSymptoms = (props: Props) => {
 
   const handleBackArrowClick = (): void => setView("Main");
 
-  const createConsultation = useMutation(
-    "create consultation",
-    async (variables: NewConsultation) =>
-      await client.request(mutations.createConsultation, variables),
-    {
-      onSuccess: (data) => {
-        setConsultationId(data.addConsultation.id);
-        history.push("/consultation/chat");
-      },
-      onError: () => {
-        history.push("/consultation/enter_code"); // if adding the consultation fails, re-route to the enter-code page.
-      }
-    }
-  );
-
-  const handleNextClick = async ():Promise<void> => {
-    const variables = getVariables();
-    createConsultation.mutate(variables);
+  const handleNextClick = async (): Promise<void> => {
+    history.push("/consultation/symptoms/psychological");
   };
 
   return (
@@ -72,7 +59,7 @@ const PatientSymptoms = (props: Props) => {
               onClick={handleNextClick}
               className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:"
             >
-              <img src={finishTick} alt="tick" className="text-white w-6" />
+              <img src={ForwardArrow} alt="tick" className="text-white w-6" />
               <h2 className="text-sm font-extrabold">{localTextUtils.next}</h2>
             </button>
           </div>
