@@ -3,6 +3,7 @@ import Human from "./Human/Human";
 import PhysicalSymptomsList from "./PhysicalList/PhysicalSymptomsList";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import ForwardArrow from "../../../assets/utils/forward-arrow.svg";
+
 import {
   ConsultationContext,
   NewConsultation,
@@ -41,7 +42,7 @@ const PatientSymptoms = (props: Props) => {
     <div className="h-screen relative flex justify-center w-screen overflow-hidden">
       {view === "Main" ? (
         <div className="h-5/6 m-0 py-4 z-10">
-          <h1 className="text-center font-extrabold">
+          <h1 className="text-center font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1">
             {localText.clickOnSymptom}
           </h1>
           <Human
@@ -74,7 +75,7 @@ const PatientSymptoms = (props: Props) => {
       <img
         src={logoReduced}
         alt="background logo"
-        className="absolute top-1/4 opacity-10 animate-spin-slow"
+        className="absolute top-1/2 -mt-52 opacity-10 animate-spin-slow max-w-xl"
       />
     </div>
   );

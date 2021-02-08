@@ -1,6 +1,6 @@
 import React from "react";
-import Lottie, { Options } from "react-lottie";
-import successTickAnimation from "./33337-tick-pop.json";
+import Lottie from "react-lottie-player";
+import SuccessTickAnimation from "./33337-tick-pop.json";
 
 interface PropsSuccessTick {
   size: number; // constricted ratio -> size is both width and height
@@ -8,21 +8,14 @@ interface PropsSuccessTick {
 
 const SuccessTick = (props: PropsSuccessTick) => {
   // required Lottie Options for animation
-  const successTickOptions: Options = {
-    loop: false,
-    autoplay: true,
-    animationData: successTickAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   return (
     <div>
       <Lottie
-        options={successTickOptions}
-        height={props.size}
-        width={props.size}
+        animationData={SuccessTickAnimation}
+        loop={false}
+        play={true}
+        style={{ width: props.size, height: props.size }}
       ></Lottie>
     </div>
   );
