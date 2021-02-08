@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "remedic server",
   "scripts": {
-    "start": "node dist/index.js",
-    "postinstall": "npm run build",
+    "start": "cd server && npm run start",
+    "postinstall": "cd server && npm run build",
     "install": "cd server && npm i"
   },
   "keywords": [],
