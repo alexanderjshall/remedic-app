@@ -9,10 +9,11 @@ import { Message } from "../../../../types";
 interface Props {
   messages: Message[];
   addMessage: (mesg: string) => void;
+  patientFullName: string;
 }
 
 const Chat = (props: Props) => {
-  const { messages, addMessage } = props;
+  const { messages, addMessage, patientFullName } = props;
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const chatBottom = useRef<null | HTMLDivElement>(null);
 
@@ -37,8 +38,16 @@ const Chat = (props: Props) => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-grow overflow-auto flex flex-col px-8 pt-24">
+    <div className="flex flex-col h-full pt-32 w-full">
+      <div className="flex-grow overflow-auto flex flex-col mx-6 shadow-2xl rounded-xl pb-3">
+        {!messages ? (
+          <div>
+            <h1 className="text-center font-bold text-lg text-opacity-75">
+              Start chatting with {patientFullName}
+            </h1>
+          </div>
+        ) : null}
+
         {messages &&
           messages.map((message, idx) =>
             message.isAuthor ? (
@@ -54,7 +63,7 @@ const Chat = (props: Props) => {
         onSubmit={sendMessage}
       >
         <label hidden htmlFor="chat input" />
-        <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100">
+        <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100 mt-8">
           <input
             type="text"
             name="chat input"

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useChat from "../../../hooks/useChat";
-import OKButton from "../../Globals/OKButton/OKButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
@@ -41,18 +40,6 @@ const DoctorChat = () => {
     history.push("/doctor/queue");
   };
 
-  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      if (currentMsg.length > 0) {
-        addMessage(currentMsg);
-        setCurrentMsg("");
-      }
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
   return (
@@ -74,8 +61,10 @@ const DoctorChat = () => {
         className="h-full"
         spaceBetween={40}
         slidesPerView={1}
-        navigation
-        // pagination={{ clickable: true }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
         pagination={{
           el: ".swiper-pagination",
           type: "progressbar",
@@ -90,7 +79,11 @@ const DoctorChat = () => {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Chat messages={messages} addMessage={addMessage} />
+          <Chat
+            messages={messages}
+            addMessage={addMessage}
+            patientFullName={patientFullName}
+          />
         </SwiperSlide>
         <SwiperSlide>
           <SymptomDescriptor currentConsultation={currentConsultation} />

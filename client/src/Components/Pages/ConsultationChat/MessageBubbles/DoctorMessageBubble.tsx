@@ -30,8 +30,8 @@ const DoctorMessageBubble = (props: Props) => {
         } flex  my-5 mr-3 `}
       >
         <div
-          className={`min-w-1/3 max-w-1/2 p-5 min-h-4 rounded-xl bg-blue shadow-xl flex text-white
-      ${isAuthor ? "rounded-br-none" : "rounded-tl-none"}`}
+          className={`break-words min-w-1/3 p-3 min-h-4 rounded-xl bg-blue shadow-xl flex text-white
+      ${isAuthor ? "rounded-br-none" : "rounded-tl-none"} tablet:max-w-1/2`}
         >
           {!isAuthor ? (
             <div className="mr-4">

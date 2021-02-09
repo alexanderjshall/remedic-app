@@ -12,12 +12,12 @@ const DoctorNotes = (props: Props) => {
 
   return (
     <>
-      <form className="h-full shadow-sm pt-24 mx-2">
+      <form className="h-full pt-32 mx-2">
         <label
           htmlFor="doctor_notes"
           className="font-bold text-lg text-opacity-75 whitespace-nowrap w-full"
         >
-          <h2 className="text-center">Consultation Notes:</h2>
+          <h2 className="text-center">Consultation Notes</h2>
         </label>
         <textarea
           wrap="soft"
@@ -25,7 +25,8 @@ const DoctorNotes = (props: Props) => {
           id="doctor_notes"
           value={doctorNotes}
           onChange={(e) => setDoctorNotes(e.target.value)}
-          className="resize-none border-black border w-full p-2 rounded-lg outline-none focus:border-4 mt-2 h-3/4"
+          className="resize-none w-full p-2 rounded-lg outline-none focus:border-4 mt-2 h-3/4 shadow-2xl placeholder-blue"
+          placeholder="Write your notes here"
         ></textarea>
         <div className="flex justify-center w-full mt-10">
           <OKButton
