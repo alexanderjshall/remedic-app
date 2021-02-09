@@ -37,8 +37,8 @@ const Chat = (props: Props) => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full pt-24">
-      <div className="flex-grow overflow-auto flex flex-col px-2 w-full">
+    <div className="flex flex-col h-full pt-24 ">
+      <div className="flex-grow overflow-auto flex flex-col px-8 w-full pb-10">
         {messages &&
           messages.map((message, idx) =>
             message.isAuthor ? (
