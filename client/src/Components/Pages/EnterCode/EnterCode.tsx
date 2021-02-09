@@ -83,7 +83,6 @@ const EnterCode = () => {
     enterTo="opacity-100"
     className="h-full w-full relative px-3 pb-12 overflow-hidden"
   >
-    {/* <div className="h-full w-full relative px-3 pb-12 overflow-hidden"> */}
       <div className="flex justify-center flex-col items-center px-3 pt-24">
         <img src={logoReduced} alt="logo" className="w-32 pb-12" />
         <form
@@ -134,7 +133,6 @@ const EnterCode = () => {
           className="absolute opacity-10 top-1/2 -mt-56 w-5/6 max-w-3xl"
         ></img>
       </div>
-    {/* </div> */}
     </Transition>
   );
 };

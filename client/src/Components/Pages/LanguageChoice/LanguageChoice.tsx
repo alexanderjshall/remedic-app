@@ -33,7 +33,6 @@ const LanguageChoice = () => {
     enterTo="opacity-100"
     className="flex-col flex justify-center min-h-screen min-w-screen max-w-3xl mx-auto relative"
   >
-    {/* <div className="flex-col flex justify-center min-h-screen min-w-screen max-w-3xl mx-auto relative"> */}
       <div className="flex flex-col px-16 h-full justify-evenly items-center overflow-hidden z-10">
         {" "}
         <div className="flex justify-center w-full tablet:w-2/3">
@@ -94,7 +93,6 @@ const LanguageChoice = () => {
         classes="opacity-5 absolute left-1/2 -ml-48 w-full"
         size={400}
       ></SpinningGlobe>
-    {/* </div> */}
     </Transition>
   );
 };

@@ -58,7 +58,6 @@ const PatientLanding = () => {
     enterTo="opacity-100"
     className="h-full w-full relative p-3 overflow-hidden"
   >
-    {/* <div className="h-full w-full relative p-3 overflow-hidden"> */}
       <div className="flex items-center justify-center h-28 absolute w-full">
         <img
           src={logoReduced}
@@ -95,7 +94,6 @@ const PatientLanding = () => {
           Logout
         </button>
       </div>
-    {/* </div> */}
     </Transition>
   );
 };
