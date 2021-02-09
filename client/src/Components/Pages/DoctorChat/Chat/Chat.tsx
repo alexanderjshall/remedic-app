@@ -37,8 +37,8 @@ const Chat = (props: Props) => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full pt-24 ">
-      <div className="flex-grow overflow-auto flex flex-col px-8 w-full pb-10">
+    <div className="flex flex-col h-full">
+      <div className="flex-grow overflow-auto flex flex-col px-8 pt-24">
         {messages &&
           messages.map((message, idx) =>
             message.isAuthor ? (
@@ -50,7 +50,7 @@ const Chat = (props: Props) => {
         <div ref={chatBottom} className="h-12"></div>
       </div>
       <form
-        className="flex justify-center items-center p-2 bg-white w-full"
+        className="flex justify-center items-center p-2 bg-white w-full tablet:mb-24"
         onSubmit={sendMessage}
       >
         <label hidden htmlFor="chat input" />

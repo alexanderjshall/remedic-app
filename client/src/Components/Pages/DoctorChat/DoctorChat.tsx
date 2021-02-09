@@ -63,12 +63,19 @@ const DoctorChat = () => {
         </h1>
       </div>
       <Swiper
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+        }}
+        grabCursor={true}
         className="h-full"
-        spaceBetween={50}
+        spaceBetween={40}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        // scrollbar={{ draggable: true }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
