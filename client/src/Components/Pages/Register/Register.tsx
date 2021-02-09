@@ -49,6 +49,7 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      userInfo.email = userInfo.email.toLowerCase();
       const res = await registerPatient(userInfo);
       !res && setError(true);
     } catch (error) {
