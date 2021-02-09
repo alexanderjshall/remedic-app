@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useContext,
 } from "react";
+import { getTranslatedText } from "../services/api.translate";
 import { Doctor, Symptom } from "../types";
 import {
   fullPhysicalSymptoms,
@@ -31,7 +32,7 @@ export interface AppContextInterface {
     language: string,
     docPublicCode: string
   ) => void;
-  getVariables: () => NewConsultation;
+  getVariables: () => Promise<NewConsultation>;
   setConsultationId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
@@ -153,19 +154,22 @@ const ConsultationContextProvider = (props: Props) => {
   };
 
   // collate variables for query
-  const getVariables = (): NewConsultation => {
+  const getVariables = async(): Promise<NewConsultation> => {
     const selectedSymptoms = filterSelectedSymptoms([
       ...physicalSymptoms,
       ...generalSymptoms,
       ...psychSymptoms,
     ]);
     // create new consultation object
+    console.log('patientNotes', patientNotes)
+    const translation = await getTranslatedText(patientNotes, user!.language, "en")
+
     const consultation: NewConsultation = {
       date: new Date().toISOString(),
       symptomsByArea: selectedSymptoms,
       painLevel: painLevel,
       patientId: user!.id,
-      patientNotes: patientNotes,
+      patientNotes: translation,
       doctorId: doctor.id,
     };
     return consultation;

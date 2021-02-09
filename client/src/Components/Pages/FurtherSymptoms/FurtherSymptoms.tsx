@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useMutation } from "react-query";
 import { useHistory } from "react-router-dom";
 import {
@@ -8,17 +8,11 @@ import {
 import client from "../../../services/graphqlService";
 import mutations from "../../../services/graphqlService/mutations";
 import FinishTick from "../../../assets/utils/tick.svg";
-import { getTranslatedText } from "../../../services/api.translate";
-import { useAuth } from "../../../Contexts/Auth.context";
 import { Transition } from "@headlessui/react";
 
 const FurtherSymptoms = () => {
-  const [localPatientNotes, setLocalPatientNotes] = useState<string>("");
   const history = useHistory();
-  const { getVariables, setConsultationId, changePatientNotes } = useContext(
-    ConsultationContext
-  )!;
-  const { user } = useAuth();
+  const { getVariables, setConsultationId, changePatientNotes } = useContext(ConsultationContext)!;
 
   const createConsultation = useMutation(
     "create consultation",
@@ -36,17 +30,17 @@ const FurtherSymptoms = () => {
   );
 
   const handlePatientInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalPatientNotes(e.target.value);
+    changePatientNotes(e.target.value);
   };
 
   const handleNextClick = async (): Promise<void> => {
-    getTranslatedText(localPatientNotes, user!.language, "en").then(
-      (translation) => {
-        changePatientNotes(translation);
-        const variables = getVariables();
-        createConsultation.mutate(variables);
-      }
-    );
+    try {
+      const variables = await getVariables();
+      createConsultation.mutate(variables);
+      
+    } catch(e) {
+      console.log(e);
+    }
   };
 
   return (
