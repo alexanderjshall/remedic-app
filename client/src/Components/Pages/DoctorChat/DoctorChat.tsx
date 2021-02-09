@@ -7,16 +7,24 @@ import { ReactComponent as SendMessage } from "../../../assets/utils/send_messag
 import languages from "../../../utils/supported-languages.json";
 import { useDrContext } from "../../../Contexts/Doctor.context";
 import { useHistory } from "react-router-dom";
+import DoctorPrescriptions from "./DoctorPrescriptions";
 
 const langEnglishName = (langCode: string) =>
   languages.languages.find((l) => l.langCode === langCode)?.englishName;
 
-const DoctorChat = () => {
+
+
+  const DoctorChat = () => {
+
+  const [showPrescriptions, setShowPrescriptions] = useState<boolean>(false)
+
   const {
     currentConsultation,
     editConsultation,
     doctorNotes,
     setDoctorNotes,
+    prescriptions,
+    setPrescriptions
   } = useDrContext();
   const history = useHistory();
   const [currentMsg, setCurrentMsg] = useState<string>("");
@@ -99,6 +107,12 @@ const DoctorChat = () => {
 
   return (
     <div className="h-full overflow-y-scroll">
+      {showPrescriptions &&
+      <DoctorPrescriptions
+        close={()=>setShowPrescriptions(false)}
+        prescriptions={prescriptions}
+        setPrescriptions={setPrescriptions}
+      />}
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center">
         <h1 className="font-bold text-2xl text-white-ghost">
           {patientFullName}
@@ -176,14 +190,20 @@ const DoctorChat = () => {
           </div>
         </div>
         <div className="col-start-1 md:col-start-1 md:-mt-20">
-          <div className="flex justify-center">
-            <OKButton
-              name="consultation_btn"
-              type="submit"
-              value="End consultation"
-              text="End consultation"
-              onClick={() => endConsultation()}
-            />
+          <div className="flex justify-evenly">
+            <button
+            className="px-6 py-3 -full ring-2 bg-red-600 rounded-lg lg:m-0 hover:bg-red-800 ring-opacity-50 max-w-1/2 ring-red-800 font-bold text-white"
+            onClick={() =>  endConsultation()}
+            >
+              End Consultation
+            </button>
+
+            <button
+            className="px-6 py-3 -full ring-2 bg-blue rounded-lg lg:m-0 hover:bg-blue-800 ring-opacity-50 max-w-1/2 ring-blue-800 font-bold text-white"
+            onClick={() => setShowPrescriptions(true)}
+            >
+              Prescriptions
+            </button>
           </div>
         </div>
         <div className="m-2">
