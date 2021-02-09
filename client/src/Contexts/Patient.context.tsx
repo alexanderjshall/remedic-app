@@ -12,14 +12,14 @@ import queries from "../services/graphqlService/queries";
 import mutations from "../services/graphqlService/mutations";
 import client from "../services/graphqlService/index";
 import { useMutation, useQuery, UseMutationResult } from "react-query";
-import { UserData } from "../types";
+import { User, UserData } from "../types";
 import { Coordinates } from "../types";
 import getCoordsByPostcode from "../services/api.geocode";
 
 export interface PatientContextInterface {
   getTranslatedText: () => any;
   patientInfo: UserData;
-  updatePatient: (newPatientInfo: UserData) => void
+  updatePatient: (info: 'firstName'| 'lastName' | 'email' | 'postCode' | 'language', value: string) => void;
   coords: Coordinates;
   postcode: string;
 }
@@ -46,16 +46,22 @@ const PatientContextProvider = (props: Props) => {
   );
 
   // const { newPatientData }: any = useMutation(async () => await client.request(mutations.editPatient, {id:user?.id, newData:{...patient}}),
-  const { mutate } = useMutation(async (mutationVariables: {id: number, newData: any}) => await client.request(mutations.editPatient, mutationVariables),
+  const mutation = useMutation('update patient', async (mutationVariables: User) =>
+      await client.request(mutations.editPatient, mutationVariables),
   {
     onSuccess: (data) => {
       console.log('mutation result:', data)
+      setPatientInfo(data.updatePatient)
     }
   });
 
-  const updatePatient = async (patient: UserData) => {
+  const updatePatient = async (info: 'firstName'| 'lastName' | 'email' | 'postCode' | 'language', value: string) => {
+    console.log('info, value:', info, value)
     if (user) {
-      mutate({id: user?.id, newData:{...patient}});
+      let newPatientInfo = Object.assign({}, patientInfo);
+      const newPatient: User = {...newPatientInfo, id: user?.id}
+      newPatient[info] = value;
+      mutation.mutate(newPatient);
     }
   };
 
@@ -65,8 +71,6 @@ const PatientContextProvider = (props: Props) => {
   });
 
   const [postcode, setPostcode] = useState<string>("");
-
-  // console.log("coords", coords);
 
   // TODO create static translation interface
   const translatedText = user ? translations[user.language] : translations.en;

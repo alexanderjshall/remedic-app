@@ -7,7 +7,7 @@ export interface UserData {
   language: string;
 }
 export interface User extends UserData {
-  _id: number;
+  id: number;
 }
 
 export interface Message {
