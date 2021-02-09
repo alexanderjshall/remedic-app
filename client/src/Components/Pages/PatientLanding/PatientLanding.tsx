@@ -26,7 +26,7 @@ const PatientLanding = () => {
   const landingCards: LandingCards[] = [
     {
       title: localText.startConsultation,
-      bgColorClass: "bg-green",
+      bgColorClass: "bg-green-dark",
       textColor: "white",
       path: "/consultation/enter_code",
     },
@@ -38,7 +38,7 @@ const PatientLanding = () => {
     },
     {
       title: localText.profile,
-      bgColorClass: "bg-green",
+      bgColorClass: "bg-map-orange-400",
       textColor: "white",
       path: "/",
     },
@@ -58,7 +58,7 @@ const PatientLanding = () => {
           className="w-24 top-8 animate-pulse"
         ></img>
       </div>
-      <div className="h-full flex flex-col justify-around items-center py-16">
+      <div className="h-full flex flex-col justify-around items-center py-20">
         {landingCards.map((card, i) => (
           <PatientLandingCard
             key={i}

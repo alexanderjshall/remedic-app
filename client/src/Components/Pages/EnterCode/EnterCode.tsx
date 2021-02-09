@@ -91,6 +91,7 @@ const EnterCode = () => {
               placeholder=""
               id="constultation-code"
               name="code"
+              autoComplete="off"
               updateInput={changeCode}
               onSubmit={() => {}}
             />
