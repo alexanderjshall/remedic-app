@@ -22,7 +22,7 @@ const ConsultationChat = () => {
   const { user } = useAuth();
   const { getConsultationId, doctor } = useContext(ConsultationContext)!;
 
-  const doctorFullName = `${doctor.firstName} ${doctor.lastName}`
+  const doctorFullName = `${doctor.firstName} ${doctor.lastName}`;
 
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
@@ -31,7 +31,7 @@ const ConsultationChat = () => {
     String(getConsultationId()),
     false,
     doctorFullName,
-    '',
+    "",
     user!.language,
     () => history.push("/consultation/feedback")
   );
@@ -48,7 +48,7 @@ const ConsultationChat = () => {
     if (!getConsultationId()) {
       history.push("/consultation/enter_code");
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
@@ -85,52 +85,52 @@ const ConsultationChat = () => {
         </div>
       ) : (
         <div className="flex flex-col w-full min-h-full">
-               <div className="bg-blue-light h-16 w-full fixed top-0 flex items-center justify-center z-20">
-                  <img
-                     src={ChatImg}
-                     alt="Your Chat"
-                     className="w-12 text-white"
-                   ></img>
-                 <h3 className="text-xl text-white-cream mx-2 font-extrabold">
-                   {doctor.firstName} {doctor.lastName}
-                 </h3>
-                 <UserIcon />
-               </div>
-               <div className="flex-grow mt-16 overflow-auto flex flex-col px-2 w-full max-w-4xl mx-auto z-10">
-               {messages &&
-                   messages.map((message, idx) =>
-                     message.isAuthor ? (
-                       <PatientMessageBubble message={message} key={idx} />
-                     ) : (
-                       <DoctorMessageBubble message={message} key={idx} />
-                     )
-                   )}
-                 <div ref={chatBottom} className="h-12"></div>
-               </div>
-               <form
-                 className="flex justify-center items-center p-2 fixed left-0 bottom-0 bg-white w-full z-20"
-                 onSubmit={sendMessage}
-               >
-                 <label hidden htmlFor="chat input" />
-                 <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100">
-                   <input
-                     type="text"
-                     name="chat input"
-                     className="p-3 cursor-text h-12 w-11/12 rounded-lg bg-transparent"
-                     placeholder="Start messaging"
-                     onChange={(e) => setCurrentMsg(e.target.value)}
-                     value={currentMsg}
-                   />
-                   <button>
-                     <SendMessageArrow />
-                   </button>
-                 </div>
-               </form>
-               <img
-               src={Doctor}
-               alt="doctor image"
-               className="fixed top-12 min-w-full mx-auto opacity-10"
+          <div className="bg-blue-light h-16 w-full fixed top-0 flex items-center justify-center z-20">
+            <img
+              src={ChatImg}
+              alt="Your Chat"
+              className="w-12 text-white"
+            ></img>
+            <h3 className="text-xl text-white-cream mx-2 font-extrabold">
+              {doctor.firstName} {doctor.lastName}
+            </h3>
+            <UserIcon />
+          </div>
+          <div className="flex-grow mt-16 overflow-auto flex flex-col px-2 w-full max-w-4xl mx-auto z-10">
+            {messages &&
+              messages.map((message, idx) =>
+                message.isAuthor ? (
+                  <PatientMessageBubble message={message} key={idx} />
+                ) : (
+                  <DoctorMessageBubble message={message} key={idx} />
+                )
+              )}
+            <div ref={chatBottom} className="h-12"></div>
+          </div>
+          <form
+            className="flex justify-center items-center p-2 fixed left-0 bottom-0 bg-white w-full z-20"
+            onSubmit={sendMessage}
+          >
+            <label hidden htmlFor="chat input" />
+            <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100">
+              <input
+                type="text"
+                name="chat input"
+                className="p-3 cursor-text h-12 w-11/12 rounded-lg bg-transparent"
+                placeholder="Start messaging"
+                onChange={(e) => setCurrentMsg(e.target.value)}
+                value={currentMsg}
               />
+              <button>
+                <SendMessageArrow />
+              </button>
+            </div>
+          </form>
+          <img
+            src={Doctor}
+            alt="doctor image"
+            className="fixed top-12 min-w-full mx-auto opacity-10"
+          />
         </div>
       )}
     </>
