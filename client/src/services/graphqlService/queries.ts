@@ -103,6 +103,11 @@ const queries = {
         patientNotes
         transcriptOriginal
         transcriptTranslated
+        prescriptions {
+          medicine
+          dose
+          frequency
+        }
         patientRating
         doctorNotesOriginal
         doctorNotesTranslated
@@ -112,6 +117,7 @@ const queries = {
         doctorId {
           id
           firstName
+          lastName
         }
       }
     }`,

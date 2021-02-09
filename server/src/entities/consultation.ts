@@ -4,15 +4,27 @@ import { Field, InputType, Int, ObjectType } from 'type-graphql';
 import Patient from './patient';
 import Doctor from './doctor';
 
-
 @ObjectType('Symptoms')
-@InputType('inputSymptoms') 
+@InputType('inputSymptoms')
 export class Symptoms {
   @Field(() => String)
   area: string;
 
   @Field(() => String)
   symptom: string;
+}
+
+@ObjectType('Prescription')
+@InputType('inputPrescription')
+export class Prescription {
+  @Field(() => String)
+  medicine: string;
+
+  @Field(() => String)
+  dose: string;
+
+  @Field(() => String)
+  frequency: string;
 }
 
 @ObjectType()
@@ -59,9 +71,13 @@ export default class Consultation {
   @Property({nullable:true})
   doctorNotesOriginal?: string;
 
-  @Field(() => String,{nullable: true})
+  @Field(() => String, {nullable: true})
   @Property({nullable:true})
   doctorNotesTranslated?: string;
+
+  @Field(() => [Prescription], {nullable: true})
+  @Property({type: JsonType, nullable:true} )
+  prescriptions?: Prescription[];
 
   @Field( () => Patient)
   @ManyToOne(() => Patient)
