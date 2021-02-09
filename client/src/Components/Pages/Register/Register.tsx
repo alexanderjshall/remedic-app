@@ -12,6 +12,7 @@ const translations = staticTranslations as any;
 
 import humanStanding from "../../../assets/background-images/humans-standing2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
+import { Transition } from "@headlessui/react";
 
 const Register = () => {
   const { registerPatient } = useAuth();
@@ -58,7 +59,14 @@ const Register = () => {
   const localText = translations[localLanguage].loginAndRegisterTerms;
 
   return (
-    <div className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity ease-in-out duration-700"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4"
+  >
       <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5 text-center mt-8">
         {localText.register}
       </h2>
@@ -179,7 +187,7 @@ const Register = () => {
         alt="background logo"
         className="absolute w-24 top-5 opacity-10 left-1/2 transform-gpu -translate-x-1/2"
       ></img>
-    </div>
+    </Transition>
   );
 };
 

@@ -14,6 +14,7 @@ import SuccessTick from "../../Globals/SuccessTick/SuccessTick";
 import { useHistory } from "react-router-dom";
 
 import { PatientContext } from "../../../Contexts/Patient.context";
+import { Transition } from "@headlessui/react";
 
 // ROUTE -> '/consultation/chat'
 const ConsultationChat = () => {
@@ -69,7 +70,14 @@ const ConsultationChat = () => {
   return (
     <>
       {messages.length === 0 ? (
-        <div className="h-full flex items-center px-3 flex-col">
+        <Transition
+          appear={true}
+          show={true}
+          enter="transition-opacity delay-75 ease-in-out duration-500"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          className="h-full flex items-center px-3 flex-col"
+        >
           <SuccessTick size={150} />
           <h1 className="text-bold text-2xl text-center">
             Thank you for submitting!
@@ -82,7 +90,7 @@ const ConsultationChat = () => {
             alt="bg_human"
             className="absolute bottom-16 left-5 opacity-10 w-72 "
           />
-        </div>
+        </Transition>
       ) : (
         <div className="flex flex-col w-full min-h-full">
                <div className="bg-blue-light h-16 w-full fixed top-0 flex items-center justify-center z-20">
