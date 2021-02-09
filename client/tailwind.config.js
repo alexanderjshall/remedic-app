@@ -5,6 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // Allows horizontal and vertical flipping
+      scale: {
+        '-1': '-1'
+      },
       screens: {
         tablet: "640px",
       },

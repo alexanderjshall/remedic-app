@@ -40,7 +40,7 @@ const PatientLanding = () => {
       title: localText.profile,
       bgColorClass: "bg-map-orange-400",
       textColor: "white",
-      path: "/",
+      path: "/patient/profile",
     },
   ];
 
