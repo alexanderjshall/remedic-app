@@ -6,17 +6,24 @@ import React, {
   useContext,
 } from "react";
 import { Doctor, Symptom } from "../types";
-import { fullPhysicalSymptoms, fullGeneralSymptoms } from "./AllSymptoms";
+import {
+  fullPhysicalSymptoms,
+  fullGeneralSymptoms,
+  fullPsychologicalSymptoms,
+} from "../utils/AllSymptoms";
 import { AuthContext } from "./Auth.context";
 
 export interface AppContextInterface {
   physicalSymptoms: Symptom[];
   generalSymptoms: Symptom[];
+  psychSymptoms: Symptom[];
   doctor: Doctor;
   getConsultationId: () => number | undefined;
   togglePhysicalSymptomSelect: (symptom: Symptom) => void;
   toggleGeneralSymptomSelect: (symptom: Symptom, isSelected: boolean) => void;
+  togglePsychSymptomSelect: (symptom: Symptom, isSelected: boolean) => void;
   changePainLevel: (painLevel: number) => void;
+  changePatientNotes: (patientInput: string) => void;
   updateDoctor: (
     id: number,
     firstName: string,
@@ -58,9 +65,13 @@ const ConsultationContextProvider = (props: Props) => {
   //**STATES**/
   const [physicalSymptoms, setSymptoms] = useState<Symptom[]>([]);
   const [generalSymptoms, setGeneralSymptoms] = useState<Symptom[]>([]);
+  const [psychSymptoms, setPsychSymptoms] = useState<Symptom[]>([]);
 
   // pain level state
   const [painLevel, setPainLevel] = useState<number>(0);
+
+  // Extra info submitted by patients
+  const [patientNotes, setPatientNotes] = useState<string>("");
 
   // ID states
   const [doctor, setDoctor] = useState<Doctor>({} as Doctor); // doctor code for socket IO
@@ -69,8 +80,12 @@ const ConsultationContextProvider = (props: Props) => {
   useEffect(() => {
     setSymptoms(fullPhysicalSymptoms);
     setGeneralSymptoms(fullGeneralSymptoms);
+    setPsychSymptoms(fullPsychologicalSymptoms);
   }, []);
 
+  /*
+  =====Toggle symptom select functions
+  */
   const togglePhysicalSymptomSelect = (symptom: Symptom): void => {
     const alteredSymptoms = physicalSymptoms.map((s) => {
       if (symptom.symptom === s.symptom) s.selected = !s.selected;
@@ -84,14 +99,35 @@ const ConsultationContextProvider = (props: Props) => {
     isSelected: boolean
   ): void => {
     const alteredSymptoms = generalSymptoms.map((s) => {
-      if (symptom.symptom === s.symptom) s.selected = isSelected;
+      if (symptom.symptom === s.symptom) {
+        s.selected = isSelected;
+        s.interactedWith = true;
+      }
       return s;
     });
     setGeneralSymptoms(alteredSymptoms);
   };
 
+  const togglePsychSymptomSelect = (symptom: Symptom, isSelected: boolean) => {
+    const alteredSymptoms = psychSymptoms.map((s) => {
+      if (symptom.symptom === s.symptom) {
+        s.selected = isSelected;
+        s.interactedWith = true;
+      }
+      return s;
+    });
+    setPsychSymptoms(alteredSymptoms);
+  };
+
+  // change the pain level state
   const changePainLevel = (painLevel: number): void => setPainLevel(painLevel);
 
+  // update patient notes
+  const changePatientNotes = (patientInput: string): void => {
+    setPatientNotes(patientInput);
+  };
+
+  // Update the doctor info for query
   const updateDoctor = (
     id: number,
     firstName: string,
@@ -100,8 +136,8 @@ const ConsultationContextProvider = (props: Props) => {
     docPublicCode: string
   ): void => setDoctor({ id, firstName, lastName, language, docPublicCode });
 
+  // filters symptoms by { selected: true }
   const filterSelectedSymptoms = (symptoms: Symptom[]): SelectedSymptom[] => {
-    // Removes selected symptoms, and groups symptoms by area together.
     const selected: SelectedSymptom[] = symptoms.reduce(
       (acc: SelectedSymptom[], sym: Symptom) => {
         if (sym.selected) {
@@ -116,10 +152,12 @@ const ConsultationContextProvider = (props: Props) => {
     return selected;
   };
 
+  // collate variables for query
   const getVariables = (): NewConsultation => {
     const selectedSymptoms = filterSelectedSymptoms([
       ...physicalSymptoms,
       ...generalSymptoms,
+      ...psychSymptoms,
     ]);
     // create new consultation object
     const consultation: NewConsultation = {
@@ -127,12 +165,13 @@ const ConsultationContextProvider = (props: Props) => {
       symptomsByArea: selectedSymptoms,
       painLevel: painLevel,
       patientId: user!.id,
-      patientNotes: "",
+      patientNotes: patientNotes,
       doctorId: doctor.id,
-      };
-      return consultation;
+    };
+    return consultation;
   };
 
+  // getter for consultationId
   const getConsultationId = (): number | undefined => {
     if (consultationId) return consultationId;
     else return undefined;
@@ -143,14 +182,17 @@ const ConsultationContextProvider = (props: Props) => {
       value={{
         physicalSymptoms,
         generalSymptoms,
+        psychSymptoms,
         togglePhysicalSymptomSelect,
         toggleGeneralSymptomSelect,
+        togglePsychSymptomSelect,
         changePainLevel,
+        changePatientNotes,
         updateDoctor,
         getConsultationId,
         doctor,
         getVariables,
-        setConsultationId
+        setConsultationId,
       }}
     >
       {props.children}

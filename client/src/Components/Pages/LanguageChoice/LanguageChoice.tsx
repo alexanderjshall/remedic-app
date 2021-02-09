@@ -82,7 +82,7 @@ const LanguageChoice = () => {
         </div>
       </div>
       <SpinningGlobe
-        classes="opacity-5 absolute mx-auto w-full"
+        classes="opacity-5 absolute left-1/2 -ml-48 w-full"
         size={400}
       ></SpinningGlobe>
     </div>
