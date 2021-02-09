@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cd server && npm run start",
     "heroku-postbuild": "npm i --prefix server --production=false",
-    "heroku-cleanup": "npm prune --prefix server --production"
+    "heroku-cleanup": "cd server && npm prune --production"
   },
   "keywords": [],
   "author": "",
