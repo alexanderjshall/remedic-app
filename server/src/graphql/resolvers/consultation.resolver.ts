@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import Patient from '../../entities/patient';
 import { Mutation, Arg, Ctx, Field, InputType, Query, Resolver, Int, FieldResolver, Root } from 'type-graphql';
 import { CustomContext } from '..';
-import Consultation, { Symptoms } from '../../entities/consultation';
+import Consultation, { Prescription, Symptoms } from '../../entities/consultation';
 import { wrap } from '@mikro-orm/core';
 import Doctor from 'src/entities/doctor';
 
@@ -59,6 +59,9 @@ class UpdateConsultationInput {
 
   @Field(() => String,{nullable: true})
   doctorNotesTranslated?: string;
+
+  @Field(() => [Prescription], {nullable: true})
+  prescriptions?: Prescription[];
 }
 
 @Resolver(Consultation)
@@ -110,7 +113,7 @@ export default class ConsultationResolver {
     }
   }
 
-  @Query(() => [Consultation]) 
+  @Query(() => [Consultation])
   async getActiveConsultations (
     @Arg('doctorId') id: number,
     @Arg('isActive') isActive: boolean,
