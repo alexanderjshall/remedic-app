@@ -13,6 +13,7 @@ import Consultation from './entities/consultation';
 export default {
   migrations: {
     path: path.join(__dirname, '/migrations'),
+    disableForeignKeys: false,
     pattern: /^[\w-]+\d+\.[tj]s$/
   },
   entities: [Patient, Doctor, Consultation],
