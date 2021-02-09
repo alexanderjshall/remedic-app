@@ -31,6 +31,12 @@ const PatientLanding = () => {
       path: "/consultation/enter_code",
     },
     {
+      title: "Prescriptions",
+      bgColorClass: "bg-map-red-500",
+      textColor: "white",
+      path: "/patient/prescriptions",
+    },
+    {
       title: "Services",
       bgColorClass: "bg-blue",
       textColor: "white",

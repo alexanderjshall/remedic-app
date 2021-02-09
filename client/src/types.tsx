@@ -18,12 +18,20 @@ export interface Message {
   timestamp: string;
 }
 
+export interface Prescription {
+  medicine: string;
+  dose: string;
+  frequency: string;
+}
 export interface ConsultationInfo {
   id: string;
   consultationDate: string;
   transcriptOriginal: string;
   transcriptTranslated: string;
-  doctorId: string;
+  doctorId: {
+    firstName: string;
+    lastName: string;
+  };
   patientId: {
     firstName: string;
     lastName: string;
@@ -36,6 +44,7 @@ export interface ConsultationInfo {
   patientNotes: string;
   patientRating: number;
   isActive: boolean;
+  prescriptions: Prescription[];
 }
 
 export interface ConsultationFeedback {
