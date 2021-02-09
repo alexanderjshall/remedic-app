@@ -2,9 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "remedic server",
+  "cacheDirectories": ["server/node_modules"],
   "scripts": {
     "start": "cd server && npm run start",
-    "install": "cd server && npm i"
+    "heroku-postbuild": "npm i --prefix server --production=false",
+    "heroku-cleanup": "npm prune --prefix server --production"
   },
   "keywords": [],
   "author": "",
