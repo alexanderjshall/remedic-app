@@ -63,6 +63,7 @@ const DoctorChat = () => {
         </h1>
       </div>
       <Swiper
+        watchSlidesVisibility={true}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -74,14 +75,13 @@ const DoctorChat = () => {
         spaceBetween={40}
         slidesPerView={1}
         navigation
-        pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // pagination={{ clickable: true }}
+        pagination={{
+          el: ".swiper-pagination",
+          type: "progressbar",
+        }}
+        effect="fade"
       >
-        <SwiperSlide>
-          <SymptomDescriptor currentConsultation={currentConsultation} />
-        </SwiperSlide>
         <SwiperSlide>
           <DoctorNotes
             doctorNotes={doctorNotes}
@@ -91,6 +91,9 @@ const DoctorChat = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Chat messages={messages} addMessage={addMessage} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SymptomDescriptor currentConsultation={currentConsultation} />
         </SwiperSlide>
       </Swiper>
     </>

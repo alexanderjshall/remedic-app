@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactComponentElement } from "react";
 import { Symptom } from "../../../../types";
 import languages from "../../../../utils/supported-languages.json";
 
@@ -18,15 +18,17 @@ const langEnglishName = (langCode: string) =>
 const SymptomDescriptor = (props: Props) => {
   const { currentConsultation } = props;
   return (
-    <div className="flex flex-col items-center h-full pt-24 mt-2">
+    <div className="flex flex-col items-center h-full pt-24 mt-2 tablet:justify-center">
       <h1 className="text-xl font-bold text-blue-dark">
-        Pain intensity:{" "}
+        Pain intensity:
         <span className="text-black">{currentConsultation.painLevel}</span>
       </h1>
       <h1 className="text-xl font-bold text-blue-dark mt-4">
         Patient language:{" "}
-        <span className="text-black">
-          {langEnglishName(currentConsultation.patientId.language)}
+        <span className="text-black font-normal">
+          {langEnglishName(currentConsultation.patientId.language)
+            ? langEnglishName(currentConsultation.patientId.language)
+            : "Not specified"}
         </span>
       </h1>
       <h1 className="text-xl font-bold mt-4 text-blue-dark">
