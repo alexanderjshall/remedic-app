@@ -8,7 +8,7 @@ import Patient from './entities/patient';
 import Doctor from './entities/doctor';
 import Consultation from './entities/consultation';
 
-const cert = fs.readFileSync(path.join( __dirname, '../server.crt')).toString();
+//const cert = fs.readFileSync(path.join( __dirname, '../server.crt')).toString();
 
 export default {
   migrations: {
@@ -23,8 +23,7 @@ export default {
     connection: {
       ssl: {
         require: true,
-        rejectUnauthorized: true,
-        ca: cert
+        rejectUnauthorized: false
       }
     }
   }
