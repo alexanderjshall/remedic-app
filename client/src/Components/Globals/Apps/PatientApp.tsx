@@ -9,6 +9,7 @@ import FurtherSymptoms from "../../Pages/FurtherSymptoms/FurtherSymptoms";
 import PatientLanding from "../../Pages/PatientLanding/PatientLanding";
 import PatientSymptoms from "../../Pages/PatientSymptoms/PatientSymptoms";
 import PsychSymptoms from "../../Pages/PsychSymptoms/PsychSymptoms";
+import Services from "../../Pages/Services/Services";
 import SymptomsChecker from "../../Pages/SymptomsChecker/SymptomsChecker";
 
 const PatientApp = () => {
@@ -40,6 +41,9 @@ const PatientApp = () => {
             </Route>
             <Route exact path="/consultation/feedback">
               <Feedback />
+            </Route>
+            <Route exact path="/patient/services">
+              <Services />
             </Route>
             <Redirect to="/patient_landing" />
           </Switch>

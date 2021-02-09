@@ -31,8 +31,14 @@ const PatientLanding = () => {
       path: "/consultation/enter_code",
     },
     {
-      title: localText.profile,
+      title: "Services",
       bgColorClass: "bg-blue",
+      textColor: "white",
+      path: "/patient/services",
+    },
+    {
+      title: localText.profile,
+      bgColorClass: "bg-green",
       textColor: "white",
       path: "/",
     },

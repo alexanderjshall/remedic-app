@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "dotenv": "^8.2.0",
+    "google-map-react": "^2.1.9",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -56,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@types/google-map-react": "^2.1.0",
     "@types/jest": "^26.0.20",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^12.19.15",
