@@ -5,6 +5,7 @@ import { validateLoginForm } from "../../../utils/auth/validation.helper";
 import AuthButton from "../../Globals/AuthButton/AuthButton";
 import FormInput from "../../Globals/FormInput/FormInput";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
+import { Transition } from '@headlessui/react';
 
 import staticTranslations from "../../../utils/static-translations.json";
 const translations = staticTranslations as any;
@@ -44,6 +45,18 @@ const Login = () => {
   const localText = translations[localLanguage].loginAndRegisterTerms;
 
   return (
+    <Transition
+      appear={true}
+      show={true}
+      enter="transform duration-1000"
+      // enterFrom="translate-x-0"
+      enterTo="translate-x-40"
+      // enter="transition-opacity duration-75"
+      // enterFrom="opacity-0"
+      // enterTo="opacity-100"
+
+
+    >
     <div className="flex items-center justify-center flex-col bg-white-dark min-h-screen lg:m-1 w-inherit min-w-min py-4">
       <form
         className="relative bg-white h-full w-5/6 max-w-xl shadow-lg  rounded-lg p-12 flex flex-col items-center justify-between py-20"
@@ -110,6 +123,7 @@ const Login = () => {
         <p className="text-lg text-center">Invalid email or password</p>
       </div>
     </div>
+    </Transition>
   );
 };
 
