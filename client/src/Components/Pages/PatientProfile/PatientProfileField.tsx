@@ -42,7 +42,7 @@ function PatientProfileField(props: ProfileField) {
                 <input type="text" id={info} value={newValue} onChange={handleValueChange} autoFocus={isEditing}
                 className="px-2 rounded-md shadow-sm py-1 ring-2 focus:ring-blue-dark w-1/2 cursor-text"
                 onSubmit={()=>handleSubmit()} onKeyPress={handleEnter}/>
-              <button className="border border-solid border-black rounded-md px-4 py-1 bg-green-dark text-white font-bold ml-1"
+              <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white font-bold ml-1"
                       onClick={() => handleSubmit()}
                       type='submit'
               >Save</button>
