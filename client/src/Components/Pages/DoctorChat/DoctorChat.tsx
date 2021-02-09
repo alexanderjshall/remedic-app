@@ -13,7 +13,7 @@ import "swiper/swiper-bundle.css";
 import DoctorNotes from "./DoctorNotes/DoctorNotes";
 import Chat from "./Chat/Chat";
 
-const DoctorChat2 = () => {
+const DoctorChat = () => {
   const {
     currentConsultation,
     editConsultation,
@@ -79,16 +79,15 @@ const DoctorChat2 = () => {
           <DoctorNotes
             doctorNotes={doctorNotes}
             setDoctorNotes={setDoctorNotes}
+            endConsultation={endConsultation}
           />
         </SwiperSlide>
         <SwiperSlide>
           <Chat messages={messages} addMessage={addMessage} />
-          {/* <h1>CHAT</h1> */}
         </SwiperSlide>
       </Swiper>
-      {/* <SymptomDescriptor currentConsultation={currentConsultation} /> */}
     </>
   );
 };
 
-export default DoctorChat2;
+export default DoctorChat;
