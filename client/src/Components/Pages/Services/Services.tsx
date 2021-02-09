@@ -1,3 +1,4 @@
+import { Transition } from "@headlessui/react";
 import React, { useState } from "react";
 import LocalServices from "./LocalServices/LocalServices";
 import TranslateTerms from "./TranslateTerms/TranslateTerms";
@@ -9,7 +10,14 @@ const Services = () => {
   const services: string[] = ["Local Services", "Translate Terms"];
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-screen">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity delay-75 ease-in-out duration-500"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="flex flex-col justify-center items-center h-screen w-screen"
+  >
       {currentService === services[0] && (
         <div className="flex-grow w-full">
           <LocalServices />
@@ -39,7 +47,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Transition>
   );
 };
 
