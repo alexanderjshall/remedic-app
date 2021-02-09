@@ -17,8 +17,6 @@ export default {
   },
   entities: [Patient, Doctor, Consultation],
   clientUrl: process.env.DATABASE_URL,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
   type: 'postgresql',
   debug: process.env.NODE_ENV !== 'production',
   driverOptions: {
