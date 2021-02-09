@@ -35,7 +35,9 @@ const queries = {
       getPatient(id: $id) {
         firstName
         lastName
+        postCode
         language
+        email
         postCode
       }
     }
@@ -101,6 +103,11 @@ const queries = {
         patientNotes
         transcriptOriginal
         transcriptTranslated
+        prescriptions {
+          medicine
+          dose
+          frequency
+        }
         patientRating
         doctorNotesOriginal
         doctorNotesTranslated
@@ -110,66 +117,64 @@ const queries = {
         doctorId {
           id
           firstName
-        }
-      }
-    }
-  `,
-
-  // gets all consultations associated with one doctor.
-  getDoctorConsultations: gql`
-    query($id: Float!) {
-      getDoctorConsultations(doctorId: $id) {
-        id
-        consultationDate
-        symptomsByArea {
-          area
-          symptom
-        }
-        painLevel
-        patientNotes
-        transcriptOriginal
-        transcriptTranslated
-        patientRating
-        doctorNotesOriginal
-        doctorNotesTranslated
-        patientId {
-          firstName
           lastName
-          language
-        }
-        doctorId {
-          id
-          firstName
         }
       }
-    }
-  `,
+    }`,
 
-  getActiveConsultations: gql`
-    query($id: Float!, $isActive: Boolean!) {
-      getActiveConsultations(doctorId: $id, isActive: $isActive) {
-        id
-        consultationDate
-        isActive
-        symptomsByArea {
-          area
-          symptom
-        }
-        painLevel
-        patientNotes
-        transcriptOriginal
-        transcriptTranslated
-        patientRating
-        doctorNotesOriginal
-        doctorNotesTranslated
-        patientId {
-          firstName
-          lastName
-          language
-        }
-      }
+ // gets all consultations associated with one doctor.
+ getDoctorConsultations: gql `
+ query($id: Float!) {
+   getDoctorConsultations(doctorId: $id) {
+     id
+     consultationDate
+     symptomsByArea {
+       area
+       symptom
+     }
+     painLevel
+     patientNotes
+     transcriptOriginal
+     transcriptTranslated
+     patientRating
+     doctorNotesOriginal
+     doctorNotesTranslated
+     patientId {
+       firstName
+       lastName
+       language
+     }
+     doctorId {
+       id
+       firstName
+     }
+   }
+ }`,
+
+getActiveConsultations: gql `
+query($id: Float!, $isActive: Boolean!) {
+  getActiveConsultations(doctorId: $id, isActive: $isActive) {
+    id
+    consultationDate
+    isActive
+    symptomsByArea {
+      area
+      symptom
     }
-  `,
+    painLevel
+    patientNotes
+    transcriptOriginal
+    transcriptTranslated
+    patientRating
+    doctorNotesOriginal
+    doctorNotesTranslated
+    patientId {
+      firstName
+      lastName
+      language
+    }
+  }
+}`,
 };
 
 export default queries;

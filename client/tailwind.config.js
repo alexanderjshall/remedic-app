@@ -5,6 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // Allows horizontal and vertical flipping
+      scale: {
+        "-1": "-1",
+      },
       screens: {
         tablet: "640px",
       },
@@ -36,6 +40,7 @@ module.exports = {
       maxWidth: {
         "1/2": "50%",
         "1/3": "33.33%",
+        almostFull: "90%",
       },
       colors: {
         blue: {

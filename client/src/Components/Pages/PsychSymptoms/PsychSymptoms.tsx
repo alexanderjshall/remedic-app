@@ -5,6 +5,7 @@ import { Symptom } from "../../../types";
 import OKButton from "../../Globals/OKButton/OKButton";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 import PsychIcon from "../../../assets/symptoms/psych-general.svg";
+import { Transition } from "@headlessui/react";
 
 const PsychSymptoms = () => {
   const history = useHistory();
@@ -30,7 +31,14 @@ const PsychSymptoms = () => {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity ease-in-out duration-700"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="h-screen overflow-hidden flex flex-col"
+  >
       <div className="min-h-16 top-0 flex justify-between items-center w-screen py-4 px-16 bg-green-light">
         <img src={PsychIcon} alt="brain icon" className="w-16" />
         <h1 className="font-bold">Psychological Symptoms</h1>
@@ -54,7 +62,7 @@ const PsychSymptoms = () => {
           />
         </div>
       </ul>
-    </div>
+    </Transition>
   );
 };
 
