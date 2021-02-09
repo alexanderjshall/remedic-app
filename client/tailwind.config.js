@@ -38,6 +38,7 @@ module.exports = {
       },
       maxWidth: {
         "1/2": "50%",
+        "almostFull": "90%",
       },
       colors: {
         blue: {
