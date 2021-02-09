@@ -8,9 +8,6 @@ function PatientProfileField(props: ProfileField) {
 
   useEffect(() => {
     setNewValue(value);
-
-    console.log('value:', value)
-    console.log('newValue:', newValue)
   }, [])
 
   const onEditClick = () => {

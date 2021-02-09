@@ -50,13 +50,11 @@ const PatientContextProvider = (props: Props) => {
       await client.request(mutations.editPatient, mutationVariables),
   {
     onSuccess: (data) => {
-      console.log('mutation result:', data)
       setPatientInfo(data.updatePatient)
     }
   });
 
   const updatePatient = async (info: 'firstName'| 'lastName' | 'email' | 'postCode' | 'language', value: string) => {
-    console.log('info, value:', info, value)
     if (user) {
       let newPatientInfo = Object.assign({}, patientInfo);
       const newPatient: User = {...newPatientInfo, id: user?.id}
