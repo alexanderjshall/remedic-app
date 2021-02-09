@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import fs from 'fs';
+//import fs from 'fs';
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
 import Patient from './entities/patient';
