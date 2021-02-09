@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LocalServices from "./LocalServices/LocalServices";
+import TranslateTerms from "./TranslateTerms/TranslateTerms";
 
 const Services = () => {
   const [currentService, setCurrentService] = useState<string>(
@@ -16,7 +17,9 @@ const Services = () => {
       )}
 
       {currentService === services[1] && (
-        <div className="flex-grow w-full"></div>
+        <div className="flex-grow w-full">
+          <TranslateTerms />
+        </div>
       )}
 
       <div
