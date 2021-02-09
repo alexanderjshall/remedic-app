@@ -10,6 +10,7 @@ import { ConsultationFeedback } from "../../../types";
 import client from "../../../services/graphqlService";
 import mutations from "../../../services/graphqlService/mutations";
 import { PatientContext } from "../../../Contexts/Patient.context";
+import { Transition } from "@headlessui/react";
 
 interface RatingStar {
   filled: boolean;
@@ -74,7 +75,14 @@ const Feedback = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col bg-white h-full">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity delay-75 ease-in-out duration-500"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="flex items-center justify-center flex-col bg-white h-full"
+  >
       <div className="flex items-center justify-center flex-col h-5/6 w-5/6 shadow-lg">
         <img
           src={logoReduced}
@@ -109,7 +117,7 @@ const Feedback = () => {
         </button>
       </div>
       <footer className="bg-blue-dark w-100 h-4"></footer>
-    </div>
+    </Transition>
   );
 };
 
