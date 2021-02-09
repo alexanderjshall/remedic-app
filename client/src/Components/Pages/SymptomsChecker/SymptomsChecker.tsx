@@ -6,9 +6,9 @@ import faceGood from "../../../assets/utils/face-good.svg";
 import faceNotGood from "../../../assets/utils/face-notgood.svg";
 import facePain from "../../../assets/utils/face-pain.svg";
 import { useHistory } from "react-router-dom";
-import { fullGeneralSymptoms } from "../../../utils/AllSymptoms";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
+import { Transition } from "@headlessui/react";
 interface PainLevel {
   label: string;
   img: string;
@@ -73,7 +73,14 @@ const SymptomsChecker = () => {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity ease-in-out duration-700"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="h-screen overflow-hidden flex flex-col"
+  >
       <div className="h-16 top-0 whitespace-nowrap w-screen py-4 bg-green-light">
         <h1 className="font-bold text-xl text-center">
           {localText.generalQuestions}
@@ -116,7 +123,7 @@ const SymptomsChecker = () => {
           />
         </div>
       </ul>
-    </div>
+    </Transition>
   );
 };
 
