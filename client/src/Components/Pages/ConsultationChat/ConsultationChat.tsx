@@ -21,7 +21,7 @@ const ConsultationChat = () => {
   const history = useHistory();
 
   const { user } = useAuth();
-  const { getConsultationId, doctor } = useContext(ConsultationContext)!;
+  const { getConsultationId, doctor, resetContext } = useContext(ConsultationContext)!;
 
   const doctorFullName = `${doctor.firstName} ${doctor.lastName}`
 
@@ -34,7 +34,10 @@ const ConsultationChat = () => {
     doctorFullName,
     '',
     user!.language,
-    () => history.push("/consultation/feedback")
+    () => {
+      resetContext();
+      history.push("/consultation/feedback");
+    }
   );
 
   const [currentMsg, setCurrentMsg] = useState("");

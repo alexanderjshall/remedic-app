@@ -7,6 +7,7 @@ import { AuthContext } from "../../../Contexts/Auth.context";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { useHistory } from "react-router-dom";
 import { Transition } from "@headlessui/react";
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
 interface LandingCards {
   route?: string;
   title: string;
@@ -19,6 +20,7 @@ interface LandingCards {
 const PatientLanding = () => {
   const { logout } = useContext(AuthContext)!; // logout from auth context
   const { getTranslatedText } = useContext(PatientContext)!;
+  const { resetContext } = useContext(ConsultationContext)!;
   const history = useHistory();
   const localText = getTranslatedText().patientLandingTerms;
 
@@ -45,6 +47,7 @@ const PatientLanding = () => {
   ];
 
   const handleLogoutClick = (): void => {
+    resetContext()
     logout();
     history.push("/language");
   };

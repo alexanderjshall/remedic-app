@@ -32,8 +32,9 @@ export interface AppContextInterface {
     language: string,
     docPublicCode: string
   ) => void;
-  getVariables: () => Promise<NewConsultation>;
+  getVariables: () => Promise<NewConsultation | null>;
   setConsultationId: React.Dispatch<React.SetStateAction<number | undefined>>;
+  resetContext: () => void;
 }
 
 interface Props {
@@ -83,6 +84,24 @@ const ConsultationContextProvider = (props: Props) => {
     setGeneralSymptoms(fullGeneralSymptoms);
     setPsychSymptoms(fullPsychologicalSymptoms);
   }, []);
+
+  const resetSymptoms = (symptoms: Symptom[]): Symptom[] => {
+    return symptoms.map(s => {
+      if (s.selected) s.selected = false;
+      if (s.interactedWith) s.interactedWith = false;
+      return s;
+    });
+  }
+
+  const resetContext = () => {
+    const resetPhysical = resetSymptoms(fullPhysicalSymptoms);
+    const resetGeneral = resetSymptoms(fullGeneralSymptoms);
+    const resetPsych = resetSymptoms(fullPsychologicalSymptoms);
+
+    setSymptoms(resetPhysical);
+    setGeneralSymptoms(resetGeneral);
+    setPsychSymptoms(resetPsych);
+  }
 
   /*
   =====Toggle symptom select functions
@@ -154,25 +173,33 @@ const ConsultationContextProvider = (props: Props) => {
   };
 
   // collate variables for query
-  const getVariables = async(): Promise<NewConsultation> => {
-    const selectedSymptoms = filterSelectedSymptoms([
-      ...physicalSymptoms,
-      ...generalSymptoms,
-      ...psychSymptoms,
-    ]);
-    // create new consultation object
-    console.log('patientNotes', patientNotes)
-    const translation = await getTranslatedText(patientNotes, user!.language, "en")
+  const getVariables = async(): Promise<NewConsultation|null> => {
+    try {
+      const selectedSymptoms = filterSelectedSymptoms([
+        ...physicalSymptoms,
+        ...generalSymptoms,
+        ...psychSymptoms,
+      ]);
 
-    const consultation: NewConsultation = {
-      date: new Date().toISOString(),
-      symptomsByArea: selectedSymptoms,
-      painLevel: painLevel,
-      patientId: user!.id,
-      patientNotes: translation,
-      doctorId: doctor.id,
-    };
-    return consultation;
+      const consultation: NewConsultation = {
+        date: new Date().toISOString(),
+        symptomsByArea: selectedSymptoms,
+        painLevel: painLevel,
+        patientId: user!.id,
+        patientNotes: '',
+        doctorId: doctor.id,
+      };
+      // create new consultation object
+      if (patientNotes) {
+        const translation = await getTranslatedText(patientNotes, user!.language, "en")
+        consultation.patientNotes = translation
+      } 
+      return consultation;
+    } catch (e) {
+      console.log(e)
+      return null;
+    }
+
   };
 
   // getter for consultationId
@@ -197,6 +224,7 @@ const ConsultationContextProvider = (props: Props) => {
         doctor,
         getVariables,
         setConsultationId,
+        resetContext
       }}
     >
       {props.children}

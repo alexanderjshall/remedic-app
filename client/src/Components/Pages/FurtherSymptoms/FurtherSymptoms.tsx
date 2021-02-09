@@ -29,14 +29,15 @@ const FurtherSymptoms = () => {
     }
   );
 
-  const handlePatientInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // React.ChangeEvent<HTMLInputElement>
+  const handlePatientInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     changePatientNotes(e.target.value);
   };
 
   const handleNextClick = async (): Promise<void> => {
     try {
       const variables = await getVariables();
-      createConsultation.mutate(variables);
+      if (variables) createConsultation.mutate(variables);
       
     } catch(e) {
       console.log(e);
@@ -64,9 +65,9 @@ const FurtherSymptoms = () => {
         <label htmlFor="patient input" hidden={true}>
           Enter additional symptoms here
         </label>
-        <input
-          type="text"
+        <textarea
           name="patient input"
+          id="patient_notes"
           className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text"
           placeholder="Enter Symptoms"
           onChange={handlePatientInput}
