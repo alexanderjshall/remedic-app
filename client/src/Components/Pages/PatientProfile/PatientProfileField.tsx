@@ -42,11 +42,11 @@ function PatientProfileField(props: ProfileField) {
                 <input type="text" id={info} value={newValue} onChange={handleValueChange} autoFocus={isEditing}
                 className="px-2 rounded-md shadow-sm py-1 ring-2 focus:ring-blue-dark w-1/2 cursor-text"
                 onSubmit={()=>handleSubmit()} onKeyPress={handleEnter}/>
-              <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white font-bold ml-1"
+              <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white ml-1"
                       onClick={() => handleSubmit()}
                       type='submit'
               >Save</button>
-              <button className="border-invisible rounded-md px-4 py-1 bg-red-negative text-white font-bold text-opacity-90 ml-1" onClick={() => onCancelClick()}
+              <button className="border-invisible rounded-md px-4 py-1 bg-red-negative text-white ml-1" onClick={() => onCancelClick()}
               >Cancel</button>
             </div>
           :  <div className="flex justify-between items-center flex-wrap">

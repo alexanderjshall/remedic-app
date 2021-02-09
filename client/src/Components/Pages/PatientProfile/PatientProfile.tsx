@@ -22,7 +22,8 @@ export interface ProfileField {
 function PatientProfile() {
   const { getTranslatedText, patientInfo, updatePatient } = useContext(PatientContext)!;
   const [newPatientInfo, setNewPatientInfo] = useState<UserData>(patientInfo);
-  const [selectedPicture, setSelectedPicture] = useState<string>('');
+  const [currentPicture, setCurrentPicture] = useState<string>(defaultPicture);
+  const [isPictureSaved, setIsPictureSaved] = useState<boolean>(true);
   const pictureInputRef = useRef(null);
   const history = useHistory();
 
@@ -72,18 +73,29 @@ function PatientProfile() {
     }
   ];
 
-  const handleUpload = (files: FileList | null) => {
+  const handleChangePicture = (files: FileList | null) => {
     if (files) {
       const newPicture = files[0];
-      console.log('newPicture:', newPicture);
       if(!newPicture.type.startsWith('image/')){return}
       const reader = new FileReader();
       reader.onload = function (e) {
-        console.log('e:', e?.target?.result)
+        if (e.target && e.target.result && typeof(e.target.result) === 'string') {
+          setCurrentPicture(e.target.result);
+          setIsPictureSaved(false);
+        }
       }
       reader.readAsDataURL(newPicture);
     }
   }
+
+  const handleSavePicture = () => {
+    setIsPictureSaved(true);
+  };
+
+  const handleCancelPicture = () => {
+    setIsPictureSaved(true);
+    setCurrentPicture(defaultPicture);
+  };
 
   return (
     <Transition
@@ -99,18 +111,29 @@ function PatientProfile() {
           {translatedText.patientLandingTerms.profile}
         </h1>
         <div className="flex items-center">
-          <div className="shadow-xl rounded-xl border border-black border-3 border-opacity-20">
-            <img src={defaultPicture} alt="profile"
-              className="h-16"
+          <div className="shadow-xl rounded-xl border border-black border-3 border-opacity-20 p-1 maxHeight-1 max-h-18 mr-4">
+            <img src={currentPicture} alt="profile"
+              className="block h-16 w-16 object-scale-down"
             />
           </div>
-          <label className="border-invisible rounded-md px-4 py-1 ml-2 bg-white-cream cursor-pointer">
-            Change picture
-            <input id="pictureUpload" type="file" ref={pictureInputRef}
-            className="hidden"
-            onChange={(e) => {handleUpload(e.currentTarget.files)}}
-            />
-          </label>
+          {isPictureSaved
+            ? <label className="border-invisible rounded-md px-4 py-1 ml-2 bg-blue-superlight cursor-pointer">
+                Change picture
+                <input id="pictureUpload" type="file" ref={pictureInputRef}
+                className="hidden"
+                onChange={(e) => {handleChangePicture(e.currentTarget.files)}}
+                />
+              </label>
+            : <div>
+              <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white ml-1"
+                      onClick={() => handleSavePicture()}
+                      type='submit'
+              >Save</button>
+              <button className="border-invisible rounded-md px-4 py-1 bg-red-negative text-white ml-2"
+                      onClick={() => handleCancelPicture()}
+              >Cancel</button>
+            </div>
+          }
         </div>
         <div>
           {profileFields.map((profile, i) => (
