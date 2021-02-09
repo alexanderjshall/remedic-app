@@ -8,6 +8,7 @@ import PatientProfileField from './PatientProfileField';
 import { UserData } from '../../../types';
 import humanStanding from '../../../assets/background-images/humans-sitting3.png';
 import defaultPicture from '../../../assets/profile-picture/default-profile-picture.png'
+import { Transition } from '@headlessui/react';
 
 
 export interface ProfileField {
@@ -85,7 +86,14 @@ function PatientProfile() {
   }
 
   return (
-    <div className="h-screen relative flex flex-col justify-start items-center w-screen overflow-hidden px-0">
+    <Transition
+    appear={true}
+    show={true}
+    enter="transition-opacity delay-75 ease-in-out duration-500"
+    enterFrom="opacity-0"
+    enterTo="opacity-100"
+    className="h-screen relative flex flex-col justify-start items-center w-screen overflow-hidden px-0"
+  >
       <div className="h-5/6 m-0 px-0 py-4 z-10 flex flex-col items-center">
         <h1 className="text-center text-xl font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1 min-w-full mb-5">
           {translatedText.patientLandingTerms.profile}
@@ -100,7 +108,6 @@ function PatientProfile() {
             Change picture
             <input id="pictureUpload" type="file" ref={pictureInputRef}
             className="hidden"
-            // onChange={(e) => {handleUpload(e.currentTarget.files?[0])}}
             onChange={(e) => {handleUpload(e.currentTarget.files)}}
             />
           </label>
@@ -133,8 +140,7 @@ function PatientProfile() {
           alt="background human"
           className="absolute opacity-10 top-1/2 left-10 -mt-56 w-5/6 max-w-3xl transform -scale-x-1"
         ></img>
-
-    </div>
+    </Transition>
   )
 }
 
