@@ -25,6 +25,7 @@ interface SupportedLanguage {
 }
 
 interface DisplayTranslation {
+  name?: string;
   searchName: string;
   translatedName: string;
   description: string;
@@ -100,6 +101,7 @@ const TranslateTerms = () => {
     let queryInEnglish: string;
     let queryTranslated: string;
 
+    // translate the user query
     try {
       if (translationParams?.inputLangCode === "en") {
         queryInEnglish = searchTerm;
@@ -117,19 +119,23 @@ const TranslateTerms = () => {
         );
       }
     } catch (e) {
+      // fallback in case translation fails
       queryInEnglish = searchTerm;
       queryTranslated = searchTerm;
     }
 
+    // Get nhs data
     let nhsData: DisplayTranslation;
     try {
       nhsData = await getNHSTermInformation(queryInEnglish);
     } catch (e) {
+      // show query error
       setIsFetching(false);
       setQueryError(true);
       return;
     }
 
+    // translate description
     let translatedDescription: string;
     try {
       translatedDescription = await getTranslatedText(
@@ -143,13 +149,17 @@ const TranslateTerms = () => {
       return;
     }
 
+    // set terms to display from previous queries
     newDisplayTerm.searchName = searchTerm;
     newDisplayTerm.translatedName =
       translationParams?.inputLangCode === "en"
         ? queryTranslated
         : queryInEnglish;
-    newDisplayTerm.url = nhsData.url;
     newDisplayTerm.description = translatedDescription;
+    newDisplayTerm.url = `https://www.nhs.uk/conditions/${nhsData
+      .name!.toLocaleLowerCase()
+      .split(" ")
+      .join("-")}`;
 
     setIsFetching(false); // remove spinner
     setDisplayTerm(newDisplayTerm); // render fetched data
@@ -174,9 +184,9 @@ const TranslateTerms = () => {
           Translate a term
         </h1>
         <div className="font-bold w-full grid min-h-24 grid-cols-2">
-          {translations.map((t) => (
+          {translations.map((t, idx) => (
             <div
-              id={t.inputLangCode}
+              key={idx}
               className={`${
                 t.selected && "bg-gray-200"
               } flex justify-center items-center font-medium h-16 rounded-3xl target:bg-gray-600 target:text-white`}
