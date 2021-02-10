@@ -233,7 +233,7 @@ const TranslateTerms = () => {
             <p className="text-center z-10 font-semibold text-gray-800">
               {displayTerm.description}
             </p>
-            <a className="text-blue-dark z-10" href={displayTerm.url}>
+            <a className="text-blue-dark text-center z-10 break-all" href={displayTerm.url}>
               {displayTerm.url}
             </a>
             <img
