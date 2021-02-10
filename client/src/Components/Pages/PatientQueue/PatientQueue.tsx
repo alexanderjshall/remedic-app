@@ -15,7 +15,7 @@ function PatientQueue() {
 
   return (
     <div className="flex items-center flex-col bg-white-dark h-full w-full">
-      <div className="text-center mt-24 mb-10 px-3 w-4/5 bg-white max-w-4xl rounded-xl pt-4 min-h-3/4">
+      <div className="text-center mt-24 mb-10 px-3 w-4/5 bg-white max-w-4xl rounded-xl p-8 min-h-3/4">
         <h2 className="text-blue text-3xl font-bold">
           You have {consultations?.length} patients waiting:
         </h2>
@@ -24,7 +24,7 @@ function PatientQueue() {
             <button
               onClick={() => handleClick(consultation)}
               key={i}
-              className="w-3/4"
+              className="tablet:w-3/4 w-full"
             >
               <PatientCard
                 patientName={`${consultation.patientId.firstName} ${consultation.patientId.lastName}`}
