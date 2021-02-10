@@ -1,21 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import { useAuth } from "../../../../Contexts/Auth.context";
-import getCoordsByPostcode from "../../../../services/api.geocode";
-import client from "../../../../services/graphqlService";
-import queries from "../../../../services/graphqlService/queries";
 import { PatientContext } from "../../../../Contexts/Patient.context";
 import LocationPin from "./LocationPin/LocationPin";
 import { getNHSServices } from "../../../../services/api.nhs";
 import { Service } from "../../../../types";
-import {
-  IDToServiceName,
-  serviceBGColors,
-} from "../../../../utils/NhsServices";
+
 import MapHomeIcon from "../../../Globals/MapHomeIcon/MapHomeIcon";
 import TapIcon from "../../../../assets/utils/tap.svg";
-import NHSIcon from "../../../../assets/background-images/NHS-Logo (1).svg";
-import HospitalIcon from "../../../../assets/background-images/hospital.svg";
+
+import FilterButton from "./FilterButton/FilterButton";
+import CurrentPracticeCard from "./CurrentPracticeCard/CurrentPracticeCard";
 
 interface Coordinates {
   lat: number;
@@ -36,22 +31,76 @@ interface QueryService {
   URL?: string | null;
 }
 
+export interface Filter {
+  name: string; // translated name
+  code: string; // 3-letter string
+  selected: boolean;
+  color: string;
+}
+
+enum serviceCodes {
+  DEN = "DEN",
+  GPB = "GPB",
+  PHA = "PHA",
+  HOS = "HOS",
+  OPT = "OPT",
+}
+
 const LocalServices = () => {
   const { user } = useAuth();
+  const { coords, postcode } = useContext(PatientContext)!;
 
+  //STATES
+  // The Selected Practice
   const [currentPractice, setCurrentPractice] = useState<Service>(
     {} as Service
   );
 
-  const { coords, postcode } = useContext(PatientContext)!;
-  const [services, setServices] = useState<Service[]>([]);
-  // single service state that gets filled on childclick
+  const [filters, setFilters] = useState<Filter[]>([
+    {
+      name: "Dentist",
+      code: serviceCodes.DEN,
+      selected: true,
+      color: "map-blue-600",
+    },
+    {
+      name: "GP",
+      code: serviceCodes.GPB,
+      selected: true,
+      color: "map-green-600",
+    },
+    {
+      name: "Pharmacy",
+      code: serviceCodes.PHA,
+      selected: true,
+      color: "map-orange-600",
+    },
+    {
+      name: "Hospital",
+      code: serviceCodes.HOS,
+      selected: true,
+      color: "map-red-600",
+    },
+    {
+      name: "Optician",
+      code: serviceCodes.OPT,
+      selected: true,
+      color: "map-purple-600",
+    },
+  ]);
 
+  const [dentistServices, setDentistServices] = useState<Service[]>([]);
+  const [gpServices, setGpServices] = useState<Service[]>([]);
+  const [pharmacyServices, setPharmacyServices] = useState<Service[]>([]);
+  const [hospitalServices, setHospitalServices] = useState<Service[]>([]);
+  const [opticianServices, setOpticianServices] = useState<Service[]>([]);
+
+  // Get the NHS services on mount
   useEffect(() => {
     if (postcode) {
       getNHSServices(postcode)
         .then((value) => {
-          const NHSServices = value.map((service: QueryService) => ({
+          const NHSServices: Service[] = value.map((service: QueryService) => ({
             lat: service.Latitude,
             lng: service.Longitude,
             OrganisationName: service.OrganisationName,
@@ -62,11 +111,34 @@ const LocalServices = () => {
             Postcode: service.Postcode,
             URL: service.URL,
           }));
-          setServices(NHSServices);
+          setDentistServices(
+            NHSServices.filter((s) => s.OrganisationTypeID === serviceCodes.DEN)
+          );
+          setGpServices(
+            NHSServices.filter((s) => s.OrganisationTypeID === serviceCodes.GPB)
+          );
+          setPharmacyServices(
+            NHSServices.filter((s) => s.OrganisationTypeID === serviceCodes.PHA)
+          );
+          setHospitalServices(
+            NHSServices.filter((s) => s.OrganisationTypeID === serviceCodes.HOS)
+          );
+          setOpticianServices(
+            NHSServices.filter((s) => s.OrganisationTypeID === serviceCodes.OPT)
+          );
         })
         .catch((e) => console.log(e));
     }
   }, [postcode]);
+
+  const handleFilterToggle = (selectedFilter: Filter): void => {
+    const changedFilters = filters.map((filter) => {
+      if (filter.code === selectedFilter.code)
+        filter.selected = !filter.selected;
+      return filter;
+    });
+    setFilters(changedFilters);
+  };
 
   if (coords.lat !== 0 || coords.lng !== 0) {
     return (
@@ -90,81 +162,61 @@ const LocalServices = () => {
               lng={coords.lng}
               fillColor="text-black"
             />
-            {services &&
-              services.map((s, idx) => (
+
+            {/* RENDER SERVICES BY FILTER */}
+            {filters[0].selected &&
+              dentistServices.map((s, idx) => (
+                <LocationPin key={idx} lat={s.lat} lng={s.lng} service={s} />
+              ))}
+
+            {filters[1].selected &&
+              gpServices.map((s, idx) => (
+                <LocationPin key={idx} lat={s.lat} lng={s.lng} service={s} />
+              ))}
+
+            {filters[2].selected &&
+              pharmacyServices.map((s, idx) => (
+                <LocationPin key={idx} lat={s.lat} lng={s.lng} service={s} />
+              ))}
+            {filters[3].selected &&
+              hospitalServices.map((s, idx) => (
+                <LocationPin key={idx} lat={s.lat} lng={s.lng} service={s} />
+              ))}
+            {filters[4].selected &&
+              opticianServices.map((s, idx) => (
                 <LocationPin key={idx} lat={s.lat} lng={s.lng} service={s} />
               ))}
           </GoogleMapReact>
         </div>
         <div className="h-1/2 flex flex-col bg overflow-y-scroll">
           <div className="grid grid-cols-3 h-10 px-2 py-2 gap-2 bg-gray-100">
-            <div className="bg-map-blue-600 h-8 flex justify-center items-center text-white font-semibold rounded-3xl">
-              Dentist
-            </div>
-            <div className="bg-map-green-600 h-8  flex justify-center items-center text-white font-semibold rounded-3xl">
-              GP
-            </div>
-            <div className="bg-map-orange-600 h-8 flex justify-center items-center text-white font-semibold rounded-3xl">
-              Pharmacy
-            </div>
+            {filters &&
+              filters
+                .slice(0, 3)
+                .map((filter, idx) => (
+                  <FilterButton
+                    key={idx}
+                    filter={filter}
+                    handleFilterToggle={handleFilterToggle}
+                  />
+                ))}
           </div>
           <div className="grid grid-cols-2 h-12 gap-2 px-2 py-2 bg-gray-100">
-            <div className="bg-map-red-600 h-8 flex justify-center items-center text-white font-semibold rounded-3xl">
-              Hospital
-            </div>
-            <div className="bg-map-purple-600 h-8 flex justify-center items-center text-white font-semibold rounded-3xl">
-              Opticians
-            </div>
+            {filters &&
+              filters
+                .slice(3, 5)
+                .map((filter, idx) => (
+                  <FilterButton
+                    key={idx}
+                    filter={filter}
+                    handleFilterToggle={handleFilterToggle}
+                  />
+                ))}
           </div>
           {/* Practice Display */}
           <div className="relative flex-grow flex justify-center items-center p-3">
             {currentPractice && Object.keys(currentPractice).length > 0 ? (
-              <div className="relative h-full w-full max-w-xl max-h-64 flex flex-col p-3 shadow-2xl rounded-3xl overflow-y-scroll">
-                <h1 className="text-sm pl-2">
-                  {IDToServiceName(currentPractice.OrganisationTypeID)}
-                </h1>
-                <h1
-                  className={`${
-                    serviceBGColors[currentPractice.OrganisationTypeID]
-                  } px-2 py-1 w-max max-w-full rounded-md text-white font-bold text-xl z-10`}
-                >
-                  {currentPractice.OrganisationName}
-                </h1>
-                <h2 className="pl-2 font-semibold">
-                  {currentPractice.Address1}
-                </h2>
-                <h2 className="pl-2 font-semibold">
-                  {currentPractice.Address2}
-                </h2>
-                <h2 className="pl-2 font-semibold">
-                  {currentPractice.Address3}
-                </h2>
-                <h2 className="pl-2 font-semibold">
-                  {currentPractice.City}{" "}
-                  {currentPractice.City && currentPractice.County ? ", " : null}{" "}
-                  {currentPractice.County}
-                </h2>
-                <h2 className="pl-2 font-semibold">
-                  {currentPractice.Postcode}
-                </h2>
-                <hr></hr>
-                {currentPractice.URL && (
-                  <a
-                    className="pl-2 text-blue hover:text-underline break-all"
-                    href={currentPractice.URL}
-                  >
-                    {currentPractice.URL}
-                  </a>
-                )}
-                <img
-                  src={NHSIcon}
-                  className="absolute top-4 w-24 right-4 opacity-20"
-                />
-                <img
-                  src={HospitalIcon}
-                  className="absolute bottom-4 w-16 right-4 opacity-20"
-                />
-              </div>
+              <CurrentPracticeCard currentPractice={currentPractice} />
             ) : (
               <img
                 src={TapIcon}
