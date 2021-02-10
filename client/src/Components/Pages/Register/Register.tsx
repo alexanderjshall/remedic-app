@@ -66,13 +66,13 @@ const Register = () => {
       enter="transition-opacity ease-in-out duration-700"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min pb-4 pt-1"
+      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min tablet:justify-start"
     >
-      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 pb-5 text-center mt-8 z-10">
+      <h2 className="text-4xl bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent tablet:text-5xl font-bold px-6 pb-5 tablet:py-10 text-center tablet:mt-8">
         {localText.register}
       </h2>
       <form
-        className="relative bg-white flex flex-col shadow-lg rounded-lg w-5/6 p-12 gap-y-6 tablet:h-full"
+        className="relative bg-white flex flex-col shadow-lg rounded-lg w-5/6 px-12 py-4 gap-y-2 tablet:gap-y-6 tablet:h-full tablet:p-12"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col w-full items-center z-10">
@@ -183,7 +183,7 @@ const Register = () => {
             </p>
           </Link>
         </div>
-        <div className="absolute left-1/2 -ml-48">
+        <div className="absolute mx-auto w-full left-0">
           <img
             src={humanStanding}
             alt="background human"
@@ -205,7 +205,7 @@ const Register = () => {
       <img
         src={logoReduced}
         alt="background logo"
-        className="absolute w-24 top-5 opacity-10 left-1/2 transform-gpu -translate-x-1/2"
+        className="absolute tablet:w-24 w-20 top-0 tablet:top-10 opacity-10 left-1/2 transform-gpu -translate-x-1/2"
       ></img>
     </Transition>
   );
