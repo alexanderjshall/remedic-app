@@ -1,15 +1,19 @@
 import { Transition } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MapNavIcon from "../../Globals/MapNavIcon/MapNavIcon";
 import TranslationIcon from "../../Globals/TranslationIcon/TranslationIcon";
 import LocalServices from "./LocalServices/LocalServices";
 import TranslateTerms from "./TranslateTerms/TranslateTerms";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 const Services = () => {
   const [currentService, setCurrentService] = useState<string>(
     "Local Services"
   );
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().servicesPage;
   const services: string[] = ["Local Services", "Translate Terms"];
+  const localizedServices: string[] = [localText.localServices, localText.translateTerms];
 
   return (
     <Transition
@@ -55,7 +59,7 @@ const Services = () => {
                 color={service === currentService ? "text-blue" : "text-white"}
               />
             )}
-            <h1 className="text-center">{service}</h1>
+            <h1 className="text-center">{localizedServices[idx]}</h1>
           </div>
         ))}
       </div>

@@ -6,10 +6,11 @@ import FormInput from "../../../Globals/FormInput/FormInput";
 import OKButton from "../../../Globals/OKButton/OKButton";
 import RightArrow from "../../../../assets/utils/right-arrow-black.svg";
 import { getNHSTermInformation } from "../../../../services/api.nhs";
-import { getTranslatedText } from "../../../../services/api.translate";
+import { getTranslatedText as getNHSTranslatedText} from "../../../../services/api.translate";
 import Spinner from "../../../Globals/Spinner/Spinner";
 import DownArrow from "../../../../assets/utils/down-arrow-black.svg";
 import SearchIcon from "../../../../assets/background-images/loupe.svg";
+import { PatientContext } from "../../../../Contexts/Patient.context";
 
 interface TranslateOptions {
   inputLangName: string;
@@ -35,6 +36,8 @@ interface DisplayTranslation {
 
 const TranslateTerms = () => {
   const { user } = useAuth(); // user from AuthContext
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().servicesPage.translatePage;
 
   const patientLanguage: SupportedLanguage = supportedLanguages.languages.find(
     (sL) => sL.langCode === user?.language
@@ -106,14 +109,14 @@ const TranslateTerms = () => {
     try {
       if (translationParams?.inputLangCode === "en") {
         queryInEnglish = searchTerm;
-        queryTranslated = await getTranslatedText(
+        queryTranslated = await getNHSTranslatedText(
           searchTerm,
           translationParams!.inputLangCode,
           translationParams!.outputLangCode
         );
       } else {
         queryTranslated = searchTerm;
-        queryInEnglish = await getTranslatedText(
+        queryInEnglish = await getNHSTranslatedText(
           searchTerm,
           translationParams!.inputLangCode,
           translationParams!.outputLangCode
@@ -139,7 +142,7 @@ const TranslateTerms = () => {
     // translate description
     let translatedDescription: string;
     try {
-      translatedDescription = await getTranslatedText(
+      translatedDescription = await getNHSTranslatedText(
         nhsData.description,
         "en",
         user!.language
@@ -182,7 +185,7 @@ const TranslateTerms = () => {
         onSubmit={handleFormSubmit}
       >
         <h1 className="text-center font-extrabold text-blue border border-solid border-blue w-full py-2 px-1">
-          Translate Medical Term
+          {localText.translateTerm}
         </h1>
         <div className="font-bold w-full grid min-h-24 grid-cols-2">
           {translations.map((t, idx) => (
@@ -202,7 +205,7 @@ const TranslateTerms = () => {
         <div className="w-5/6">
           <FormInput
             type="text"
-            placeholder="enter medical term"
+            placeholder={localText.enterTerm}
             id="enter-med-term"
             name="searchTerm"
             updateInput={handleUpdateInput}
@@ -213,8 +216,8 @@ const TranslateTerms = () => {
         <OKButton
           name="get information"
           type="submit"
-          value="Get Information"
-          text="Get Information"
+          value={localText.getInfo}
+          text={localText.getInfo}
           onClick={handleSubmitSearchTerm}
         />
       </form>

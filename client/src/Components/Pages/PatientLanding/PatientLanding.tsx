@@ -40,14 +40,14 @@ const PatientLanding = () => {
       icon: DoctorIcon,
     },
     {
-      title: "Prescriptions",
+      title: localText.prescriptions,
       bgColorClass: "bg-map-red-500",
       textColor: "white",
       path: "/patient/prescriptions",
       icon: PrescriptionIcon,
     },
     {
-      title: "Services",
+      title: localText.services,
       bgColorClass: "bg-blue",
       textColor: "white",
       path: "/patient/services",
@@ -111,7 +111,7 @@ const PatientLanding = () => {
           className="px-8 py-2 text-white border border-white rounded-xl border-solid font-extrabold text-xl focus:bg-white focus:text-blue"
           onClick={() => handleLogoutClick()}
         >
-          Logout
+          {localText.logout}
         </button>
       </div>
     </Transition>

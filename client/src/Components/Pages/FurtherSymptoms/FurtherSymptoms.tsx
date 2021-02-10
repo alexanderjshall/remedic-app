@@ -9,12 +9,16 @@ import client from "../../../services/graphqlService";
 import mutations from "../../../services/graphqlService/mutations";
 import FinishTick from "../../../assets/utils/tick.svg";
 import { Transition } from "@headlessui/react";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 const FurtherSymptoms = () => {
   const history = useHistory();
   const { getVariables, setConsultationId, changePatientNotes } = useContext(
     ConsultationContext
   )!;
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().patientNotes;
+
 
   const createConsultation = useMutation(
     "create consultation",
@@ -56,21 +60,21 @@ const FurtherSymptoms = () => {
     >
       <div className="h-24 w-full flex flex-col justify-between items-center pt-4 pb-2 bg-green">
         <h1 className="text-center font-bold text-xl bg-white text-green py-1 px-2">
-          Further Information
+          {localText.furtherInfo}
         </h1>
         <p className="text-white font-semibold text-lg">
-          Fill in any further symptoms and information
+          {localText.fillInSymptoms}
         </p>
       </div>
       <div className="flex-grow w-full flex justify-center py-8 px-2 max-w-4xl">
         <label htmlFor="patient input" hidden={true}>
-          Enter additional symptoms here
+          {localText.enterSymptoms}
         </label>
         <textarea
           name="patient input"
           className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text outline-none"
           id="patient_notes"
-          placeholder="Enter Symptoms"
+          placeholder={localText.enterSymptoms}
           onChange={handlePatientInput}
         />
       </div>
@@ -80,7 +84,7 @@ const FurtherSymptoms = () => {
           className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:"
         >
           <img src={FinishTick} alt="tick" className="text-white w-6" />
-          <h2 className="text-sm font-extrabold">{"Finish"}</h2>
+          <h2 className="text-sm font-extrabold">{localText.finish}</h2>
         </button>
       </div>
     </Transition>

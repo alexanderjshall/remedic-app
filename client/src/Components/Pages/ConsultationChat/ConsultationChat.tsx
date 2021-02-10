@@ -27,6 +27,8 @@ const ConsultationChat = () => {
 
   const { getTranslatedText } = useContext(PatientContext)!;
   const translatedText = getTranslatedText();
+  const localText = translatedText.chat;
+  const localConfirmationText = translatedText.confirmationPage;
 
   const { messages, addMessage } = useChat(
     String(getConsultationId()),
@@ -83,10 +85,10 @@ const ConsultationChat = () => {
         >
           <SuccessTick size={150} />
           <h1 className="text-bold text-2xl text-center">
-            Thank you for submitting!
+            {localConfirmationText.thankYou}
           </h1>
           <h2 className="text-bold text-xl text-center">
-            Your doctor will shortly be with you.
+            {localConfirmationText.doctorHereShortly}
           </h2>
           <img
             src={Doctor}
@@ -128,7 +130,7 @@ const ConsultationChat = () => {
                 type="text"
                 name="chat input"
                 className="p-3 cursor-text h-12 w-11/12 rounded-lg bg-transparent"
-                placeholder="Start messaging"
+                placeholder={localText.startMessaging}
                 onChange={(e) => setCurrentMsg(e.target.value)}
                 value={currentMsg}
               />

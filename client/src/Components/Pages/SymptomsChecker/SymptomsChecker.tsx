@@ -90,7 +90,7 @@ const SymptomsChecker = () => {
       </div>
       <div className="w-full overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">
         <h1 className="text-center font-bold text-2xl text-green-dark">
-          Pain level:
+          {localText.painLevel}:
         </h1>
         <div className="grid grid-cols-4 w-full gap-2 pt-4">
           {painLevels &&

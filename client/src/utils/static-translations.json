@@ -771,7 +771,8 @@
       "eating": "Essen Sie schlecht",
       "highTemperature": "Hast du eine hohe temperatur",
       "medications": "Nimmst du irgendwelche Medikamente?",
-      "smoke": "Rauchen Sie?"
+      "smoke": "Rauchen Sie?",
+      "painLevel": "Schmerzniveau"
     },
     "patientPrescription": {
       "yourPrescriptions": "Ihre Rezepte",
@@ -919,7 +920,8 @@
       "eating": "શું તમે ખરાબ રીતે ખાઈ રહ્યા છો?",
       "highTemperature": "શું તમારી પાસે તાપમાન ?ંચું છે?",
       "medications": "તમે કોઈ દવા લઈ રહ્યા છો?",
-      "smoke": "તમે ધૂમ્રપાન કરો છો?"
+      "smoke": "તમે ધૂમ્રપાન કરો છો?",
+      "painLevel": "પીડા સ્તર"
     },
     "physicalSymptomsTerms": {
       "head": "વડા",
@@ -2251,7 +2253,8 @@
       "eating": "¿Estás comiendo mal?",
       "highTemperature": "¿Tiene fiebre alta?",
       "medications": "¿Estás tomando alguna medicación?",
-      "smoke": "¿Fumas?"
+      "smoke": "¿Fumas?",
+      "painLevel": "Nivel de dolor"
     },
     "physicalSymptomsTerms": {
       "head": "Cabeza",

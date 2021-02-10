@@ -1,15 +1,16 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import { useHistory } from "react-router-dom"
 import BackArrow from "../../../assets/utils/back-arrow.svg"
 import { useAuth } from "../../../Contexts/Auth.context"
-import { getTranslatedText } from "../../../services/api.translate"
+import { getTranslatedText as getTranslatedPrescription} from "../../../services/api.translate"
 import client from "../../../services/graphqlService"
 import queries from "../../../services/graphqlService/queries"
 import { ConsultationInfo } from "../../../types"
 import Spinner from "../../Globals/Spinner/Spinner"
 import Prescription from "./Prescription"
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 interface PrescriptionData {
   date: string;
@@ -26,10 +27,13 @@ const Prescriptions = () => {
   const history = useHistory()
   const {user} = useAuth();
   const [userId, userLang] = [user!.id, user!.language]
-  const [prescriptions, setPrescriptions] = useState<PrescriptionData[]>([])
+  const [prescriptions, setPrescriptions] = useState<PrescriptionData[]>([]);
+
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().patientPrescription;
 
   const translateFreq = async (freq: string) => {
-    return await getTranslatedText(freq, "en", userLang);
+    return await getTranslatedPrescription(freq, "en", userLang);
   }
 
   const {data, isLoading} = useQuery([userId, "consultations"],
@@ -66,7 +70,7 @@ const Prescriptions = () => {
       </div>
 
       <div className="w-full max-w-almostFull md:max-w-2xl min-h-3/4 m-8 mx-auto rounded-xl bg-white flex flex-col items-center p-4">
-        <h1 className="text-2xl font-bold text-blue">Your prescriptions:</h1>
+        <h1 className="text-2xl font-bold text-blue">{localText.yourPrescriptions}:</h1>
         {isLoading ?
           <Spinner size={24}/>
           :

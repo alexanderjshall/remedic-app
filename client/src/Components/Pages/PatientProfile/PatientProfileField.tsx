@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {ProfileField} from './PatientProfile';
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 function PatientProfileField(props: ProfileField) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const {name, value, type, info, updateValue} = props;
   const [newValue, setNewValue] = useState<string>(value);
+
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
+  const localText = translatedText.profilePage;
 
   useEffect(() => {
     setNewValue(value);
@@ -45,15 +50,15 @@ function PatientProfileField(props: ProfileField) {
                 <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white ml-1"
                         onClick={() => handleSubmit()}
                         type='submit'
-                >Save</button>
+                >{localText.save}</button>
                 <button className="border-invisible rounded-md px-4 py-1 bg-red-negative text-white ml-1" onClick={() => onCancelClick()}
-                >Cancel</button>
-          
+                >{localText.cancel}</button>
+
             </div>
           :  <div className="flex justify-between items-center flex-wrap">
               <p><b>{value}</b></p>
               <button className="border-invisible rounded-md px-4 py-1 ml-2 bg-blue-superlight" onClick={() => onEditClick()}
-              >Edit</button>
+              >{localText.edit}</button>
             </div>
 
         }

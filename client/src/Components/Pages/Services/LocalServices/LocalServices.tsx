@@ -48,7 +48,8 @@ enum serviceCodes {
 
 const LocalServices = () => {
   const { user } = useAuth();
-  const { coords, postcode } = useContext(PatientContext)!;
+  const { coords, postcode, getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().servicesPage;
 
   //STATES
   // The Selected Practice
@@ -58,7 +59,7 @@ const LocalServices = () => {
 
   const [filters, setFilters] = useState<Filter[]>([
     {
-      name: "Dentist",
+      name: localText.mapPage.dentist,
       code: serviceCodes.DEN,
       selected: true,
       color: "map-blue-600",
@@ -70,19 +71,19 @@ const LocalServices = () => {
       color: "map-green-600",
     },
     {
-      name: "Pharmacy",
+      name: localText.mapPage.pharmacy,
       code: serviceCodes.PHA,
       selected: true,
       color: "map-orange-600",
     },
     {
-      name: "Hospital",
+      name: localText.mapPage.hospital,
       code: serviceCodes.HOS,
       selected: true,
       color: "map-red-600",
     },
     {
-      name: "Optician",
+      name: localText.mapPage.opticians,
       code: serviceCodes.OPT,
       selected: true,
       color: "map-purple-600",

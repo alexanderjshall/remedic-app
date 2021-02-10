@@ -7,13 +7,22 @@ import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 import PsychIcon from "../../../assets/symptoms/psych-general.svg";
 import { Transition } from "@headlessui/react";
 import LogoReduced from "../../../assets/logos/logo-reduced.svg";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 const PsychSymptoms = () => {
   const history = useHistory();
 
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
+  const localText = translatedText.psychSymptomsTerms;
+
   const { psychSymptoms, togglePsychSymptomSelect } = useContext(
     ConsultationContext
   )!;
+
+  psychSymptoms.forEach((symptom) => {
+    symptom.question = localText[symptom.id!]
+  });
 
   const handlePsychSymptomClick = (
     symptomName: string,
@@ -43,7 +52,7 @@ const PsychSymptoms = () => {
       <div className="h-20 py-6 px-4 flex items-center justify-between w-screen max-w-2xl w-2xl border border-blue border-solid border-l-0 border-r-0">
         <img src={PsychIcon} alt="brain icon" className="w-16" />
         <h1 className="font-bold text-blue text-right">
-          Psychological Symptoms
+          {localText.psychSymptoms}
         </h1>
       </div>
       <ul className="w-full  overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">

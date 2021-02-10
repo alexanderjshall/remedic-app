@@ -321,7 +321,7 @@ export const fullGeneralSymptoms: Symptom[] = [
     symptom: "Smoking",
     selected: false,
     question: "Do you smoke?",
-    id: "smoking",
+    id: "smoke",
     interactedWith: false,
   },
 ];
@@ -356,7 +356,7 @@ export const fullPsychologicalSymptoms: Symptom[] = [
     symptom: "Feeling Unable To Cope",
     selected: false,
     question: "Do you feel unable to cope with stress?",
-    id: "cope",
+    id: "stress",
     interactedWith: false,
   },
   {
@@ -364,7 +364,7 @@ export const fullPsychologicalSymptoms: Symptom[] = [
     symptom: "Alcohol/Drug Abuse",
     selected: false,
     question: "Do you have a problem with Alcohol or Drug Abuse?",
-    id: "alcohol",
+    id: "drug",
     interactedWith: false,
   },
   {
