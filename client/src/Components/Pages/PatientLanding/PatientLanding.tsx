@@ -40,14 +40,14 @@ const PatientLanding = () => {
       icon: DoctorIcon,
     },
     {
-      title: "Prescriptions",
+      title: localText.prescriptions,
       bgColorClass: "bg-map-red-500",
       textColor: "white",
       path: "/patient/prescriptions",
       icon: PrescriptionIcon,
     },
     {
-      title: "Services",
+      title: localText.services,
       bgColorClass: "bg-blue",
       textColor: "white",
       path: "/patient/services",

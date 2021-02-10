@@ -104,10 +104,10 @@ const EnterCode = () => {
             />
           </div>
           {wrongCodeFormat ? (
-            <p className="text-red-400 italic">Expected 7 Numbers</p>
+            <p className="text-red-400 italic">{localText.lengthError}</p>
           ) : null}
           {isInvalid ? (
-            <p className="text-red-400 italic">Invalid Code</p>
+            <p className="text-red-400 italic">{localText.invalidCode}</p>
           ) : null}
           {isLoading && (
             <div className="w-full absolute flex justify-center top-1/3">

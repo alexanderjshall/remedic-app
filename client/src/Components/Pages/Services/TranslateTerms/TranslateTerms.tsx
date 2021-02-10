@@ -10,6 +10,7 @@ import { getTranslatedText } from "../../../../services/api.translate";
 import Spinner from "../../../Globals/Spinner/Spinner";
 import DownArrow from "../../../../assets/utils/down-arrow-black.svg";
 import SearchIcon from "../../../../assets/background-images/loupe.svg";
+import { PatientContext } from "../../../../Contexts/Patient.context";
 
 interface TranslateOptions {
   inputLangName: string;
@@ -35,6 +36,8 @@ interface DisplayTranslation {
 
 const TranslateTerms = () => {
   const { user } = useAuth(); // user from AuthContext
+  const translatedText = useContext(PatientContext)?.getTranslatedText();
+  const localText = translatedText.translatePage;
 
   const patientLanguage: SupportedLanguage = supportedLanguages.languages.find(
     (sL) => sL.langCode === user?.language
@@ -182,7 +185,7 @@ const TranslateTerms = () => {
         onSubmit={handleFormSubmit}
       >
         <h1 className="text-center font-extrabold text-blue border border-solid border-blue w-full py-2 px-1">
-          Translate Medical Term
+          {localText.translateTerm}
         </h1>
         <div className="font-bold w-full grid min-h-24 grid-cols-2">
           {translations.map((t, idx) => (
@@ -202,7 +205,7 @@ const TranslateTerms = () => {
         <div className="w-5/6">
           <FormInput
             type="text"
-            placeholder="enter medical term"
+            placeholder={localText.enterTerm}
             id="enter-med-term"
             name="searchTerm"
             updateInput={handleUpdateInput}
@@ -213,8 +216,8 @@ const TranslateTerms = () => {
         <OKButton
           name="get information"
           type="submit"
-          value="Get Information"
-          text="Get Information"
+          value={localText.getInfo}
+          text={localText.getInfo}
           onClick={handleSubmitSearchTerm}
         />
       </form>

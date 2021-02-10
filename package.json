@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@headlessui/react": "^0.3.0",
+    "google-map-react": "^2.1.9",
+    "react-lottie-player": "^1.1.1",
+    "swiper": "^6.4.11"
+  }
+}

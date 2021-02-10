@@ -127,7 +127,7 @@ const Login = () => {
         border-solid border-2 text-lg`}
         id="error_board"
       >
-        <p className="text-lg text-center">Invalid email or password</p>
+        <p className="text-lg text-center">{localText.invalid}</p>
       </div>
     </Transition>
   );

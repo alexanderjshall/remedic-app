@@ -28,7 +28,8 @@ function PatientProfile() {
   const history = useHistory();
 
   const translatedText = getTranslatedText();
-  const localText = translatedText.loginAndRegisterTerms;
+  const localTextRegister = translatedText.loginAndRegisterTerms;
+  const localText = translatedText.profilePage;
   const localTextUtils = translatedText.utils;
 
   const handleConfirmClick = () => {
@@ -44,28 +45,28 @@ function PatientProfile() {
 
   const profileFields: ProfileField[] = [
     {
-      name: localText.firstName,
+      name: localTextRegister.firstName,
       value: patientInfo.firstName,
       type: 'text',
       info: 'firstName',
       updateValue
     },
     {
-      name: localText.lastName,
+      name: localTextRegister.lastName,
       value: patientInfo.lastName,
       type: 'text',
       info: 'lastName',
       updateValue
     },
     {
-      name: localText.postcode,
+      name: localTextRegister.postcode,
       value: patientInfo.postCode,
       type: 'text',
       info: 'postCode',
       updateValue
     },
     {
-      name: localText.email,
+      name: localTextRegister.email,
       value: patientInfo.email,
       type: 'email',
       info: 'email',
@@ -118,7 +119,7 @@ function PatientProfile() {
           </div>
           {isPictureSaved
             ? <label className="border-invisible rounded-md px-4 py-1 ml-2 bg-blue-superlight cursor-pointer">
-                Change picture
+                {localText.changePicture}
                 <input id="pictureUpload" type="file" ref={pictureInputRef}
                 className="hidden"
                 onChange={(e) => {handleChangePicture(e.currentTarget.files)}}
@@ -128,10 +129,10 @@ function PatientProfile() {
               <button className="border-invisible rounded-md px-4 py-1 bg-green-dark text-white ml-1"
                       onClick={() => handleSavePicture()}
                       type='submit'
-              >Save</button>
+              >{localText.save}</button>
               <button className="border-invisible rounded-md px-4 py-1 bg-red-negative text-white ml-2"
                       onClick={() => handleCancelPicture()}
-              >Cancel</button>
+              >{localText.cancel}</button>
             </div>
           }
         </div>

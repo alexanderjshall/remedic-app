@@ -52,7 +52,7 @@ const SymptomsChecker = () => {
     isSelected: boolean
   ): void => {
     const selectedSymptom = generalSymptoms.find((s) => {
-      return s.symptom === symptomName;
+      s.symptom === symptomName;
     });
     if (selectedSymptom) {
       selectedSymptom.interactedWith = true;
