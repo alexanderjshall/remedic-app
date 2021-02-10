@@ -42,7 +42,7 @@ const Register = () => {
   }, [history]);
 
   const updateInput = (inputName: string, value: string) => {
-    setError(false)
+    setError(false);
     setUserInfo({ ...userInfo, [inputName]: value });
   };
 
@@ -61,14 +61,14 @@ const Register = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity ease-in-out duration-700"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4"
-  >
-      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5 text-center mt-8">
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min pb-4 pt-1"
+    >
+      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 pb-5 text-center mt-8 z-10">
         {localText.register}
       </h2>
       <form
@@ -76,7 +76,10 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="firstName" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="firstName"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.firstName}
           </label>
           <FormInput
@@ -90,7 +93,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="lastName" className="font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="lastName"
+            className="font-bold text-blue self-start mb-2"
+          >
             {localText.lastName}
           </label>
           <FormInput
@@ -104,7 +110,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="postCode" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="postCode"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.postcode}
           </label>
           <FormInput
@@ -118,7 +127,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="email" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="email"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.email}
           </label>
           <FormInput
@@ -132,7 +144,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="password" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="password"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.password}
           </label>
           <FormInput
@@ -159,25 +174,29 @@ const Register = () => {
               userInfo.language
             )}
           />
-          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">——————</h2>
+          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">
+            ——————
+          </h2>
           <Link to="/login">
-          <p className="text-blue hover:text-blue-dark text-center">
-            {localText.login}
-          </p>
-        </Link>
+            <p className="text-blue hover:text-blue-dark text-center">
+              {localText.login}
+            </p>
+          </Link>
         </div>
         <div className="absolute mx-auto w-full left-0">
-        <img
-          src={humanStanding}
-          alt="background human"
-          className="opacity-10"
-        ></img>
+          <img
+            src={humanStanding}
+            alt="background human"
+            className="opacity-10"
+          ></img>
         </div>
       </form>
       <div
         className={`flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg
         bg-red-500 fixed bottom-5 bg-opacity-90 transition transform-gpu duration-500
-        ${!error && "translate-y-full opacity-0"} h-16 text-white font-bold border-red-dark
+        ${
+          !error && "translate-y-full opacity-0"
+        } h-16 text-white font-bold border-red-dark
         border-solid border-2 text-lg z-20`}
         id="error_board"
       >
