@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { Symptom } from "../../../types";
 import YesNoButtons from "./YesNoButtons";
+import QuestionIcon from "../../../assets/utils/question-alt.svg";
+import TickIcon from "../../../assets/utils/tick-alt.svg";
 
 interface Props {
   symptom: Symptom;
@@ -13,17 +15,15 @@ const QuestionCard = (props: Props) => {
 
   const { getTranslatedText } = useContext(PatientContext)!;
 
-  const localTextUtils = getTranslatedText().utils;
-
   return (
-    <li
-      className={`${
-        symptom.interactedWith
-          ? "bg-blue-superlight"
-          : "bg-transparent border-black"
-      } border border-solid border-transparent mt-5 w-full max-w-2xl rounded-md py-2 px-4`}
+    <div
+      className={`relative ${
+        symptom.interactedWith ? "bg-green-superlight" : "bg-white"
+      } border border-solid border-transparent shadow-md mt-5 w-full max-w-2xl rounded-md p-2 z-10`}
     >
-      <h1 className="text-center font-semibold">{symptom.question}</h1>
+      <h1 className="text-center font-semibold text-gray-700">
+        {symptom.question}
+      </h1>
       <div className="flex justify-center mt-3">
         {symptom.selected ? (
           <YesNoButtons
@@ -39,7 +39,20 @@ const QuestionCard = (props: Props) => {
           />
         )}
       </div>
-    </li>
+      {symptom.interactedWith ? (
+        <img
+          src={TickIcon}
+          alt="background tick"
+          className="absolute left-0 top-1/2 -mt-8 w-20 opacity-10 -z-10"
+        />
+      ) : (
+        <img
+          src={QuestionIcon}
+          alt="background question"
+          className="absolute -left-4 top-1/2 -mt-8 w-20 opacity-10 -z-10"
+        ></img>
+      )}
+    </div>
   );
 };
 
