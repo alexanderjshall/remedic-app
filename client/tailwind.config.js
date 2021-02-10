@@ -95,6 +95,7 @@ module.exports = {
       fill: ["hover", "focus"],
       backgroundColor: ["odd", "even"],
       opacity: ["disabled"],
+      margin: ["last", "first"],
     },
   },
   plugins: [],
