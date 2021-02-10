@@ -10,6 +10,7 @@ import { Transition } from "@headlessui/react";
 import DoctorIcon from "../../../assets/utils/doctor.svg";
 import ServiceIcon from "../../../assets/utils/question.svg";
 import ProfileIcon from "../../../assets/utils/account.svg";
+import PrescriptionIcon from "../../../assets/utils/prescriptions.svg";
 
 interface LandingCards {
   route?: string;
@@ -41,6 +42,7 @@ const PatientLanding = () => {
       bgColorClass: "bg-map-red-500",
       textColor: "white",
       path: "/patient/prescriptions",
+      icon: PrescriptionIcon,
     },
     {
       title: "Services",
