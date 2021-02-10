@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useMutation } from "react-query";
 import { useHistory } from "react-router-dom";
 import {
@@ -8,17 +8,13 @@ import {
 import client from "../../../services/graphqlService";
 import mutations from "../../../services/graphqlService/mutations";
 import FinishTick from "../../../assets/utils/tick.svg";
-import { getTranslatedText } from "../../../services/api.translate";
-import { useAuth } from "../../../Contexts/Auth.context";
 import { Transition } from "@headlessui/react";
 
 const FurtherSymptoms = () => {
-  const [localPatientNotes, setLocalPatientNotes] = useState<string>("");
   const history = useHistory();
   const { getVariables, setConsultationId, changePatientNotes } = useContext(
     ConsultationContext
   )!;
-  const { user } = useAuth();
 
   const createConsultation = useMutation(
     "create consultation",
@@ -35,18 +31,18 @@ const FurtherSymptoms = () => {
     }
   );
 
+  // React.ChangeEvent<HTMLInputElement>
   const handlePatientInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setLocalPatientNotes(e.target.value);
+    changePatientNotes(e.target.value);
   };
 
   const handleNextClick = async (): Promise<void> => {
-    getTranslatedText(localPatientNotes, user!.language, "en").then(
-      (translation) => {
-        changePatientNotes(translation);
-        const variables = getVariables();
-        createConsultation.mutate(variables);
-      }
-    );
+    try {
+      const variables = await getVariables();
+      if (variables) createConsultation.mutate(variables);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -73,6 +69,7 @@ const FurtherSymptoms = () => {
         <textarea
           name="patient input"
           className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text outline-none"
+          id="patient_notes"
           placeholder="Enter Symptoms"
           onChange={handlePatientInput}
         />

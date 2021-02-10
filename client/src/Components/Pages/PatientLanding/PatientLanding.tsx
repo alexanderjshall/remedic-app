@@ -11,6 +11,7 @@ import DoctorIcon from "../../../assets/utils/doctor.svg";
 import ServiceIcon from "../../../assets/utils/question.svg";
 import ProfileIcon from "../../../assets/utils/account.svg";
 import PrescriptionIcon from "../../../assets/utils/prescriptions.svg";
+import { ConsultationContext } from "../../../Contexts/Consultation.context";
 
 interface LandingCards {
   route?: string;
@@ -25,6 +26,7 @@ interface LandingCards {
 const PatientLanding = () => {
   const { logout } = useContext(AuthContext)!; // logout from auth context
   const { getTranslatedText } = useContext(PatientContext)!;
+  const { resetContext } = useContext(ConsultationContext)!;
   const history = useHistory();
   const localText = getTranslatedText().patientLandingTerms;
 
@@ -61,6 +63,7 @@ const PatientLanding = () => {
   ];
 
   const handleLogoutClick = (): void => {
+    resetContext();
     logout();
     history.push("/language");
   };
