@@ -18,7 +18,10 @@ const langEnglishName = (langCode: string) =>
 const SymptomDescriptor = (props: Props) => {
   const { currentConsultation } = props;
   return (
-    <div className="flex flex-col items-center h-full pt-32 mt-2 tablet:justify-center">
+    <div className="flex flex-col items-start h-3/4 tablet:justify-center bg-white shadow-xl rounded-xl mt-32 mx-4 pl-8 overflow-auto">
+      <h1 className="text-2xl font-bold text-blue mb-8 mt-2 text-center w-full">
+        Patient information
+      </h1>
       <h1 className="text-xl font-bold text-blue-dark">
         Pain intensity:
         <span className="text-black">{currentConsultation.painLevel}</span>

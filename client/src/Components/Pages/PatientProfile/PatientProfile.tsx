@@ -106,11 +106,11 @@ function PatientProfile() {
     enterTo="opacity-100"
     className="h-screen relative flex flex-col justify-start items-center w-screen overflow-hidden px-0"
   >
-      <div className="h-5/6 m-0 px-0 py-4 z-10 flex flex-col items-center">
-        <h1 className="text-center text-xl font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1 min-w-full mb-5">
+      <div className="h-5/6 m-1.5 px-0 py-4 z-10 flex flex-col items-center md:w-8/12">
+        <h1 className="text-center text-xl font-extrabold text-blue border border-solid border-black rounded-3xl py-2 px-1 min-w-full mb-5 shadow-lg">
           {translatedText.patientLandingTerms.profile}
         </h1>
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <div className="shadow-xl rounded-xl border border-black border-3 border-opacity-20 p-1 maxHeight-1 max-h-18 mr-4">
             <img src={currentPicture} alt="profile"
               className="block h-16 w-16 object-scale-down"

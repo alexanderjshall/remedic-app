@@ -46,7 +46,7 @@ const DoctorMessageBubble = (props: Props) => {
 
           <div className="flex flex-col justify-around w-full">
             <h3 className="text-opacity-80 text-sm font-light">{name}</h3>
-            <p className="text-m font-bold whitespace-normal w-full break-all	">
+            <p className="text-m font-bold whitespace-normal w-full">
               {content}
             </p>
           </div>
