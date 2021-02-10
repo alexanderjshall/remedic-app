@@ -7,12 +7,17 @@ import { AuthContext } from "../../../Contexts/Auth.context";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { useHistory } from "react-router-dom";
 import { Transition } from "@headlessui/react";
+import DoctorIcon from "../../../assets/utils/doctor.svg";
+import ServiceIcon from "../../../assets/utils/question.svg";
+import ProfileIcon from "../../../assets/utils/account.svg";
+
 interface LandingCards {
   route?: string;
   title: string;
   bgColorClass: string;
   textColor: string;
   path: string;
+  icon: string;
 }
 
 //TODO add routes
@@ -29,18 +34,21 @@ const PatientLanding = () => {
       bgColorClass: "bg-green-dark",
       textColor: "white",
       path: "/consultation/enter_code",
+      icon: DoctorIcon,
     },
     {
       title: "Services",
       bgColorClass: "bg-blue",
       textColor: "white",
       path: "/patient/services",
+      icon: ServiceIcon,
     },
     {
       title: localText.profile,
       bgColorClass: "bg-map-orange-400",
       textColor: "white",
       path: "/patient/profile",
+      icon: ProfileIcon,
     },
   ];
 
@@ -51,13 +59,13 @@ const PatientLanding = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity ease-in-out duration-700"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="h-full w-full relative p-3 overflow-hidden"
-  >
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-full w-full relative p-3 overflow-hidden"
+    >
       <div className="flex items-center justify-center h-28 absolute w-full">
         <img
           src={logoReduced}
@@ -73,6 +81,7 @@ const PatientLanding = () => {
             bgColorClass={card.bgColorClass}
             textColor={card.textColor}
             path={card.path}
+            icon={card.icon}
           />
         ))}
       </div>

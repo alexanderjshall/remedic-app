@@ -35,7 +35,7 @@ const FurtherSymptoms = () => {
     }
   );
 
-  const handlePatientInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePatientInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setLocalPatientNotes(e.target.value);
   };
 
@@ -51,13 +51,13 @@ const FurtherSymptoms = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity delay-75 ease-in-out duration-500"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="flex flex-col justify-center items-center h-screen overflow-y-scroll"
-  >
+      appear={true}
+      show={true}
+      enter="transition-opacity delay-75 ease-in-out duration-500"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="flex flex-col justify-center items-center h-screen overflow-y-scroll"
+    >
       <div className="h-24 w-full flex flex-col justify-between items-center pt-4 pb-2 bg-green">
         <h1 className="text-center font-bold text-xl bg-white text-green py-1 px-2">
           Further Information
@@ -70,10 +70,9 @@ const FurtherSymptoms = () => {
         <label htmlFor="patient input" hidden={true}>
           Enter additional symptoms here
         </label>
-        <input
-          type="text"
+        <textarea
           name="patient input"
-          className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text"
+          className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text outline-none"
           placeholder="Enter Symptoms"
           onChange={handlePatientInput}
         />
