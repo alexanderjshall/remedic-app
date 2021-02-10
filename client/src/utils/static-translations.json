@@ -2221,10 +2221,10 @@
     "loginAndRegisterTerms": {
       "login": "Iniciar sesión",
       "email": "Email",
-      "emailAddress": "Dirección de correo electrónico",
+      "emailAddress": "Correo electrónico",
       "password": "Contraseña",
       "register": "Registrarse",
-      "firstName": "Primer nombre",
+      "firstName": "Nombre",
       "lastName": "Apellido",
       "postcode": "Código postal",
       "errorMessage": "Algo salió mal",
@@ -2234,26 +2234,26 @@
       "startConsultation": "Iniciar consulta",
       "profile": "Perfil",
       "logout": "Cerrar sesión",
-      "prescriptions": "Prescripciones",
+      "prescriptions": "Recetas",
       "services": "Servicios"
     },
     "enterCodeTerms": {
       "askAtReception": "Pregunte en recepción por el código",
       "enterDoctorCode": "Ingrese el código de su médico",
       "lengthError": "7 números esperados",
-      "invalidCode": "Codigo invalido"
+      "invalidCode": "Código inválido"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Preguntas generales",
-      "good": "Bueno",
-      "notGood": "No está bien",
-      "bad": "Malo",
+      "good": "Bien",
+      "notGood": "No muy bien",
+      "bad": "Mal",
       "inPain": "En dolor",
-      "sleeping": "¿Duermes mal?",
-      "eating": "¿Estás comiendo mal?",
-      "highTemperature": "¿Tiene fiebre alta?",
+      "sleeping": "¿Duerme usted mal?",
+      "eating": "¿Está usted comiendo mal?",
+      "highTemperature": "¿Tiene fiebre?",
       "medications": "¿Estás tomando alguna medicación?",
-      "smoke": "¿Fumas?",
+      "smoke": "¿Fuma usted?",
       "painLevel": "Nivel de dolor"
     },
     "physicalSymptomsTerms": {
@@ -2264,7 +2264,7 @@
       "clickOnSymptom": "Haga clic en donde tenga un síntoma",
       "Head": {
         "cough": "Tos",
-        "dizzy": "Mareado",
+        "dizzy": "Mareo",
         "hairLoss": "Perdida de cabello",
         "headache": "Dolor de cabeza",
         "noseBleeding": "Hemorragia nasal",
@@ -2280,7 +2280,7 @@
         "elbowPain": "Dolor de codo",
         "handPain": "Dolor de manos",
         "armPain": "Dolor en el brazo",
-        "armRash": "Erupción del brazo"
+        "armRash": "Erupción en el brazo"
       },
       "Body": {
         "backPain": "Dolor de espalda",
@@ -2288,7 +2288,7 @@
         "constipation": "Estreñimiento",
         "stomachCramps": "Calambres en el estómago",
         "bodyRash": "Erupción corporal",
-        "shaking": "Sacudida",
+        "shaking": "Temblores",
         "stomachPain": "Dolor de estómago",
         "heartRate": "Frecuencia cardíaca rápida"
       },
@@ -2303,28 +2303,28 @@
     },
     "psychSymptomsTerms": {
       "psychSymptoms": "Síntomas psicológicos",
-      "sad": "¿Te sientes triste o deprimido?",
-      "anxious": "¿Te sientes ansioso a menudo?",
+      "sad": "¿Se siente triste o deprimido?",
+      "anxious": "¿Se siente ansioso a menudo?",
       "mood": "¿Tiene cambios de humor extremos?",
       "stress": "¿Se siente incapaz de hacer frente al estrés?",
       "drug": "¿Tiene un problema de abuso de alcohol o drogas?",
       "concentration": "¿Se siente menos capaz de concentrarse?",
       "undestanding": "¿Tiene problemas para comprender situaciones o personas?",
-      "paranoia": "¿Estás experimentando paranoia?"
+      "paranoia": "¿Está usted experimentando paranoia?"
     },
     "confirmationPage": {
-      "thankYou": "Gracias por enviar",
-      "doctorHereShortly": "Tu médico estará aquí en breve"
+      "thankYou": "Gracias",
+      "doctorHereShortly": "Su médico estará aquí en breve"
     },
     "profilePage": {
       "edit": "Editar",
-      "save": "Salvar",
+      "save": "Guardar",
       "cancel": "Cancelar",
       "changePicture": "Cambiar imagen",
       "saveAndClose": "Guardar y cerrar"
     },
     "patientPrescription": {
-      "yourPrescriptions": "Tus recetas",
+      "yourPrescriptions": "Sus recetas",
       "medicine": "Medicamento",
       "dose": "Dosis",
       "frequency": "Frecuencia",
@@ -2333,15 +2333,15 @@
     },
     "patientNotes": {
       "furtherInfo": "Más información",
-      "fillInSymptoms": "Complete cualquier síntoma e información adicionales",
+      "fillInSymptoms": "Añada cualquier síntoma e información adicionales",
       "enterSymptoms": "Ingrese los síntomas",
       "finish": "Terminar"
     },
     "feedbackTerms": {
       "end": "Su consulta ha finalizado",
-      "rate": "Califica tu experiencia"
+      "rate": "Valore su experiencia"
     },
-    "chat": { "startMessaging": "Iniciar mensajería" },
+    "chat": { "startMessaging": "Escriba su mensaje" },
     "servicesPage": {
       "localServices": "Servicios locales",
       "translateTerms": "Traducir términos",
@@ -2358,7 +2358,7 @@
       }
     },
     "utils": {
-      "yes": "si",
+      "yes": "Sí",
       "no": "No",
       "next": "Siguiente",
       "end": "Fin",
