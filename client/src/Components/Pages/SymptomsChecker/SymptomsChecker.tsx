@@ -8,7 +8,7 @@ import facePain from "../../../assets/utils/face-pain.svg";
 import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
-import { Transition } from "@headlessui/react";
+import { Transition } from "@headlessui/react"
 import LogoReduced from "../../../assets/logos/logo-reduced.svg";
 
 interface PainLevel {
@@ -130,7 +130,7 @@ const SymptomsChecker = () => {
       <img
         src={LogoReduced}
         alt="background logo"
-        className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl"
+        className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl md:top-1/3"
       />
     </Transition>
   );
