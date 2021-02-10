@@ -30,6 +30,7 @@ module.exports = {
         4: "4rem",
         textarea: "70vh",
         "3/4": "75%",
+        "1/2": "50%",
       },
       maxHeight: {
         1: "1rem",
@@ -94,6 +95,7 @@ module.exports = {
       fill: ["hover", "focus"],
       backgroundColor: ["odd", "even"],
       opacity: ["disabled"],
+      margin: ["last", "first"],
     },
   },
   plugins: [],

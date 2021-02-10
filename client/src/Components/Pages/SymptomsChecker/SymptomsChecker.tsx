@@ -102,7 +102,7 @@ const SymptomsChecker = () => {
                 key={i}
                 onClick={() => togglePainLevelClick(pL)}
               >
-                <img src={pL.img} alt={pL.label} className="w-8" />
+                <img src={pL.img} alt={pL.label} className="w-8 stroke-2" />
                 <h2 className="mt-2 font-bold text-sm text-center">
                   {pL.label}
                 </h2>

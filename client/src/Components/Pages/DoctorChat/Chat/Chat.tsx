@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import OKButton from "../../../Globals/OKButton/OKButton";
 
 import DoctorMessageBubble from "../../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../../ConsultationChat/MessageBubbles/PatientMessageBubble";
@@ -38,16 +37,13 @@ const Chat = (props: Props) => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full pt-32 w-full">
-      <div className="flex-grow overflow-auto flex flex-col mx-6 shadow-2xl rounded-xl pb-3">
-        {!messages ? (
-          <div>
-            <h1 className="text-center font-bold text-lg text-opacity-75">
+    <div className="flex flex-col h-full w-full pt-32">
+      <div className="flex-grow overflow-auto flex flex-col mx-6 rounded-t-xl shadow-2xl pb-3 bg-white">
+        {messages.length === 0 ? (
+            <h1 className="text-center font-bold text-lg text-blue mt-8 text-opacity-75 flex-grow">
               Start chatting with {patientFullName}
             </h1>
-          </div>
         ) : null}
-
         {messages &&
           messages.map((message, idx) =>
             message.isAuthor ? (
@@ -56,14 +52,14 @@ const Chat = (props: Props) => {
               <PatientMessageBubble message={message} key={idx} />
             )
           )}
-        <div ref={chatBottom} className="h-12"></div>
+        <div ref={chatBottom} className="h-4"></div>
       </div>
       <form
-        className="flex justify-center items-center p-2 bg-white w-full tablet:mb-24"
+        className="flex justify-center items-center bg-white rounded-b-xl mx-6 shadow-2xl mb-8 px-4 pb-2 z-10"
         onSubmit={sendMessage}
       >
         <label hidden htmlFor="chat input" />
-        <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100 mt-8">
+        <div className="w-full flex rounded-lg border-blue border-2 border-solid focus:border-blue-dark bg-gray-100 mx-6">
           <input
             type="text"
             name="chat input"

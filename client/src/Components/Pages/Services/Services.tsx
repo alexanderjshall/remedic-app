@@ -33,7 +33,7 @@ const Services = () => {
       )}
 
       <div
-        className={`h-14 bg-blue w-full grid grid-cols-${services.length} font-bold`}
+        className={`h-14 bg-blue w-full grid grid-cols-${services.length} font-bold cursor-pointer`}
       >
         {services.map((service, idx) => (
           <div
