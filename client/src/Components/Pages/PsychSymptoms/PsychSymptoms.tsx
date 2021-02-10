@@ -67,7 +67,7 @@ const PsychSymptoms = () => {
         <img
           src={LogoReduced}
           alt="background logo"
-          className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl"
+          className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl md:top-1/3"
         />
       </ul>
     </Transition>
