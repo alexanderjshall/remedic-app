@@ -131,7 +131,7 @@ const LocalServices = () => {
     }
   }, [postcode]);
 
-  const handleFilterToggle = (selectedFilter: Filter) => {
+  const handleFilterToggle = (selectedFilter: Filter): void => {
     const changedFilters = filters.map((filter) => {
       if (filter.code === selectedFilter.code)
         filter.selected = !filter.selected;
