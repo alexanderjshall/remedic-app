@@ -23,14 +23,15 @@ function PatientCard(props: Props) {
     ? "bg-blue hover:bg-blue-dark"
     : "bg-green hover:bg-green-light";
   const textColor = props.isEven ? "text-white" : "text-black";
-  const info = "flex flex-col";
+  const info =
+    "flex tablet:flex-col justify-between w-full tablet:items-center tablet:mb-2";
   const infoData = "flex justify-evenly items-center";
 
   return (
-    <div className={`${cardClasses} ${bgColor} ${textColor}`}>
+    <div className={`${cardClasses} ${bgColor} ${textColor} my-4`}>
       <div className={info}>
         <h3 className="font-semibold">Name</h3>
-        <p>{patientName}</p>
+        <p className="">{patientName}</p>
       </div>
       <div className={info}>
         <h3 className="font-semibold">Waiting for</h3>
