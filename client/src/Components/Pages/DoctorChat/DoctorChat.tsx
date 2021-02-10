@@ -5,6 +5,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 import { useDrContext } from "../../../Contexts/Doctor.context";
 import { useHistory } from "react-router-dom";
+import DoctorPrescriptions from "./DoctorPrescriptions";
 import SymptomDescriptor from "./SymptomDescriptor/SymptomDescriptor";
 
 // Import Swiper styles
@@ -12,15 +13,21 @@ import "swiper/swiper-bundle.css";
 import DoctorNotes from "./DoctorNotes/DoctorNotes";
 import Chat from "./Chat/Chat";
 
-const DoctorChat = () => {
+
+
+  const DoctorChat = () => {
+
+  const [showPrescriptions, setShowPrescriptions] = useState<boolean>(false)
+
   const {
     currentConsultation,
     editConsultation,
     doctorNotes,
     setDoctorNotes,
+    prescriptions,
+    setPrescriptions
   } = useDrContext();
   const history = useHistory();
-  const [currentMsg, setCurrentMsg] = useState<string>("");
 
   const patientFullName = `${currentConsultation!.patientId.firstName} ${
     currentConsultation!.patientId.lastName
@@ -44,6 +51,12 @@ const DoctorChat = () => {
 
   return (
     <>
+      {showPrescriptions &&
+      <DoctorPrescriptions
+        close={()=>setShowPrescriptions(false)}
+        prescriptions={prescriptions}
+        setPrescriptions={setPrescriptions}
+      />}
       <div className="w-full fixed h-20 bg-blue-light top-0 left-0 flex items-center justify-center z-10">
         <h1 className="font-bold text-2xl text-white-ghost">
           {patientFullName}
@@ -58,7 +71,7 @@ const DoctorChat = () => {
           },
         }}
         grabCursor={true}
-        className="h-full"
+        className="h-full bg-white-dark"
         spaceBetween={40}
         slidesPerView={1}
         navigation={{
@@ -76,6 +89,7 @@ const DoctorChat = () => {
             doctorNotes={doctorNotes}
             setDoctorNotes={setDoctorNotes}
             endConsultation={endConsultation}
+            setShowPrescriptions={setShowPrescriptions}
           />
         </SwiperSlide>
         <SwiperSlide>
