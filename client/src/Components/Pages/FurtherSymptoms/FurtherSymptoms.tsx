@@ -12,7 +12,9 @@ import { Transition } from "@headlessui/react";
 
 const FurtherSymptoms = () => {
   const history = useHistory();
-  const { getVariables, setConsultationId, changePatientNotes } = useContext(ConsultationContext)!;
+  const { getVariables, setConsultationId, changePatientNotes } = useContext(
+    ConsultationContext
+  )!;
 
   const createConsultation = useMutation(
     "create consultation",
@@ -38,21 +40,20 @@ const FurtherSymptoms = () => {
     try {
       const variables = await getVariables();
       if (variables) createConsultation.mutate(variables);
-      
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   };
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity delay-75 ease-in-out duration-500"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="flex flex-col justify-center items-center h-screen overflow-y-scroll"
-  >
+      appear={true}
+      show={true}
+      enter="transition-opacity delay-75 ease-in-out duration-500"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="flex flex-col justify-center items-center h-screen overflow-y-scroll"
+    >
       <div className="h-24 w-full flex flex-col justify-between items-center pt-4 pb-2 bg-green">
         <h1 className="text-center font-bold text-xl bg-white text-green py-1 px-2">
           Further Information
@@ -67,8 +68,8 @@ const FurtherSymptoms = () => {
         </label>
         <textarea
           name="patient input"
+          className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text outline-none"
           id="patient_notes"
-          className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text"
           placeholder="Enter Symptoms"
           onChange={handlePatientInput}
         />

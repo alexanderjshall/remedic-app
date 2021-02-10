@@ -9,6 +9,8 @@ import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 import { Transition } from "@headlessui/react";
+import LogoReduced from "../../../assets/logos/logo-reduced.svg";
+
 interface PainLevel {
   label: string;
   img: string;
@@ -74,25 +76,27 @@ const SymptomsChecker = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity ease-in-out duration-700"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="h-screen overflow-hidden flex flex-col"
-  >
-      <div className="h-16 top-0 whitespace-nowrap w-screen py-4 bg-green-light">
-        <h1 className="font-bold text-xl text-center">
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-screen relative overflow-hidden flex flex-col items-center"
+    >
+      <div className="h-16 py-3 whitespace-nowrap w-screen max-w-2xl w-2xl">
+        <h1 className="text-center font-extrabold text-blue border border-l-0 border-r-0 border-blue py-2 px-1">
           {localText.generalQuestions}
         </h1>
       </div>
-      <ul className="w-full  overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">
-        <h1 className="text-center font-bold text-2xl">Pain level:</h1>
+      <div className="w-full overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">
+        <h1 className="text-center font-bold text-2xl text-green-dark">
+          Pain level:
+        </h1>
         <div className="grid grid-cols-4 w-full gap-2 pt-4">
           {painLevels &&
             painLevels.map((pL, i) => (
-              <li
-                className={`flex flex-col items-center p-1 justify-center ${
+              <div
+                className={`flex flex-col items-center p-1 justify-between ${
                   pL.selected && "bg-green"
                 }`}
                 key={i}
@@ -102,7 +106,7 @@ const SymptomsChecker = () => {
                 <h2 className="mt-2 font-bold text-sm text-center">
                   {pL.label}
                 </h2>
-              </li>
+              </div>
             ))}
         </div>
         {generalSymptoms &&
@@ -122,7 +126,12 @@ const SymptomsChecker = () => {
             text={localTextUtils.next}
           />
         </div>
-      </ul>
+      </div>
+      <img
+        src={LogoReduced}
+        alt="background logo"
+        className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl"
+      />
     </Transition>
   );
 };

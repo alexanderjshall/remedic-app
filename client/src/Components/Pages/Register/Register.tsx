@@ -42,7 +42,7 @@ const Register = () => {
   }, [history]);
 
   const updateInput = (inputName: string, value: string) => {
-    setError(false)
+    setError(false);
     setUserInfo({ ...userInfo, [inputName]: value });
   };
 
@@ -61,22 +61,25 @@ const Register = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity ease-in-out duration-700"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4"
-  >
-      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5 text-center mt-8">
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min tablet:justify-start"
+    >
+      <h2 className="text-4xl bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent tablet:text-5xl font-bold px-6 pb-5 tablet:py-10 text-center tablet:mt-8">
         {localText.register}
       </h2>
       <form
-        className="relative bg-white flex flex-col shadow-lg rounded-lg w-5/6 p-12 gap-y-6 tablet:h-full"
+        className="relative bg-white flex flex-col shadow-lg rounded-lg w-5/6 px-12 py-4 gap-y-2 tablet:gap-y-6 tablet:h-full tablet:p-12"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="firstName" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="firstName"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.firstName}
           </label>
           <FormInput
@@ -90,7 +93,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="lastName" className="font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="lastName"
+            className="font-bold text-blue self-start mb-2"
+          >
             {localText.lastName}
           </label>
           <FormInput
@@ -104,7 +110,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="postCode" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="postCode"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.postcode}
           </label>
           <FormInput
@@ -118,7 +127,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="email" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="email"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.email}
           </label>
           <FormInput
@@ -132,7 +144,10 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col w-full items-center z-10">
-          <label htmlFor="password" className=" font-bold text-blue self-start mb-2">
+          <label
+            htmlFor="password"
+            className=" font-bold text-blue self-start mb-2"
+          >
             {localText.password}
           </label>
           <FormInput
@@ -159,25 +174,29 @@ const Register = () => {
               userInfo.language
             )}
           />
-          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">——————</h2>
+          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">
+            ——————
+          </h2>
           <Link to="/login">
-          <p className="text-blue hover:text-blue-dark text-center">
-            {localText.login}
-          </p>
-        </Link>
+            <p className="text-blue hover:text-blue-dark text-center">
+              {localText.login}
+            </p>
+          </Link>
         </div>
         <div className="absolute mx-auto w-full left-0">
-        <img
-          src={humanStanding}
-          alt="background human"
-          className="opacity-10"
-        ></img>
+          <img
+            src={humanStanding}
+            alt="background human"
+            className="opacity-10"
+          ></img>
         </div>
       </form>
       <div
         className={`flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg
         bg-red-500 fixed bottom-5 bg-opacity-90 transition transform-gpu duration-500
-        ${!error && "translate-y-full opacity-0"} h-16 text-white font-bold border-red-dark
+        ${
+          !error && "translate-y-full opacity-0"
+        } h-16 text-white font-bold border-red-dark
         border-solid border-2 text-lg z-20`}
         id="error_board"
       >
@@ -186,7 +205,7 @@ const Register = () => {
       <img
         src={logoReduced}
         alt="background logo"
-        className="absolute w-24 top-5 opacity-10 left-1/2 transform-gpu -translate-x-1/2"
+        className="absolute tablet:w-24 w-20 top-0 tablet:top-10 opacity-10 left-1/2 transform-gpu -translate-x-1/2"
       ></img>
     </Transition>
   );

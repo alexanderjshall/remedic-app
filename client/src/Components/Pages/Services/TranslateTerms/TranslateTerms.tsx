@@ -9,6 +9,7 @@ import { getNHSTermInformation } from "../../../../services/api.nhs";
 import { getTranslatedText } from "../../../../services/api.translate";
 import Spinner from "../../../Globals/Spinner/Spinner";
 import DownArrow from "../../../../assets/utils/down-arrow-black.svg";
+import SearchIcon from "../../../../assets/background-images/loupe.svg";
 
 interface TranslateOptions {
   inputLangName: string;
@@ -181,7 +182,7 @@ const TranslateTerms = () => {
         onSubmit={handleFormSubmit}
       >
         <h1 className="text-center font-extrabold text-blue border border-solid border-blue w-full py-2 px-1">
-          Translate a term
+          Translate Medical Term
         </h1>
         <div className="font-bold w-full grid min-h-24 grid-cols-2">
           {translations.map((t, idx) => (
@@ -217,28 +218,40 @@ const TranslateTerms = () => {
           onClick={handleSubmitSearchTerm}
         />
       </form>
-      <div className="flex-grow w-full flex justify-center items-center p-6">
+      <div className="relative flex-grow w-full flex justify-center items-center p-6">
         {isFetching && <Spinner size={16} />}
         {displayTerm && displayTerm.searchName.length > 0 && (
-          <div className="bg-map-blue-50 shadow-xl rounded-2xl w-full max-w-2xl h-full p-4 flex flex-col items-center justify-between overflow-y-scroll">
-            <h1 className="font-bold text-green-dark text-center">
+          <div className="bg-map-blue-50 shadow-xl rounded-2xl w-full max-w-2xl h-full p-4 flex flex-col items-center justify-between overflow-y-scroll overflow-x-hidden">
+            <h1 className="font-bold text-green-dark text-center z-10">
               {displayTerm.searchName}
             </h1>
             <img src={DownArrow} alt="to" className="w-6"></img>
-            <h1 className="w-content bg-green-dark text-white font-bold py-1 px-4 text-xl">
+            <h1 className="w-content bg-green-dark text-white font-bold py-1 px-4 text-xl z-10">
               {displayTerm.translatedName.length > 0 &&
                 displayTerm.translatedName}
             </h1>
-            <p className="text-center">{displayTerm.description}</p>
-            <a className="text-blue-dark" href={displayTerm.url}>
+            <p className="text-center z-10 font-semibold text-gray-800">
+              {displayTerm.description}
+            </p>
+            <a className="text-blue-dark text-center z-10 break-all" href={displayTerm.url}>
               {displayTerm.url}
             </a>
+            <img
+              src={SearchIcon}
+              className="absolute top-1/2 left-1/2 -mt-32 -ml-32 w-48 opacity-5"
+            ></img>
           </div>
         )}
         {queryError && (
           <h1 className="bg-map-red-200 w-content px-3 py-2 text-map-red-800 rounded-full">
             Phrase Not Found
           </h1>
+        )}
+        {!queryError && !displayTerm && !isFetching && (
+          <img
+            src={SearchIcon}
+            className="absolute top-1/2 left-1/2 -mt-16 -ml-16 w-32 opacity-20"
+          ></img>
         )}
       </div>
     </div>

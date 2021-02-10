@@ -13,24 +13,14 @@ import {
   serviceBGColors,
 } from "../../../../utils/NhsServices";
 import MapHomeIcon from "../../../Globals/MapHomeIcon/MapHomeIcon";
+import TapIcon from "../../../../assets/utils/tap.svg";
+import NHSIcon from "../../../../assets/background-images/NHS-Logo (1).svg";
+import HospitalIcon from "../../../../assets/background-images/hospital.svg";
 
 interface Coordinates {
   lat: number;
   lng: number;
 }
-
-//lat lng
-//OrganisationName
-// OrganisationTypeID
-// "Address1": "53 Circuit Lane",
-//  "Address2": null,
-//  "Postcode": null,
-//  "City": "Reading",
-//  "County": null,
-//  "Latitude": 51.442909240722656,
-//       "Longitude": -1.00676691532135,
-//       "Postcode": "RG30 3AN",
-//"URL": "http://www.berkshireindependenthospital.co.uk",
 
 interface QueryService {
   Latitude: number;
@@ -127,16 +117,16 @@ const LocalServices = () => {
             </div>
           </div>
           {/* Practice Display */}
-          <div className="flex-grow flex justify-center items-center p-3">
+          <div className="relative flex-grow flex justify-center items-center p-3">
             {currentPractice && Object.keys(currentPractice).length > 0 ? (
-              <div className="h-full w-full max-w-xl max-h-64 flex flex-col p-3 shadow-2xl rounded-3xl overflow-y-scroll">
+              <div className="relative h-full w-full max-w-xl max-h-64 flex flex-col p-3 shadow-2xl rounded-3xl overflow-y-scroll">
                 <h1 className="text-sm pl-2">
                   {IDToServiceName(currentPractice.OrganisationTypeID)}
                 </h1>
                 <h1
                   className={`${
                     serviceBGColors[currentPractice.OrganisationTypeID]
-                  } px-2 py-1 w-max max-w-full rounded-md text-white font-bold text-xl`}
+                  } px-2 py-1 w-max max-w-full rounded-md text-white font-bold text-xl z-10`}
                 >
                   {currentPractice.OrganisationName}
                 </h1>
@@ -160,14 +150,27 @@ const LocalServices = () => {
                 <hr></hr>
                 {currentPractice.URL && (
                   <a
-                    className="pl-2 text-blue hover:text-underline"
+                    className="pl-2 text-blue hover:text-underline break-all"
                     href={currentPractice.URL}
                   >
                     {currentPractice.URL}
                   </a>
                 )}
+                <img
+                  src={NHSIcon}
+                  className="absolute top-4 w-24 right-4 opacity-20"
+                />
+                <img
+                  src={HospitalIcon}
+                  className="absolute bottom-4 w-16 right-4 opacity-20"
+                />
               </div>
-            ) : null}
+            ) : (
+              <img
+                src={TapIcon}
+                className="h-24 opacity-30 animate-pulse"
+              ></img>
+            )}
           </div>
         </div>
       </div>
