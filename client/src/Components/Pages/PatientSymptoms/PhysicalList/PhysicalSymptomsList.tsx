@@ -14,14 +14,16 @@ const PhysicalSymptomsList = (props: Props) => {
     ConsultationContext
   )!;
   const { getTranslatedText } = useContext(PatientContext)!;
-  const localText = getTranslatedText().physicalSymptomsTerms[area];
+  const localText = getTranslatedText().physicalSymptomsTerms;
+
+  const localAreaName = localText[area.toLowerCase()];
 
   const areaSymptoms = physicalSymptoms
     .filter((symptom) => {
       return area === symptom.area;
     })
     .map((symptom) => {
-      symptom.translation = localText[symptom.id!]; //!
+      symptom.translation = localText[area][symptom.id!];
       return symptom;
     });
 
@@ -38,7 +40,7 @@ const PhysicalSymptomsList = (props: Props) => {
           <img src={backArrow} alt="back" className="w-12 text-white" />
         </div>
         <h1 className="font-extrabold text-2xl bg-white text-green px-2 py-1">
-          {area}
+          {localAreaName}
         </h1>
       </div>
       <div className="flex-grow px-3 py-3 overflow-y-scroll z-10">

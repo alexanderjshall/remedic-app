@@ -111,7 +111,7 @@ const PatientLanding = () => {
           className="px-8 py-2 text-white border border-white rounded-xl border-solid font-extrabold text-xl focus:bg-white focus:text-blue"
           onClick={() => handleLogoutClick()}
         >
-          Logout
+          {localText.logout}
         </button>
       </div>
     </Transition>

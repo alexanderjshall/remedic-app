@@ -6,7 +6,7 @@ import FormInput from "../../../Globals/FormInput/FormInput";
 import OKButton from "../../../Globals/OKButton/OKButton";
 import RightArrow from "../../../../assets/utils/right-arrow-black.svg";
 import { getNHSTermInformation } from "../../../../services/api.nhs";
-import { getTranslatedText } from "../../../../services/api.translate";
+import { getTranslatedText as getNHSTranslatedText} from "../../../../services/api.translate";
 import Spinner from "../../../Globals/Spinner/Spinner";
 import DownArrow from "../../../../assets/utils/down-arrow-black.svg";
 import SearchIcon from "../../../../assets/background-images/loupe.svg";
@@ -36,8 +36,8 @@ interface DisplayTranslation {
 
 const TranslateTerms = () => {
   const { user } = useAuth(); // user from AuthContext
-  const translatedText = useContext(PatientContext)?.getTranslatedText();
-  const localText = translatedText.translatePage;
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const localText = getTranslatedText().servicesPage.translatePage;
 
   const patientLanguage: SupportedLanguage = supportedLanguages.languages.find(
     (sL) => sL.langCode === user?.language
@@ -109,14 +109,14 @@ const TranslateTerms = () => {
     try {
       if (translationParams?.inputLangCode === "en") {
         queryInEnglish = searchTerm;
-        queryTranslated = await getTranslatedText(
+        queryTranslated = await getNHSTranslatedText(
           searchTerm,
           translationParams!.inputLangCode,
           translationParams!.outputLangCode
         );
       } else {
         queryTranslated = searchTerm;
-        queryInEnglish = await getTranslatedText(
+        queryInEnglish = await getNHSTranslatedText(
           searchTerm,
           translationParams!.inputLangCode,
           translationParams!.outputLangCode
@@ -142,7 +142,7 @@ const TranslateTerms = () => {
     // translate description
     let translatedDescription: string;
     try {
-      translatedDescription = await getTranslatedText(
+      translatedDescription = await getNHSTranslatedText(
         nhsData.description,
         "en",
         user!.language

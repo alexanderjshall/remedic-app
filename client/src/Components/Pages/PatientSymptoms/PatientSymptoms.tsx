@@ -21,7 +21,7 @@ const PatientSymptoms = (props: Props) => {
 
   const history = useHistory(); // Browser Router History
 
-  const handleBodyPartClick = (newView: string): void => setView(localText[newView]);
+  const handleBodyPartClick = (newView: string): void => setView(newView)
 
   const handleBackArrowClick = (): void => setView("Main");
 

@@ -74,7 +74,7 @@ const FurtherSymptoms = () => {
           name="patient input"
           className="bg-gray-200 focus:ring-2 flex self-start p-8 align-top rounded-3xl border-2 focus:border-solid focus:border-blue w-full h-full font-xl font-semibold cursor-text outline-none"
           id="patient_notes"
-          placeholder="Enter Symptoms"
+          placeholder={localText.enterSymptoms}
           onChange={handlePatientInput}
         />
       </div>
