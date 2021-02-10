@@ -18,11 +18,7 @@ function PatientCard(props: Props) {
   );
 
   const cardClasses =
-<<<<<<< HEAD
     "flex justify-center items-center shadow-xl rounded-lg mt-8 bg-white py-2 px-4 w-full transition duration-500 text-left flex-wrap my-4";
-=======
-    "flex flex-col md:flex-row justify-between items-center shadow-xl rounded-lg my-4 bg-white py-2 px-4 w-full transition duration-500 text-left flex-wrap";
->>>>>>> a14925a5a69f82c40908b86e4328309817840fde
   const bgColor = props.isEven
     ? "bg-blue hover:bg-blue-dark"
     : "bg-green hover:bg-green-light";
