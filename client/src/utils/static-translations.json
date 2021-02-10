@@ -65,7 +65,7 @@
         "stress": "هل تشعر أنك غير قادر على التعامل مع التوتر؟",
         "drug": "هل لديك مشكلة مع الكحول أو تعاطي المخدرات؟",
         "concentration": "هل تشعر أنك أقل قدرة على التركيز؟",
-        "undestanding": "هل تجد صعوبة في فهم المواقف أو الأشخاص؟",
+        "understanding": "هل تجد صعوبة في فهم المواقف أو الأشخاص؟",
         "paranoia": "هل تعاني من جنون العظمة؟"
       },
       "Arms": {
@@ -250,7 +250,7 @@
       "stress": "আপনি কি মানসিক চাপ সহ্য করতে অক্ষম বোধ করেন?",
       "drug": "অ্যালচোহল বা মাদক সেবন নিয়ে আপনার কি সমস্যা আছে?",
       "concentration": "আপনি কি মনোনিবেশ করতে কম বোধ করেন?",
-      "undestanding": "আপনার কি পরিস্থিতি বা লোক বুঝতে সমস্যা হয়?",
+      "understanding": "আপনার কি পরিস্থিতি বা লোক বুঝতে সমস্যা হয়?",
       "paranoia": "আপনি কি প্যারানিয়া অনুভব করছেন?"
     },
     "patientNotes": {
@@ -383,7 +383,7 @@
       "stress": "您感到无法应付压力吗？",
       "drug": "您对酒精或药物滥用有疑问吗？",
       "concentration": "你会集中精神吗？",
-      "undestanding": "您在了解情况或人员时遇到困难吗？",
+      "understanding": "您在了解情况或人员时遇到困难吗？",
       "paranoia": "您有妄想症吗？"
     },
     "profilePage": {
@@ -528,7 +528,7 @@
       "stress": "Do you feel unable to cope with stress?",
       "drug": "Do you have a problem with alchohol or drug abuse?",
       "concentration": "Do you feel less able to concentrate?",
-      "undestanding": "Do you have trouble understanding situations or people?",
+      "understanding": "Do you have trouble understanding situations or people?",
       "paranoia": "Are you experiencing paranoia?"
     },
     "profilePage": {
@@ -678,7 +678,7 @@
       "stress": "Vous sentez-vous incapable de faire face au stress?",
       "drug": "Avez-vous un problème d'abus d'alcool ou de drogue?",
       "concentration": "Vous sentez-vous moins capable de vous concentrer?",
-      "undestanding": "Avez-vous du mal à comprendre les situations ou les gens?",
+      "understanding": "Avez-vous du mal à comprendre les situations ou les gens?",
       "paranoia": "Êtes-vous paranoïa?"
     },
     "profilePage": {
@@ -842,7 +842,7 @@
       "stress": "Fühlen Sie sich unfähig, mit Stress umzugehen?",
       "drug": "Haben Sie ein Problem mit Alkohol oder Drogenmissbrauch?",
       "concentration": "Fühlen Sie sich weniger konzentriert?",
-      "undestanding": "Haben Sie Probleme, Situationen oder Menschen zu verstehen?",
+      "understanding": "Haben Sie Probleme, Situationen oder Menschen zu verstehen?",
       "paranoia": "Erlebst du Paranoia?"
     },
     "feedbackTerms": {
@@ -976,7 +976,7 @@
       "stress": "શું તમે તણાવનો સામનો કરવામાં અસમર્થ છો?",
       "drug": "શું તમને અલ્કોહોલ અથવા ડ્રગના ઉપયોગમાં કોઈ સમસ્યા છે?",
       "concentration": "શું તમે ધ્યાન કેન્દ્રિત કરવા માટે ઓછા સક્ષમ છો?",
-      "undestanding": "શું તમને પરિસ્થિતિ અથવા લોકોને સમજવામાં તકલીફ છે?",
+      "understanding": "શું તમને પરિસ્થિતિ અથવા લોકોને સમજવામાં તકલીફ છે?",
       "paranoia": "શું તમે પેરાનોઇઝાનો અનુભવ કરી રહ્યાં છો?"
     },
     "feedbackTerms": {
@@ -1124,7 +1124,7 @@
       "stress": "Ti senti incapace di far fronte allo stress?",
       "drug": "Hai un problema con l&#39;alcol o l&#39;abuso di droghe?",
       "concentration": "Ti senti meno in grado di concentrarti?",
-      "undestanding": "Hai difficoltà a capire le situazioni o le persone?",
+      "understanding": "Hai difficoltà a capire le situazioni o le persone?",
       "paranoia": "Stai vivendo la paranoia?"
     },
     "profilePage": {
@@ -1272,7 +1272,7 @@
       "stress": "Vai jūs jūtaties nespējīgs tikt galā ar stresu?",
       "drug": "Vai jums ir problēmas ar alkohola vai narkotiku lietošanu?",
       "concentration": "Vai jūs jūtaties mazāk spējīgs koncentrēties?",
-      "undestanding": "Vai jums ir grūtības izprast situācijas vai cilvēkus?",
+      "understanding": "Vai jums ir grūtības izprast situācijas vai cilvēkus?",
       "paranoia": "Vai jūs piedzīvojat paranoju?"
     },
     "feedbackTerms": {
@@ -1420,7 +1420,7 @@
       "stress": "Ar jaučiatės nesusitvarkęs su stresu?",
       "drug": "Ar turite problemų dėl alkoholio ar piktnaudžiavimo narkotikais?",
       "concentration": "Ar jaučiatės mažiau susikaupęs?",
-      "undestanding": "Ar jums sunku suprasti situacijas ar žmones?",
+      "understanding": "Ar jums sunku suprasti situacijas ar žmones?",
       "paranoia": "Ar patiriate paranoją?"
     },
     "profilePage": {
@@ -1568,7 +1568,7 @@
       "stress": "آیا احساس می کنید قادر به کنار آمدن با استرس نیستید؟",
       "drug": "آیا مشکلی با سوch مصرف مواد مخدر یا آلکوهول دارید؟",
       "concentration": "آیا احساس تمرکز کمتری دارید؟",
-      "undestanding": "آیا در درک شرایط یا افراد مشکلی ندارید؟",
+      "understanding": "آیا در درک شرایط یا افراد مشکلی ندارید؟",
       "paranoia": "آیا شما دچار پارانویا هستید؟"
     },
     "patientNotes": {
@@ -1716,7 +1716,7 @@
       "stress": "Nie radzisz sobie ze stresem?",
       "drug": "Masz problem z nadużywaniem alkoholu lub narkotyków?",
       "concentration": "Czy czujesz się mniej zdolny do koncentracji?",
-      "undestanding": "Czy masz problemy ze zrozumieniem sytuacji lub ludzi?",
+      "understanding": "Czy masz problemy ze zrozumieniem sytuacji lub ludzi?",
       "paranoia": "Czy przeżywasz paranoję?"
     },
     "profilePage": {
@@ -1864,7 +1864,7 @@
       "stress": "Você se sente incapaz de lidar com o estresse?",
       "drug": "Você tem problemas com álcool ou drogas?",
       "concentration": "Você se sente menos capaz de se concentrar?",
-      "undestanding": "Você tem dificuldade para entender situações ou pessoas?",
+      "understanding": "Você tem dificuldade para entender situações ou pessoas?",
       "paranoia": "Você está passando por paranóia?"
     },
     "profilePage": {
@@ -2012,7 +2012,7 @@
       "stress": "ਕੀ ਤੁਸੀਂ ਤਣਾਅ ਦਾ ਸਾਮ੍ਹਣਾ ਕਰਨ ਵਿਚ ਅਯੋਗ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ?",
       "drug": "ਕੀ ਤੁਹਾਨੂੰ ਅਲਕੋਹਲ ਜਾਂ ਨਸ਼ੇ ਦੀ ਸਮੱਸਿਆ ਨਾਲ ਕੋਈ ਸਮੱਸਿਆ ਹੈ?",
       "concentration": "ਕੀ ਤੁਸੀਂ ਧਿਆਨ ਲਗਾਉਣ ਵਿੱਚ ਘੱਟ ਯੋਗਤਾ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ?",
-      "undestanding": "ਕੀ ਤੁਹਾਨੂੰ ਸਥਿਤੀਆਂ ਜਾਂ ਲੋਕਾਂ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮੁਸ਼ਕਲ ਹੈ?",
+      "understanding": "ਕੀ ਤੁਹਾਨੂੰ ਸਥਿਤੀਆਂ ਜਾਂ ਲੋਕਾਂ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮੁਸ਼ਕਲ ਹੈ?",
       "paranoia": "ਕੀ ਤੁਸੀਂ ਵਿਕਾਰ ਦਾ ਅਨੁਭਵ ਕਰ ਰਹੇ ਹੋ?"
     },
     "profilePage": {
@@ -2160,7 +2160,7 @@
       "stress": "Te simți incapabil să faci față stresului?",
       "drug": "Aveți o problemă cu alcoolul sau abuzul de droguri?",
       "concentration": "Te simți mai puțin capabil să te concentrezi?",
-      "undestanding": "Aveți probleme cu înțelegerea situațiilor sau a oamenilor?",
+      "understanding": "Aveți probleme cu înțelegerea situațiilor sau a oamenilor?",
       "paranoia": "Te confrunți cu paranoia?"
     },
     "profilePage": {
@@ -2309,7 +2309,7 @@
       "stress": "¿Se siente incapaz de hacer frente al estrés?",
       "drug": "¿Tiene un problema de abuso de alcohol o drogas?",
       "concentration": "¿Se siente menos capaz de concentrarse?",
-      "undestanding": "¿Tiene problemas para comprender situaciones o personas?",
+      "understanding": "¿Tiene problemas para comprender situaciones o personas?",
       "paranoia": "¿Estás experimentando paranoia?"
     },
     "confirmationPage": {
@@ -2457,7 +2457,7 @@
       "stress": "Miyaad dareentaa inaadan la qabsan karin diiqada?",
       "drug": "Miyaad dhibaato ku qabtaa aalkolo ama mukhaadaraadka?",
       "concentration": "Miyaad dareentaa awood yar inaad xooga saarto?",
-      "undestanding": "Miyaad dhib ku qabtaa inaad fahamto xaaladaha ama dadka?",
+      "understanding": "Miyaad dhib ku qabtaa inaad fahamto xaaladaha ama dadka?",
       "paranoia": "Miyaad la kulantaa paranoia?"
     },
     "patientNotes": {
@@ -2604,7 +2604,7 @@
       "stress": "மன அழுத்தத்தை சமாளிக்க முடியவில்லையா?",
       "drug": "உங்களுக்கு ஆல்கஹால் அல்லது போதைப்பொருள் பிரச்சினை உள்ளதா?",
       "concentration": "நீங்கள் கவனம் செலுத்த இயலாது என்று நினைக்கிறீர்களா?",
-      "undestanding": "சூழ்நிலைகள் அல்லது மக்களைப் புரிந்துகொள்வதில் சிக்கல் உள்ளதா?",
+      "understanding": "சூழ்நிலைகள் அல்லது மக்களைப் புரிந்துகொள்வதில் சிக்கல் உள்ளதா?",
       "paranoia": "நீங்கள் சித்தப்பிரமை அனுபவிக்கிறீர்களா?"
     },
     "profilePage": {
@@ -2751,7 +2751,7 @@
       "stress": "Sa palagay mo ba hindi mo makaya ang stress?",
       "drug": "Mayroon ka bang problema sa alchohol o pag-abuso sa droga?",
       "concentration": "Sa palagay mo ba ay hindi gaanong nakapag-concentrate?",
-      "undestanding": "Mayroon ka bang problema sa pag-unawa sa mga sitwasyon o tao?",
+      "understanding": "Mayroon ka bang problema sa pag-unawa sa mga sitwasyon o tao?",
       "paranoia": "Nakakaranas ka ba ng paranoia?"
     },
     "patientNotes": {
@@ -2899,7 +2899,7 @@
       "stress": "Stresle baş edemiyor musunuz?",
       "drug": "Alkol veya uyuşturucu kullanımı ile ilgili bir sorununuz mu var?",
       "concentration": "Daha az konsantre olabiliyor musunuz?",
-      "undestanding": "Durumları veya insanları anlamakta güçlük mü çekiyorsunuz?",
+      "understanding": "Durumları veya insanları anlamakta güçlük mü çekiyorsunuz?",
       "paranoia": "Paranoya mı yaşıyorsun?"
     },
     "profilePage": {
@@ -3047,7 +3047,7 @@
       "stress": "کیا آپ کو دباؤ کا مقابلہ کرنے سے قاصر ہے؟",
       "drug": "کیا آپ کو الچھول یا منشیات کے استعمال کا کوئی مسئلہ ہے؟",
       "concentration": "کیا آپ کو توجہ دینے میں کم صلاحیت محسوس ہوتی ہے؟",
-      "undestanding": "کیا آپ کو حالات یا لوگوں کو سمجھنے میں پریشانی ہے؟",
+      "understanding": "کیا آپ کو حالات یا لوگوں کو سمجھنے میں پریشانی ہے؟",
       "paranoia": "کیا آپ پریونایا کا سامنا کر رہے ہیں؟"
     },
     "profilePage": {
@@ -3195,7 +3195,7 @@
       "stress": "Bạn cảm thấy không thể đối phó với căng thẳng?",
       "drug": "Bạn có vấn đề với alchohol hoặc lạm dụng thuốc không?",
       "concentration": "Bạn có cảm thấy kém khả năng tập trung không?",
-      "undestanding": "Bạn có gặp khó khăn khi hiểu tình huống hoặc con người?",
+      "understanding": "Bạn có gặp khó khăn khi hiểu tình huống hoặc con người?",
       "paranoia": "Bạn đang gặp phải chứng hoang tưởng?"
     },
     "profilePage": {
@@ -3343,7 +3343,7 @@
       "stress": "צי איר פילן ניט געקענט צו קאָפּע מיט דרוק?",
       "drug": "צי איר האָבן אַ פּראָבלעם מיט אַלטשאָאָל אָדער מעדיצין זידלען?",
       "concentration": "צי איר פילן ווייניקער ביכולת צו קאַנסאַנטרייט?",
-      "undestanding": "צי איר האָבן קאָנפליקט צו פֿאַרשטיין סיטואַטיאָנס אָדער מענטשן?",
+      "understanding": "צי איר האָבן קאָנפליקט צו פֿאַרשטיין סיטואַטיאָנס אָדער מענטשן?",
       "paranoia": "ביסט איר פּאַראַנאָיאַ?"
     },
     "profilePage": {
