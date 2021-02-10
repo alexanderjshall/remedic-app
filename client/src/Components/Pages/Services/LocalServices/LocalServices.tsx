@@ -150,7 +150,7 @@ const LocalServices = () => {
                 <hr></hr>
                 {currentPractice.URL && (
                   <a
-                    className="pl-2 text-blue hover:text-underline"
+                    className="pl-2 text-blue hover:text-underline break-all"
                     href={currentPractice.URL}
                   >
                     {currentPractice.URL}
