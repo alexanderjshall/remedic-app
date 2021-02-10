@@ -8,7 +8,7 @@ import facePain from "../../../assets/utils/face-pain.svg";
 import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
-import { Transition } from "@headlessui/react"
+import { Transition } from "@headlessui/react";
 import LogoReduced from "../../../assets/logos/logo-reduced.svg";
 
 interface PainLevel {
@@ -117,7 +117,7 @@ const SymptomsChecker = () => {
               symptom={symptom}
             />
           ))}
-        <div className="h-18 flex justify-center items-center py-5 w-full">
+        <div className="h-18 flex justify-center items-center py-5 w-full z-10">
           <OKButton
             name={"Next Page"}
             type="button"

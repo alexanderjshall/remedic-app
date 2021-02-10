@@ -19,7 +19,6 @@ const FurtherSymptoms = () => {
   const { getTranslatedText } = useContext(PatientContext)!;
   const localText = getTranslatedText().patientNotes;
 
-
   const createConsultation = useMutation(
     "create consultation",
     async (variables: NewConsultation) =>
@@ -58,11 +57,11 @@ const FurtherSymptoms = () => {
       enterTo="opacity-100"
       className="flex flex-col justify-center items-center h-screen overflow-y-scroll"
     >
-      <div className="h-24 w-full flex flex-col justify-between items-center pt-4 pb-2 bg-green">
+      <div className="h-auto w-full flex flex-col justify-between items-center pt-4 pb-2 bg-green">
         <h1 className="text-center font-bold text-xl bg-white text-green py-1 px-2">
           {localText.furtherInfo}
         </h1>
-        <p className="text-white font-semibold text-lg">
+        <p className="text-white font-semibold text-lg text-center px-2">
           {localText.fillInSymptoms}
         </p>
       </div>
