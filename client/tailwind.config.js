@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       // Allows horizontal and vertical flipping
       scale: {
-        '-1': '-1'
+        "-1": "-1",
       },
       screens: {
         tablet: "640px",
@@ -20,6 +20,7 @@ module.exports = {
       minWidth: {
         0: "0",
         "1/4": "25%",
+        "1/3": "33.33%",
         "1/2": "50%",
         "3/4": "75%",
         full: "100%",
@@ -39,7 +40,8 @@ module.exports = {
       },
       maxWidth: {
         "1/2": "50%",
-        "almostFull": "90%",
+        "1/3": "33.33%",
+        almostFull: "90%",
       },
       colors: {
         blue: {

@@ -48,7 +48,7 @@ const DoctorPrescriptions = (props: Props) =>{
       {
         showForm ?
         <form className="bg-white-dark rounded-xl p-2 shadow-xl" onSubmit={addPresctiption}>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap">
           <div className="flex flex-col">
             <label htmlFor="medicine" className="font-bold text-blue">Medicine</label>
             <input type="text" id="medicine" name="medicine" value={prescription.medicine} onChange={handleChange}/>
