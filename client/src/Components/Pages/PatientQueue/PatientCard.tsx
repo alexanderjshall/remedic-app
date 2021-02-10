@@ -18,7 +18,7 @@ function PatientCard(props: Props) {
   );
 
   const cardClasses =
-    "flex flex-col md:flex-row justify-between items-center shadow-xl rounded-lg mt-8 bg-white py-2 px-4 w-full transition duration-500 text-left flex-wrap";
+    "flex flex-col md:flex-row justify-between items-center shadow-xl rounded-lg my-4 bg-white py-2 px-4 w-full transition duration-500 text-left flex-wrap";
   const bgColor = props.isEven
     ? "bg-blue hover:bg-blue-dark"
     : "bg-green hover:bg-green-light";
@@ -28,7 +28,7 @@ function PatientCard(props: Props) {
   const infoData = "flex justify-evenly items-center";
 
   return (
-    <div className={`${cardClasses} ${bgColor} ${textColor} my-4`}>
+    <div className={`${cardClasses} ${bgColor} ${textColor}`}>
       <div className={info}>
         <h3 className="font-semibold">Name</h3>
         <p className="">{patientName}</p>

@@ -15,11 +15,13 @@ function PatientQueue() {
 
   return (
     <div className="flex items-center flex-col bg-white-dark h-full w-full">
-      <div className="text-center mt-24 mb-10 px-3 w-4/5 bg-white max-w-4xl rounded-xl p-8 min-h-3/4">
-        <h2 className="text-blue text-3xl font-bold">
-          You have {consultations?.length} patients waiting:
-        </h2>
-        <div className="flex flex-col-reverse w-full items-center">
+      <div className="text-center mt-24 mb-10 px-3 w-4/5 bg-white max-w-4xl rounded-xl p-8 min-h-3/4 max-h-3/4 overflow-y-auto">
+        <div className="fixed tablet:top-8 top-4 left-0 w-full">
+          <h2 className="text-blue tablet:text-3xl text-2xl font-bold">
+            You have {consultations?.length} patients waiting:
+          </h2>
+        </div>
+        <div className="flex flex-col-reverse w-full items-center last:mb-8 first:mb-8">
           {consultations.map((consultation, i) => (
             <button
               onClick={() => handleClick(consultation)}
