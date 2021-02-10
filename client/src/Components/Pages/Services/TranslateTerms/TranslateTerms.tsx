@@ -190,7 +190,7 @@ const TranslateTerms = () => {
               key={idx}
               className={`${
                 t.selected && "bg-gray-200"
-              } flex justify-center items-center font-medium h-16 rounded-3xl target:bg-gray-600 target:text-white`}
+              } flex justify-center items-center font-medium h-16 rounded-3xl target:bg-gray-600 target:text-white cursor-pointer`}
               onClick={(e) => handleSelectTranslation(e, t)}
             >
               <h1>{t.inputLangName}</h1>
