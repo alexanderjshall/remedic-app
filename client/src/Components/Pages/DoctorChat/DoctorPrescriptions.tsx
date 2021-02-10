@@ -32,16 +32,22 @@ const DoctorPrescriptions = (props: Props) =>{
     }
   }
 
+  const removePrescription = (idx: number) => {
+    const updatedPresc = prescriptions.slice()
+    updatedPresc.splice(idx,1)
+    setPrescriptions(updatedPresc)
+  }
+
   return(
   <div className ="absolute w-full h-full bg-gray-800 bg-opacity-30 z-30">
-    <div className="w-3/4 mt-40 min-h-1/2 mx-auto bg-white rounded-xl p-4">
+    <div className="w-3/4 mt-40 min-h-1/2 mx-auto bg-white rounded-xl p-4 shadow-xl">
       <div className="flex items-center justify-between mb-4">
         <img src={BackArrow} alt="back" className="bg-blue hover:bg-blue-dark rounded-full p-1 h-8 cursor-pointer" onClick={close}/>
         <h1 className="text-center text-blue font-title font-bold text-2xl flex-grow">PRESCRIPTIONS</h1>
       </div>
       {
         showForm ?
-        <form className="bg-white-dark rounded-xl p-2" onSubmit={addPresctiption}>
+        <form className="bg-white-dark rounded-xl p-2 shadow-xl" onSubmit={addPresctiption}>
           <div className="flex justify-between">
           <div className="flex flex-col">
             <label htmlFor="medicine" className="font-bold text-blue">Medicine</label>
@@ -79,8 +85,16 @@ const DoctorPrescriptions = (props: Props) =>{
       {
         <div className="flex flex-wrap mt-4">
           {prescriptions.map((p,i) => (
-            <div key={i} className="flex flex-col mx-4 mb-4 px-4 py-2 rounded-lg bg-green">
-              <p className="font-bold">{p.medicine}</p>
+            <div key={i} className="flex flex-col mx-4 mb-4 px-4 py-2 rounded-lg bg-green shadow-xl">
+              <p className="font-bold">
+                {p.medicine}
+                <span
+                className="text-red-500 hover:text-red-800 cursor-pointer ml-8 text-xl"
+                onClick={()=>removePrescription(i)}
+                >
+                  ✖
+                </span>
+              </p>
               <p>{p.dose}</p>
               <p>{p.frequency}</p>
             </div>
