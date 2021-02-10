@@ -31,13 +31,13 @@ const PatientSymptoms = (props: Props) => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity ease-in-out duration-700"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="h-screen relative flex justify-center w-screen overflow-hidden"
-  >
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-screen relative flex justify-center w-screen overflow-hidden"
+    >
       {view === "Main" ? (
         <div className="h-5/6 m-0 py-4 z-10">
           <h1 className="text-center font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1">
@@ -56,7 +56,7 @@ const PatientSymptoms = (props: Props) => {
           >
             <button
               onClick={handleNextClick}
-              className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:"
+              className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white"
             >
               <img src={ForwardArrow} alt="tick" className="text-white w-6" />
               <h2 className="text-sm font-extrabold">{localTextUtils.next}</h2>

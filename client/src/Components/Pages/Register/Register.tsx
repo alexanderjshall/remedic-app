@@ -183,7 +183,7 @@ const Register = () => {
             </p>
           </Link>
         </div>
-        <div className="absolute mx-auto w-full left-0">
+        <div className="absolute left-1/2 -ml-48">
           <img
             src={humanStanding}
             alt="background human"
