@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import DoctorMessageBubble from "../../ConsultationChat/MessageBubbles/DoctorMessageBubble";
 import PatientMessageBubble from "../../ConsultationChat/MessageBubbles/PatientMessageBubble";
 import { ReactComponent as SendMessage } from "../../../../assets/utils/send_message.svg";
 import { Message } from "../../../../types";
-import { PatientContext } from "../../../../Contexts/Patient.context";
 
 
 interface Props {
@@ -17,9 +16,6 @@ const Chat = (props: Props) => {
   const { messages, addMessage, patientFullName } = props;
   const [currentMsg, setCurrentMsg] = useState<string>("");
   const chatBottom = useRef<null | HTMLDivElement>(null);
-
-  const { getTranslatedText } = useContext(PatientContext)!;
-  const localText = getTranslatedText().chat;
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,7 +65,7 @@ const Chat = (props: Props) => {
             type="text"
             name="chat input"
             className="p-3 cursor-text h-12 w-11/12 rounded-lg bg-transparent"
-            placeholder={localText.startMessaging}
+            placeholder="Start messaging"
             onChange={(e) => setCurrentMsg(e.target.value)}
             value={currentMsg}
           />
