@@ -9,15 +9,21 @@
       "firstName": "الاسم الاول",
       "lastName": "الكنية",
       "postcode": "الرمز البريدي",
-      "errorMessage": "هناك خطأ ما"
+      "errorMessage": "هناك خطأ ما",
+      "invalid": "البريد الإلكتروني أو كلمة السر خاطئة"
     },
     "patientLandingTerms": {
       "startConsultation": "ابدأ الاستشارة",
-      "profile": "الملف الشخصي"
+      "profile": "الملف الشخصي",
+      "logout": "تسجيل خروج",
+      "prescriptions": "الوصفات الطبية",
+      "services": "خدمات"
     },
     "enterCodeTerms": {
       "askAtReception": "اسأل في مكتب الاستقبال عن الرمز",
-      "enterDoctorCode": "أدخل كود طبيبك"
+      "enterDoctorCode": "أدخل كود طبيبك",
+      "lengthError": "7 أرقام متوقعة",
+      "invalidCode": "الرمز غير صحيح"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "اسئلة عامة",
@@ -25,12 +31,17 @@
       "notGood": "غير جيد",
       "bad": "سيئة",
       "inPain": "يتألم",
-      "sleeping": "هل تنام جيدا",
-      "eating": "هل تأكل طعاما؟",
-      "highTemperature": "هل لديك درجة حرارة عالية؟",
-      "medications": "هل تتعاطى أي أدوية؟"
+      "sleeping": "هل تنام بشكل سيء؟",
+      "eating": "هل تأكل بشكل سيء؟",
+      "highTemperature": "هل لديك ارتفاع في درجة الحرارة؟",
+      "medications": "هل تتعاطى أي أدوية؟",
+      "smoke": "هل تدخن؟"
     },
     "physicalSymptomsTerms": {
+      "head": "رئيس",
+      "arms": "أسلحة",
+      "body": "الجسم",
+      "legs": "أرجل",
       "clickOnSymptom": "انقر فوق مكان وجود أعراض",
       "Head": {
         "cough": "سعال",
@@ -45,6 +56,17 @@
         "soreEye": "إلتهاب العينين",
         "sweating": "التعرق",
         "vomiting": "التقيؤ"
+      },
+      "psychSymptomsTerms": {
+        "psychSymptoms": "الأعراض النفسية",
+        "sad": "هل تشعر بالحزن أم بالإحباط؟",
+        "anxious": "هل تشعر بالقلق في كثير من الأحيان؟",
+        "mood": "هل لديك تغيرات مزاجية شديدة؟",
+        "stress": "هل تشعر أنك غير قادر على التعامل مع التوتر؟",
+        "drug": "هل لديك مشكلة مع الكحول أو تعاطي المخدرات؟",
+        "concentration": "هل تشعر أنك أقل قدرة على التركيز؟",
+        "undestanding": "هل تجد صعوبة في فهم المواقف أو الأشخاص؟",
+        "paranoia": "هل تعاني من جنون العظمة؟"
       },
       "Arms": {
         "elbowPain": "آلام الكوع",
@@ -71,13 +93,55 @@
         "thighPain": "آلام الفخذ"
       }
     },
+    "patientPrescription": {
+      "yourPrescriptions": "الوصفات الطبية الخاصة بك",
+      "medicine": "الدواء",
+      "dose": "جرعة",
+      "frequency": "تكرر",
+      "date": "تاريخ",
+      "prescribedBy": "المنصوص عليها"
+    },
+    "chat": { "startMessaging": "ابدأ المراسلة" },
+    "profilePage": {
+      "edit": "تعديل",
+      "save": "حفظ",
+      "cancel": "إلغاء",
+      "changePicture": "تغيير الصورة",
+      "saveAndClose": "احفظ وأغلق"
+    },
+    "servicesPage": {
+      "localServices": "خدمات محلية",
+      "translateTerms": "شروط الترجمة",
+      "mapPage": {
+        "dentist": "دكتورالاسنان",
+        "hospital": "مستشفى",
+        "opticians": "بصريات",
+        "pharmacy": "مقابل"
+      },
+      "translatePage": {
+        "translateTerm": "ترجمة المصطلح الطبي",
+        "enterTerm": "أدخل المصطلح الطبي",
+        "getInfo": "احصل على المعلومات"
+      },
+      "patientNotes": {
+        "furtherInfo": "مزيد من المعلومات",
+        "fillInSymptoms": "املأ أي أعراض ومعلومات أخرى",
+        "enterSymptoms": "أدخل الأعراض",
+        "finish": "إنهاء"
+      },
+      "confirmationPage": {
+        "thankYou": "شكرا لك على التقديم",
+        "doctorHereShortly": "طبيبك سيكون هنا قريبا"
+      }
+    },
     "feedbackTerms": { "end": "لقد انتهت استشارتك", "rate": "قيم تجربتك" },
     "utils": {
       "yes": "نعم",
       "no": "لا",
       "next": "التالى",
       "end": "النهاية",
-      "confirm": "تؤكد"
+      "confirm": "تؤكد",
+      "submit": "إرسال"
     }
   },
   "bn": {
@@ -90,15 +154,21 @@
       "firstName": "নামের প্রথম অংশ",
       "lastName": "নামের শেষাংশ",
       "postcode": "পোস্টকোড",
-      "errorMessage": "কিছু ভুল হয়েছে "
+      "errorMessage": "কিছু ভুল হয়েছে",
+      "invalid": "অবৈধ ইমেল বা পাসওয়ার্ড"
     },
     "patientLandingTerms": {
       "startConsultation": "পরামর্শ শুরু করুন",
-      "profile": "প্রোফাইল"
+      "profile": "প্রোফাইল",
+      "logout": "প্রস্থান",
+      "prescriptions": "প্রেসক্রিপশন",
+      "services": "সেবা"
     },
     "enterCodeTerms": {
       "askAtReception": "কোড জন্য রিসেপশন এ জিজ্ঞাসা করুন",
-      "enterDoctorCode": "আপনার ডাক্তারদের কোড লিখুন"
+      "enterDoctorCode": "আপনার ডাক্তারদের কোড লিখুন",
+      "lengthError": "প্রত্যাশিত 7 নম্বর",
+      "invalidCode": "ভুল সঙ্কেত"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "সাধারণ প্রশ্ন",
@@ -106,12 +176,32 @@
       "notGood": "ভাল না",
       "bad": "খারাপ",
       "inPain": "কষ্টে",
-      "sleeping": "আপনি ভাল ঘুমাচ্ছেন?",
-      "eating": "আপনি কি খাবার খাচ্ছেন?",
-      "highTemperature": "আপনার কি উচ্চ তাপমাত্রা রয়েছে?",
-      "medications": "আপনি কোন ওষুধ খাচ্ছেন?"
+      "sleeping": "আপনি কি খারাপ ঘুমাচ্ছেন?",
+      "eating": "আপনি খারাপ খাচ্ছেন?",
+      "highTemperature": "আপনার কি উচ্চ তাপমাত্রা আছে?",
+      "medications": "আপনি কোন ওষুধ খাচ্ছেন?",
+      "smoke": "তুমি কি ধুমপান কর?"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "আপনার প্রেসক্রিপশন",
+      "medicine": "ঔষধ",
+      "dose": "ডোজ",
+      "frequency": "ফ্রিকোয়েন্সি",
+      "date": "তারিখ",
+      "prescribedBy": "দ্বারা নির্ধারিত"
+    },
+    "profilePage": {
+      "edit": "সম্পাদনা করুন",
+      "save": "সংরক্ষণ",
+      "cancel": "বাতিল",
+      "changePicture": "ছবি পরিবর্তন",
+      "saveAndClose": "সংরক্ষণ করেন এবং বন্ধ করেন"
     },
     "physicalSymptomsTerms": {
+      "head": "মাথা",
+      "arms": "অস্ত্র",
+      "body": "দেহ",
+      "legs": "পাগুলো",
       "clickOnSymptom": "আপনার যেখানে লক্ষণ রয়েছে সেখানে ক্লিক করুন",
       "Head": {
         "cough": "কাশি",
@@ -152,16 +242,54 @@
         "thighPain": "উরু ব্যথা"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "মানসিক লক্ষণ",
+      "sad": "আপনি খারাপ লাগছেন নাকি নিচে?",
+      "anxious": "আপনি কি প্রায়ই উদ্বেগ বোধ করেন?",
+      "mood": "আপনার কি চূড়ান্ত মেজাজ পরিবর্তন আছে?",
+      "stress": "আপনি কি মানসিক চাপ সহ্য করতে অক্ষম বোধ করেন?",
+      "drug": "অ্যালচোহল বা মাদক সেবন নিয়ে আপনার কি সমস্যা আছে?",
+      "concentration": "আপনি কি মনোনিবেশ করতে কম বোধ করেন?",
+      "undestanding": "আপনার কি পরিস্থিতি বা লোক বুঝতে সমস্যা হয়?",
+      "paranoia": "আপনি কি প্যারানিয়া অনুভব করছেন?"
+    },
+    "patientNotes": {
+      "furtherInfo": "আরো তথ্য",
+      "fillInSymptoms": "পরবর্তী কোনও উপসর্গ এবং তথ্য পূরণ করুন",
+      "enterSymptoms": "লক্ষণ প্রবেশ করান",
+      "finish": "সমাপ্ত"
+    },
+    "confirmationPage": {
+      "thankYou": "জমা দেওয়ার জন্য আপনাকে ধন্যবাদ",
+      "doctorHereShortly": "আপনার ডাক্তার শীঘ্রই এখানে উপস্থিত হবে"
+    },
     "feedbackTerms": {
       "end": "আপনার পরামর্শ শেষ হয়েছে",
       "rate": "আপনার অভিজ্ঞতা রেট করুন"
+    },
+    "chat": { "startMessaging": "মেসেজ করা শুরু করুন" },
+    "servicesPage": {
+      "localServices": "স্থানীয় পরিষেবা",
+      "translateTerms": "শর্তাদি অনুবাদ করুন",
+      "mapPage": {
+        "dentist": "ডেন্টিস্ট",
+        "hospital": "হাসপাতাল",
+        "opticians": "চোখের ডাক্তার",
+        "pharmacy": "ফার্মাসি"
+      },
+      "translatePage": {
+        "translateTerm": "মেডিকেল টার্ম অনুবাদ করুন",
+        "enterTerm": "মেডিকেল টার্ম প্রবেশ করুন",
+        "getInfo": "তথ্য পেতে"
+      }
     },
     "utils": {
       "yes": "হ্যাঁ",
       "no": "না",
       "next": "পরবর্তী",
       "end": "শেষ",
-      "confirm": "কনফার্ম"
+      "confirm": "কনফার্ম",
+      "submit": "জমা দিন"
     }
   },
   "zh": {
@@ -423,15 +551,21 @@
       "firstName": "Vorname",
       "lastName": "Familienname, Nachname",
       "postcode": "Postleitzahl",
-      "errorMessage": "Oh oh, etwas ist schief gelaufen ..."
+      "errorMessage": "Oh oh, etwas ist schief gelaufen ...",
+      "invalid": "Ungültige E-Mail oder Passwort"
     },
     "patientLandingTerms": {
       "startConsultation": "Konsultation starten",
-      "profile": "Profil"
+      "profile": "Profil",
+      "logout": "Ausloggen",
+      "prescriptions": "Rezepte",
+      "services": "Dienstleistungen"
     },
     "enterCodeTerms": {
       "askAtReception": "Fragen Sie an der Rezeption nach Code",
-      "enterDoctorCode": "Geben Sie den Code Ihres Arztes ein"
+      "enterDoctorCode": "Geben Sie den Code Ihres Arztes ein",
+      "lengthError": "Erwartete 7 Zahlen",
+      "invalidCode": "Ungültiger Code"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Allgemeine Fragen",
@@ -439,12 +573,32 @@
       "notGood": "Nicht gut",
       "bad": "Schlecht",
       "inPain": "Schmerzen haben",
-      "sleeping": "Schläfst du gut",
-      "eating": "Essen Sie?",
-      "highTemperature": "Haben Sie eine hohe Temperatur?",
-      "medications": "Nimmst du irgendwelche Medikamente?"
+      "sleeping": "Schläfst du schlecht",
+      "eating": "Essen Sie schlecht",
+      "highTemperature": "Hast du eine hohe temperatur",
+      "medications": "Nimmst du irgendwelche Medikamente?",
+      "smoke": "Rauchen Sie?"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Ihre Rezepte",
+      "medicine": "Medizin",
+      "dose": "Dosis",
+      "frequency": "Frequenz",
+      "date": "Datum",
+      "prescribedBy": "Vorgeschrieben von"
+    },
+    "profilePage": {
+      "edit": "Bearbeiten",
+      "save": "sparen",
+      "cancel": "Stornieren",
+      "changePicture": "Bild ändern",
+      "saveAndClose": "Speichern und schließen"
     },
     "physicalSymptomsTerms": {
+      "head": "Kopf",
+      "arms": "Waffen",
+      "body": "Körper",
+      "legs": "Beine",
       "clickOnSymptom": "Klicken Sie auf Wo Sie ein Symptom haben",
       "Head": {
         "cough": "Husten",
@@ -485,16 +639,54 @@
         "thighPain": "Oberschenkelschmerzen"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Psychologische Symptome",
+      "sad": "Fühlst du dich traurig oder niedergeschlagen?",
+      "anxious": "Fühlen Sie sich oft ängstlich?",
+      "mood": "Hast du extreme Stimmungsschwankungen?",
+      "stress": "Fühlen Sie sich unfähig, mit Stress umzugehen?",
+      "drug": "Haben Sie ein Problem mit Alkohol oder Drogenmissbrauch?",
+      "concentration": "Fühlen Sie sich weniger konzentriert?",
+      "undestanding": "Haben Sie Probleme, Situationen oder Menschen zu verstehen?",
+      "paranoia": "Erlebst du Paranoia?"
+    },
     "feedbackTerms": {
       "end": "Ihre Beratung ist beendet",
       "rate": "Bewerten Sie Ihre Erfahrung"
+    },
+    "patientNotes": {
+      "furtherInfo": "Weitere Informationen",
+      "fillInSymptoms": "Füllen Sie weitere Symptome und Informationen aus",
+      "enterSymptoms": "Geben Sie Symptome ein",
+      "finish": "Fertig"
+    },
+    "confirmationPage": {
+      "thankYou": "Vielen Dank für die Übermittlung",
+      "doctorHereShortly": "Ihr Arzt wird in Kürze hier sein"
+    },
+    "chat": { "startMessaging": "Starten Sie die Nachrichtenübermittlung" },
+    "servicesPage": {
+      "localServices": "Lokale Dienste",
+      "translateTerms": "Begriffe übersetzen",
+      "mapPage": {
+        "dentist": "Zahnarzt",
+        "hospital": "Krankenhaus",
+        "opticians": "Optiker",
+        "pharmacy": "Apotheke"
+      },
+      "translatePage": {
+        "translateTerm": "Medizinischen Begriff übersetzen",
+        "enterTerm": "Geben Sie Medical Term ein",
+        "getInfo": "Informationen bekommen"
+      }
     },
     "utils": {
       "yes": "Ja",
       "no": "Nein",
       "next": "Nächster",
       "end": "Ende",
-      "confirm": "Bestätigen"
+      "confirm": "Bestätigen",
+      "submit": "einreichen"
     }
   },
   "gu": {
@@ -507,15 +699,21 @@
       "firstName": "પ્રથમ નામ",
       "lastName": "છેલ્લું નામ",
       "postcode": "પોસ્ટકોડ",
-      "errorMessage": "કંઈક ખોટું થયું"
+      "errorMessage": "કંઈક ખોટું થયું",
+      "invalid": "ઈ મેઈલ અથવા પાસવર્ડ ખોટો છે"
     },
     "patientLandingTerms": {
       "startConsultation": "કન્સલ્ટેશન શરૂ કરો",
-      "profile": "પ્રોફાઇલ"
+      "profile": "પ્રોફાઇલ",
+      "logout": "લૉગ આઉટ",
+      "prescriptions": "પ્રિસ્ક્રિપ્શનો",
+      "services": "સેવાઓ"
     },
     "enterCodeTerms": {
       "askAtReception": "કોડ માટે રિસેપ્શન સમયે પૂછો",
-      "enterDoctorCode": "તમારા ડોકટરોનો કોડ દાખલ કરો"
+      "enterDoctorCode": "તમારા ડોકટરોનો કોડ દાખલ કરો",
+      "lengthError": "અપેક્ષિત 7 નંબરો",
+      "invalidCode": "અમાન્ય કોડ"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "સામાન્ય પ્રશ્નો",
@@ -523,12 +721,17 @@
       "notGood": "સારું નથી",
       "bad": "ખરાબ",
       "inPain": "પીડામાં",
-      "sleeping": "તમે સારી રીતે સૂઈ રહ્યા છો?",
-      "eating": "શું તમે ખાઈ રહ્યા છો?",
-      "highTemperature": "શું તમારી પાસે તાપમાન વધારે છે?",
-      "medications": "તમે કોઈ દવા લઈ રહ્યા છો?"
+      "sleeping": "શું તમે ખરાબ રીતે સૂઈ રહ્યા છો?",
+      "eating": "શું તમે ખરાબ રીતે ખાઈ રહ્યા છો?",
+      "highTemperature": "શું તમારી પાસે તાપમાન ?ંચું છે?",
+      "medications": "તમે કોઈ દવા લઈ રહ્યા છો?",
+      "smoke": "તમે ધૂમ્રપાન કરો છો?"
     },
     "physicalSymptomsTerms": {
+      "head": "વડા",
+      "arms": "શસ્ત્ર",
+      "body": "શરીર",
+      "legs": "પગ",
       "clickOnSymptom": "તમારી પાસે જ્યાં લક્ષણ છે ત્યાં ક્લિક કરો",
       "Head": {
         "cough": "ખાંસી",
@@ -569,16 +772,69 @@
         "thighPain": "જાંઘમાં દુખાવો"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "માનસિક લક્ષણો",
+      "sad": "તમે ઉદાસી અથવા નીચે લાગે છે?",
+      "anxious": "શું તમે વારંવાર અસ્વસ્થતા અનુભવો છો?",
+      "mood": "શું તમારી પાસે મૂડમાં ભારે ફેરફાર છે?",
+      "stress": "શું તમે તણાવનો સામનો કરવામાં અસમર્થ છો?",
+      "drug": "શું તમને અલ્કોહોલ અથવા ડ્રગના ઉપયોગમાં કોઈ સમસ્યા છે?",
+      "concentration": "શું તમે ધ્યાન કેન્દ્રિત કરવા માટે ઓછા સક્ષમ છો?",
+      "undestanding": "શું તમને પરિસ્થિતિ અથવા લોકોને સમજવામાં તકલીફ છે?",
+      "paranoia": "શું તમે પેરાનોઇઝાનો અનુભવ કરી રહ્યાં છો?"
+    },
     "feedbackTerms": {
       "end": "તમારી પરામર્શ સમાપ્ત થઈ ગઈ છે",
       "rate": "તમારા અનુભવને રેટ કરો"
+    },
+    "profilePage": {
+      "edit": "સંપાદિત કરો",
+      "save": "સાચવો",
+      "cancel": "રદ કરો",
+      "changePicture": "ચિત્ર બદલો",
+      "saveAndClose": "સાચવો અને બંધ કરો"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "તમારા પ્રિસ્ક્રિપ્શનો",
+      "medicine": "દવા",
+      "dose": "ડોઝ",
+      "frequency": "આવર્તન",
+      "date": "તારીખ",
+      "prescribedBy": "દ્વારા સૂચવવામાં આવેલ"
+    },
+    "patientNotes": {
+      "furtherInfo": "વધુ માહિતી",
+      "fillInSymptoms": "આગળનાં કોઈપણ લક્ષણો અને માહિતી ભરો",
+      "enterSymptoms": "લક્ષણો દાખલ કરો",
+      "finish": "સમાપ્ત"
+    },
+    "confirmationPage": {
+      "thankYou": "સબમિટ કરવા બદલ આભાર",
+      "doctorHereShortly": "તમારા ડ doctorક્ટર ટૂંક સમયમાં અહીં આવશે"
+    },
+    "chat": { "startMessaging": "મેસેજિંગ પ્રારંભ કરો" },
+    "servicesPage": {
+      "localServices": "સ્થાનિક સેવાઓ",
+      "translateTerms": "શરતો અનુવાદ",
+      "mapPage": {
+        "dentist": "દંત ચિકિત્સક",
+        "hospital": "હોસ્પિટલ",
+        "opticians": "ઓપ્ટિશિયન",
+        "pharmacy": "ફાર્મસી"
+      },
+      "translatePage": {
+        "translateTerm": "તબીબી શબ્દનો અનુવાદ કરો",
+        "enterTerm": "મેડિકલ ટર્મ દાખલ કરો",
+        "getInfo": "માહિતી મેળવો"
+      }
     },
     "utils": {
       "yes": "હા",
       "no": "ના",
       "next": "આગળ",
       "end": "અંત",
-      "confirm": "પુષ્ટિ કરો"
+      "confirm": "પુષ્ટિ કરો",
+      "submit": "સબમિટ કરો"
     }
   },
   "it": {
@@ -1263,15 +1519,21 @@
       "firstName": "Primer nombre",
       "lastName": "Apellido",
       "postcode": "Código postal",
-      "errorMessage": "Algo salió mal"
+      "errorMessage": "Algo salió mal",
+      "invalid": "Correo electrónico o contraseña inválidos"
     },
     "patientLandingTerms": {
       "startConsultation": "Iniciar consulta",
-      "profile": "Perfil"
+      "profile": "Perfil",
+      "logout": "Cerrar sesión",
+      "prescriptions": "Prescripciones",
+      "services": "Servicios"
     },
     "enterCodeTerms": {
       "askAtReception": "Pregunte en recepción por el código",
-      "enterDoctorCode": "Ingrese el código de su médico"
+      "enterDoctorCode": "Ingrese el código de su médico",
+      "lengthError": "7 números esperados",
+      "invalidCode": "Codigo invalido"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Preguntas generales",
@@ -1279,12 +1541,17 @@
       "notGood": "No está bien",
       "bad": "Malo",
       "inPain": "En dolor",
-      "sleeping": "¿Duermes bien?",
-      "eating": "¿Estás comiendo comida?",
-      "highTemperature": "¿Tiene temperatura alta?",
-      "medications": "¿Estás tomando alguna medicación?"
+      "sleeping": "¿Duermes mal?",
+      "eating": "¿Estás comiendo mal?",
+      "highTemperature": "¿Tiene fiebre alta?",
+      "medications": "¿Estás tomando alguna medicación?",
+      "smoke": "¿Fumas?"
     },
     "physicalSymptomsTerms": {
+      "head": "Cabeza",
+      "arms": "Brazos",
+      "body": "Cuerpo",
+      "legs": "Piernas",
       "clickOnSymptom": "Haga clic en donde tenga un síntoma",
       "Head": {
         "cough": "Tos",
@@ -1325,16 +1592,69 @@
         "thighPain": "Dolor de muslo"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Síntomas psicológicos",
+      "sad": "¿Te sientes triste o deprimido?",
+      "anxious": "¿Te sientes ansioso a menudo?",
+      "mood": "¿Tiene cambios de humor extremos?",
+      "stress": "¿Se siente incapaz de hacer frente al estrés?",
+      "drug": "¿Tiene un problema de abuso de alcohol o drogas?",
+      "concentration": "¿Se siente menos capaz de concentrarse?",
+      "undestanding": "¿Tiene problemas para comprender situaciones o personas?",
+      "paranoia": "¿Estás experimentando paranoia?"
+    },
+    "confirmationPage": {
+      "thankYou": "Gracias por enviar",
+      "doctorHereShortly": "Tu médico estará aquí en breve"
+    },
+    "profilePage": {
+      "edit": "Editar",
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "changePicture": "Cambiar imagen",
+      "saveAndClose": "Guardar y cerrar"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Tus recetas",
+      "medicine": "Medicamento",
+      "dose": "Dosis",
+      "frequency": "Frecuencia",
+      "date": "Fecha",
+      "prescribedBy": "Prescrito por"
+    },
+    "patientNotes": {
+      "furtherInfo": "Más información",
+      "fillInSymptoms": "Complete cualquier síntoma e información adicionales",
+      "enterSymptoms": "Ingrese los síntomas",
+      "finish": "Terminar"
+    },
     "feedbackTerms": {
       "end": "Su consulta ha finalizado",
       "rate": "Califica tu experiencia"
+    },
+    "chat": { "startMessaging": "Iniciar mensajería" },
+    "servicesPage": {
+      "localServices": "Servicios locales",
+      "translateTerms": "Traducir términos",
+      "mapPage": {
+        "dentist": "Dentista",
+        "hospital": "Hospital",
+        "opticians": "Ópticos",
+        "pharmacy": "Farmacia"
+      },
+      "translatePage": {
+        "translateTerm": "Traducir término médico",
+        "enterTerm": "Ingrese término médico",
+        "getInfo": "Obtener información"
+      }
     },
     "utils": {
       "yes": "si",
       "no": "No",
       "next": "Siguiente",
       "end": "Fin",
-      "confirm": "Confirmar"
+      "confirm": "Confirmar",
+      "submit": "Enviar"
     }
   },
   "so": {
@@ -1419,6 +1739,89 @@
       "next": "Xiga",
       "end": "Dhammaad",
       "confirm": "Xaqiiji"
+    }
+  },
+  "ta": {
+    "loginAndRegisterTerms": {
+      "login": "உள்நுழைய",
+      "email": "மின்னஞ்சல்",
+      "emailAddress": "மின்னஞ்சல் முகவரி",
+      "password": "கடவுச்சொல்",
+      "register": "பதிவு",
+      "firstName": "முதல் பெயர்",
+      "lastName": "கடைசி பெயர்",
+      "postcode": "அஞ்சல் குறியீடு"
+    },
+    "patientLandingTerms": {
+      "startConsultation": "கலந்தாய்வைத் தொடங்குங்கள்",
+      "profile": "சுயவிவரம்"
+    },
+    "enterCodeTerms": {
+      "askAtReception": "குறியீட்டிற்கான வரவேற்பில் கேளுங்கள்",
+      "enterDoctorCode": "உங்கள் மருத்துவர்களின் குறியீட்டை உள்ளிடவும்"
+    },
+    "generalSymptomsTerms": {
+      "generalQuestions": "பொதுவான கேள்விகள்",
+      "good": "நல்ல",
+      "notGood": "நல்லதல்ல",
+      "bad": "மோசமானது",
+      "inPain": "வலி",
+      "sleeping": "நீங்கள் நன்றாக தூங்குகிறீர்களா?",
+      "eating": "நீங்கள் உணவை சாப்பிடுகிறீர்களா?",
+      "highTemperature": "உங்களுக்கு அதிக வெப்பநிலை இருக்கிறதா?",
+      "medications": "நீங்கள் ஏதாவது மருந்து எடுத்துக்கொள்கிறீர்களா?"
+    },
+    "physicalSymptomsTerms": {
+      "clickOnSymptom": "உங்களுக்கு ஒரு அறிகுறி உள்ள இடத்தைக் கிளிக் செய்க",
+      "Head": {
+        "cough": "இருமல்",
+        "dizzy": "மயக்கம்",
+        "hairLoss": "முடி கொட்டுதல்",
+        "headache": "தலைவலி",
+        "noseBleeding": "மூக்கில் இரத்தக்கசிவு",
+        "rash": "சொறி",
+        "runnyNose": "மூக்கு ஒழுகுதல்",
+        "sneezing": "தும்மல்",
+        "soreThroat": "தொண்டை வலி",
+        "soreEye": "புண் கண்கள்",
+        "sweating": "வியர்வை",
+        "vomiting": "வாந்தி"
+      },
+      "Arms": {
+        "elbowPain": "முழங்கை வலி",
+        "handPain": "கை வலி",
+        "armPain": "கை வலி",
+        "armRash": "கை சொறி"
+      },
+      "Body": {
+        "backPain": "முதுகு வலி",
+        "shortBreath": "குறுகிய மூச்சு",
+        "constipation": "மலச்சிக்கல்",
+        "stomachCramps": "வயிற்றுப் பிடிப்புகள்",
+        "bodyRash": "உடல் சொறி",
+        "shaking": "நடுக்கம்",
+        "stomachPain": "வயிற்று வலி",
+        "heartRate": "வேகமான இதய துடிப்பு"
+      },
+      "Legs": {
+        "anklePain": "கணுக்கால் வலி",
+        "calfPain": "கன்று வலி",
+        "footPain": "கால் வலி",
+        "kneePain": "மூட்டு வலி",
+        "legRash": "கால் சொறி",
+        "thighPain": "தொடை வலி"
+      }
+    },
+    "feedbackTerms": {
+      "end": "உங்கள் ஆலோசனை முடிந்தது",
+      "rate": "உங்கள் அனுபவத்தை மதிப்பிடுங்கள்"
+    },
+    "utils": {
+      "yes": "ஆம்",
+      "no": "இல்லை",
+      "next": "அடுத்தது",
+      "end": "முடிவு",
+      "confirm": "உறுதிப்படுத்தவும்"
     }
   },
   "tl": {
