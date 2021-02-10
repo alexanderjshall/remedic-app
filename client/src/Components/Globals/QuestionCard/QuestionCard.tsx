@@ -18,10 +18,12 @@ const QuestionCard = (props: Props) => {
   return (
     <div
       className={`relative ${
-        symptom.interactedWith ? "bg-blue-superlight" : "bg-white"
+        symptom.interactedWith ? "bg-green-superlight" : "bg-white"
       } border border-solid border-transparent shadow-md mt-5 w-full max-w-2xl rounded-md p-2 z-10`}
     >
-      <h1 className="text-center font-semibold">{symptom.question}</h1>
+      <h1 className="text-center font-semibold text-gray-700">
+        {symptom.question}
+      </h1>
       <div className="flex justify-center mt-3">
         {symptom.selected ? (
           <YesNoButtons
