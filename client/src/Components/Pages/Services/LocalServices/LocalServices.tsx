@@ -36,16 +36,34 @@ interface QueryService {
   URL?: string | null;
 }
 
+interface Filter {
+  name: string; // translated name
+  code: string; // 3-letter string
+  selected: boolean;
+  bgColor: string;
+  textColor: string;
+}
+
 const LocalServices = () => {
   const { user } = useAuth();
+  const { coords, postcode } = useContext(PatientContext)!;
 
+  //STATES
+  // The Selected Practice
   const [currentPractice, setCurrentPractice] = useState<Service>(
     {} as Service
   );
 
-  const { coords, postcode } = useContext(PatientContext)!;
-  const [services, setServices] = useState<Service[]>([]);
-  // single service state that gets filled on childclick
+  const [filters, setFilters] = useState<Filter[]>([
+    {name: 'Dentist', code: 'DEN', selected: true, bgColor: 'bg-map-blue-600', textColor: 'text-map-blue-600'},
+    {name: 'GP', code: 'GPB', selected: true, bgColor: 'bg-map-green-600', textColor: 'text-map-green-600'}
+    {name: 'GP', code: 'GPB', selected: true, bgColor: 'bg-map-green-600', textColor: 'text-map-green-600'}
+    
+  ])
+
+
+  // const [services, setServices] = useState<Service[]>([]);
+  const [dentistServices, setDentistServices] = useState<Service[]>([])
 
   useEffect(() => {
     if (postcode) {
