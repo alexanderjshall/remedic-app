@@ -66,9 +66,9 @@ const Register = () => {
       enter="transition-opacity ease-in-out duration-700"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4"
+      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min pb-4 pt-1"
     >
-      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5 text-center mt-8">
+      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 pb-5 text-center mt-8 z-10">
         {localText.register}
       </h2>
       <form
