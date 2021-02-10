@@ -66,15 +66,9 @@ const Register = () => {
       enter="transition-opacity ease-in-out duration-700"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-<<<<<<< HEAD
       className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min tablet:justify-start"
     >
       <h2 className="text-4xl bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent tablet:text-5xl font-bold px-6 pb-5 tablet:py-10 text-center tablet:mt-8">
-=======
-      className="flex items-center justify-center flex-col bg-white-dark min-h-screen w-inherit min-w-min py-4"
-    >
-      <h2 className="bg-gradient-to-r from-green-light to-blue-light bg-clip-text text-transparent text-5xl font-bold px-6 py-5 text-center mt-8">
->>>>>>> 038c85cc8270d85ca9ebe6d23a2ef5e4e797680a
         {localText.register}
       </h2>
       <form
@@ -189,11 +183,7 @@ const Register = () => {
             </p>
           </Link>
         </div>
-<<<<<<< HEAD
         <div className="absolute mx-auto w-full left-0">
-=======
-        <div className="absolute left-1/2 -ml-48">
->>>>>>> 038c85cc8270d85ca9ebe6d23a2ef5e4e797680a
           <img
             src={humanStanding}
             alt="background human"
