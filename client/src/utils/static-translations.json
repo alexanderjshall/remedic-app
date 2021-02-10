@@ -302,15 +302,21 @@
       "firstName": "名字",
       "lastName": "姓",
       "postcode": "邮编",
-      "errorMEssage": "出问题了"
+      "errorMEssage": "出问题了",
+      "invalid": "无效的电子邮件或密码"
     },
     "patientLandingTerms": {
       "startConsultation": "开始咨询",
-      "profile": "个人资料"
+      "profile": "个人资料",
+      "logout": "登出",
+      "prescriptions": "处方药",
+      "services": "服务"
     },
     "enterCodeTerms": {
       "askAtReception": "在接待处询问代码",
-      "enterDoctorCode": "输入您的医生代码"
+      "enterDoctorCode": "输入您的医生代码",
+      "lengthError": "预期7个数字",
+      "invalidCode": "无效的代码"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "一般的问题",
@@ -318,12 +324,17 @@
       "notGood": "不好",
       "bad": "坏",
       "inPain": "痛苦中",
-      "sleeping": "你睡得好吗？",
-      "eating": "你在吃饭吗",
-      "highTemperature": "你有高温吗？",
-      "medications": "你在吃药吗？"
+      "sleeping": "你睡不好吗",
+      "eating": "吃饭不好吗",
+      "highTemperature": "你有高温吗",
+      "medications": "你在吃药吗",
+      "smoke": "你抽烟吗"
     },
     "physicalSymptomsTerms": {
+      "head": "头",
+      "arms": "武器",
+      "body": "身体",
+      "legs": "腿部",
       "clickOnSymptom": "单击您有症状的地方",
       "Head": {
         "cough": "咳嗽",
@@ -364,13 +375,66 @@
         "thighPain": "大腿疼痛"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "心理症状",
+      "sad": "你感到难过还是沮丧？",
+      "anxious": "你经常感到焦虑吗？",
+      "mood": "你有剧烈的情绪变化吗？",
+      "stress": "您感到无法应付压力吗？",
+      "drug": "您对酒精或药物滥用有疑问吗？",
+      "concentration": "你会集中精神吗？",
+      "undestanding": "您在了解情况或人员时遇到困难吗？",
+      "paranoia": "您有妄想症吗？"
+    },
+    "profilePage": {
+      "edit": "编辑",
+      "save": "保存",
+      "cancel": "取消",
+      "changePicture": "更换图片",
+      "saveAndClose": "保存并关闭"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "您的处方",
+      "medicine": "药物",
+      "dose": "剂量",
+      "frequency": "频率",
+      "date": "日期",
+      "prescribedBy": "规定者"
+    },
+    "patientNotes": {
+      "furtherInfo": "更多信息",
+      "fillInSymptoms": "填写任何进一步的症状和信息",
+      "enterSymptoms": "输入症状",
+      "finish": "完"
+    },
+    "confirmationPage": {
+      "thankYou": "感谢您提交",
+      "doctorHereShortly": "你的医生很快就会来"
+    },
+    "chat": { "startMessaging": "开始发送消息" },
+    "servicesPage": {
+      "localServices": "本地服务",
+      "translateTerms": "翻译条款",
+      "mapPage": {
+        "dentist": "牙医",
+        "hospital": "医院",
+        "opticians": "配镜师",
+        "pharmacy": "药店"
+      },
+      "translatePage": {
+        "translateTerm": "翻译医学术语",
+        "enterTerm": "输入医学术语",
+        "getInfo": "获取信息"
+      }
+    },
     "feedbackTerms": { "end": "您的咨询已经结束", "rate": "评价您的经验" },
     "utils": {
       "yes": "是",
       "no": "没有",
       "next": "下一个",
       "end": "结束",
-      "confirm": "确认"
+      "confirm": "确认",
+      "submit": "提交"
     }
   },
   "en": {
@@ -383,15 +447,21 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "postcode": "Postcode",
-      "errorMessage": "Uh oh, something went wrong..."
+      "errorMessage": "Uh oh, something went wrong...",
+      "invalid": "Invalid email or password"
     },
     "patientLandingTerms": {
       "startConsultation": "Start Consultation",
-      "profile": "Profile"
+      "profile": "Profile",
+      "logout": "Logout",
+      "prescriptions": "Prescriptions",
+      "services": "Services"
     },
     "enterCodeTerms": {
       "askAtReception": "Ask At Reception For Code",
-      "enterDoctorCode": "Enter Your Doctors' Code"
+      "enterDoctorCode": "Enter Your Doctors' Code",
+      "lengthError": "Expected 7 numbers",
+      "invalidCode": "Invalid code"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "General Questions",
@@ -399,12 +469,17 @@
       "notGood": "Not Good",
       "bad": "Bad",
       "inPain": "In Pain",
-      "sleeping": "Are you sleeping well?",
-      "eating": "Are you eating food?",
-      "highTemperature": "Do You Have A High Temperature?",
-      "medications": "Are you taking any medication?"
+      "sleeping": "Are you sleeping poorly?",
+      "eating": "Are you eating poorly?",
+      "highTemperature": "Do you have a high temperature?",
+      "medications": "Are you taking any medication?",
+      "smoke": "Do you smoke?"
     },
     "physicalSymptomsTerms": {
+      "head": "Head",
+      "arms": "Arms",
+      "body": "Body",
+      "legs": "Legs",
       "clickOnSymptom": "Click Where You Have A Symptom",
       "Head": {
         "cough": "Cough",
@@ -445,6 +520,60 @@
         "thighPain": "Thigh Pain"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Psychological Symptoms",
+      "sad": "Do you feel sad or down?",
+      "anxious": "Do you often feel anxious?",
+      "mood": "Do you have extreme mood changes?",
+      "stress": "Do you feel unable to cope with stress?",
+      "drug": "Do you have a problem with alchohol or drug abuse?",
+      "concentration": "Do you feel less able to concentrate?",
+      "undestanding": "Do you have trouble understanding situations or people?",
+      "paranoia": "Are you experiencing paranoia?"
+    },
+    "profilePage": {
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "changePicture": "Change picture",
+      "saveAndClose": "Save and close"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Your prescriptions",
+      "medicine": "Medicine",
+      "dose": "Dose",
+      "frequency": "Frequency",
+      "date": "Date",
+      "prescribedBy": "Prescribed by"
+    },
+    "patientNotes": {
+      "furtherInfo": "Further Information",
+      "fillInSymptoms": "Fill in any further symptoms and information",
+      "enterSymptoms": "Enter Symptoms",
+      "finish": "Finish"
+    },
+    "confirmationPage": {
+      "thankYou": "Thank you for submitting",
+      "doctorHereShortly": "Your doctor will be here shortly"
+    },
+    "chat": {
+      "startMessaging": "Start messaging"
+    },
+    "servicesPage": {
+      "localServices": "Local Services",
+      "translateTerms": "Translate Terms",
+      "mapPage": {
+        "dentist": "Dentist",
+        "hospital": "Hospital",
+        "opticians": "Opticians",
+        "pharmacy": "Pharmacy"
+      },
+      "translatePage": {
+        "translateTerm": "Translate Medical Term",
+        "enterTerm": "Enter Medical Term",
+        "getInfo": "Get Information"
+      }
+    },
     "feedbackTerms": {
       "end": "Your Consultation Has Ended",
       "rate": "Rate Your Experience"
@@ -454,7 +583,8 @@
       "no": "No",
       "next": "Next",
       "end": "End",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "submit": "Submit"
     }
   },
   "fr": {
@@ -467,15 +597,21 @@
       "firstName": "Prénom",
       "lastName": "Nom de famille",
       "postcode": "Code postal",
-      "errorMessage": "Oh oh, quelque chose s'est mal passé ..."
+      "errorMessage": "Oh oh, quelque chose s'est mal passé ...",
+      "invalid": "email ou mot de passe invalide"
     },
     "patientLandingTerms": {
       "startConsultation": "Commencer la consultation",
-      "profile": "Profil"
+      "profile": "Profil",
+      "logout": "Se déconnecter",
+      "prescriptions": "Les ordonnances",
+      "services": "Prestations de service"
     },
     "enterCodeTerms": {
       "askAtReception": "Demandez à la réception le code",
-      "enterDoctorCode": "Entrez le code de votre médecin"
+      "enterDoctorCode": "Entrez le code de votre médecin",
+      "lengthError": "7 numéros attendus",
+      "invalidCode": "Code invalide"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Questions générales",
@@ -483,12 +619,17 @@
       "notGood": "Pas bon",
       "bad": "Mauvais",
       "inPain": "Dans la douleur",
-      "sleeping": "Tu dors bien?",
-      "eating": "Mangez-vous de la nourriture?",
+      "sleeping": "Vous dormez mal?",
+      "eating": "Mangez-vous mal?",
       "highTemperature": "Avez-vous une température élevée?",
-      "medications": "est ce que tu prends des médicaments?"
+      "medications": "est ce que tu prends des médicaments?",
+      "smoke": "Est-ce que tu fumes?"
     },
     "physicalSymptomsTerms": {
+      "head": "Tête",
+      "arms": "Bras",
+      "body": "Corps",
+      "legs": "Jambes",
       "clickOnSymptom": "Cliquez là où vous avez un symptôme",
       "Head": {
         "cough": "La toux",
@@ -529,16 +670,69 @@
         "thighPain": "Douleur à la cuisse"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Symptômes psychologiques",
+      "sad": "Vous sentez-vous triste ou déprimé?",
+      "anxious": "Vous sentez-vous souvent anxieux?",
+      "mood": "Avez-vous des changements d&#39;humeur extrêmes?",
+      "stress": "Vous sentez-vous incapable de faire face au stress?",
+      "drug": "Avez-vous un problème d'abus d'alcool ou de drogue?",
+      "concentration": "Vous sentez-vous moins capable de vous concentrer?",
+      "undestanding": "Avez-vous du mal à comprendre les situations ou les gens?",
+      "paranoia": "Êtes-vous paranoïa?"
+    },
+    "profilePage": {
+      "edit": "Éditer",
+      "save": "sauver",
+      "cancel": "Annuler",
+      "changePicture": "Changer la photo",
+      "saveAndClose": "Sauver et fermer"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Vos prescriptions",
+      "medicine": "Médicament",
+      "dose": "Dose",
+      "frequency": "La fréquence",
+      "date": "Date",
+      "prescribedBy": "Prescrit par"
+    },
     "feedbackTerms": {
       "end": "Votre consultation est terminée",
       "rate": "Évaluez votre expérience"
+    },
+    "patientNotes": {
+      "furtherInfo": "Informations complémentaires",
+      "fillInSymptoms": "Remplissez les autres symptômes et informations",
+      "enterSymptoms": "Entrez les symptômes",
+      "finish": "terminer"
+    },
+    "confirmationPage": {
+      "thankYou": "Merci d&#39;avoir soumis",
+      "doctorHereShortly": "Votre médecin sera bientôt là"
+    },
+    "chat": { "startMessaging": "Lancer la messagerie" },
+    "servicesPage": {
+      "localServices": "Services locaux",
+      "translateTerms": "Traduire les termes",
+      "mapPage": {
+        "dentist": "Dentiste",
+        "hospital": "Hôpital",
+        "opticians": "Opticiens",
+        "pharmacy": "Pharmacie"
+      },
+      "translatePage": {
+        "translateTerm": "Traduire le terme médical",
+        "enterTerm": "Entrez le terme médical",
+        "getInfo": "Obtenir des informations"
+      }
     },
     "utils": {
       "yes": "Oui",
       "no": "Non",
       "next": "Suivant",
       "end": "Fin",
-      "confirm": "Confirmer"
+      "confirm": "Confirmer",
+      "submit": "Soumettre"
     }
   },
   "de": {
@@ -847,15 +1041,21 @@
       "firstName": "Nome di battesimo",
       "lastName": "Cognome",
       "postcode": "Codice postale",
-      "errorMessage": "Uh oh, qualcosa è andato storto..."
+      "errorMessage": "Uh oh, qualcosa è andato storto...",
+      "invalid": "E-mail o password non validi"
     },
     "patientLandingTerms": {
       "startConsultation": "Inizia la consultazione",
-      "profile": "Profilo"
+      "profile": "Profilo",
+      "logout": "Disconnettersi",
+      "prescriptions": "Prescrizioni",
+      "services": "Servizi"
     },
     "enterCodeTerms": {
       "askAtReception": "Chiedi alla reception il codice",
-      "enterDoctorCode": "Inserisci il tuo codice medico"
+      "enterDoctorCode": "Inserisci il tuo codice medico",
+      "lengthError": "Previsti 7 numeri",
+      "invalidCode": "Codice non valido"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Domande generali",
@@ -863,12 +1063,17 @@
       "notGood": "Non bene",
       "bad": "Cattivo",
       "inPain": "Dolorante",
-      "sleeping": "Stai dormendo bene?",
-      "eating": "Mangi cibo?",
+      "sleeping": "Dormi male?",
+      "eating": "Mangi male?",
       "highTemperature": "Hai una temperatura elevata?",
-      "medications": "Stai assumendo farmaci?"
+      "medications": "Stai assumendo farmaci?",
+      "smoke": "Fumi?"
     },
     "physicalSymptomsTerms": {
+      "head": "Capo",
+      "arms": "Braccia",
+      "body": "Corpo",
+      "legs": "Gambe",
       "clickOnSymptom": "Fai clic su Dove hai un sintomo",
       "Head": {
         "cough": "Tosse",
@@ -909,6 +1114,58 @@
         "thighPain": "Dolore alla coscia"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Sintomi psicologici",
+      "sad": "Ti senti triste o triste?",
+      "anxious": "Ti senti spesso ansioso?",
+      "mood": "Hai cambiamenti di umore estremi?",
+      "stress": "Ti senti incapace di far fronte allo stress?",
+      "drug": "Hai un problema con l&#39;alcol o l&#39;abuso di droghe?",
+      "concentration": "Ti senti meno in grado di concentrarti?",
+      "undestanding": "Hai difficoltà a capire le situazioni o le persone?",
+      "paranoia": "Stai vivendo la paranoia?"
+    },
+    "profilePage": {
+      "edit": "modificare",
+      "save": "Salva",
+      "cancel": "Annulla",
+      "changePicture": "Cambia immagine",
+      "saveAndClose": "Salva e chiudi"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Le tue prescrizioni",
+      "medicine": "Medicinale",
+      "dose": "Dose",
+      "frequency": "Frequenza",
+      "date": "Data",
+      "prescribedBy": "Prescritto da"
+    },
+    "patientNotes": {
+      "furtherInfo": "Ulteriori informazioni",
+      "fillInSymptoms": "Inserisci ulteriori sintomi e informazioni",
+      "enterSymptoms": "Inserisci i sintomi",
+      "finish": "finire"
+    },
+    "confirmationPage": {
+      "thankYou": "Grazie per averci inviato",
+      "doctorHereShortly": "Il tuo dottore sarà qui a breve"
+    },
+    "chat": { "startMessaging": "Inizia a inviare messaggi" },
+    "servicesPage": {
+      "localServices": "Servizi locali",
+      "translateTerms": "Traduci i termini",
+      "mapPage": {
+        "dentist": "Dentista",
+        "hospital": "Ospedale",
+        "opticians": "Ottici",
+        "pharmacy": "Farmacia"
+      },
+      "translatePage": {
+        "translateTerm": "Traduci termine medico",
+        "enterTerm": "Immettere il termine medico",
+        "getInfo": "Ottenere informazioni"
+      }
+    },
     "feedbackTerms": {
       "end": "La tua consultazione è terminata",
       "rate": "Valuta la tua esperienza"
@@ -918,7 +1175,8 @@
       "no": "No",
       "next": "Il prossimo",
       "end": "Fine",
-      "confirm": "Confermare"
+      "confirm": "Confermare",
+      "submit": "Invia"
     }
   },
   "lv": {
@@ -931,15 +1189,21 @@
       "firstName": "Vārds",
       "lastName": "Uzvārds",
       "postcode": "Pasta indekss",
-      "errorMessage": "Kaut kas nogāja greizi"
+      "errorMessage": "Kaut kas nogāja greizi",
+      "invalid": "nepareizs e-pasts vai parole"
     },
     "patientLandingTerms": {
       "startConsultation": "Sāciet konsultāciju",
-      "profile": "Profils"
+      "profile": "Profils",
+      "logout": "Izlogoties",
+      "prescriptions": "Receptes",
+      "services": "Pakalpojumi"
     },
     "enterCodeTerms": {
       "askAtReception": "Jautājiet reģistratūrā par kodu",
-      "enterDoctorCode": "Ievadiet savu ārstu kodu"
+      "enterDoctorCode": "Ievadiet savu ārstu kodu",
+      "lengthError": "Paredzētie 7 numuri",
+      "invalidCode": "Nepareizs kods"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Vispārīgi jautājumi",
@@ -947,12 +1211,17 @@
       "notGood": "Nav labi",
       "bad": "Slikti",
       "inPain": "Sāpēs",
-      "sleeping": "Vai jūs labi gulējat?",
-      "eating": "Vai jūs ēdat ēdienu?",
+      "sleeping": "Vai jūs slikti guļat?",
+      "eating": "Vai jūs ēdat slikti?",
       "highTemperature": "Vai jums ir augsta temperatūra?",
-      "medications": "Vai jūs lietojat kādas zāles?"
+      "medications": "Vai jūs lietojat kādas zāles?",
+      "smoke": "Vai jūs smēķējat?"
     },
     "physicalSymptomsTerms": {
+      "head": "Galva",
+      "arms": "Ieroči",
+      "body": "Ķermenis",
+      "legs": "Kājas",
       "clickOnSymptom": "Noklikšķiniet uz Kur jums ir simptoms",
       "Head": {
         "cough": "Klepus",
@@ -993,16 +1262,69 @@
         "thighPain": "Sāpes augšstilbā"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Psiholoģiskie simptomi",
+      "sad": "Vai jūs jūtaties skumjš vai nomākts?",
+      "anxious": "Vai jūs bieži jūtat trauksmi?",
+      "mood": "Vai jums ir ārkārtējas garastāvokļa izmaiņas?",
+      "stress": "Vai jūs jūtaties nespējīgs tikt galā ar stresu?",
+      "drug": "Vai jums ir problēmas ar alkohola vai narkotiku lietošanu?",
+      "concentration": "Vai jūs jūtaties mazāk spējīgs koncentrēties?",
+      "undestanding": "Vai jums ir grūtības izprast situācijas vai cilvēkus?",
+      "paranoia": "Vai jūs piedzīvojat paranoju?"
+    },
     "feedbackTerms": {
       "end": "Jūsu konsultācija ir beigusies",
       "rate": "Novērtējiet savu pieredzi"
+    },
+    "profilePage": {
+      "edit": "Rediģēt",
+      "save": "Saglabāt",
+      "cancel": "Atcelt",
+      "changePicture": "Mainīt attēlu",
+      "saveAndClose": "Saglabāt un aizvērt"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Jūsu receptes",
+      "medicine": "Medicīna",
+      "dose": "Deva",
+      "frequency": "Biežums",
+      "date": "Datums",
+      "prescribedBy": "Izrakstījis"
+    },
+    "patientNotes": {
+      "furtherInfo": "Papildinformācija",
+      "fillInSymptoms": "Aizpildiet visus citus simptomus un informāciju",
+      "enterSymptoms": "Ievadiet simptomus",
+      "finish": "Pabeigt"
+    },
+    "confirmationPage": {
+      "thankYou": "Paldies, ka iesniedzāt",
+      "doctorHereShortly": "Jūsu ārsts drīz ieradīsies"
+    },
+    "chat": { "startMessaging": "Sāciet ziņojumapmaiņu" },
+    "servicesPage": {
+      "localServices": "Vietējie pakalpojumi",
+      "translateTerms": "Tulkot noteikumus",
+      "mapPage": {
+        "dentist": "Zobārsts",
+        "hospital": "Slimnīca",
+        "opticians": "Optikas",
+        "pharmacy": "Aptieka"
+      },
+      "translatePage": {
+        "translateTerm": "Tulkot medicīnisko terminu",
+        "enterTerm": "Ievadiet medicīnisko terminu",
+        "getInfo": "Iegūt informāciju"
+      }
     },
     "utils": {
       "yes": "Jā",
       "no": "Nē",
       "next": "Nākamais",
       "end": "Beigas",
-      "confirm": "Apstiprināt"
+      "confirm": "Apstiprināt",
+      "submit": "Iesniegt"
     }
   },
   "lt": {
@@ -1015,15 +1337,21 @@
       "firstName": "Pirmas vardas",
       "lastName": "Pavardė",
       "postcode": "Pašto kodas",
-      "errorMessage": "Kažkas nepavyko"
+      "errorMessage": "Kažkas nepavyko",
+      "invalid": "Neteisingas elektroninis paštas arba slaptažodis"
     },
     "patientLandingTerms": {
       "startConsultation": "Pradėkite konsultaciją",
-      "profile": "Profilis"
+      "profile": "Profilis",
+      "logout": "Atsijungti",
+      "prescriptions": "Receptai",
+      "services": "Paslaugos"
     },
     "enterCodeTerms": {
       "askAtReception": "Klauskite registratūroje kodo",
-      "enterDoctorCode": "Įveskite savo gydytojų kodą"
+      "enterDoctorCode": "Įveskite savo gydytojų kodą",
+      "lengthError": "Tikėtasi 7 numeriai",
+      "invalidCode": "Neteisingas kodas"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Bendri klausimai",
@@ -1031,12 +1359,17 @@
       "notGood": "Negerai",
       "bad": "Blogai",
       "inPain": "Skausme",
-      "sleeping": "Ar gerai miegate?",
-      "eating": "Ar valgote maistą?",
+      "sleeping": "Jūs blogai miegate?",
+      "eating": "Ar blogai valgote?",
       "highTemperature": "Ar turite aukštą temperatūrą?",
-      "medications": "Ar vartojate vaistus?"
+      "medications": "Ar vartojate vaistus?",
+      "smoke": "Ar rūkote?"
     },
     "physicalSymptomsTerms": {
+      "head": "Galva",
+      "arms": "Rankos",
+      "body": "kūnas",
+      "legs": "Kojos",
       "clickOnSymptom": "Spustelėkite Kur turite simptomų",
       "Head": {
         "cough": "Kosulys",
@@ -1077,6 +1410,58 @@
         "thighPain": "Šlaunų skausmas"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Psichologiniai simptomai",
+      "sad": "Ar jaučiatės liūdnas ar nusiminęs?",
+      "anxious": "Ar dažnai jaučiate nerimą?",
+      "mood": "Ar turite ypatingų nuotaikos pokyčių?",
+      "stress": "Ar jaučiatės nesusitvarkęs su stresu?",
+      "drug": "Ar turite problemų dėl alkoholio ar piktnaudžiavimo narkotikais?",
+      "concentration": "Ar jaučiatės mažiau susikaupęs?",
+      "undestanding": "Ar jums sunku suprasti situacijas ar žmones?",
+      "paranoia": "Ar patiriate paranoją?"
+    },
+    "profilePage": {
+      "edit": "Redaguoti",
+      "save": "Sutaupyti",
+      "cancel": "Atšaukti",
+      "changePicture": "Keisti paveikslėlį",
+      "saveAndClose": "Išsaugokite ir uždarykite"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Jūsų receptai",
+      "medicine": "Vaistas",
+      "dose": "Dozė",
+      "frequency": "Dažnis",
+      "date": "Data",
+      "prescribedBy": "Paskyrė"
+    },
+    "patientNotes": {
+      "furtherInfo": "Tolimesnė informacija",
+      "fillInSymptoms": "Užpildykite visus kitus simptomus ir informaciją",
+      "enterSymptoms": "Įveskite simptomus",
+      "finish": "Baigti"
+    },
+    "confirmationPage": {
+      "thankYou": "Dėkojame, kad pateikėte",
+      "doctorHereShortly": "Netrukus čia bus jūsų gydytojas"
+    },
+    "chat": { "startMessaging": "Pradėkite susirašinėti" },
+    "servicesPage": {
+      "localServices": "Vietinės paslaugos",
+      "translateTerms": "Versti sąlygas",
+      "mapPage": {
+        "dentist": "Odontologas",
+        "hospital": "Ligoninė",
+        "opticians": "Optikai",
+        "pharmacy": "Vaistinė"
+      },
+      "translatePage": {
+        "translateTerm": "Išversti medicinos terminą",
+        "enterTerm": "Įveskite medicinos terminą",
+        "getInfo": "Gauti informacijos"
+      }
+    },
     "feedbackTerms": {
       "end": "Jūsų konsultacijos baigėsi",
       "rate": "Įvertink savo patirtį"
@@ -1086,7 +1471,8 @@
       "no": "Ne",
       "next": "Kitas",
       "end": "Pabaiga",
-      "confirm": "Patvirtinti"
+      "confirm": "Patvirtinti",
+      "submit": "Pateikti"
     }
   },
   "fa": {
@@ -1099,15 +1485,21 @@
       "firstName": "نام کوچک",
       "lastName": "نام خانوادگی",
       "postcode": "کد پستی",
-      "errorMessage": "مشکلی پیش آمد"
+      "errorMessage": "مشکلی پیش آمد",
+      "invalid": "ایمیل یا رمز ورود نامعتبر است"
     },
     "patientLandingTerms": {
       "startConsultation": "مشاوره را شروع کنید",
-      "profile": "مشخصات"
+      "profile": "مشخصات",
+      "logout": "خروج",
+      "prescriptions": "نسخه ها",
+      "services": "خدمات"
     },
     "enterCodeTerms": {
       "askAtReception": "از پذیرش کد بخواهید",
-      "enterDoctorCode": "کد پزشکان خود را وارد کنید"
+      "enterDoctorCode": "کد پزشکان خود را وارد کنید",
+      "lengthError": "انتظار می رود 7 عدد",
+      "invalidCode": "کد نامعتبر"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "سوالات عمومی",
@@ -1115,12 +1507,17 @@
       "notGood": "خوب نیست",
       "bad": "بد",
       "inPain": "در درد",
-      "sleeping": "خوب خوابیده ای؟",
-      "eating": "آیا شما غذا می خورید؟",
+      "sleeping": "آیا شما ضعیف می خوابید؟",
+      "eating": "آیا شما ضعیف غذا می خورید؟",
       "highTemperature": "آیا دمای بالایی دارید؟",
-      "medications": "آیا دارویی مصرف می کنید؟"
+      "medications": "آیا دارویی مصرف می کنید؟",
+      "smoke": "آیا سیگار می کشی؟"
     },
     "physicalSymptomsTerms": {
+      "head": "سر",
+      "arms": "بازوها",
+      "body": "بدن",
+      "legs": "پاها",
       "clickOnSymptom": "روی جایی که علائم دارید کلیک کنید",
       "Head": {
         "cough": "سرفه",
@@ -1161,6 +1558,58 @@
         "thighPain": "درد ران"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "علائم روانشناختی",
+      "sad": "آیا شما ناراحت هستید یا پایین؟",
+      "anxious": "آیا اغلب احساس اضطراب می کنید؟",
+      "mood": "آیا تغییرات شدید خلقی دارید؟",
+      "stress": "آیا احساس می کنید قادر به کنار آمدن با استرس نیستید؟",
+      "drug": "آیا مشکلی با سوch مصرف مواد مخدر یا آلکوهول دارید؟",
+      "concentration": "آیا احساس تمرکز کمتری دارید؟",
+      "undestanding": "آیا در درک شرایط یا افراد مشکلی ندارید؟",
+      "paranoia": "آیا شما دچار پارانویا هستید؟"
+    },
+    "patientNotes": {
+      "furtherInfo": "اطلاعات بیشتر",
+      "fillInSymptoms": "علائم و اطلاعات دیگر را پر کنید",
+      "enterSymptoms": "علائم را وارد کنید",
+      "finish": "تمام کردن"
+    },
+    "confirmationPage": {
+      "thankYou": "از ارسال شما متشکرم",
+      "doctorHereShortly": "دکتر شما به زودی اینجا خواهد بود"
+    },
+    "profilePage": {
+      "edit": "ویرایش کنید",
+      "save": "صرفه جویی",
+      "cancel": "لغو",
+      "changePicture": "تغییر تصویر",
+      "saveAndClose": "ذخیره کن و ببند"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "نسخه های شما",
+      "medicine": "دارو",
+      "dose": "دوز",
+      "frequency": "فرکانس",
+      "date": "تاریخ",
+      "prescribedBy": "تجویز شده توسط"
+    },
+    "chat": { "startMessaging": "پیام رسانی را شروع کنید" },
+    "servicesPage": {
+      "localServices": "خدمات محلی",
+      "translateTerms": "ترجمه اصطلاحات",
+      "mapPage": {
+        "dentist": "دندانپزشک",
+        "hospital": "بیمارستان",
+        "opticians": "چشم پزشک",
+        "pharmacy": "داروخانه"
+      },
+      "translatePage": {
+        "translateTerm": "ترجمه اصطلاح پزشکی",
+        "enterTerm": "اصطلاح پزشکی را وارد کنید",
+        "getInfo": "اطلاعات بگیر"
+      }
+    },
     "feedbackTerms": {
       "end": "مشاوره شما به پایان رسیده است",
       "rate": "به تجربه خود امتیاز دهید"
@@ -1170,7 +1619,8 @@
       "no": "نه",
       "next": "بعد",
       "end": "پایان",
-      "confirm": "تایید"
+      "confirm": "تایید",
+      "submit": "ارسال"
     }
   },
   "pl": {
@@ -1183,15 +1633,21 @@
       "firstName": "Imię",
       "lastName": "Nazwisko",
       "postcode": "Kod pocztowy",
-      "errorMessage": "Coś poszło nie tak"
+      "errorMessage": "Coś poszło nie tak",
+      "invalid": "Nieprawidłowy e-mail lub hasło"
     },
     "patientLandingTerms": {
       "startConsultation": "Rozpocznij konsultację",
-      "profile": "Profil"
+      "profile": "Profil",
+      "logout": "Wyloguj",
+      "prescriptions": "Recepty",
+      "services": "Usługi"
     },
     "enterCodeTerms": {
       "askAtReception": "Zapytaj w recepcji o kod",
-      "enterDoctorCode": "Wprowadź kod lekarza"
+      "enterDoctorCode": "Wprowadź kod lekarza",
+      "lengthError": "Oczekiwano 7 numerów",
+      "invalidCode": "Zły kod"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Ogólne pytania",
@@ -1199,12 +1655,17 @@
       "notGood": "Niedobrze",
       "bad": "Zły",
       "inPain": "W bólu",
-      "sleeping": "Dobrze sypiasz?",
-      "eating": "Jesz jedzenie?",
+      "sleeping": "Źle sypiasz?",
+      "eating": "Źle się odżywiasz?",
       "highTemperature": "Czy masz wysoką temperaturę?",
-      "medications": "Czy bierzesz jakieś leki?"
+      "medications": "Czy bierzesz jakieś leki?",
+      "smoke": "Czy palisz papierosy?"
     },
     "physicalSymptomsTerms": {
+      "head": "Głowa",
+      "arms": "Ramiona",
+      "body": "Ciało",
+      "legs": "Nogi",
       "clickOnSymptom": "Kliknij Gdzie masz objaw",
       "Head": {
         "cough": "Kaszel",
@@ -1245,6 +1706,58 @@
         "thighPain": "Ból uda"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Objawy psychologiczne",
+      "sad": "Czy czujesz się smutny lub przygnębiony?",
+      "anxious": "Czy często czujesz niepokój?",
+      "mood": "Czy masz ekstremalne zmiany nastroju?",
+      "stress": "Nie radzisz sobie ze stresem?",
+      "drug": "Masz problem z nadużywaniem alkoholu lub narkotyków?",
+      "concentration": "Czy czujesz się mniej zdolny do koncentracji?",
+      "undestanding": "Czy masz problemy ze zrozumieniem sytuacji lub ludzi?",
+      "paranoia": "Czy przeżywasz paranoję?"
+    },
+    "profilePage": {
+      "edit": "Edytować",
+      "save": "Zapisać",
+      "cancel": "anulować",
+      "changePicture": "Zmień obrazek",
+      "saveAndClose": "Zapisz i zamknij"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Twoje recepty",
+      "medicine": "Medycyna",
+      "dose": "Dawka",
+      "frequency": "Częstotliwość",
+      "date": "Data",
+      "prescribedBy": "Przepisane przez"
+    },
+    "patientNotes": {
+      "furtherInfo": "Dalsza informacja",
+      "fillInSymptoms": "Podaj dalsze objawy i informacje",
+      "enterSymptoms": "Wprowadź objawy",
+      "finish": "koniec"
+    },
+    "confirmationPage": {
+      "thankYou": "Dziękuję za przesłanie",
+      "doctorHereShortly": "Twój lekarz wkrótce tu będzie"
+    },
+    "chat": { "startMessaging": "Zacznij wysyłać wiadomości" },
+    "servicesPage": {
+      "localServices": "Usługi lokalne",
+      "translateTerms": "Przetłumacz warunki",
+      "mapPage": {
+        "dentist": "Dentysta",
+        "hospital": "Szpital",
+        "opticians": "Optycy",
+        "pharmacy": "Apteka"
+      },
+      "translatePage": {
+        "translateTerm": "Przetłumacz termin medyczny",
+        "enterTerm": "Wprowadź termin medyczny",
+        "getInfo": "Zdobyć informację"
+      }
+    },
     "feedbackTerms": {
       "end": "Twoja konsultacja dobiegła końca",
       "rate": "Oceń swoje doświadczenie"
@@ -1254,7 +1767,8 @@
       "no": "Nie",
       "next": "Kolejny",
       "end": "Koniec",
-      "confirm": "Potwierdzać"
+      "confirm": "Potwierdzać",
+      "submit": "Zatwierdź"
     }
   },
   "pt": {
@@ -1267,15 +1781,21 @@
       "firstName": "Primeiro nome",
       "lastName": "Último nome",
       "postcode": "Código Postal",
-      "errorMessage": "Algo deu errado"
+      "errorMessage": "Algo deu errado",
+      "invalid": "Email ou senha inválida"
     },
     "patientLandingTerms": {
       "startConsultation": "Iniciar Consulta",
-      "profile": "Perfil"
+      "profile": "Perfil",
+      "logout": "Sair",
+      "prescriptions": "Prescrições",
+      "services": "Serviços"
     },
     "enterCodeTerms": {
       "askAtReception": "Peça o código na recepção",
-      "enterDoctorCode": "Digite o código do seu médico"
+      "enterDoctorCode": "Digite o código do seu médico",
+      "lengthError": "Esperados 7 números",
+      "invalidCode": "Código inválido"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Questões gerais",
@@ -1283,12 +1803,17 @@
       "notGood": "Não é bom",
       "bad": "Ruim",
       "inPain": "Na dor",
-      "sleeping": "Você está dormindo bem?",
-      "eating": "Você está comendo comida?",
-      "highTemperature": "Você tem uma temperatura elevada?",
-      "medications": "Você está tomando alguma medicação?"
+      "sleeping": "Você está dormindo mal?",
+      "eating": "Você está comendo mal?",
+      "highTemperature": "Você tem uma temperatura alta?",
+      "medications": "Você está tomando alguma medicação?",
+      "smoke": "Voce fuma?"
     },
     "physicalSymptomsTerms": {
+      "head": "Cabeça",
+      "arms": "Braços",
+      "body": "Corpo",
+      "legs": "Pernas",
       "clickOnSymptom": "Clique onde você tem um sintoma",
       "Head": {
         "cough": "Tosse",
@@ -1329,16 +1854,69 @@
         "thighPain": "Dor na coxa"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Sintomas Psicológicos",
+      "sad": "Você se sente triste ou deprimido?",
+      "anxious": "Você costuma se sentir ansioso?",
+      "mood": "Você tem mudanças extremas de humor?",
+      "stress": "Você se sente incapaz de lidar com o estresse?",
+      "drug": "Você tem problemas com álcool ou drogas?",
+      "concentration": "Você se sente menos capaz de se concentrar?",
+      "undestanding": "Você tem dificuldade para entender situações ou pessoas?",
+      "paranoia": "Você está passando por paranóia?"
+    },
+    "profilePage": {
+      "edit": "Editar",
+      "save": "Salve",
+      "cancel": "Cancelar",
+      "changePicture": "Alterar imagem",
+      "saveAndClose": "Salvar e fechar"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Suas prescrições",
+      "medicine": "Remédio",
+      "dose": "Dose",
+      "frequency": "Frequência",
+      "date": "Encontro",
+      "prescribedBy": "Prescrito por"
+    },
     "feedbackTerms": {
       "end": "Sua consulta terminou",
       "rate": "Avalie sua experiência"
+    },
+    "patientNotes": {
+      "furtherInfo": "Outras informações",
+      "fillInSymptoms": "Preencha quaisquer outros sintomas e informações",
+      "enterSymptoms": "Digite os sintomas",
+      "finish": "Terminar"
+    },
+    "confirmationPage": {
+      "thankYou": "Obrigado por enviar",
+      "doctorHereShortly": "Seu médico estará aqui em breve"
+    },
+    "chat": { "startMessaging": "Comece a enviar mensagens" },
+    "servicesPage": {
+      "localServices": "Serviços Locais",
+      "translateTerms": "Traduzir termos",
+      "mapPage": {
+        "dentist": "Dentista",
+        "hospital": "Hospital",
+        "opticians": "Oculistas",
+        "pharmacy": "Farmacia"
+      },
+      "translatePage": {
+        "translateTerm": "Traduzir Termo Médico",
+        "enterTerm": "Digite o termo médico",
+        "getInfo": "Obter informação"
+      }
     },
     "utils": {
       "yes": "sim",
       "no": "Não",
       "next": "Próximo",
       "end": "Fim",
-      "confirm": "confirme"
+      "confirm": "confirme",
+      "submit": "Enviar"
     }
   },
   "pa": {
@@ -1351,15 +1929,21 @@
       "firstName": "ਪਹਿਲਾ ਨਾਂ",
       "lastName": "ਆਖਰੀ ਨਾਂਮ",
       "postcode": "ਪੋਸਟਕੋਡ",
-      "errorMessage": "केहि गलत भयो"
+      "errorMessage": "केहि गलत भयो",
+      "invalid": "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ"
     },
     "patientLandingTerms": {
       "startConsultation": "ਸਲਾਹ-ਮਸ਼ਵਰਾ ਸ਼ੁਰੂ ਕਰੋ",
-      "profile": "ਪ੍ਰੋਫਾਈਲ"
+      "profile": "ਪ੍ਰੋਫਾਈਲ",
+      "logout": "ਲਾੱਗ ਆਊਟ, ਬਾਹਰ ਆਉਣਾ",
+      "prescriptions": "ਨੁਸਖੇ",
+      "services": "ਸੇਵਾਵਾਂ"
     },
     "enterCodeTerms": {
       "askAtReception": "ਕੋਡ ਲਈ ਰਿਸੈਪਸ਼ਨ ਤੇ ਪੁੱਛੋ",
-      "enterDoctorCode": "ਆਪਣੇ ਡਾਕਟਰਾਂ ਦਾ ਕੋਡ ਦਰਜ ਕਰੋ"
+      "enterDoctorCode": "ਆਪਣੇ ਡਾਕਟਰਾਂ ਦਾ ਕੋਡ ਦਰਜ ਕਰੋ",
+      "lengthError": "ਉਮੀਦ ਕੀਤੀ 7 ਸੰਖਿਆਵਾਂ",
+      "invalidCode": "ਅਵੈਧ ਕੋਡ"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "ਆਮ ਸਵਾਲ",
@@ -1367,12 +1951,17 @@
       "notGood": "ਵਧੀਆ ਨਹੀ",
       "bad": "ਮਾੜਾ",
       "inPain": "ਦਰਦ ਵਿਚ",
-      "sleeping": "ਕੀ ਤੁਸੀਂ ਚੰਗੀ ਨੀਂਦ ਲੈ ਰਹੇ ਹੋ?",
-      "eating": "ਕੀ ਤੁਸੀਂ ਖਾਣਾ ਖਾ ਰਹੇ ਹੋ?",
+      "sleeping": "ਕੀ ਤੁਸੀਂ ਮਾੜੀ ਨੀਂਦ ਸੁੱਤੇ ਹੋ?",
+      "eating": "ਕੀ ਤੁਸੀਂ ਮਾੜਾ ਖਾ ਰਹੇ ਹੋ?",
       "highTemperature": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਉੱਚ ਤਾਪਮਾਨ ਹੈ?",
-      "medications": "ਕੀ ਤੁਸੀਂ ਕੋਈ ਦਵਾਈ ਲੈ ਰਹੇ ਹੋ?"
+      "medications": "ਕੀ ਤੁਸੀਂ ਕੋਈ ਦਵਾਈ ਲੈ ਰਹੇ ਹੋ?",
+      "smoke": "ਕੀ ਤੁਸੀਂ ਧੂਮਰਪਾਨ ਕਰਦੇ ਹੋ?"
     },
     "physicalSymptomsTerms": {
+      "head": "ਮੁਖੀ",
+      "arms": "ਹਥਿਆਰ",
+      "body": "ਸਰੀਰ",
+      "legs": "ਲੱਤਾਂ",
       "clickOnSymptom": "ਤੁਹਾਨੂੰ ਇੱਕ ਲੱਛਣ ਹੈ, ਜਿੱਥੇ ਕਲਿੱਕ ਕਰੋ",
       "Head": {
         "cough": "ਖੰਘ",
@@ -1413,6 +2002,58 @@
         "thighPain": "ਪੱਟ ਦਰਦ"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "ਮਨੋਵਿਗਿਆਨਕ ਲੱਛਣ",
+      "sad": "ਕੀ ਤੁਸੀਂ ਉਦਾਸ ਹੋ ਜਾਂ ਨਿਰਾਸ਼ ਹੋ?",
+      "anxious": "ਕੀ ਤੁਸੀਂ ਅਕਸਰ ਚਿੰਤਤ ਹੋ?",
+      "mood": "ਕੀ ਤੁਹਾਡੇ ਮਨ ਵਿਚ ਬਹੁਤ ਜ਼ਿਆਦਾ ਤਬਦੀਲੀਆਂ ਹਨ?",
+      "stress": "ਕੀ ਤੁਸੀਂ ਤਣਾਅ ਦਾ ਸਾਮ੍ਹਣਾ ਕਰਨ ਵਿਚ ਅਯੋਗ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ?",
+      "drug": "ਕੀ ਤੁਹਾਨੂੰ ਅਲਕੋਹਲ ਜਾਂ ਨਸ਼ੇ ਦੀ ਸਮੱਸਿਆ ਨਾਲ ਕੋਈ ਸਮੱਸਿਆ ਹੈ?",
+      "concentration": "ਕੀ ਤੁਸੀਂ ਧਿਆਨ ਲਗਾਉਣ ਵਿੱਚ ਘੱਟ ਯੋਗਤਾ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ?",
+      "undestanding": "ਕੀ ਤੁਹਾਨੂੰ ਸਥਿਤੀਆਂ ਜਾਂ ਲੋਕਾਂ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮੁਸ਼ਕਲ ਹੈ?",
+      "paranoia": "ਕੀ ਤੁਸੀਂ ਵਿਕਾਰ ਦਾ ਅਨੁਭਵ ਕਰ ਰਹੇ ਹੋ?"
+    },
+    "profilePage": {
+      "edit": "ਸੰਪਾਦਿਤ ਕਰੋ",
+      "save": "ਸੇਵ",
+      "cancel": "ਰੱਦ ਕਰੋ",
+      "changePicture": "ਤਸਵੀਰ ਬਦਲੋ",
+      "saveAndClose": "ਸੇਵ ਅਤੇ ਬੰਦ ਕਰੋ"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "ਤੁਹਾਡੇ ਨੁਸਖੇ",
+      "medicine": "ਦਵਾਈ",
+      "dose": "ਖੁਰਾਕ",
+      "frequency": "ਬਾਰੰਬਾਰਤਾ",
+      "date": "ਤਾਰੀਖ਼",
+      "prescribedBy": "ਦੁਆਰਾ ਨਿਰਧਾਰਤ"
+    },
+    "patientNotes": {
+      "furtherInfo": "ਹੋਰ ਜਾਣਕਾਰੀ",
+      "fillInSymptoms": "ਕਿਸੇ ਵੀ ਹੋਰ ਲੱਛਣਾਂ ਅਤੇ ਜਾਣਕਾਰੀ ਨੂੰ ਭਰੋ",
+      "enterSymptoms": "ਲੱਛਣ ਦਰਜ ਕਰੋ",
+      "finish": "ਮੁਕੰਮਲ"
+    },
+    "confirmationPage": {
+      "thankYou": "ਦਾਖਲ ਕਰਨ ਲਈ ਧੰਨਵਾਦ",
+      "doctorHereShortly": "ਤੁਹਾਡਾ ਡਾਕਟਰ ਜਲਦੀ ਹੀ ਇੱਥੇ ਆ ਜਾਵੇਗਾ"
+    },
+    "chat": { "startMessaging": "ਸੁਨੇਹਾ ਦੇਣਾ ਸ਼ੁਰੂ ਕਰੋ" },
+    "servicesPage": {
+      "localServices": "ਸਥਾਨਕ ਸੇਵਾਵਾਂ",
+      "translateTerms": "ਅਨੁਵਾਦ ਦੀਆਂ ਸ਼ਰਤਾਂ",
+      "mapPage": {
+        "dentist": "ਦੰਦਾਂ ਦਾ ਡਾਕਟਰ",
+        "hospital": "ਹਸਪਤਾਲ",
+        "opticians": "ਆਪਟੀਸ਼ੀਅਨ",
+        "pharmacy": "ਫਾਰਮੇਸੀ"
+      },
+      "translatePage": {
+        "translateTerm": "ਮੈਡੀਕਲ ਅਵਧੀ ਦਾ ਅਨੁਵਾਦ ਕਰੋ",
+        "enterTerm": "ਮੈਡੀਕਲ ਮਿਆਦ ਦਿਓ",
+        "getInfo": "ਜਾਣਕਾਰੀ ਲਵੋ"
+      }
+    },
     "feedbackTerms": {
       "end": "ਤੁਹਾਡੀ ਸਲਾਹ-ਮਸ਼ਵਰਾ ਖਤਮ ਹੋ ਗਿਆ ਹੈ",
       "rate": "ਆਪਣੇ ਤਜ਼ਰਬੇ ਨੂੰ ਦਰਜਾ ਦਿਓ"
@@ -1422,7 +2063,8 @@
       "no": "ਨਹੀਂ",
       "next": "ਅਗਲਾ",
       "end": "ਅੰਤ",
-      "confirm": "ਪੁਸ਼ਟੀ ਕਰੋ"
+      "confirm": "ਪੁਸ਼ਟੀ ਕਰੋ",
+      "submit": "ਜਮ੍ਹਾਂ ਕਰੋ"
     }
   },
   "ro": {
@@ -1435,15 +2077,21 @@
       "firstName": "Nume",
       "lastName": "Numele de familie",
       "postcode": "Cod poștal",
-      "errorMessage": "Ceva n-a mers bine"
+      "errorMessage": "Ceva n-a mers bine",
+      "invalid": "E-mail nevalidă sau parola"
     },
     "patientLandingTerms": {
       "startConsultation": "Începeți consultarea",
-      "profile": "Profil"
+      "profile": "Profil",
+      "logout": "Deconectați-vă",
+      "prescriptions": "Prescripții",
+      "services": "Servicii"
     },
     "enterCodeTerms": {
       "askAtReception": "Cereți codul la recepție",
-      "enterDoctorCode": "Introduceți codul medicilor"
+      "enterDoctorCode": "Introduceți codul medicilor",
+      "lengthError": "7 numere așteptate",
+      "invalidCode": "Cod invalid"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Intrebari generale",
@@ -1451,12 +2099,17 @@
       "notGood": "Nu e bine",
       "bad": "Rău",
       "inPain": "În durere",
-      "sleeping": "Dormi bine?",
-      "eating": "Mănânci mâncare?",
+      "sleeping": "Dormi prost?",
+      "eating": "Mănânci prost?",
       "highTemperature": "Aveți o temperatură ridicată?",
-      "medications": "Ia vreun medicament?"
+      "medications": "Ia vreun medicament?",
+      "smoke": "Fumezi?"
     },
     "physicalSymptomsTerms": {
+      "head": "Cap",
+      "arms": "Arme",
+      "body": "Corp",
+      "legs": "Picioare",
       "clickOnSymptom": "Faceți clic pe Unde aveți un simptom",
       "Head": {
         "cough": "Tuse",
@@ -1497,6 +2150,58 @@
         "thighPain": "Durerea coapsei"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Simptome psihologice",
+      "sad": "Te simți trist sau în jos?",
+      "anxious": "Te simți deseori anxios?",
+      "mood": "Aveți modificări extreme ale dispoziției?",
+      "stress": "Te simți incapabil să faci față stresului?",
+      "drug": "Aveți o problemă cu alcoolul sau abuzul de droguri?",
+      "concentration": "Te simți mai puțin capabil să te concentrezi?",
+      "undestanding": "Aveți probleme cu înțelegerea situațiilor sau a oamenilor?",
+      "paranoia": "Te confrunți cu paranoia?"
+    },
+    "profilePage": {
+      "edit": "Editați",
+      "save": "salva",
+      "cancel": "Anulare",
+      "changePicture": "Schimbă imaginea",
+      "saveAndClose": "Salveaza si inchide"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Rețetele tale",
+      "medicine": "Medicament",
+      "dose": "Doza",
+      "frequency": "Frecvență",
+      "date": "Data",
+      "prescribedBy": "Prescris de"
+    },
+    "patientNotes": {
+      "furtherInfo": "Informatii suplimentare",
+      "fillInSymptoms": "Completați orice alte simptome și informații",
+      "enterSymptoms": "Introduceți simptome",
+      "finish": "finalizarea"
+    },
+    "confirmationPage": {
+      "thankYou": "Vă mulțumim că ați trimis",
+      "doctorHereShortly": "Medicul dumneavoastră va fi aici în curând"
+    },
+    "chat": { "startMessaging": "Începeți mesageria" },
+    "servicesPage": {
+      "localServices": "Servicii locale",
+      "translateTerms": "Traducerea termenilor",
+      "mapPage": {
+        "dentist": "Dentist",
+        "hospital": "Spital",
+        "opticians": "Opticieni",
+        "pharmacy": "Farmacie"
+      },
+      "translatePage": {
+        "translateTerm": "Traduceți termen medical",
+        "enterTerm": "Introduceți termenul medical",
+        "getInfo": "Obțineți informații"
+      }
+    },
     "feedbackTerms": {
       "end": "Consultarea dvs. s-a încheiat",
       "rate": "Evaluează-ți experiența"
@@ -1506,7 +2211,8 @@
       "no": "Nu",
       "next": "Următorul",
       "end": "Sfârșit",
-      "confirm": "A confirma"
+      "confirm": "A confirma",
+      "submit": "Trimite"
     }
   },
   "es": {
@@ -1667,15 +2373,21 @@
       "firstName": "Magaca koowaad",
       "lastName": "Magaca Dambe",
       "postcode": "Koodhka boostada",
-      "errorMessage": "Waxbaa qaldamay"
+      "errorMessage": "Waxbaa qaldamay",
+      "invalid": "Emayl ama fure aan sax ahayn"
     },
     "patientLandingTerms": {
       "startConsultation": "Bilaab La-tashiga",
-      "profile": "Astaan"
+      "profile": "Astaan",
+      "logout": "Ka bax",
+      "prescriptions": "Rijeetooyin",
+      "services": "Adeegyada"
     },
     "enterCodeTerms": {
       "askAtReception": "Weydii Qaabilaada Markaad Codsaneyso",
-      "enterDoctorCode": "Gali Xeerka Dhakhaatiirtaada"
+      "enterDoctorCode": "Gali Xeerka Dhakhaatiirtaada",
+      "lengthError": "7 lambar",
+      "invalidCode": "Koodh aan ansax ahayn"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Su'aalaha Guud",
@@ -1683,12 +2395,17 @@
       "notGood": "Ma wanaagsan",
       "bad": "Xun",
       "inPain": "Xanuun",
-      "sleeping": "Si fiican ma u seexanaysaa?",
-      "eating": "Ma cunaysaa cunno?",
-      "highTemperature": "Ma Leedahay Heerkul Sare?",
-      "medications": "Ma qaadataa wax daawo ah?"
+      "sleeping": "Miyaad seexataa si liidata?",
+      "eating": "Si liidata ma u cunaysaa?",
+      "highTemperature": "Ma leedahay heer-kul sarreeya?",
+      "medications": "Ma qaadataa wax daawo ah?",
+      "smoke": "Sigaar ma cabtaa?"
     },
     "physicalSymptomsTerms": {
+      "head": "Madaxa",
+      "arms": "Hubka",
+      "body": "Jirka",
+      "legs": "Lugaha",
       "clickOnSymptom": "Dhagsii Meesha Aad Calaamado Ku Leedahay",
       "Head": {
         "cough": "Qufac",
@@ -1729,6 +2446,58 @@
         "thighPain": "Xanuunka bowdada"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Calaamadaha Cilmu-nafsiga",
+      "sad": "Miyaad dareentaa murugo ama hoos u dhac?",
+      "anxious": "Miyaad badanaa dareentaa walaac?",
+      "mood": "Ma leedahay isbeddello xagga niyadda ah oo aad u daran?",
+      "stress": "Miyaad dareentaa inaadan la qabsan karin diiqada?",
+      "drug": "Miyaad dhibaato ku qabtaa aalkolo ama mukhaadaraadka?",
+      "concentration": "Miyaad dareentaa awood yar inaad xooga saarto?",
+      "undestanding": "Miyaad dhib ku qabtaa inaad fahamto xaaladaha ama dadka?",
+      "paranoia": "Miyaad la kulantaa paranoia?"
+    },
+    "patientNotes": {
+      "furtherInfo": "Macluumaad Dheeraad ah",
+      "fillInSymptoms": "Buuxi wixii astaamo iyo macluumaad dheeri ah",
+      "enterSymptoms": "Gali Calaamadaha",
+      "finish": "Dhameyso"
+    },
+    "confirmationPage": {
+      "thankYou": "Waad ku mahadsantahay soo gudbinta",
+      "doctorHereShortly": "Dhakhtarkaaga ayaa halkan iman doona waqti yar ka dib"
+    },
+    "chat": { "startMessaging": "Bilow fariin" },
+    "servicesPage": {
+      "localServices": "Adeegyada Deegaanka",
+      "translateTerms": "Tarjum Shuruudaha",
+      "mapPage": {
+        "dentist": "Dhakhtarka ilkaha",
+        "hospital": "Isbitaalka",
+        "opticians": "Dhakhaatiirta indhaha",
+        "pharmacy": "Farmashiyaha"
+      },
+      "translatePage": {
+        "translateTerm": "Tarjun Muddada Caafimaadka",
+        "enterTerm": "Gali Muddada Caafimaadka",
+        "getInfo": "Hel Xog"
+      }
+    },
+    "profilePage": {
+      "edit": "Tafatir",
+      "save": "Keydso",
+      "cancel": "Jooji",
+      "changePicture": "Beddel sawirka",
+      "saveAndClose": "Keydso oo xir"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Dawooyinka laguu qoro",
+      "medicine": "Daawo",
+      "dose": "Qiyaasta",
+      "frequency": "Joogtaynta",
+      "date": "Taariikhda",
+      "prescribedBy": "Waxa qoray"
+    },
     "feedbackTerms": {
       "end": "Wadatashigaagii Waa Dhamaaday",
       "rate": "Qiimee Khibradaada"
@@ -1738,7 +2507,8 @@
       "no": "Maya",
       "next": "Xiga",
       "end": "Dhammaad",
-      "confirm": "Xaqiiji"
+      "confirm": "Xaqiiji",
+      "submit": "Gudbi"
     }
   },
   "ta": {
@@ -1750,15 +2520,21 @@
       "register": "பதிவு",
       "firstName": "முதல் பெயர்",
       "lastName": "கடைசி பெயர்",
-      "postcode": "அஞ்சல் குறியீடு"
+      "postcode": "அஞ்சல் குறியீடு",
+      "invalid": "தவறான மின்னஞ்சல் அல்லது கடவுச்சொல்"
     },
     "patientLandingTerms": {
       "startConsultation": "கலந்தாய்வைத் தொடங்குங்கள்",
-      "profile": "சுயவிவரம்"
+      "profile": "சுயவிவரம்",
+      "logout": "வெளியேறு",
+      "prescriptions": "மருந்துகள்",
+      "services": "சேவைகள்"
     },
     "enterCodeTerms": {
       "askAtReception": "குறியீட்டிற்கான வரவேற்பில் கேளுங்கள்",
-      "enterDoctorCode": "உங்கள் மருத்துவர்களின் குறியீட்டை உள்ளிடவும்"
+      "enterDoctorCode": "உங்கள் மருத்துவர்களின் குறியீட்டை உள்ளிடவும்",
+      "lengthError": "எதிர்பார்க்கப்படும் 7 எண்கள்",
+      "invalidCode": "தவறான குறியீடு"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "பொதுவான கேள்விகள்",
@@ -1766,12 +2542,17 @@
       "notGood": "நல்லதல்ல",
       "bad": "மோசமானது",
       "inPain": "வலி",
-      "sleeping": "நீங்கள் நன்றாக தூங்குகிறீர்களா?",
-      "eating": "நீங்கள் உணவை சாப்பிடுகிறீர்களா?",
-      "highTemperature": "உங்களுக்கு அதிக வெப்பநிலை இருக்கிறதா?",
-      "medications": "நீங்கள் ஏதாவது மருந்து எடுத்துக்கொள்கிறீர்களா?"
+      "sleeping": "நீங்கள் மோசமாக தூங்குகிறீர்களா?",
+      "eating": "நீங்கள் மோசமாக சாப்பிடுகிறீர்களா?",
+      "highTemperature": "உங்களிடம் அதிக வெப்பநிலை இருக்கிறதா?",
+      "medications": "நீங்கள் ஏதாவது மருந்து எடுத்துக்கொள்கிறீர்களா?",
+      "smoke": "நீங்கள் புகை பிடிப்பவரா?"
     },
     "physicalSymptomsTerms": {
+      "head": "தலை",
+      "arms": "ஆயுதங்கள்",
+      "body": "உடல்",
+      "legs": "கால்கள்",
       "clickOnSymptom": "உங்களுக்கு ஒரு அறிகுறி உள்ள இடத்தைக் கிளிக் செய்க",
       "Head": {
         "cough": "இருமல்",
@@ -1812,6 +2593,58 @@
         "thighPain": "தொடை வலி"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "உளவியல் அறிகுறிகள்",
+      "sad": "நீங்கள் சோகமாக இருக்கிறீர்களா அல்லது கீழே இருக்கிறீர்களா?",
+      "anxious": "நீங்கள் அடிக்கடி கவலைப்படுகிறீர்களா?",
+      "mood": "உங்களுக்கு தீவிர மனநிலை மாற்றங்கள் உள்ளதா?",
+      "stress": "மன அழுத்தத்தை சமாளிக்க முடியவில்லையா?",
+      "drug": "உங்களுக்கு ஆல்கஹால் அல்லது போதைப்பொருள் பிரச்சினை உள்ளதா?",
+      "concentration": "நீங்கள் கவனம் செலுத்த இயலாது என்று நினைக்கிறீர்களா?",
+      "undestanding": "சூழ்நிலைகள் அல்லது மக்களைப் புரிந்துகொள்வதில் சிக்கல் உள்ளதா?",
+      "paranoia": "நீங்கள் சித்தப்பிரமை அனுபவிக்கிறீர்களா?"
+    },
+    "profilePage": {
+      "edit": "தொகு",
+      "save": "சேமி",
+      "cancel": "ரத்துசெய்",
+      "changePicture": "படத்தை மாற்றவும்",
+      "saveAndClose": "சேமித்து மூடு"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "உங்கள் மருந்துகள்",
+      "medicine": "மருந்து",
+      "dose": "டோஸ்",
+      "frequency": "அதிர்வெண்",
+      "date": "தேதி",
+      "prescribedBy": "வழங்கியவர்"
+    },
+    "patientNotes": {
+      "furtherInfo": "மேலும் தகவல்",
+      "fillInSymptoms": "மேலும் அறிகுறிகள் மற்றும் தகவல்களை நிரப்பவும்",
+      "enterSymptoms": "அறிகுறிகளை உள்ளிடவும்",
+      "finish": "முடி"
+    },
+    "confirmationPage": {
+      "thankYou": "சமர்ப்பித்ததற்கு நன்றி",
+      "doctorHereShortly": "உங்கள் மருத்துவர் விரைவில் இங்கு வருவார்"
+    },
+    "chat": { "startMessaging": "செய்தி அனுப்பத் தொடங்குங்கள்" },
+    "servicesPage": {
+      "localServices": "உள்ளூர் சேவைகள்",
+      "translateTerms": "விதிமுறைகளை மொழிபெயர்க்கவும்",
+      "mapPage": {
+        "dentist": "பல் மருத்துவர்",
+        "hospital": "மருத்துவமனை",
+        "opticians": "ஒளியியல் வல்லுநர்கள்",
+        "pharmacy": "மருந்தகம்"
+      },
+      "translatePage": {
+        "translateTerm": "மருத்துவ காலத்தை மொழிபெயர்க்கவும்",
+        "enterTerm": "மருத்துவ காலத்தை உள்ளிடவும்",
+        "getInfo": "தகவல் கிடைக்கும்"
+      }
+    },
     "feedbackTerms": {
       "end": "உங்கள் ஆலோசனை முடிந்தது",
       "rate": "உங்கள் அனுபவத்தை மதிப்பிடுங்கள்"
@@ -1821,7 +2654,8 @@
       "no": "இல்லை",
       "next": "அடுத்தது",
       "end": "முடிவு",
-      "confirm": "உறுதிப்படுத்தவும்"
+      "confirm": "உறுதிப்படுத்தவும்",
+      "submit": "சமர்ப்பிக்கவும்"
     }
   },
   "tl": {
@@ -1833,15 +2667,21 @@
       "register": "Magparehistro",
       "firstName": "Pangalan",
       "lastName": "Huling pangalan",
-      "postcode": "Postcode"
+      "postcode": "Postcode",
+      "invalid": "Hindi wastong email o password"
     },
     "patientLandingTerms": {
       "startConsultation": "Simulan ang Konsulta",
-      "profile": "Profile"
+      "profile": "Profile",
+      "logout": "Pag-logout",
+      "prescriptions": "Mga reseta",
+      "services": "Mga serbisyo"
     },
     "enterCodeTerms": {
       "askAtReception": "Magtanong Sa Pagtanggap Para sa Code",
-      "enterDoctorCode": "Ipasok ang Code ng iyong Mga Doktor"
+      "enterDoctorCode": "Ipasok ang Code ng iyong Mga Doktor",
+      "lengthError": "Inaasahang 7 numero",
+      "invalidCode": "Di-wastong code"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Pangkalahatang Katanungan",
@@ -1849,12 +2689,17 @@
       "notGood": "Hindi maganda",
       "bad": "Masama",
       "inPain": "Nasasaktan",
-      "sleeping": "Natutulog ka ba ng maayos?",
-      "eating": "Kumakain ka ba ng pagkain?",
-      "highTemperature": "Mayroon Ka Bang Isang Mataas na Temperatura?",
-      "medications": "Umiinom ka ba ng gamot?"
+      "sleeping": "Mahimbing ka bang natutulog?",
+      "eating": "Kumakain ka ba ng mahina?",
+      "highTemperature": "Mayroon ka bang isang mataas na temperatura?",
+      "medications": "Umiinom ka ba ng gamot?",
+      "smoke": "Naninigarilyo ka ba?"
     },
     "physicalSymptomsTerms": {
+      "head": "Ulo",
+      "arms": "Armas",
+      "body": "Katawan",
+      "legs": "Mga binti",
       "clickOnSymptom": "Mag-click Kung Saan Mayroon Ka Isang Sintomas",
       "Head": {
         "cough": "Ubo",
@@ -1895,6 +2740,58 @@
         "thighPain": "Sakit sa hita"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Mga Sintomas sa Sikolohikal",
+      "sad": "Nalulungkot ka ba o nalulungkot?",
+      "anxious": "Madalas ka bang makaramdam ng pagkabalisa?",
+      "mood": "Mayroon ka bang matinding pagbabago sa mood?",
+      "stress": "Sa palagay mo ba hindi mo makaya ang stress?",
+      "drug": "Mayroon ka bang problema sa alchohol o pag-abuso sa droga?",
+      "concentration": "Sa palagay mo ba ay hindi gaanong nakapag-concentrate?",
+      "undestanding": "Mayroon ka bang problema sa pag-unawa sa mga sitwasyon o tao?",
+      "paranoia": "Nakakaranas ka ba ng paranoia?"
+    },
+    "patientNotes": {
+      "furtherInfo": "Karagdagang impormasyon",
+      "fillInSymptoms": "Punan ang anumang karagdagang mga sintomas at impormasyon",
+      "enterSymptoms": "Ipasok ang Mga Sintomas",
+      "finish": "Tapos na"
+    },
+    "confirmationPage": {
+      "thankYou": "Salamat sa pagsumite",
+      "doctorHereShortly": "Ang iyong doktor ay darating kaagad"
+    },
+    "chat": { "startMessaging": "Simulan ang pagmemensahe" },
+    "servicesPage": {
+      "localServices": "Mga Serbisyong Lokal",
+      "translateTerms": "Mga Tuntunin ng Isalin",
+      "mapPage": {
+        "dentist": "Dentista",
+        "hospital": "Ospital",
+        "opticians": "Mga optiko",
+        "pharmacy": "Parmasya"
+      },
+      "translatePage": {
+        "translateTerm": "Magsalin ng Termino sa Medikal",
+        "enterTerm": "Pumasok sa Termino ng Medikal",
+        "getInfo": "Kumuha ng impormasyon"
+      }
+    },
+    "profilePage": {
+      "edit": "I-edit",
+      "save": "Magtipid",
+      "cancel": "Kanselahin",
+      "changePicture": "Palitan ang larawan",
+      "saveAndClose": "Makatipid at isara"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Ang iyong mga reseta",
+      "medicine": "Gamot",
+      "dose": "Dosis",
+      "frequency": "Dalas",
+      "date": "Petsa",
+      "prescribedBy": "Inireseta ni"
+    },
     "feedbackTerms": {
       "end": "Natapos na ang Iyong Konsulta",
       "rate": "I-rate ang Iyong Karanasan"
@@ -1904,7 +2801,8 @@
       "no": "Hindi",
       "next": "Susunod",
       "end": "Tapusin",
-      "confirm": "Kumpirmahin"
+      "confirm": "Kumpirmahin",
+      "submit": "Ipasa"
     }
   },
   "tr": {
@@ -1917,15 +2815,21 @@
       "firstName": "İsim",
       "lastName": "Soyadı",
       "postcode": "Posta kodu",
-      "errorMessage": "Bir şeyler yanlış gitti"
+      "errorMessage": "Bir şeyler yanlış gitti",
+      "invalid": "Geçersiz e-posta veya şifre"
     },
     "patientLandingTerms": {
       "startConsultation": "Konsültasyonu Başlat",
-      "profile": "Profil"
+      "profile": "Profil",
+      "logout": "Çıkış Yap",
+      "prescriptions": "Reçeteler",
+      "services": "Hizmetler"
     },
     "enterCodeTerms": {
       "askAtReception": "Kod için Resepsiyondan Sor",
-      "enterDoctorCode": "Doktorunuzun Kodunu Girin"
+      "enterDoctorCode": "Doktorunuzun Kodunu Girin",
+      "lengthError": "Beklenen 7 rakam",
+      "invalidCode": "Geçersiz kod"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Genel Sorular",
@@ -1933,12 +2837,17 @@
       "notGood": "İyi değil",
       "bad": "Kötü",
       "inPain": "Acı içinde",
-      "sleeping": "İyi uyuyor musun",
-      "eating": "Yemek mi yiyorsun",
-      "highTemperature": "Yüksek Ateşiniz mi Var?",
-      "medications": "Herhangi bir ilaç alıyor musunuz?"
+      "sleeping": "Kötü uyuyor musun",
+      "eating": "Kötü mü yiyorsun?",
+      "highTemperature": "Ateşin yüksek mi?",
+      "medications": "Herhangi bir ilaç alıyor musunuz?",
+      "smoke": "Sigara içer misiniz?"
     },
     "physicalSymptomsTerms": {
+      "head": "Kafa",
+      "arms": "Silâh",
+      "body": "Vücut",
+      "legs": "Bacaklar",
       "clickOnSymptom": "Belirti Gördüğünüz Yeri Tıklayın",
       "Head": {
         "cough": "Öksürük",
@@ -1979,6 +2888,58 @@
         "thighPain": "Uyluk Ağrısı"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Psikolojik Belirtiler",
+      "sad": "Üzgün mü yoksa üzgün mü hissediyorsun?",
+      "anxious": "Sık sık endişeli hissediyor musun?",
+      "mood": "Aşırı ruh haliniz mi var?",
+      "stress": "Stresle baş edemiyor musunuz?",
+      "drug": "Alkol veya uyuşturucu kullanımı ile ilgili bir sorununuz mu var?",
+      "concentration": "Daha az konsantre olabiliyor musunuz?",
+      "undestanding": "Durumları veya insanları anlamakta güçlük mü çekiyorsunuz?",
+      "paranoia": "Paranoya mı yaşıyorsun?"
+    },
+    "profilePage": {
+      "edit": "Düzenle",
+      "save": "Kayıt etmek",
+      "cancel": "İptal etmek",
+      "changePicture": "Resmi değiştir",
+      "saveAndClose": "Kaydet ve kapat"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Reçeteleriniz",
+      "medicine": "İlaç",
+      "dose": "Doz",
+      "frequency": "Sıklık",
+      "date": "Tarih",
+      "prescribedBy": "Reçete tarafından"
+    },
+    "patientNotes": {
+      "furtherInfo": "Daha fazla bilgi",
+      "fillInSymptoms": "Diğer semptomları ve bilgileri doldurun",
+      "enterSymptoms": "Belirtileri Girin",
+      "finish": "Bitiş"
+    },
+    "confirmationPage": {
+      "thankYou": "Gönderdiğiniz için teşekkürler",
+      "doctorHereShortly": "Doktorunuz birazdan burada olacak"
+    },
+    "chat": { "startMessaging": "Mesajlaşmaya başlayın" },
+    "servicesPage": {
+      "localServices": "Yerel Hizmetler",
+      "translateTerms": "Şartları Çevir",
+      "mapPage": {
+        "dentist": "Diş doktoru",
+        "hospital": "Hastane",
+        "opticians": "Gözlükçüler",
+        "pharmacy": "Eczane"
+      },
+      "translatePage": {
+        "translateTerm": "Tıbbi Terimi Çevir",
+        "enterTerm": "Tıbbi Terimi Girin",
+        "getInfo": "Bilgi al"
+      }
+    },
     "feedbackTerms": {
       "end": "Görüşmeniz Sona Erdi",
       "rate": "Deneyiminizi Değerlendirin"
@@ -1988,7 +2949,8 @@
       "no": "Hayır",
       "next": "Sonraki",
       "end": "Son",
-      "confirm": "Onaylamak"
+      "confirm": "Onaylamak",
+      "submit": "Sunmak"
     }
   },
   "ur": {
@@ -2001,15 +2963,21 @@
       "firstName": "پہلا نام",
       "lastName": "آخری نام",
       "postcode": "پوسٹ کوڈ",
-      "errorMessage": "کچھ غلط ہو گیا"
+      "errorMessage": "کچھ غلط ہو گیا",
+      "invalid": "غلط ای میل یا پاس ورڈ"
     },
     "patientLandingTerms": {
       "startConsultation": "مشاورت شروع کریں",
-      "profile": "پروفائل"
+      "profile": "پروفائل",
+      "logout": "لاگ آوٹ",
+      "prescriptions": "نسخے",
+      "services": "خدمات"
     },
     "enterCodeTerms": {
       "askAtReception": "ضابطہ کے لئے استقبالیہ پر پوچھیں",
-      "enterDoctorCode": "اپنے ڈاکٹروں کا کوڈ درج کریں"
+      "enterDoctorCode": "اپنے ڈاکٹروں کا کوڈ درج کریں",
+      "lengthError": "متوقع 7 نمبر",
+      "invalidCode": "غلط کوڈ"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "عام سوالات",
@@ -2017,12 +2985,17 @@
       "notGood": "اچھا نہیں",
       "bad": "برا",
       "inPain": "درد میں",
-      "sleeping": "کیا تم اچھی طرح سے سو رہے ہو؟",
-      "eating": "کیا آپ کھانا کھا رہے ہیں؟",
-      "highTemperature": "کیا آپ کو درجہ حرارت بہت زیادہ ہے؟",
-      "medications": "کیا آپ کوئی دوا لے رہے ہیں؟"
+      "sleeping": "کیا آپ غریب سو رہے ہیں؟",
+      "eating": "کیا تم خراب کھانا کھا رہے ہو؟",
+      "highTemperature": "کیا آپ کا درجہ حرارت زیادہ ہے؟",
+      "medications": "کیا آپ کوئی دوا لے رہے ہیں؟",
+      "smoke": "آپ تمباکو نوشی کرتے ہیں؟"
     },
     "physicalSymptomsTerms": {
+      "head": "سر",
+      "arms": "اسلحہ",
+      "body": "جسم",
+      "legs": "ٹانگوں",
       "clickOnSymptom": "جہاں آپ کی علامت ہے وہاں پر کلک کریں",
       "Head": {
         "cough": "کھانسی",
@@ -2063,6 +3036,58 @@
         "thighPain": "ران میں درد"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "نفسیاتی علامات",
+      "sad": "کیا آپ کو رنج ہے یا نیچے؟",
+      "anxious": "کیا آپ اکثر پریشانی محسوس کرتے ہیں؟",
+      "mood": "کیا آپ کے موڈ میں انتہائی تبدیلیاں آ رہی ہیں؟",
+      "stress": "کیا آپ کو دباؤ کا مقابلہ کرنے سے قاصر ہے؟",
+      "drug": "کیا آپ کو الچھول یا منشیات کے استعمال کا کوئی مسئلہ ہے؟",
+      "concentration": "کیا آپ کو توجہ دینے میں کم صلاحیت محسوس ہوتی ہے؟",
+      "undestanding": "کیا آپ کو حالات یا لوگوں کو سمجھنے میں پریشانی ہے؟",
+      "paranoia": "کیا آپ پریونایا کا سامنا کر رہے ہیں؟"
+    },
+    "profilePage": {
+      "edit": "ترمیم",
+      "save": "محفوظ کریں",
+      "cancel": "منسوخ کریں",
+      "changePicture": "تصویر بدلیں",
+      "saveAndClose": "محفوظ کریں اور بند کریں"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "آپ کے نسخے",
+      "medicine": "دوائی",
+      "dose": "خوراک",
+      "frequency": "تعدد",
+      "date": "تاریخ",
+      "prescribedBy": "نسخہ"
+    },
+    "patientNotes": {
+      "furtherInfo": "مزید معلومات",
+      "fillInSymptoms": "مزید علامات اور معلومات کو پُر کریں",
+      "enterSymptoms": "علامات درج کریں",
+      "finish": "ختم"
+    },
+    "confirmationPage": {
+      "thankYou": "جمع کرنے کے لئے آپ کا شکریہ",
+      "doctorHereShortly": "آپ کا ڈاکٹر جلد ہی یہاں آجائے گا"
+    },
+    "chat": { "startMessaging": "پیغام رسانی شروع کریں" },
+    "servicesPage": {
+      "localServices": "مقامی خدمات",
+      "translateTerms": "اصطلاحات کا ترجمہ کریں",
+      "mapPage": {
+        "dentist": "دانتوں کا ڈاکٹر",
+        "hospital": "ہسپتال",
+        "opticians": "آپٹشین",
+        "pharmacy": "فارمیسی"
+      },
+      "translatePage": {
+        "translateTerm": "میڈیکل ٹرم کا ترجمہ کریں",
+        "enterTerm": "میڈیکل ٹرم داخل کریں",
+        "getInfo": "معلومات حاصل کریں"
+      }
+    },
     "feedbackTerms": {
       "end": "آپ کی مشاورت ختم ہوگئی",
       "rate": "اپنے تجربے کی درجہ بندی کریں"
@@ -2072,7 +3097,8 @@
       "no": "نہیں",
       "next": "اگلے",
       "end": "ختم",
-      "confirm": "تصدیق کریں"
+      "confirm": "تصدیق کریں",
+      "submit": "جمع کرائیں"
     }
   },
   "vi": {
@@ -2085,15 +3111,21 @@
       "firstName": "Tên đầu tiên",
       "lastName": "Họ",
       "postcode": "Mã bưu điện",
-      "errorMessage": "Đã xảy ra lỗi"
+      "errorMessage": "Đã xảy ra lỗi",
+      "invalid": "Email hoặc mật khẩu không hợp lệ"
     },
     "patientLandingTerms": {
       "startConsultation": "Bắt đầu tư vấn",
-      "profile": "Hồ sơ"
+      "profile": "Hồ sơ",
+      "logout": "Đăng xuất",
+      "prescriptions": "Đơn thuốc",
+      "services": "Dịch vụ"
     },
     "enterCodeTerms": {
       "askAtReception": "Hỏi tại quầy lễ tân để biết mã",
-      "enterDoctorCode": "Nhập mã bác sĩ của bạn"
+      "enterDoctorCode": "Nhập mã bác sĩ của bạn",
+      "lengthError": "Dự kiến 7 số",
+      "invalidCode": "Mã không hợp lệ"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "Câu hỏi chung",
@@ -2101,12 +3133,17 @@
       "notGood": "Không tốt",
       "bad": "Xấu",
       "inPain": "Trong tình trạng đau đớn",
-      "sleeping": "Bạn ngủ ngon chứ?",
-      "eating": "Bạn đang ăn thức ăn?",
+      "sleeping": "Bạn ngủ không ngon?",
+      "eating": "Bạn ăn uống kém?",
       "highTemperature": "Bạn có nhiệt độ cao không?",
-      "medications": "Bạn có đang dùng thuốc không?"
+      "medications": "Bạn có đang dùng thuốc không?",
+      "smoke": "Bạn có hút thuốc không?"
     },
     "physicalSymptomsTerms": {
+      "head": "Cái đầu",
+      "arms": "Cánh tay",
+      "body": "Thân hình",
+      "legs": "Chân",
       "clickOnSymptom": "Nhấp vào nơi bạn có triệu chứng",
       "Head": {
         "cough": "Ho",
@@ -2147,6 +3184,58 @@
         "thighPain": "Đau đùi"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "Các triệu chứng tâm lý",
+      "sad": "Bạn có cảm thấy buồn hay xuống tinh thần không?",
+      "anxious": "Bạn có thường cảm thấy lo lắng không?",
+      "mood": "Bạn có thay đổi tâm trạng cực đoan?",
+      "stress": "Bạn cảm thấy không thể đối phó với căng thẳng?",
+      "drug": "Bạn có vấn đề với alchohol hoặc lạm dụng thuốc không?",
+      "concentration": "Bạn có cảm thấy kém khả năng tập trung không?",
+      "undestanding": "Bạn có gặp khó khăn khi hiểu tình huống hoặc con người?",
+      "paranoia": "Bạn đang gặp phải chứng hoang tưởng?"
+    },
+    "profilePage": {
+      "edit": "Biên tập",
+      "save": "Tiết kiệm",
+      "cancel": "Huỷ bỏ",
+      "changePicture": "Đổi ảnh",
+      "saveAndClose": "Lưu và đóng"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "Đơn thuốc của bạn",
+      "medicine": "Dược phẩm",
+      "dose": "Liều lượng",
+      "frequency": "Tần số",
+      "date": "Ngày",
+      "prescribedBy": "Được quy định bởi"
+    },
+    "patientNotes": {
+      "furtherInfo": "Thêm thông tin",
+      "fillInSymptoms": "Điền thêm bất kỳ triệu chứng và thông tin nào",
+      "enterSymptoms": "Nhập các triệu chứng",
+      "finish": "Hoàn thành"
+    },
+    "confirmationPage": {
+      "thankYou": "Cảm ơn bạn đã gửi",
+      "doctorHereShortly": "Bác sĩ của bạn sẽ đến đây trong thời gian ngắn"
+    },
+    "chat": { "startMessaging": "Bắt đầu nhắn tin" },
+    "servicesPage": {
+      "localServices": "Dịch vụ địa phương",
+      "translateTerms": "Dịch thuật ngữ",
+      "mapPage": {
+        "dentist": "Bác sĩ nha khoa",
+        "hospital": "Bệnh viện",
+        "opticians": "Bác sĩ nhãn khoa",
+        "pharmacy": "Tiệm thuốc"
+      },
+      "translatePage": {
+        "translateTerm": "Dịch thuật ngữ y tế",
+        "enterTerm": "Nhập thời hạn y tế",
+        "getInfo": "Nhận thông tin"
+      }
+    },
     "feedbackTerms": {
       "end": "Buổi tư vấn của bạn đã kết thúc",
       "rate": "Đánh giá trải nghiệm của bạn"
@@ -2156,7 +3245,8 @@
       "no": "Không",
       "next": "Kế tiếp",
       "end": "Kết thúc",
-      "confirm": "Xác nhận"
+      "confirm": "Xác nhận",
+      "submit": "Gửi đi"
     }
   },
   "yi": {
@@ -2169,15 +3259,21 @@
       "firstName": "ערשטע נאמען",
       "lastName": "לעצטע נאמען",
       "postcode": "פּאָסטקאָדע",
-      "errorMessage": "עפּעס איז פאַלש"
+      "errorMessage": "עפּעס איז פאַלש",
+      "invalid": "אונגילטיג אימעיל אדער שפּריכוואָרט"
     },
     "patientLandingTerms": {
       "startConsultation": "אָנהייב קאַנסאַלטיישאַן",
-      "profile": "פּראָפיל"
+      "profile": "פּראָפיל",
+      "logout": "לאָגאָוט",
+      "prescriptions": "רעצעפּט",
+      "services": "באַדינונגען"
     },
     "enterCodeTerms": {
       "askAtReception": "פרעגן ביי אָפּטראָג פֿאַר קאָד",
-      "enterDoctorCode": "אַרייַן דיין דאָקטאָרס קאָד"
+      "enterDoctorCode": "אַרייַן דיין דאָקטאָרס קאָד",
+      "lengthError": "געריכט 7 נומערן",
+      "invalidCode": "אונגילטיג קאָד"
     },
     "generalSymptomsTerms": {
       "generalQuestions": "אַלגעמיינע פֿראגן",
@@ -2185,12 +3281,17 @@
       "notGood": "נישט גוט",
       "bad": "שלעכט",
       "inPain": "אין ווייטיק",
-      "sleeping": "איר שלאָפט גוט?",
-      "eating": "עסן איר עסן?",
+      "sleeping": "איר שלאָפט שלעכט?",
+      "eating": "עסן איר שוואַך?",
       "highTemperature": "צי איר האָבן אַ הויך טעמפּעראַטור?",
-      "medications": "נעמען איר קיין מעדאַקיישאַן?"
+      "medications": "נעמען איר קיין מעדאַקיישאַן?",
+      "smoke": "צי איר טאָן?"
     },
     "physicalSymptomsTerms": {
+      "head": "קאָפּ",
+      "arms": "Arms",
+      "body": "גוף",
+      "legs": "לעגס",
       "clickOnSymptom": "דריקט ווו איר האָט אַ סימפּטאָם",
       "Head": {
         "cough": "הוסט",
@@ -2231,6 +3332,58 @@
         "thighPain": "דיך ווייטיק"
       }
     },
+    "psychSymptomsTerms": {
+      "psychSymptoms": "פּסיטשאָלאָגיקאַל סימפּטאָמס",
+      "sad": "צי איר פילן טרויעריק אָדער אַראָפּ?",
+      "anxious": "צי איר אָפט פילן באַזאָרגט?",
+      "mood": "צי איר האָבן עקסטרעם שטימונג ענדערונגען?",
+      "stress": "צי איר פילן ניט געקענט צו קאָפּע מיט דרוק?",
+      "drug": "צי איר האָבן אַ פּראָבלעם מיט אַלטשאָאָל אָדער מעדיצין זידלען?",
+      "concentration": "צי איר פילן ווייניקער ביכולת צו קאַנסאַנטרייט?",
+      "undestanding": "צי איר האָבן קאָנפליקט צו פֿאַרשטיין סיטואַטיאָנס אָדער מענטשן?",
+      "paranoia": "ביסט איר פּאַראַנאָיאַ?"
+    },
+    "profilePage": {
+      "edit": "רעדאַגירן",
+      "save": "היט",
+      "cancel": "באָטל מאַכן",
+      "changePicture": "טוישן בילד",
+      "saveAndClose": "היט און נאָענט"
+    },
+    "patientPrescription": {
+      "yourPrescriptions": "דיין רעצעפּט",
+      "medicine": "מעדיצין",
+      "dose": "דאָזע",
+      "frequency": "אָפטקייַט",
+      "date": "טאָג",
+      "prescribedBy": "פּריסקרייבד דורך"
+    },
+    "patientNotes": {
+      "furtherInfo": "ווייַטער אינפֿאָרמאַציע",
+      "fillInSymptoms": "פּלאָמבירן ווייַטער סימפּטאָמס און אינפֿאָרמאַציע",
+      "enterSymptoms": "אַרייַן סימפּטאָמס",
+      "finish": "ענדיקן"
+    },
+    "confirmationPage": {
+      "thankYou": "דאנק איר פֿאַר סאַבמיטינג",
+      "doctorHereShortly": "דיין דאָקטער וועט באַלד זיין באַלד"
+    },
+    "chat": { "startMessaging": "אָנהייב מעסידזשינג" },
+    "servicesPage": {
+      "localServices": "לאקאלע סערוויסעס",
+      "translateTerms": "זעץ תּנאָים",
+      "mapPage": {
+        "dentist": "ציינדאָקטער",
+        "hospital": "שפיטאל",
+        "opticians": "אָפּטיקער",
+        "pharmacy": "אַפּטייק"
+      },
+      "translatePage": {
+        "translateTerm": "זעץ מעדיציניש טערמין",
+        "enterTerm": "אַרייַן מעדיציניש טערמין",
+        "getInfo": "באַקומען אינפֿאָרמאַציע"
+      }
+    },
     "feedbackTerms": {
       "end": "דיין קאָנסולטאַטיאָן איז געענדיקט",
       "rate": "אָפּשאַצן דיין דערפאַרונג"
@@ -2240,7 +3393,8 @@
       "no": "ניין",
       "next": "ווייַטער",
       "end": "סוף",
-      "confirm": "באַשטעטיקן"
+      "confirm": "באַשטעטיקן",
+      "submit": "פאָרלייגן"
     }
   }
 }
