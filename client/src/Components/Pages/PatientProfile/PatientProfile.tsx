@@ -118,7 +118,7 @@ function PatientProfile() {
             />
           </div>
           {isPictureSaved
-            ? <label className="border-invisible rounded-md px-4 py-1 ml-2 bg-blue-superlight cursor-pointer">
+            ? <label className="text-blue font-semibold border-invisible rounded-md px-4 py-1 ml-2 bg-blue-superlight cursor-pointer">
                 {localText.changePicture}
                 <input id="pictureUpload" type="file" ref={pictureInputRef}
                 className="hidden"
