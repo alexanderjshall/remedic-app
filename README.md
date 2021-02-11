@@ -83,7 +83,7 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
 - PostgreSQL - https://www.postgresql.org/docs/
 - TypeGraphQL - https://typegraphql.com/
 
-### Services:
+### Across the stack:
 - TypeScript - https://www.typescriptlang.org/
 - SocketIO - https://socket.io/
 - JSON Web Tokens - https://jwt.io/

@@ -3,7 +3,7 @@ import { IoLanguageSharp } from "react-icons/io5";
 import OKButton from "../../Globals/OKButton/OKButton";
 import supportedLanguages from "../../../utils/supported-languages.json";
 import { useHistory } from "react-router-dom";
-import RemedicLogo from "../../../assets/logos/Remedic Text Logo.png";
+import RemedicLogo from "../../../assets/logos/remedic-text-logo.png";
 import SpinningGlobe from "../../Globals/Spinning Globe/SpinningGlobe";
 import Tick from "../../../assets/utils/tick.svg";
 import { Transition } from "@headlessui/react";
