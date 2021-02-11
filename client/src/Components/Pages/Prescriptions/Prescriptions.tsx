@@ -43,7 +43,7 @@ const Prescriptions = () => {
     if (data) {
       (async () => {
         const parsedPrescr = getPrescriptions(data.getPatientConsultations)
-        parsedPrescr.forEach(async  p => {p.frequency = await translateFreq(p.frequency)})
+        if (userLang !== "en") parsedPrescr.forEach(async  p => {p.frequency = await translateFreq(p.frequency)})
         setPrescriptions(parsedPrescr)
       })();
     }
