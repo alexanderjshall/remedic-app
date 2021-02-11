@@ -191,8 +191,11 @@ const ConsultationContextProvider = (props: Props) => {
       };
       // create new consultation object
       if (patientNotes) {
-        const translation = await getTranslatedText(patientNotes, user!.language, "en")
-        consultation.patientNotes = translation
+        if (user!.language === "en") consultation.patientNotes = patientNotes;
+        else {
+          const translation = await getTranslatedText(patientNotes, user!.language, "en")
+          consultation.patientNotes = translation
+        }
       } 
       return consultation;
     } catch (e) {

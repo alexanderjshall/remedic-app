@@ -465,6 +465,7 @@
     },
     "generalSymptomsTerms": {
       "generalQuestions": "General Questions",
+      "painLevel": "Pain Level",
       "good": "Good",
       "notGood": "Not Good",
       "bad": "Bad",
