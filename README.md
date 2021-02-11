@@ -32,25 +32,30 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
   alt="Arabic demo" style="padding-top: 1rem;"/>
 </div>
 
+
 - Share translated details of your symptoms with your doctor ahead of your consultation.
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
   <img src="./readme-assets/consultation-demo.gif" width="33%"
   alt="Symptoms input demo" style="padding-top: 1rem;"/>
 </div>
+<br>
 
 - Share live-translated messages with your doctor, including having messages read to you via a text-to-speech option
+<br>
 
 - Locate nearby health service providers
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
   <img src="./readme-assets/services-demo.gif" width="33%"
   alt="Location service demo" style="padding-top: 1rem;"/>
 </div>
+<br>
 
 - Easily get an explanation of medical terms in your language
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
   <img src="./readme-assets/translate-terms-demo.gif" width="33%"
   alt="Translate terms demo" style="padding-top: 1rem;"/>
 </div>
+<br>
 
 - Receive and keep track of prescriptions
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
@@ -68,6 +73,7 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
  ### Front end:
 - React - https://reactjs.org/
 - Tailwind CSS - https://tailwindcss.com/
+- NHS API - https://digital.nhs.uk/
 - Google APIs ([Google Translate](https://cloud.google.com/translate) + [Google Text-to-Speech](https://cloud.google.com/text-to-speech))
 - React Query - https://react-query.tanstack.com/
 ### Back end:
