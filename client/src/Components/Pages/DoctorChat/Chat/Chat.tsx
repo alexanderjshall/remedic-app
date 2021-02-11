@@ -5,7 +5,6 @@ import PatientMessageBubble from "../../ConsultationChat/MessageBubbles/PatientM
 import { ReactComponent as SendMessage } from "../../../../assets/utils/send_message.svg";
 import { Message } from "../../../../types";
 
-
 interface Props {
   messages: Message[];
   addMessage: (mesg: string) => void;
@@ -41,16 +40,20 @@ const Chat = (props: Props) => {
     <div className="flex flex-col h-full w-full pt-32">
       <div className="flex-grow overflow-auto flex flex-col mx-6 rounded-t-xl shadow-2xl pb-3 bg-white">
         {messages.length === 0 ? (
-            <h1 className="text-center font-bold text-lg text-blue mt-8 text-opacity-75 flex-grow">
-              Start chatting with {patientFullName}
-            </h1>
+          <h1 className="text-center font-bold text-lg text-blue mt-8 text-opacity-75 flex-grow">
+            Start chatting with {patientFullName}
+          </h1>
         ) : null}
         {messages &&
           messages.map((message, idx) =>
             message.isAuthor ? (
-              <DoctorMessageBubble message={message} key={idx} />
+              <div className="last:mb-6 first:mt-3">
+                <DoctorMessageBubble message={message} key={idx} />
+              </div>
             ) : (
-              <PatientMessageBubble message={message} key={idx} />
+              <div className="last:mb-6 first:mt-3">
+                <PatientMessageBubble message={message} key={idx} />
+              </div>
             )
           )}
         <div ref={chatBottom} className="h-4"></div>

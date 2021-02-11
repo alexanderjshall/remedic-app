@@ -1,6 +1,3 @@
-import React from "react";
-import { Service } from "../../../types";
-
 interface Props {
   fillColor: string;
   lat: number;

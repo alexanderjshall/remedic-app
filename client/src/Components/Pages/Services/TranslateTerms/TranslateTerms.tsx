@@ -6,7 +6,7 @@ import FormInput from "../../../Globals/FormInput/FormInput";
 import OKButton from "../../../Globals/OKButton/OKButton";
 import RightArrow from "../../../../assets/utils/right-arrow-black.svg";
 import { getNHSTermInformation } from "../../../../services/api.nhs";
-import { getTranslatedText as getNHSTranslatedText} from "../../../../services/api.translate";
+import { getTranslatedText as getNHSTranslatedText } from "../../../../services/api.translate";
 import Spinner from "../../../Globals/Spinner/Spinner";
 import DownArrow from "../../../../assets/utils/down-arrow-black.svg";
 import SearchIcon from "../../../../assets/background-images/loupe.svg";
@@ -184,7 +184,7 @@ const TranslateTerms = () => {
         className="h-72 w-full max-w-xl flex flex-col items-center justify-around px-2 py-3"
         onSubmit={handleFormSubmit}
       >
-        <h1 className="text-center font-extrabold text-blue border border-solid border-blue w-full py-2 px-1">
+        <h1 className="text-center font-extrabold text-blue border border-solid border-gray-light w-full py-2 px-1 shadow-lg rounded-md mb-5">
           {localText.translateTerm}
         </h1>
         <div className="font-bold w-full grid min-h-24 grid-cols-2">
@@ -236,7 +236,10 @@ const TranslateTerms = () => {
             <p className="text-center z-10 font-semibold text-gray-800">
               {displayTerm.description}
             </p>
-            <a className="text-blue-dark text-center z-10 break-all" href={displayTerm.url}>
+            <a
+              className="text-blue-dark text-center z-10 break-all"
+              href={displayTerm.url}
+            >
               {displayTerm.url}
             </a>
             <img

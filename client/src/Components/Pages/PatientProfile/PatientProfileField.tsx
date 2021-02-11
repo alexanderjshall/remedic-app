@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {ProfileField} from './PatientProfile';
+import React, { useContext, useEffect, useState } from "react";
+import { ProfileField } from "./PatientProfile";
 import { PatientContext } from "../../../Contexts/Patient.context";
 
 function PatientProfileField(props: ProfileField) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const {name, value, type, info, updateValue} = props;
+  const { name, value, type, info, updateValue } = props;
   const [newValue, setNewValue] = useState<string>(value);
 
   const { getTranslatedText } = useContext(PatientContext)!;
@@ -13,31 +13,31 @@ function PatientProfileField(props: ProfileField) {
 
   useEffect(() => {
     setNewValue(value);
-  }, [])
+  }, []);
 
   const onEditClick = () => {
     setIsEditing(true);
     setNewValue(value);
-  }
+  };
 
   const handleSubmit = () => {
     updateValue(info, newValue);
     setIsEditing(false);
-  }
+  };
 
   const handleEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === 'Enter') handleSubmit();
-  }
+    if (e.key === "Enter") handleSubmit();
+  };
 
   const onCancelClick = () => {
     setNewValue(value);
     setIsEditing(false);
-  }
+  };
 
   const handleValueChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault();
     setNewValue(e.currentTarget.value);
-  }
+  };
 
   return (
     <div className="flex flex-col mt-3 w-full h-36 rounded-xl p-2 bg-blue text-white">
@@ -65,7 +65,7 @@ function PatientProfileField(props: ProfileField) {
 
         }
     </div>
-  )
+  );
 }
 
 export default PatientProfileField;

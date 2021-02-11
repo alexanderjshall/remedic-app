@@ -1,4 +1,3 @@
-import React from "react";
 import Lottie from "react-lottie-player";
 import SuccessTickAnimation from "./33337-tick-pop.json";
 

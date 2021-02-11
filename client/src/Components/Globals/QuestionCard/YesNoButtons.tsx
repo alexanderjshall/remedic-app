@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { isEmptyStatement } from "typescript";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { Symptom } from "../../../types";
 

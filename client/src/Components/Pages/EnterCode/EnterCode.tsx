@@ -1,17 +1,11 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  FormEventHandler,
-} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FormInput from "../../Globals/FormInput/FormInput";
 import humanSitting from "../../../assets/background-images/humans-sitting2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
-import { getTranslatedText } from "../../../services/api.translate";
 import { useMutation, useQuery } from "react-query";
 import queries from "../../../services/graphqlService/queries";
 import client from "../../../services/graphqlService/index";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import Spinner from "../../Globals/Spinner/Spinner";
 import OKButton from "../../Globals/OKButton/OKButton";
@@ -76,13 +70,13 @@ const EnterCode = () => {
 
   return (
     <Transition
-    appear={true}
-    show={true}
-    enter="transition-opacity delay-75 ease-in-out duration-500"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="h-full w-full relative px-3 pb-12 overflow-hidden"
-  >
+      appear={true}
+      show={true}
+      enter="transition-opacity delay-75 ease-in-out duration-500"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-full w-full relative px-3 pb-12 overflow-hidden"
+    >
       <div className="flex justify-center flex-col items-center px-3 pt-24">
         <img src={logoReduced} alt="logo" className="w-32 pb-12" />
         <form

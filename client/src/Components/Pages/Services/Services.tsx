@@ -13,7 +13,10 @@ const Services = () => {
   const { getTranslatedText } = useContext(PatientContext)!;
   const localText = getTranslatedText().servicesPage;
   const services: string[] = ["Local Services", "Translate Terms"];
-  const localizedServices: string[] = [localText.localServices, localText.translateTerms];
+  const localizedServices: string[] = [
+    localText.localServices,
+    localText.translateTerms,
+  ];
 
   return (
     <Transition
@@ -59,7 +62,9 @@ const Services = () => {
                 color={service === currentService ? "text-blue" : "text-white"}
               />
             )}
-            <h1 className="text-center">{localizedServices[idx]}</h1>
+            <h1 className="text-center text-xl font-extrabold">
+              {localizedServices[idx]}
+            </h1>
           </div>
         ))}
       </div>

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
-import { Symptom } from "../../../types";
 import OKButton from "../../Globals/OKButton/OKButton";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 import PsychIcon from "../../../assets/symptoms/psych-general.svg";
