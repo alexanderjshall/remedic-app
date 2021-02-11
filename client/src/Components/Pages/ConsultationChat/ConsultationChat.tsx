@@ -5,7 +5,6 @@ import useChat from "../../../hooks/useChat";
 import { ReactComponent as SendMessageArrow } from "../../../assets/utils/send_message.svg";
 import { ReactComponent as UserIcon } from "../../../assets/utils/user_icon.svg";
 import Doctor from "../../../assets/background-images/humans-standing.png";
-import PatientImg from "../../../assets/background-images/humans-sitting3.png";
 import ChatImg from "../../../assets/utils/chatsymbol.svg";
 
 import { useAuth } from "../../../Contexts/Auth.context";
@@ -21,7 +20,9 @@ const ConsultationChat = () => {
   const history = useHistory();
 
   const { user } = useAuth();
-  const { getConsultationId, doctor, resetContext } = useContext(ConsultationContext)!;
+  const { getConsultationId, doctor, resetContext } = useContext(
+    ConsultationContext
+  )!;
 
   const doctorFullName = `${doctor.firstName} ${doctor.lastName}`;
 

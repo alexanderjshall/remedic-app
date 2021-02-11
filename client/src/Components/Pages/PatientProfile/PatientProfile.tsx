@@ -1,9 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
-import { useAuth } from "../../../Contexts/Auth.context";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { useHistory } from "react-router-dom";
 import OKButton from "../../Globals/OKButton/OKButton";
-import FormInput from "../../Globals/FormInput/FormInput";
 import PatientProfileField from "./PatientProfileField";
 import { UserData } from "../../../types";
 import humanStanding from "../../../assets/background-images/humans-sitting3.png";

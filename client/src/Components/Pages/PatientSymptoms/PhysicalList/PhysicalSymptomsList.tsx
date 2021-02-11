@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import backArrow from "../../../../assets/utils/back-arrow.svg";
 import { ConsultationContext } from "../../../../Contexts/Consultation.context";
 import { PatientContext } from "../../../../Contexts/Patient.context";
-import { Symptom } from "../../../../types";
 interface Props {
   area: string;
   onBackArrowClick: () => void;

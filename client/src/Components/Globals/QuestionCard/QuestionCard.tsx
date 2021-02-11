@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { PatientContext } from "../../../Contexts/Patient.context";
 import { Symptom } from "../../../types";
 import YesNoButtons from "./YesNoButtons";
 import QuestionIcon from "../../../assets/utils/question-alt.svg";
@@ -12,8 +11,6 @@ interface Props {
 
 const QuestionCard = (props: Props) => {
   const { handleSymptomSelect, symptom } = props;
-
-  const { getTranslatedText } = useContext(PatientContext)!;
 
   return (
     <div

@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from "react";
+import React from "react";
 import { Symptom } from "../../../../types";
 import languages from "../../../../utils/supported-languages.json";
 

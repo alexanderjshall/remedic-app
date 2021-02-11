@@ -7,11 +7,7 @@ import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
 import { Transition } from "@headlessui/react";
 
-interface Props {
-  area?: string;
-}
-
-const PatientSymptoms = (props: Props) => {
+const PatientSymptoms = () => {
   const [view, setView] = useState<string>("Main");
   const { getTranslatedText } = useContext(PatientContext)!;
 
@@ -21,7 +17,7 @@ const PatientSymptoms = (props: Props) => {
 
   const history = useHistory(); // Browser Router History
 
-  const handleBodyPartClick = (newView: string): void => setView(newView)
+  const handleBodyPartClick = (newView: string): void => setView(newView);
 
   const handleBackArrowClick = (): void => setView("Main");
 
