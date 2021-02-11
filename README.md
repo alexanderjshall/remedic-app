@@ -31,7 +31,7 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
     <img src="./readme-assets/ar-demo.gif"  width="25%"
   alt="Arabic demo" style="padding-top: 1rem;"/>
 </div>
-
+<br>
 
 - Share translated details of your symptoms with your doctor ahead of your consultation.
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
@@ -62,6 +62,7 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
   <img src="./readme-assets/prescriptions-image.png" width="33%"
   alt="Prescription demo" style="padding-top: 1rem;"/>
 </div>
+<br>
 
 <a name="tech"></a>
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Tech stack</h2>
