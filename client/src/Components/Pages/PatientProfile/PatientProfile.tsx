@@ -120,17 +120,10 @@ function PatientProfile() {
     >
       <div className="h-5/6 m-1.5 px-0 py-4 z-10 flex flex-col items-center md:w-8/12">
         <h1 className="text-center text-xl font-extrabold text-blue border border-solid border-gray-light py-2 px-1 min-w-full mb-5 shadow-lg rounded-md">
-    appear={true}
-    show={true}
-    enter="transition-opacity delay-75 ease-in-out duration-500"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    className="h-screen relative flex flex-col justify-start items-center w-full overflow-hidden p-2"
-  >
           {translatedText.patientLandingTerms.profile}
         </h1>
         <div className="flex items-center ">
-          <div clasName="shadow-xl rounded-xl border border-gray-light border-3 border-opacity-20 p-1 maxHeight-1 max-h-18 mr-4">
+          <div className="shadow-xl rounded-xl border border-gray-light border-3 border-opacity-20 p-1 maxHeight-1 max-h-18 mr-4">
             <img
               src={currentPicture}
               alt="profile"
