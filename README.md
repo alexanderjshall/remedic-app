@@ -30,7 +30,7 @@ alt="Conversation demo" style="padding-top: 1rem;"/>
 
 This app was built over two weeks as a [Codeworks](https://codeworks.me/) final project by the following people:
 
-- Alexander Jaye - https://github.com/alexanderjshall [LinkedIn](https://www.linkedin.com/in/alexanderjshall)
+- Alexander Jaye - https://github.com/alexanderjshall & [LinkedIn](https://www.linkedin.com/in/alexanderjshall)
 - Andrea Undecimo - https://github.com/AndreaUndecimo
 - Baiju Joseph - https://github.com/starsagitarian & [LinkedIn](https://www.linkedin.com/in/baiju-joseph-csm%C2%AE-cspo%C2%AE-8a8aa37/)
 - Guillem Garcia - https://github.com/guillemgarciagomez/
