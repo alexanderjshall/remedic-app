@@ -1,16 +1,20 @@
 <img src="./readme-assets/remedic-text-logo.png"  width="100%"
 alt="Remedic Logo"/>
+
 # **REMEDIC**
+
 Medical Live Consultation Translation App
 
 ## **Table of Contents**
-* [Introduction](#introduction)
-* [Team](#team)
-* [Features and services](#features)
-* [Tech stack](#tech)
-* [Get started](#getstarted)
+
+- [Introduction](#introduction)
+- [Team](#team)
+- [Features and services](#features)
+- [Tech stack](#tech)
+- [Get started](#getstarted)
 
 <a name="introduction"></a>
+
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Introduction</h2>
 
 Remedic is a response to a call from the NHS for software that allows for high quality in-person patient-doctor consultation across a language-barrier without using a translator.
@@ -21,17 +25,20 @@ Internal studies by the NHS show a loss in quality of health and health-care pro
 alt="Conversation demo" style="padding-top: 1rem;"/>
 
 <a name="team"></a>
+
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Team</h2>
 
 This app was built over two weeks as a [Codeworks](https://codeworks.me/) final project by the following people:
-- Alexander Jaye - https://github.com/alexanderjaye
+
+- Alexander Jaye - https://github.com/alexanderjshall [LinkedIn](https://www.linkedin.com/in/alexanderjshall)
 - Andrea Undecimo - https://github.com/AndreaUndecimo
-- Baiju Joseph - https://github.com/starsagitarian &  [LinkedIn](https://www.linkedin.com/in/baiju-joseph-csm%C2%AE-cspo%C2%AE-8a8aa37/)
+- Baiju Joseph - https://github.com/starsagitarian & [LinkedIn](https://www.linkedin.com/in/baiju-joseph-csm%C2%AE-cspo%C2%AE-8a8aa37/)
 - Guillem Garcia - https://github.com/guillemgarciagomez/
 - Meera Patel - https://github.com/mpatel66 & [LinkedIn](https://www.linkedin.com/in/meerapatel91/)
 - Pierre Lejay - https://github.com/PLejay & [LinkedIn](https://www.linkedin.com/in/pierrelejay/)
 
 <a name="features"></a>
+
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Features and Services</h2>
 
 - Select one of our 24 supported languages.
@@ -53,7 +60,7 @@ This app was built over two weeks as a [Codeworks](https://codeworks.me/) final 
 <br>
 
 - Share live-translated messages with your doctor, including having messages read to you via a text-to-speech option
-<br>
+  <br>
 
 - Locate nearby health service providers
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
@@ -77,30 +84,36 @@ This app was built over two weeks as a [Codeworks](https://codeworks.me/) final 
 <br>
 
 <a name="tech"></a>
+
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Tech stack</h2>
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; padding-bottom: 1rem;">
   <img src="./readme-assets/tech-stack-image.png" width="100%"
   alt="Tech stack" style="padding-top: 1rem;"/>
 </div>
 
- ### Front end:
+### Front end:
+
 - React - https://reactjs.org/
 - Tailwind CSS - https://tailwindcss.com/
 - NHS API - https://digital.nhs.uk/
 - Google APIs ([Google Translate](https://cloud.google.com/translate) + [Google Text-to-Speech](https://cloud.google.com/text-to-speech))
 - React Query - https://react-query.tanstack.com/
+
 ### Back end:
+
 - Apollo server - https://www.apollographql.com
 - MikroORM - https://mikro-orm.io/
 - PostgreSQL - https://www.postgresql.org/docs/
 - TypeGraphQL - https://typegraphql.com/
 
 ### Across the stack:
+
 - TypeScript - https://www.typescriptlang.org/
 - SocketIO - https://socket.io/
 - JSON Web Tokens - https://jwt.io/
 
 <a name="getstarted"></a>
+
 <h2 style="font-size: 2rem; font-weight: bold; color:#4766D7">Get started</h2>
 
 - Fork the repository and clone it on your local machine
