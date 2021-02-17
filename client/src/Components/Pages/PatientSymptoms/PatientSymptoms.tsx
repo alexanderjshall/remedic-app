@@ -3,24 +3,12 @@ import Human from "./Human/Human";
 import PhysicalSymptomsList from "./PhysicalList/PhysicalSymptomsList";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
 import ForwardArrow from "../../../assets/utils/forward-arrow.svg";
-import {
-  ConsultationContext,
-  NewConsultation,
-} from "../../../Contexts/Consultation.context";
 import { useHistory } from "react-router-dom";
 import { PatientContext } from "../../../Contexts/Patient.context";
-import { useMutation } from "react-query";
-import client from "../../../services/graphqlService";
-import mutations from "../../../services/graphqlService/mutations";
+import { Transition } from "@headlessui/react";
 
-interface Props {
-  area?: string;
-}
-
-const PatientSymptoms = (props: Props) => {
+const PatientSymptoms = () => {
   const [view, setView] = useState<string>("Main");
-
-  const { getVariables, setConsultationId } = useContext(ConsultationContext)!;
   const { getTranslatedText } = useContext(PatientContext)!;
 
   const translatedText = getTranslatedText();
@@ -38,10 +26,17 @@ const PatientSymptoms = (props: Props) => {
   };
 
   return (
-    <div className="h-screen relative flex justify-center w-screen overflow-hidden">
+    <Transition
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-screen relative flex justify-center w-screen overflow-hidden"
+    >
       {view === "Main" ? (
         <div className="h-5/6 m-0 py-4 z-10">
-          <h1 className="text-center font-extrabold">
+          <h1 className="text-center font-extrabold text-blue border border-solid border-blue rounded-3xl py-2 px-1">
             {localText.clickOnSymptom}
           </h1>
           <Human
@@ -57,7 +52,7 @@ const PatientSymptoms = (props: Props) => {
           >
             <button
               onClick={handleNextClick}
-              className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white target:"
+              className="flex flex-col justify-around items-center border-2 border-solid border-white text-white rounded-2xl w-36 py-1 target:border-black target:bg-white"
             >
               <img src={ForwardArrow} alt="tick" className="text-white w-6" />
               <h2 className="text-sm font-extrabold">{localTextUtils.next}</h2>
@@ -74,9 +69,9 @@ const PatientSymptoms = (props: Props) => {
       <img
         src={logoReduced}
         alt="background logo"
-        className="absolute top-1/4 opacity-10 animate-spin-slow"
+        className="absolute top-1/2 -mt-52 opacity-10 animate-spin-slow max-w-xl"
       />
-    </div>
+    </Transition>
   );
 };
 

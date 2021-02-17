@@ -1,5 +1,4 @@
-import React from "react";
-import Lottie, { Options } from "react-lottie";
+import Lottie from "react-lottie-player";
 import GlobeAnimation from "./45757-earth-globe-looped-icon.json";
 
 interface PropsSpinningGlobe {
@@ -8,22 +7,13 @@ interface PropsSpinningGlobe {
 }
 
 const SpinningGlobe = (props: PropsSpinningGlobe) => {
-  // required Lottie Options for animation
-  const successTickOptions: Options = {
-    loop: true,
-    autoplay: true,
-    animationData: GlobeAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
     <div className={props.classes}>
       <Lottie
-        options={successTickOptions}
-        height={props.size}
-        width={props.size}
+        animationData={GlobeAnimation}
+        loop={true}
+        play={true}
+        style={{ width: props.size, height: props.size }}
       ></Lottie>
     </div>
   );

@@ -7,7 +7,7 @@ export interface UserData {
   language: string;
 }
 export interface User extends UserData {
-  _id: number;
+  id: number;
 }
 
 export interface Message {
@@ -18,12 +18,20 @@ export interface Message {
   timestamp: string;
 }
 
+export interface Prescription {
+  medicine: string;
+  dose: string;
+  frequency: string;
+}
 export interface ConsultationInfo {
   id: string;
   consultationDate: string;
   transcriptOriginal: string;
   transcriptTranslated: string;
-  doctorId: string;
+  doctorId: {
+    firstName: string;
+    lastName: string;
+  };
   patientId: {
     firstName: string;
     lastName: string;
@@ -36,6 +44,7 @@ export interface ConsultationInfo {
   patientNotes: string;
   patientRating: number;
   isActive: boolean;
+  prescriptions: Prescription[];
 }
 
 export interface ConsultationFeedback {
@@ -60,4 +69,23 @@ export interface Doctor {
   lastName: string;
   language: string;
   docPublicCode: string;
+}
+
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
+export interface Service {
+  lat: number;
+  lng: number;
+  OrganisationName: string;
+  OrganisationTypeID: string;
+  Address1?: string | null;
+  Address2?: string | null;
+  Address3?: string | null;
+  City?: string | null;
+  County?: string | null;
+  Postcode?: string | null;
+  URL?: string | null;
 }

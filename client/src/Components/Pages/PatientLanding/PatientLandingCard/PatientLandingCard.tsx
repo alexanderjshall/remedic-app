@@ -6,6 +6,7 @@ interface Props {
   title: string;
   textColor: string;
   path: string;
+  icon: string;
 }
 
 const PatientLandingCard = (props: Props) => {
@@ -18,7 +19,7 @@ const PatientLandingCard = (props: Props) => {
     <div
       className={
         props.bgColorClass +
-        " relative h-20 w-3/4 max-w-xl flex justify-end p-2 rounded-b-2xl z-10 opacity-90 to-transparent cursor-pointer shadow-xl animate-pulse"
+        " relative h-20 w-3/4 max-w-xl flex justify-end p-2 rounded-b-2xl z-10 opacity-90 to-transparent cursor-pointer shadow-2xl overflow-hidden"
       }
       onClick={() => handleClick(props.path)}
     >
@@ -41,6 +42,10 @@ const PatientLandingCard = (props: Props) => {
           ></path>
         </svg>
       </div>
+      <img
+        src={props.icon}
+        className="absolute top-0 left-4 w-28 opacity-30"
+      ></img>
     </div>
   );
 };

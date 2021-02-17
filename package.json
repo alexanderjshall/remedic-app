@@ -1,14 +1,35 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "remedic server",
-  "cacheDirectories": ["server/node_modules"],
-  "scripts": {
-    "start": "cd server && npm run start",
-    "heroku-postbuild": "npm i --prefix server --production=false",
-    "heroku-cleanup": "cd server && npm prune --production"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "remedic-app",
+	"version": "1.0.0",
+	"description": "Full stack web app for live fully translated medical consultations",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexanderjshall/remedic-app.git"
+	},
+	"keywords": [
+		"React",
+		"MikroORM",
+		"Tailwind",
+		"Medical",
+		"Translate",
+		"live-chat"
+	],
+	"author": "Alexander Hall",
+	"collaborators": [
+		"Alexander Hall",
+		"Andrea Undecimo",
+		"Baiju Joseph",
+		"Guillem Garcia",
+		"Meera Patel",
+		"Pierre Lejay"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/alexanderjshall/remedic-app/issues"
+	},
+	"homepage": "https://github.com/alexanderjshall/remedic-app#readme"
 }

@@ -1,10 +1,11 @@
 import React from "react";
-import { GiBackPain } from "react-icons/gi";
+import { GiBackPain, GiAlarmClock } from "react-icons/gi";
 
 interface Props {
   patientName: string;
   painLevel: number;
   startTime: string;
+  isEven: boolean;
 }
 
 function PatientCard(props: Props) {
@@ -12,21 +13,44 @@ function PatientCard(props: Props) {
   const currentTime = new Date();
   const startTimeInMS = new Date(startTime);
   // Time waiting, converted to minutes
-  const timeWaiting = Math.floor((currentTime.valueOf() - startTimeInMS.valueOf())/1000/60);
+  const timeWaiting = Math.floor(
+    (currentTime.valueOf() - startTimeInMS.valueOf()) / 1000 / 60
+  );
 
+  const cardClasses =
+    "flex justify-center items-center shadow-xl rounded-lg mt-8 bg-white py-2 px-4 w-full transition duration-500 text-left flex-wrap my-4";
+  const bgColor = props.isEven
+    ? "bg-blue hover:bg-blue-dark"
+    : "bg-green hover:bg-green-light";
+  const textColor = props.isEven ? "text-white" : "text-black";
+  const info =
+    "flex tablet:flex-col justify-between w-full tablet:items-center tablet:mb-2";
+  const infoData = "flex justify-evenly items-center";
 
   return (
-    <div className="flex justify-between content-center shadow-lg rounded-lg mt-4 bg-white p-2 w-3/4 w-full">
-      <p className="flex-grow-2">{patientName}</p>
-      <p>
-        {timeWaiting > 59
-          ? `${Math.floor(timeWaiting / 60)}h, ${timeWaiting % 60}mns`
-          : `${timeWaiting}mns`}
-      </p>
-      <p>
-        {" "}
-        <GiBackPain className="inline" /> {painLevel}
-      </p>
+    <div className={`${cardClasses} ${bgColor} ${textColor}`}>
+      <div className={info}>
+        <h3 className="font-semibold">Name</h3>
+        <p className="">{patientName}</p>
+      </div>
+      <div className={info}>
+        <h3 className="font-semibold">Waiting for</h3>
+        <div className={infoData}>
+          <GiAlarmClock className="inline mr-2" />
+          <p>
+            {timeWaiting > 59
+              ? `${Math.floor(timeWaiting / 60)}h, ${timeWaiting % 60}min`
+              : `${timeWaiting}min`}
+          </p>
+        </div>
+      </div>
+      <div className={info}>
+        <h3 className="font-semibold">Symptoms</h3>
+        <div className={infoData}>
+          <GiBackPain className="inline mr-2" />
+          <p>{painLevel}</p>
+        </div>
+      </div>
     </div>
   );
 }

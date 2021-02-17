@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import backArrow from "../../../../assets/utils/back-arrow.svg";
 import { ConsultationContext } from "../../../../Contexts/Consultation.context";
 import { PatientContext } from "../../../../Contexts/Patient.context";
-import { Symptom } from "../../../../types";
 interface Props {
   area: string;
   onBackArrowClick: () => void;
@@ -14,14 +13,16 @@ const PhysicalSymptomsList = (props: Props) => {
     ConsultationContext
   )!;
   const { getTranslatedText } = useContext(PatientContext)!;
-  const localText = getTranslatedText().physicalSymptomsTerms[area];
+  const localText = getTranslatedText().physicalSymptomsTerms;
+
+  const localAreaName = localText[area.toLowerCase()];
 
   const areaSymptoms = physicalSymptoms
     .filter((symptom) => {
       return area === symptom.area;
     })
     .map((symptom) => {
-      symptom.translation = localText[symptom.id!]; //!
+      symptom.translation = localText[area][symptom.id!];
       return symptom;
     });
 
@@ -38,7 +39,7 @@ const PhysicalSymptomsList = (props: Props) => {
           <img src={backArrow} alt="back" className="w-12 text-white" />
         </div>
         <h1 className="font-extrabold text-2xl bg-white text-green px-2 py-1">
-          {area}
+          {localAreaName}
         </h1>
       </div>
       <div className="flex-grow px-3 py-3 overflow-y-scroll z-10">
@@ -56,7 +57,7 @@ const PhysicalSymptomsList = (props: Props) => {
                 alt={symptom.symptom}
                 className="w-24 p-2 mb-2"
               />
-              <h2 className="font-bold">{symptom.translation}</h2>
+              <h2 className="font-bold text-center">{symptom.translation}</h2>
             </div>
           ))}
         </div>

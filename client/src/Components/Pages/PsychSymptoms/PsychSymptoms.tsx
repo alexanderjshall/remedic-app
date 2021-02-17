@@ -1,17 +1,27 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
-import { Symptom } from "../../../types";
 import OKButton from "../../Globals/OKButton/OKButton";
 import QuestionCard from "../../Globals/QuestionCard/QuestionCard";
 import PsychIcon from "../../../assets/symptoms/psych-general.svg";
+import { Transition } from "@headlessui/react";
+import LogoReduced from "../../../assets/logos/logo-reduced.svg";
+import { PatientContext } from "../../../Contexts/Patient.context";
 
 const PsychSymptoms = () => {
   const history = useHistory();
 
+  const { getTranslatedText } = useContext(PatientContext)!;
+  const translatedText = getTranslatedText();
+  const localText = translatedText.psychSymptomsTerms;
+
   const { psychSymptoms, togglePsychSymptomSelect } = useContext(
     ConsultationContext
   )!;
+
+  psychSymptoms.forEach((symptom) => {
+    symptom.question = localText[symptom.id!];
+  });
 
   const handlePsychSymptomClick = (
     symptomName: string,
@@ -30,10 +40,19 @@ const PsychSymptoms = () => {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col">
-      <div className="min-h-16 top-0 flex justify-between items-center w-screen py-4 px-16 bg-green-light">
+    <Transition
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-700"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-screen relative overflow-hidden flex flex-col pt-1"
+    >
+      <div className="h-20 py-6 px-4 flex items-center justify-between w-screen max-w-2xl w-2xl border border-blue border-solid border-l-0 border-r-0">
         <img src={PsychIcon} alt="brain icon" className="w-16" />
-        <h1 className="font-bold">Psychological Symptoms</h1>
+        <h1 className="font-bold text-blue text-right">
+          {localText.psychSymptoms}
+        </h1>
       </div>
       <ul className="w-full  overflow-scroll px-3 flex-grow flex flex-col items-center pt-5 cursor-pointer">
         {psychSymptoms &&
@@ -44,7 +63,7 @@ const PsychSymptoms = () => {
               symptom={symptom}
             />
           ))}
-        <div className="h-18 flex justify-center items-center py-5 w-full">
+        <div className="h-18 flex justify-center items-center py-5 w-full z-10">
           <OKButton
             name={"Next Page"}
             type="button"
@@ -53,8 +72,13 @@ const PsychSymptoms = () => {
             text={"NEXT"}
           />
         </div>
+        <img
+          src={LogoReduced}
+          alt="background logo"
+          className="absolute top-1/2 -mt-36 opacity-10 animate-spin-slow max-w-xl md:top-1/3"
+        />
       </ul>
-    </div>
+    </Transition>
   );
 };
 

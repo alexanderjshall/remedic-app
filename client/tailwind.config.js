@@ -1,19 +1,26 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      // Allows horizontal and vertical flipping
+      scale: {
+        "-1": "-1",
+      },
       screens: {
         tablet: "640px",
       },
       animation: {
         "spin-slow": "spin 16s linear infinite",
         "spin-ease": "spin 1.5s ease-in-out infinite",
-        "ping-slow": "ping 3s linear infinite"
+        "ping-slow": "ping 3s linear infinite",
       },
       minWidth: {
         0: "0",
         "1/4": "25%",
+        "1/3": "33.33%",
         "1/2": "50%",
         "3/4": "75%",
         full: "100%",
@@ -23,6 +30,7 @@ module.exports = {
         4: "4rem",
         textarea: "70vh",
         "3/4": "75%",
+        "1/2": "50%",
       },
       maxHeight: {
         1: "1rem",
@@ -32,6 +40,8 @@ module.exports = {
       },
       maxWidth: {
         "1/2": "50%",
+        "1/3": "33.33%",
+        almostFull: "90%",
       },
       colors: {
         blue: {
@@ -41,6 +51,7 @@ module.exports = {
           dark: "#2848B8",
         },
         green: {
+          superlight: "#DBF5EE",
           light: "#90E0CC",
           DEFAULT: "#a0e4d3",
           dark: "#50CEAE",
@@ -62,6 +73,13 @@ module.exports = {
         yellow: {
           backgrounds: "#EDE5A6",
         },
+        map: {
+          blue: colors.blue,
+          green: colors.emerald,
+          red: colors.red,
+          purple: colors.violet,
+          orange: colors.amber,
+        },
       },
       inset: {
         "5/100": "5%",
@@ -77,6 +95,7 @@ module.exports = {
       fill: ["hover", "focus"],
       backgroundColor: ["odd", "even"],
       opacity: ["disabled"],
+      margin: ["last", "first"],
     },
   },
   plugins: [],

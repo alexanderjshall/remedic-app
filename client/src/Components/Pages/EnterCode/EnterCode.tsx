@@ -1,21 +1,16 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  FormEventHandler,
-} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FormInput from "../../Globals/FormInput/FormInput";
 import humanSitting from "../../../assets/background-images/humans-sitting2.png";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
-import { getTranslatedText } from "../../../services/api.translate";
 import { useMutation, useQuery } from "react-query";
 import queries from "../../../services/graphqlService/queries";
 import client from "../../../services/graphqlService/index";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ConsultationContext } from "../../../Contexts/Consultation.context";
 import Spinner from "../../Globals/Spinner/Spinner";
 import OKButton from "../../Globals/OKButton/OKButton";
 import { PatientContext } from "../../../Contexts/Patient.context";
+import { Transition } from "@headlessui/react";
 
 const EnterCode = () => {
   const [code, setCode] = useState<string>("");
@@ -58,7 +53,6 @@ const EnterCode = () => {
           docPublicCode,
           id,
         } = data.getDoctor;
-        console.log("data from server", data);
         updateDoctor(id, firstName, lastName, language, docPublicCode);
         history.push("/consultation/symptoms/general");
       },
@@ -75,7 +69,14 @@ const EnterCode = () => {
   };
 
   return (
-    <div className="h-full w-full relative px-3 pb-12 overflow-hidden">
+    <Transition
+      appear={true}
+      show={true}
+      enter="transition-opacity delay-75 ease-in-out duration-500"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="h-full w-full relative px-3 pb-12 overflow-hidden"
+    >
       <div className="flex justify-center flex-col items-center px-3 pt-24">
         <img src={logoReduced} alt="logo" className="w-32 pb-12" />
         <form
@@ -91,15 +92,16 @@ const EnterCode = () => {
               placeholder=""
               id="constultation-code"
               name="code"
+              autoComplete="off"
               updateInput={changeCode}
               onSubmit={() => {}}
             />
           </div>
           {wrongCodeFormat ? (
-            <p className="text-red-400 italic">Expected 7 Numbers</p>
+            <p className="text-red-400 italic">{localText.lengthError}</p>
           ) : null}
           {isInvalid ? (
-            <p className="text-red-400 italic">Invalid Code</p>
+            <p className="text-red-400 italic">{localText.invalidCode}</p>
           ) : null}
           {isLoading && (
             <div className="w-full absolute flex justify-center top-1/3">
@@ -125,7 +127,7 @@ const EnterCode = () => {
           className="absolute opacity-10 top-1/2 -mt-56 w-5/6 max-w-3xl"
         ></img>
       </div>
-    </div>
+    </Transition>
   );
 };
 

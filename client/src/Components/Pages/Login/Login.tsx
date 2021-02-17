@@ -5,6 +5,7 @@ import { validateLoginForm } from "../../../utils/auth/validation.helper";
 import AuthButton from "../../Globals/AuthButton/AuthButton";
 import FormInput from "../../Globals/FormInput/FormInput";
 import logoReduced from "../../../assets/logos/logo-reduced.svg";
+import { Transition } from "@headlessui/react";
 
 import staticTranslations from "../../../utils/static-translations.json";
 const translations = staticTranslations as any;
@@ -27,7 +28,7 @@ const Login = () => {
   });
 
   const updateInput = (inputName: string, value: string) => {
-    setError(false)
+    setError(false);
     setUserInfo({ ...userInfo, [inputName]: value });
   };
 
@@ -44,7 +45,14 @@ const Login = () => {
   const localText = translations[localLanguage].loginAndRegisterTerms;
 
   return (
-    <div className="flex items-center justify-center flex-col bg-white-dark min-h-screen lg:m-1 w-inherit min-w-min py-4">
+    <Transition
+      appear={true}
+      show={true}
+      enter="transition-opacity ease-in-out duration-1000"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="flex items-center justify-center flex-col bg-white-dark min-h-screen lg:m-1 w-inherit min-w-min py-4"
+    >
       <form
         className="relative bg-white h-full w-5/6 max-w-xl shadow-lg  rounded-lg p-12 flex flex-col items-center justify-between py-20"
         onSubmit={handleSubmit}
@@ -55,9 +63,11 @@ const Login = () => {
           </h2>
         </div>
         <div className="items-center flex flex-col gap-y-6 mb-12">
-
-          <div className="flex flex-col w-full items-center">
-            <label htmlFor="email" className="font-bold text-blue self-start mb-2">
+          <div className="flex flex-col w-full items-center tablet:mt-10">
+            <label
+              htmlFor="email"
+              className="font-bold text-blue self-start mb-2"
+            >
               {localText.email}
             </label>
             <FormInput
@@ -71,7 +81,10 @@ const Login = () => {
           </div>
 
           <div className="flex flex-col w-full items-center">
-            <label htmlFor="password" className="font-bold text-blue self-start mb-2">
+            <label
+              htmlFor="password"
+              className="font-bold text-blue self-start mb-2"
+            >
               {localText.password}
             </label>
             <FormInput
@@ -91,25 +104,32 @@ const Login = () => {
             text={localText.login}
             condition={validateLoginForm(userInfo.email, userInfo.password)}
           />
-          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">——————</h2>
+          <h2 className="center text-center my-2 text-blue-dark tracking-tighter">
+            ——————
+          </h2>
           <Link to="/register">
             <p className="text-blue hover:text-blue-dark text-center">
               {localText.register}
             </p>
           </Link>
         </div>
-        <img src={logoReduced} className="w-72 opacity-10 absolute top-0"></img>
+        <img
+          src={logoReduced}
+          className="tablet:w-72 w-44 top-10 opacity-10 absolute tablet:top-0"
+        ></img>
       </form>
       <div
         className={`flex items-center justify-center p-3 w-2/3 shadow-lg rounded-lg
         bg-red-500 fixed bottom-5 bg-opacity-90 transition transform-gpu duration-500
-        ${!error && "translate-y-full opacity-0"} h-16 text-white font-bold border-red-dark
+        ${
+          !error && "translate-y-full opacity-0"
+        } h-16 text-white font-bold border-red-dark
         border-solid border-2 text-lg`}
         id="error_board"
       >
-        <p className="text-lg text-center">Invalid email or password</p>
+        <p className="text-lg text-center">{localText.invalid}</p>
       </div>
-    </div>
+    </Transition>
   );
 };
 
