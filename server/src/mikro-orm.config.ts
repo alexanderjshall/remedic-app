@@ -1,21 +1,31 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+//import fs from 'fs';
 import { MikroORM } from '@mikro-orm/core';
 import path from 'path';
 import Patient from './entities/patient';
 import Doctor from './entities/doctor';
 import Consultation from './entities/consultation';
 
+//const cert = fs.readFileSync(path.join( __dirname, '../server.crt')).toString();
+
 export default {
   migrations: {
     path: path.join(__dirname, '/migrations'),
+    disableForeignKeys: false,
     pattern: /^[\w-]+\d+\.[tj]s$/
   },
   entities: [Patient, Doctor, Consultation],
-  dbName: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  clientUrl: process.env.DATABASE_URL,
   type: 'postgresql',
   debug: process.env.NODE_ENV !== 'production',
+  driverOptions: {
+    connection: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  }
 } as Parameters<typeof MikroORM.init>[0];
